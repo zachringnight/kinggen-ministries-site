@@ -15,12 +15,13 @@ export default function DonatePage() {
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold font-heading mb-4">
-              Make a Difference
+              Keep Counseling Free
             </h2>
             <p className="text-gray-700 text-lg max-w-2xl mx-auto">
-              Your generous support helps us continue our mission of providing
-              pastoral care, spiritual guidance, and community support to those in
-              need. Every contribution makes a meaningful impact.
+              Your generous support makes it possible for us to provide free, 
+              Gospel-centered clinical pastoral counseling to women in need. Every 
+              donation helps us continue offering professional, licensed counseling 
+              services at no cost to those we serve.
             </p>
           </div>
 
@@ -86,27 +87,27 @@ export default function DonatePage() {
                 <div className="bg-brand-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
                   $50
                 </div>
-                <h3 className="font-semibold mb-2">Counseling Session</h3>
+                <h3 className="font-semibold mb-2">One Counseling Session</h3>
                 <p className="text-gray-600">
-                  Provides one pastoral counseling session for someone in need
+                  Provides one free counseling session for a woman in need
                 </p>
               </div>
               <div className="text-center">
                 <div className="bg-brand-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
                   $100
                 </div>
-                <h3 className="font-semibold mb-2">Resource Materials</h3>
+                <h3 className="font-semibold mb-2">Multiple Sessions</h3>
                 <p className="text-gray-600">
-                  Supplies biblical resources and study materials for ministry
+                  Supports multiple counseling sessions and ongoing care
                 </p>
               </div>
               <div className="text-center">
                 <div className="bg-brand-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
                   $250
                 </div>
-                <h3 className="font-semibold mb-2">Crisis Support</h3>
+                <h3 className="font-semibold mb-2">Monthly Support</h3>
                 <p className="text-gray-600">
-                  Enables crisis intervention and emergency pastoral care
+                  Sustains ongoing free counseling services for women each month
                 </p>
               </div>
             </div>
