@@ -16,10 +16,10 @@ export default function AboutPage() {
           <div className="prose prose-lg mx-auto">
             <h2 className="text-3xl font-bold font-heading mb-6">Our Mission</h2>
             <p className="text-gray-700 mb-6">
-              At {siteConfig.name}, we are a 501(c)(3) non-profit organization dedicated to 
-              providing Gospel-centered clinical pastoral counseling to women in need. Our licensed 
-              clinical pastoral counselors offer professional, compassionate support—completely free 
-              of charge. Through the generosity of our donors, we are able to serve women seeking 
+              At {siteConfig.name}, we are a 501(c)(3) non-profit organization dedicated to
+              providing Gospel-centered clinical pastoral counseling to women in need. Our licensed
+              clinical pastoral counselors offer professional, compassionate support—completely free
+              of charge. Through the generosity of our donors, we are able to serve women seeking
               spiritual guidance, emotional healing, and hope during difficult seasons of life.
             </p>
 
@@ -27,11 +27,11 @@ export default function AboutPage() {
               Meet Pastor LeeAnn
             </h2>
             <p className="text-gray-700 mb-6">
-              Pastor LeeAnn is a licensed clinical pastoral counselor with a passion for 
-              helping women discover healing, hope, and purpose through Christ. With years 
-              of experience in ministry and counseling, she creates a safe, non-judgmental 
-              space where women can share their struggles and find the support they need. 
-              Her approach integrates psychological principles with biblical wisdom, addressing 
+              Pastor LeeAnn is a licensed clinical pastoral counselor with a passion for
+              helping women discover healing, hope, and purpose through Christ. With years
+              of experience in ministry and counseling, she creates a safe, non-judgmental
+              space where women can share their struggles and find the support they need.
+              Her approach integrates psychological principles with biblical wisdom, addressing
               both emotional and spiritual needs.
             </p>
 
@@ -47,7 +47,7 @@ export default function AboutPage() {
               <li>Spiritual direction and prayer ministry</li>
             </ul>
             <p className="text-gray-700 mb-6 font-semibold">
-              All services are provided free of charge, made possible by the generous 
+              All services are provided free of charge, made possible by the generous
               donations of supporters who believe in our mission.
             </p>
 

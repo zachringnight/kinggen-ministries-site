@@ -18,9 +18,9 @@ export default function DonatePage() {
               Keep Counseling Free
             </h2>
             <p className="text-gray-700 text-lg max-w-2xl mx-auto">
-              Your generous support makes it possible for us to provide free, 
-              Gospel-centered clinical pastoral counseling to women in need. Every 
-              donation helps us continue offering professional, licensed counseling 
+              Your generous support makes it possible for us to provide free,
+              Gospel-centered clinical pastoral counseling to women in need. Every
+              donation helps us continue offering professional, licensed counseling
               services at no cost to those we serve.
             </p>
           </div>
