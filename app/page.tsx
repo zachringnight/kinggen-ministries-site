@@ -49,13 +49,34 @@ export default function Home() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Biblical Teaching</h3>
+              <h3 className="text-xl font-semibold mb-2">Clinical Pastoral Counseling</h3>
               <p className="text-gray-600">
-                Grounded in Scripture, focused on practical application for daily life.
+                Licensed clinical pastoral counselors providing professional, Gospel-centered support.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="bg-brand-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg
+                  className="w-8 h-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Free Services</h3>
+              <p className="text-gray-600">
+                All counseling services provided at no cost, sustained by generous donations.
               </p>
             </div>
             <div className="text-center">
@@ -74,30 +95,9 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Community</h3>
+              <h3 className="text-xl font-semibold mb-2">Women in Need</h3>
               <p className="text-gray-600">
-                Building relationships and supporting one another in faith.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="bg-brand-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Pastoral Care</h3>
-              <p className="text-gray-600">
-                Compassionate support and guidance through life&apos;s challenges.
+                Dedicated to serving women seeking spiritual guidance and emotional support.
               </p>
             </div>
           </div>
