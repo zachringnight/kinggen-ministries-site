@@ -1,143 +1,331 @@
+import type { Metadata } from "next";
+import {
+  PageHero,
+  Section,
+  SectionHeader,
+  Button,
+  HeartIcon,
+  CheckCircleIcon,
+  GiftIcon,
+  UsersIcon,
+  SparklesIcon,
+  ShieldIcon,
+} from "../components";
 import { siteConfig } from "../config/site";
+
+export const metadata: Metadata = {
+  title: "Donate",
+  description:
+    "Support KingGen Ministries with a tax-deductible donation. Your generosity helps us provide free counseling services to women in need.",
+};
+
+const impactTiers = [
+  {
+    amount: "$25",
+    title: "Provides Resources",
+    description: "Supplies materials and resources for counseling sessions",
+    icon: <GiftIcon className="w-6 h-6" />,
+  },
+  {
+    amount: "$50",
+    title: "One Session",
+    description: "Funds one complete counseling session for a woman in need",
+    icon: <HeartIcon className="w-6 h-6" />,
+    featured: true,
+  },
+  {
+    amount: "$100",
+    title: "Multiple Sessions",
+    description: "Provides ongoing counseling support over several weeks",
+    icon: <UsersIcon className="w-6 h-6" />,
+  },
+  {
+    amount: "$250",
+    title: "Monthly Support",
+    description: "Sustains free counseling services for an entire month",
+    icon: <SparklesIcon className="w-6 h-6" />,
+  },
+];
+
+const benefits = [
+  "100% of donations directly support counseling services",
+  "All gifts are tax-deductible",
+  "Regular updates on ministry impact",
+  "Recognition in our annual report (optional)",
+];
 
 export default function DonatePage() {
   return (
-    <div>
-      <section className="bg-brand-primary text-white py-12">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold font-heading text-center">
-            Support Our Ministry
-          </h1>
-        </div>
-      </section>
+    <>
+      <PageHero
+        title="Support Our Ministry"
+        description="Your generosity makes free counseling possible for women who need it most."
+      />
 
-      <section className="py-16">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold font-heading mb-4">
-              Keep Counseling Free
+      {/* Main Donation Section */}
+      <Section variant="light" padding="xl">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Left Column - Why Give */}
+          <div>
+            <div className="decorative-line mb-6" />
+            <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6">
+              Why Your Gift Matters
             </h2>
-            <p className="text-gray-700 text-lg max-w-2xl mx-auto">
-              Your generous support makes it possible for us to provide free,
-              Gospel-centered clinical pastoral counseling to women in need. Every
-              donation helps us continue offering professional, licensed counseling
-              services at no cost to those we serve.
+            <p className="text-lg text-text-secondary mb-6 leading-relaxed">
+              At KingGen Ministries, we believe that financial barriers should never prevent a woman
+              from receiving the help she needs. Your generous donation makes it possible for us to
+              provide professional, Gospel-centered clinical pastoral counseling completely free of
+              charge.
             </p>
-          </div>
+            <p className="text-lg text-text-secondary mb-8 leading-relaxed">
+              Every gift—no matter the size—directly impacts the lives of women seeking hope and
+              healing during their most challenging moments.
+            </p>
 
-          {/* Donation Widget Container */}
-          <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-semibold mb-4">
-                Donate Securely Online
+            {/* Benefits */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-8">
+              <h3 className="font-bold font-heading text-text-primary mb-4 flex items-center gap-2">
+                <ShieldIcon className="w-5 h-5 text-brand-accent" />
+                Your Donation Benefits
               </h3>
-              <p className="text-gray-600 mb-6">
-                Choose your donation amount and give securely through our trusted
-                partner.
-              </p>
+              <ul className="space-y-3">
+                {benefits.map((benefit, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <CheckCircleIcon className="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" />
+                    <span className="text-text-secondary">{benefit}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            {/* Placeholder for Donorbox Widget */}
-            {/* To use the Donorbox widget, uncomment and configure: */}
-            {/* 
-            <script
-              src="https://donorbox.org/widget.js"
-              paypalExpress="true"
-            ></script>
-            <iframe
-              src={`https://donorbox.org/embed/${siteConfig.donorboxCampaignId}`}
-              name="donorbox"
-              allowpaymentrequest="allowpaymentrequest"
-              seamless="seamless"
-              frameBorder="0"
-              scrolling="no"
-              height="900px"
-              width="100%"
-              style={{
-                maxWidth: "500px",
-                minWidth: "250px",
-                maxHeight: "none!important",
-              }}
-            ></iframe>
-            */}
+            {/* Nonprofit Status */}
+            <div className="bg-brand-soft rounded-2xl p-6">
+              <p className="text-text-secondary text-sm">
+                <strong className="text-text-primary">{siteConfig.name}</strong> is a registered
+                501(c)(3) nonprofit organization. All donations are tax-deductible to the full extent
+                allowed by law. You will receive a receipt for your records.
+              </p>
+            </div>
+          </div>
 
-            {/* Temporary link until widget is configured */}
-            <div className="text-center">
-              <a
+          {/* Right Column - Donation CTA */}
+          <div>
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 text-center">
+              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-brand-accent to-brand-primary flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <HeartIcon className="w-10 h-10 text-white" />
+              </div>
+
+              <h3 className="text-2xl font-bold font-heading text-text-primary mb-4">
+                Give Securely Online
+              </h3>
+
+              <p className="text-text-secondary mb-8">
+                Make a one-time gift or set up recurring monthly donations through our secure
+                donation platform.
+              </p>
+
+              <Button
                 href={siteConfig.donorboxPageUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-brand-accent text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-opacity-90 transition"
+                variant="accent"
+                size="lg"
+                fullWidth
+                external
+                icon={<HeartIcon className="w-5 h-5" />}
               >
-                Donate Now via Donorbox
-              </a>
-              <p className="mt-4 text-sm text-gray-500">
-                You&apos;ll be redirected to our secure donation page
-              </p>
-            </div>
-          </div>
+                Donate Now
+              </Button>
 
-          {/* Impact Section */}
-          <div className="mt-16">
-            <h2 className="text-3xl font-bold font-heading text-center mb-8">
-              Your Impact
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="bg-brand-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-                  $50
+              <p className="text-sm text-text-muted mt-4">
+                You&apos;ll be redirected to our secure Donorbox page
+              </p>
+
+              {/* Trust badges */}
+              <div className="flex items-center justify-center gap-4 mt-8 pt-6 border-t border-gray-100">
+                <div className="flex items-center gap-2 text-text-muted text-sm">
+                  <ShieldIcon className="w-4 h-4" />
+                  <span>Secure</span>
                 </div>
-                <h3 className="font-semibold mb-2">One Counseling Session</h3>
-                <p className="text-gray-600">
-                  Provides one free counseling session for a woman in need
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-brand-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-                  $100
+                <div className="flex items-center gap-2 text-text-muted text-sm">
+                  <CheckCircleIcon className="w-4 h-4" />
+                  <span>Tax-Deductible</span>
                 </div>
-                <h3 className="font-semibold mb-2">Multiple Sessions</h3>
-                <p className="text-gray-600">
-                  Supports multiple counseling sessions and ongoing care
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-brand-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-                  $250
-                </div>
-                <h3 className="font-semibold mb-2">Monthly Support</h3>
-                <p className="text-gray-600">
-                  Sustains ongoing free counseling services for women each month
-                </p>
               </div>
             </div>
-          </div>
 
-          {/* Other Ways to Give */}
-          <div className="mt-16 bg-gray-100 rounded-lg p-8">
-            <h2 className="text-2xl font-bold font-heading mb-4">
-              Other Ways to Give
-            </h2>
-            <div className="space-y-4 text-gray-700">
-              <p>
-                <strong>By Mail:</strong> Send checks payable to {siteConfig.name}
-              </p>
-              <p>
-                <strong>Monthly Giving:</strong> Set up recurring donations through
-                our online platform
-              </p>
-              <p>
-                <strong>In-Kind Donations:</strong> Contact us to discuss other ways
-                to support our ministry
-              </p>
-              <p className="text-sm text-gray-600 mt-6">
-                {siteConfig.name} is a registered non-profit organization. All
-                donations are tax-deductible to the extent allowed by law.
+            {/* Monthly Giving */}
+            <div className="bg-brand-light rounded-2xl p-6 mt-6 text-center">
+              <h4 className="font-bold font-heading text-text-primary mb-2">
+                Consider Monthly Giving
+              </h4>
+              <p className="text-text-secondary text-sm">
+                Recurring donations help us plan ahead and serve more women consistently throughout
+                the year.
               </p>
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </Section>
+
+      {/* Impact Section */}
+      <Section variant="default" padding="xl">
+        <SectionHeader
+          title="Your Impact"
+          subtitle="See how your donation directly supports women in need."
+        />
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {impactTiers.map((tier) => (
+            <div
+              key={tier.amount}
+              className={`rounded-2xl p-6 text-center card-hover ${
+                tier.featured
+                  ? "bg-gradient-to-br from-brand-primary to-brand-secondary text-white shadow-xl shadow-brand-primary/20 ring-4 ring-brand-accent/30"
+                  : "bg-white shadow-sm border border-gray-100"
+              }`}
+            >
+              <div
+                className={`w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4 ${
+                  tier.featured
+                    ? "bg-white/20 text-white"
+                    : "bg-brand-light text-brand-primary"
+                }`}
+              >
+                {tier.icon}
+              </div>
+
+              <p
+                className={`text-3xl font-bold font-heading mb-2 ${
+                  tier.featured ? "text-white" : "text-brand-accent"
+                }`}
+              >
+                {tier.amount}
+              </p>
+
+              <h3
+                className={`font-bold font-heading mb-2 ${
+                  tier.featured ? "text-white" : "text-text-primary"
+                }`}
+              >
+                {tier.title}
+              </h3>
+
+              <p
+                className={`text-sm ${
+                  tier.featured ? "text-white/80" : "text-text-secondary"
+                }`}
+              >
+                {tier.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Other Ways to Give */}
+      <Section variant="soft" padding="xl">
+        <SectionHeader
+          title="Other Ways to Give"
+          subtitle="There are many ways to support our ministry beyond online donations."
+        />
+
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+            <div className="w-12 h-12 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center mb-6">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-bold font-heading text-text-primary mb-3">
+              By Mail
+            </h3>
+            <p className="text-text-secondary mb-4">
+              Send a check payable to KingGen Ministries. Contact us for our mailing address.
+            </p>
+            <Button href="/contact" variant="ghost" size="sm">
+              Get Address
+            </Button>
+          </div>
+
+          <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+            <div className="w-12 h-12 rounded-xl bg-brand-accent/10 text-brand-accent flex items-center justify-center mb-6">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-bold font-heading text-text-primary mb-3">
+              Monthly Partnership
+            </h3>
+            <p className="text-text-secondary mb-4">
+              Become a sustaining partner with automatic monthly donations that provide consistent support.
+            </p>
+            <Button href={siteConfig.donorboxPageUrl} variant="ghost" size="sm" external>
+              Set Up Monthly
+            </Button>
+          </div>
+
+          <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+            <div className="w-12 h-12 rounded-xl bg-brand-secondary/10 text-brand-secondary flex items-center justify-center mb-6">
+              <GiftIcon className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-bold font-heading text-text-primary mb-3">
+              In-Kind Donations
+            </h3>
+            <p className="text-text-secondary mb-4">
+              Donate supplies, services, or other resources that support our ministry operations.
+            </p>
+            <Button href="/contact" variant="ghost" size="sm">
+              Contact Us
+            </Button>
+          </div>
+        </div>
+      </Section>
+
+      {/* Impact Stats */}
+      <Section variant="primary" padding="xl">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-white mb-4">
+            Together, We&apos;re Making a Difference
+          </h2>
+          <p className="text-xl text-white/80 max-w-2xl mx-auto">
+            Your support joins a community of generous donors helping women find hope and healing.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="text-center p-6">
+            <p className="text-5xl md:text-6xl font-bold font-heading text-white mb-2">500+</p>
+            <p className="text-white/80">Women Served</p>
+          </div>
+          <div className="text-center p-6">
+            <p className="text-5xl md:text-6xl font-bold font-heading text-white mb-2">1000+</p>
+            <p className="text-white/80">Sessions Provided</p>
+          </div>
+          <div className="text-center p-6">
+            <p className="text-5xl md:text-6xl font-bold font-heading text-white mb-2">100%</p>
+            <p className="text-white/80">Free Services</p>
+          </div>
+          <div className="text-center p-6">
+            <p className="text-5xl md:text-6xl font-bold font-heading text-white mb-2">10+</p>
+            <p className="text-white/80">Years of Ministry</p>
+          </div>
+        </div>
+      </Section>
+
+      {/* Final CTA */}
+      <Section variant="default" padding="lg">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold font-heading text-text-primary mb-4">
+            Questions About Giving?
+          </h2>
+          <p className="text-lg text-text-secondary mb-8">
+            We&apos;re happy to answer any questions you have about donations, tax receipts, or other ways
+            to support our ministry.
+          </p>
+          <Button href="/contact" variant="outline" size="lg">
+            Contact Us
+          </Button>
+        </div>
+      </Section>
+    </>
   );
 }
