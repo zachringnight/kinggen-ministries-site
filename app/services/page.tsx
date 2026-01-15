@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+"use client";
+
 import {
   PageHero,
   Section,
@@ -13,14 +14,12 @@ import {
   UsersIcon,
   CalendarIcon,
   PhoneIcon,
+  FadeIn,
+  StaggerContainer,
+  StaggerItem,
+  TiltCard,
 } from "../components";
 import { siteConfig } from "../config/site";
-
-export const metadata: Metadata = {
-  title: "Our Services",
-  description:
-    "Free clinical pastoral counseling services including crisis support, grief counseling, spiritual direction, and more. All services provided at no cost.",
-};
 
 const services = [
   {
@@ -109,6 +108,13 @@ const services = [
   },
 ];
 
+const steps = [
+  { num: 1, title: "Reach Out", description: "Contact us by phone, email, or through our online form. We'll respond within 24-48 hours.", color: "bg-brand-accent" },
+  { num: 2, title: "Initial Consultation", description: "We'll schedule a free initial consultation to understand your needs and how we can best support you.", color: "bg-brand-primary" },
+  { num: 3, title: "Begin Sessions", description: "Start your counseling journey with regular sessions tailored to your specific needs and goals.", color: "bg-brand-secondary" },
+  { num: 4, title: "Grow & Heal", description: "Experience growth, healing, and hope as you work through your journey with our support.", color: "bg-gradient-to-br from-brand-accent to-brand-primary" },
+];
+
 export default function ServicesPage() {
   return (
     <>
@@ -119,167 +125,135 @@ export default function ServicesPage() {
 
       {/* Services Overview */}
       <Section variant="light" padding="xl">
-        <SectionHeader
-          title="How We Can Help"
-          subtitle="Every woman's journey is unique. Our services are designed to meet you where you are and provide the support you need."
-        />
+        <FadeIn>
+          <SectionHeader
+            title="How We Can Help"
+            subtitle="Every woman's journey is unique. Our services are designed to meet you where you are and provide the support you need."
+          />
+        </FadeIn>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <StaggerContainer staggerDelay={0.1} className="grid md:grid-cols-2 gap-8">
           {services.map((service) => (
-            <ServiceCard
-              key={service.id}
-              icon={service.icon}
-              title={service.title}
-              description={service.description}
-              features={service.features}
-              className="scroll-mt-24"
-            />
+            <StaggerItem key={service.id}>
+              <TiltCard className="h-full">
+                <ServiceCard
+                  icon={service.icon}
+                  title={service.title}
+                  description={service.description}
+                  features={service.features}
+                  className="scroll-mt-24 h-full"
+                />
+              </TiltCard>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </Section>
 
       {/* Process Section */}
       <Section variant="default" padding="xl">
-        <SectionHeader
-          title="What to Expect"
-          subtitle="We want you to feel comfortable and supported from the very first contact."
-        />
+        <FadeIn>
+          <SectionHeader
+            title="What to Expect"
+            subtitle="We want you to feel comfortable and supported from the very first contact."
+          />
+        </FadeIn>
 
-        <div className="grid md:grid-cols-4 gap-8">
-          <div className="text-center">
-            <div className="w-16 h-16 rounded-full bg-brand-accent text-white flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
-              1
-            </div>
-            <h3 className="text-xl font-bold font-heading text-text-primary mb-3">
-              Reach Out
-            </h3>
-            <p className="text-text-secondary">
-              Contact us by phone, email, or through our online form. We&apos;ll respond within 24-48 hours.
-            </p>
-          </div>
-
-          <div className="text-center">
-            <div className="w-16 h-16 rounded-full bg-brand-primary text-white flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
-              2
-            </div>
-            <h3 className="text-xl font-bold font-heading text-text-primary mb-3">
-              Initial Consultation
-            </h3>
-            <p className="text-text-secondary">
-              We&apos;ll schedule a free initial consultation to understand your needs and how we can best support you.
-            </p>
-          </div>
-
-          <div className="text-center">
-            <div className="w-16 h-16 rounded-full bg-brand-secondary text-white flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
-              3
-            </div>
-            <h3 className="text-xl font-bold font-heading text-text-primary mb-3">
-              Begin Sessions
-            </h3>
-            <p className="text-text-secondary">
-              Start your counseling journey with regular sessions tailored to your specific needs and goals.
-            </p>
-          </div>
-
-          <div className="text-center">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-brand-accent to-brand-primary text-white flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
-              4
-            </div>
-            <h3 className="text-xl font-bold font-heading text-text-primary mb-3">
-              Grow & Heal
-            </h3>
-            <p className="text-text-secondary">
-              Experience growth, healing, and hope as you work through your journey with our support.
-            </p>
-          </div>
-        </div>
+        <StaggerContainer staggerDelay={0.15} className="grid md:grid-cols-4 gap-8">
+          {steps.map((step) => (
+            <StaggerItem key={step.num}>
+              <div className="text-center">
+                <div className={`w-16 h-16 rounded-full ${step.color} text-white flex items-center justify-center mx-auto mb-6 text-2xl font-bold shadow-lg`}>
+                  {step.num}
+                </div>
+                <h3 className="text-xl font-bold font-heading text-text-primary mb-3">
+                  {step.title}
+                </h3>
+                <p className="text-text-secondary">
+                  {step.description}
+                </p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
       </Section>
 
       {/* FAQ Section */}
       <Section variant="soft" padding="xl">
-        <SectionHeader
-          title="Frequently Asked Questions"
-          subtitle="We want to address any questions or concerns you might have about our services."
-        />
+        <FadeIn>
+          <SectionHeader
+            title="Frequently Asked Questions"
+            subtitle="We want to address any questions or concerns you might have about our services."
+          />
+        </FadeIn>
 
-        <div className="max-w-3xl mx-auto space-y-6">
-          <div className="bg-white rounded-2xl p-6 shadow-sm">
-            <h3 className="text-lg font-bold font-heading text-text-primary mb-3">
-              Are your services really free?
-            </h3>
-            <p className="text-text-secondary">
-              Yes, all of our counseling services are provided completely free of charge. We are a 501(c)(3) nonprofit organization supported by generous donors who believe in our mission.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-2xl p-6 shadow-sm">
-            <h3 className="text-lg font-bold font-heading text-text-primary mb-3">
-              Do I need to be religious to receive counseling?
-            </h3>
-            <p className="text-text-secondary">
-              While our counseling is rooted in Christian faith, we welcome all women regardless of their spiritual background. We meet you where you are and respect your individual beliefs.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-2xl p-6 shadow-sm">
-            <h3 className="text-lg font-bold font-heading text-text-primary mb-3">
-              How long does each session last?
-            </h3>
-            <p className="text-text-secondary">
-              Typical counseling sessions are 50-60 minutes. The number of sessions varies based on individual needs—some may benefit from short-term support while others may need longer-term care.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-2xl p-6 shadow-sm">
-            <h3 className="text-lg font-bold font-heading text-text-primary mb-3">
-              Is everything confidential?
-            </h3>
-            <p className="text-text-secondary">
-              Yes, we maintain strict confidentiality. Everything discussed in counseling sessions is private and protected, with limited exceptions required by law (such as imminent danger to self or others).
-            </p>
-          </div>
-
-          <div className="bg-white rounded-2xl p-6 shadow-sm">
-            <h3 className="text-lg font-bold font-heading text-text-primary mb-3">
-              How do I get started?
-            </h3>
-            <p className="text-text-secondary">
-              Simply reach out to us by phone, email, or through our contact form. We&apos;ll schedule an initial consultation to discuss your needs and begin your journey toward healing.
-            </p>
-          </div>
-        </div>
+        <StaggerContainer staggerDelay={0.1} className="max-w-3xl mx-auto space-y-6">
+          {[
+            {
+              question: "Are your services really free?",
+              answer: "Yes, all of our counseling services are provided completely free of charge. We are a 501(c)(3) nonprofit organization supported by generous donors who believe in our mission.",
+            },
+            {
+              question: "Do I need to be religious to receive counseling?",
+              answer: "While our counseling is rooted in Christian faith, we welcome all women regardless of their spiritual background. We meet you where you are and respect your individual beliefs.",
+            },
+            {
+              question: "How long does each session last?",
+              answer: "Typical counseling sessions are 50-60 minutes. The number of sessions varies based on individual needs—some may benefit from short-term support while others may need longer-term care.",
+            },
+            {
+              question: "Is everything confidential?",
+              answer: "Yes, we maintain strict confidentiality. Everything discussed in counseling sessions is private and protected, with limited exceptions required by law (such as imminent danger to self or others).",
+            },
+            {
+              question: "How do I get started?",
+              answer: "Simply reach out to us by phone, email, or through our contact form. We'll schedule an initial consultation to discuss your needs and begin your journey toward healing.",
+            },
+          ].map((faq, i) => (
+            <StaggerItem key={i}>
+              <TiltCard tiltAmount={3}>
+                <div className="bg-white rounded-2xl p-6 shadow-sm">
+                  <h3 className="text-lg font-bold font-heading text-text-primary mb-3">
+                    {faq.question}
+                  </h3>
+                  <p className="text-text-secondary">{faq.answer}</p>
+                </div>
+              </TiltCard>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
       </Section>
 
       {/* CTA Section */}
       <Section variant="primary" padding="xl">
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-white mb-6">
-            Ready to Begin Your Journey?
-          </h2>
-          <p className="text-xl text-white/80 mb-10">
-            Take the first step toward hope and healing today. Our compassionate counselors are ready to walk alongside you.
-          </p>
+        <FadeIn>
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-white mb-6">
+              Ready to Begin Your Journey?
+            </h2>
+            <p className="text-xl text-white/80 mb-10">
+              Take the first step toward hope and healing today. Our compassionate counselors are ready to walk alongside you.
+            </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              href="/contact"
-              variant="white"
-              size="lg"
-              icon={<CalendarIcon className="w-5 h-5" />}
-            >
-              Schedule Consultation
-            </Button>
-            <Button
-              href={`tel:${siteConfig.phone}`}
-              variant="accent"
-              size="lg"
-              icon={<PhoneIcon className="w-5 h-5" />}
-            >
-              Call {siteConfig.phone}
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                href="/contact"
+                variant="white"
+                size="lg"
+                icon={<CalendarIcon className="w-5 h-5" />}
+              >
+                Schedule Consultation
+              </Button>
+              <Button
+                href={`tel:${siteConfig.phone}`}
+                variant="accent"
+                size="lg"
+                icon={<PhoneIcon className="w-5 h-5" />}
+              >
+                Call {siteConfig.phone}
+              </Button>
+            </div>
           </div>
-        </div>
+        </FadeIn>
       </Section>
     </>
   );
