@@ -19,13 +19,11 @@ import {
   GiftIcon,
   // Motion components
   FloatingParticles,
-  GlowingOrbs,
   FadeIn,
   StaggerContainer,
   StaggerItem,
   AnimatedCounter,
   TiltCard,
-  TextReveal,
   Magnetic,
   MorphingGradient,
   PulseRings,
@@ -39,75 +37,78 @@ export default function Home() {
       {/* Scroll Progress Indicator */}
       <ScrollProgress />
 
-      {/* Hero Section with Particles */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-primary">
-        {/* Animated Background Elements */}
-        <MorphingGradient className="opacity-50" />
-        <GlowingOrbs />
-        <FloatingParticles count={60} />
+      {/* Hero Section with Background Image */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/bg_green_texture_1920x1080.png')" }}
+        />
 
-        {/* Content */}
-        <div className="relative z-10 container mx-auto px-4 py-20 text-center">
-          <FadeIn delay={0.2}>
-            <p className="text-brand-accent font-medium tracking-wider uppercase mb-6 text-sm md:text-base">
-              Gospel-Centered Clinical Pastoral Counseling
-            </p>
-          </FadeIn>
+        {/* Subtle overlay for better text readability on right side */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/20" />
 
-          <FadeIn delay={0.4}>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold font-heading text-white mb-6 leading-tight">
-              <TextReveal text="Hope and Healing for" delay={0.5} />
-              <br />
-              <span className="text-brand-accent">
-                <TextReveal text="Every Woman" delay={0.8} />
-              </span>
-            </h1>
-          </FadeIn>
+        {/* Content - positioned to the right to avoid stones */}
+        <div className="relative z-10 container mx-auto px-4 py-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left side - empty space for the stones graphic */}
+            <div className="hidden lg:block" />
 
-          <FadeIn delay={0.8}>
-            <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-10 leading-relaxed">
-              We provide free, professional clinical pastoral counseling rooted in faith and compassion. You don&apos;t have to walk this journey alone.
-            </p>
-          </FadeIn>
+            {/* Right side - text content */}
+            <div className="text-left lg:text-left">
+              <FadeIn delay={0.2}>
+                <p className="text-brand-accent font-medium tracking-wider uppercase mb-6 text-sm md:text-base">
+                  Gospel-Centered Clinical Pastoral Counseling
+                </p>
+              </FadeIn>
 
-          <FadeIn delay={1}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Magnetic strength={0.2}>
-                <Button href="/contact" variant="accent" size="lg" className="shadow-2xl shadow-brand-accent/30">
-                  Get Support Today
-                </Button>
-              </Magnetic>
-              <Magnetic strength={0.2}>
-                <Button href="/about" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-                  Learn More
-                </Button>
-              </Magnetic>
+              <FadeIn delay={0.4}>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-white mb-6 leading-tight">
+                  Hope and Healing for{" "}
+                  <span className="text-brand-accent">Every Woman</span>
+                </h1>
+              </FadeIn>
+
+              <FadeIn delay={0.8}>
+                <p className="text-lg md:text-xl text-white/90 max-w-xl mb-10 leading-relaxed">
+                  We provide free, professional clinical pastoral counseling rooted in faith and compassion. You don&apos;t have to walk this journey alone.
+                </p>
+              </FadeIn>
+
+              <FadeIn delay={1}>
+                <div className="flex flex-col sm:flex-row gap-4 mb-10">
+                  <Magnetic strength={0.2}>
+                    <Button href="/contact" variant="accent" size="lg" className="shadow-2xl shadow-brand-accent/30">
+                      Get Support Today
+                    </Button>
+                  </Magnetic>
+                  <Magnetic strength={0.2}>
+                    <Button href="/about" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
+                      Learn More
+                    </Button>
+                  </Magnetic>
+                </div>
+              </FadeIn>
+
+              {/* Trust Badges */}
+              <FadeIn delay={1.2}>
+                <div className="flex flex-wrap gap-4 text-white/90 text-sm">
+                  <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                    <CheckCircleIcon className="w-5 h-5 text-brand-accent" />
+                    <span>Licensed Counselors</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                    <CheckCircleIcon className="w-5 h-5 text-brand-accent" />
+                    <span>100% Free</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                    <CheckCircleIcon className="w-5 h-5 text-brand-accent" />
+                    <span>Confidential</span>
+                  </div>
+                </div>
+              </FadeIn>
             </div>
-          </FadeIn>
-
-          {/* Animated Trust Badges */}
-          <FadeIn delay={1.2}>
-            <div className="flex flex-wrap items-center justify-center gap-6 text-white/80 text-sm">
-              <FloatingIcon delay={0}>
-                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <CheckCircleIcon className="w-5 h-5 text-brand-accent" />
-                  <span>Licensed Counselors</span>
-                </div>
-              </FloatingIcon>
-              <FloatingIcon delay={0.5}>
-                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <CheckCircleIcon className="w-5 h-5 text-brand-accent" />
-                  <span>100% Free Services</span>
-                </div>
-              </FloatingIcon>
-              <FloatingIcon delay={1}>
-                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <CheckCircleIcon className="w-5 h-5 text-brand-accent" />
-                  <span>Confidential & Safe</span>
-                </div>
-              </FloatingIcon>
-            </div>
-          </FadeIn>
+          </div>
         </div>
 
         {/* Animated scroll indicator */}

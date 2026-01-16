@@ -3,59 +3,71 @@ import Image from "next/image";
 interface LogoProps {
   className?: string;
   size?: "sm" | "md" | "lg";
-  variant?: "full" | "icon";
+  variant?: "horizontal" | "stacked" | "icon";
 }
 
 export default function Logo({
   className = "",
   size = "md",
-  variant = "icon",
+  variant = "horizontal",
 }: LogoProps) {
-  // Size configurations - logo images include text, so we size the whole image
-  const sizes = {
-    sm: { width: 120, height: 40 },
-    md: { width: 160, height: 52 },
-    lg: { width: 200, height: 65 },
+  // Size configurations for different variants
+  const horizontalSizes = {
+    sm: { width: 180, height: 50 },
+    md: { width: 240, height: 65 },
+    lg: { width: 320, height: 85 },
+  };
+
+  const stackedSizes = {
+    sm: { width: 120, height: 150 },
+    md: { width: 160, height: 200 },
+    lg: { width: 200, height: 250 },
   };
 
   const iconSizes = {
-    sm: { width: 32, height: 40 },
-    md: { width: 40, height: 50 },
-    lg: { width: 56, height: 70 },
+    sm: { width: 36, height: 50 },
+    md: { width: 48, height: 65 },
+    lg: { width: 64, height: 85 },
   };
 
-  const { width, height } = variant === "full" ? sizes[size] : iconSizes[size];
+  // Select the right size and source based on variant
+  let sizes, logoSrc;
 
-  // Use the appropriate logo file
-  const logoSrc = variant === "full" ? "/logo-full.png" : "/logo-icon.png";
+  switch (variant) {
+    case "horizontal":
+      sizes = horizontalSizes[size];
+      logoSrc = "/logo-horizontal.png";
+      break;
+    case "stacked":
+      sizes = stackedSizes[size];
+      logoSrc = "/logo-stacked.png";
+      break;
+    case "icon":
+    default:
+      sizes = iconSizes[size];
+      logoSrc = "/logo-icon.png";
+      break;
+  }
 
   return (
-    <div className={`flex items-center gap-2 ${className}`}>
-      <Image
-        src={logoSrc}
-        alt="KingGen Ministries"
-        width={width}
-        height={height}
-        className="object-contain"
-        priority
-      />
-      {variant === "icon" && (
-        <div className="flex flex-col leading-tight">
-          <span className="font-heading font-semibold text-lg">KingGen</span>
-          <span className="text-[10px] tracking-wider uppercase opacity-70">Ministries</span>
-        </div>
-      )}
-    </div>
+    <Image
+      src={logoSrc}
+      alt="KingGen Ministries - Christian Counseling for Women"
+      width={sizes.width}
+      height={sizes.height}
+      className={`object-contain ${className}`}
+      priority
+    />
   );
 }
 
-export function LogoIcon({ className = "", size = 40 }: { className?: string; size?: number }) {
+export function LogoIcon({ className = "", size = 48 }: { className?: string; size?: number }) {
   return (
     <Image
       src="/logo-icon.png"
       alt="KingGen Ministries"
       width={size}
-      height={size * 1.25}
+      height={size * 1.35}
       className={`object-contain ${className}`}
     />
   );
