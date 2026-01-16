@@ -299,8 +299,8 @@ export default function Home() {
       <Section variant="default" padding="xl">
         <FadeIn>
           <div className="bg-gradient-to-br from-brand-light to-brand-soft rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 text-center max-w-4xl mx-auto relative overflow-hidden">
-            {/* Decorative stones image */}
-            <div className="absolute -bottom-10 -right-10 w-40 h-40 md:w-56 md:h-56 opacity-10">
+            {/* Decorative stones image - contained within bounds */}
+            <div className="absolute bottom-4 right-4 w-24 h-24 md:w-32 md:h-32 opacity-[0.08] pointer-events-none">
               <Image
                 src="/logo-icon.png"
                 alt=""

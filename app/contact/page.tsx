@@ -15,14 +15,20 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-brand-primary to-brand-secondary py-20 md:py-28">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/bg_green_texture_1920x1080.png')" }}
+        />
+        <div className="absolute inset-0 bg-brand-primary/80" />
+
+        <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center text-white">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
                 Contact Us
               </h1>
-              <p className="text-xl text-white/90 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
                 Whether you&apos;re reaching out for yourself, referring someone, or asking about donating, please contact us. We will respond as soon as possible.
               </p>
             </div>
