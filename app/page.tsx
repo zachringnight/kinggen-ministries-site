@@ -40,50 +40,44 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 sm:px-6 py-16 md:py-20">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Left side - empty for stones graphic on desktop */}
-            <div className="hidden lg:block" />
+          <div className="max-w-3xl mx-auto text-center">
+            <FadeIn delay={0.2}>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-white mb-4 md:mb-6 leading-tight">
+                Gospel-centered counseling for women in need
+              </h1>
+            </FadeIn>
 
-            {/* Right side - content */}
-            <div className="text-center lg:text-left">
-              <FadeIn delay={0.2}>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-white mb-4 md:mb-6 leading-tight">
-                  Gospel-centered counseling for women in need
-                </h1>
-              </FadeIn>
+            <FadeIn delay={0.4}>
+              <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-xl mx-auto mb-6 md:mb-8 leading-relaxed">
+                KingGen Ministries is a 501(c)(3) nonprofit providing free clinical pastoral counseling. Partner with us through referrals, donations, or grants.
+              </p>
+            </FadeIn>
 
-              <FadeIn delay={0.4}>
-                <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-xl mx-auto lg:mx-0 mb-6 md:mb-8 leading-relaxed">
-                  KingGen Ministries is a 501(c)(3) nonprofit providing free clinical pastoral counseling. Partner with us through referrals, donations, or grants.
-                </p>
-              </FadeIn>
+            <FadeIn delay={0.6}>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4 justify-center">
+                <Magnetic strength={0.2}>
+                  <Button href="/for-referrers" variant="accent" size="lg" className="w-full sm:w-auto">
+                    For Referrers
+                  </Button>
+                </Magnetic>
+                <Magnetic strength={0.2}>
+                  <Button href="/donate" variant="outline" size="lg" className="w-full sm:w-auto border-white/40 text-white hover:bg-white/10">
+                    Donate
+                  </Button>
+                </Magnetic>
+                <Magnetic strength={0.2}>
+                  <Button href="/for-grant-writers" variant="outline" size="lg" className="w-full sm:w-auto border-white/40 text-white hover:bg-white/10">
+                    For Grant Writers
+                  </Button>
+                </Magnetic>
+              </div>
+            </FadeIn>
 
-              <FadeIn delay={0.6}>
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4 justify-center lg:justify-start">
-                  <Magnetic strength={0.2}>
-                    <Button href="/for-referrers" variant="accent" size="lg" className="w-full sm:w-auto">
-                      For Referrers
-                    </Button>
-                  </Magnetic>
-                  <Magnetic strength={0.2}>
-                    <Button href="/donate" variant="outline" size="lg" className="w-full sm:w-auto border-white/40 text-white hover:bg-white/10">
-                      Donate
-                    </Button>
-                  </Magnetic>
-                  <Magnetic strength={0.2}>
-                    <Button href="/for-grant-writers" variant="outline" size="lg" className="w-full sm:w-auto border-white/40 text-white hover:bg-white/10">
-                      For Grant Writers
-                    </Button>
-                  </Magnetic>
-                </div>
-              </FadeIn>
-
-              <FadeIn delay={0.8}>
-                <p className="text-white/70 text-sm">
-                  <strong className="text-white/90">EIN:</strong> {siteConfig.ein}
-                </p>
-              </FadeIn>
-            </div>
+            <FadeIn delay={0.8}>
+              <p className="text-white/70 text-sm">
+                <strong className="text-white/90">EIN:</strong> {siteConfig.ein}
+              </p>
+            </FadeIn>
           </div>
         </div>
 
