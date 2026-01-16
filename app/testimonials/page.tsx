@@ -61,7 +61,7 @@ export default function TestimonialsPage() {
           {testimonials.map((testimonial, i) => (
             <StaggerItem key={i}>
               <TiltCard className="h-full" tiltAmount={5}>
-                <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full relative">
+                <div className="bg-white rounded-2xl p-8 shadow-lg border border-brand-light h-full relative">
                   <QuoteIcon className="absolute top-6 right-6 w-10 h-10 text-brand-accent/20" />
                   <div className="mb-4">
                     <span className="inline-block px-3 py-1 bg-brand-light text-brand-primary text-sm font-medium rounded-full">

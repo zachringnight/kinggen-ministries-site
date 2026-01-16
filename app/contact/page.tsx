@@ -53,7 +53,7 @@ export default function ContactPage() {
           {/* Contact Form */}
           <FadeIn direction="left">
             <TiltCard tiltAmount={3}>
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-brand-light">
                 <h2 className="text-2xl font-bold font-heading text-text-primary mb-6">
                   Send Us a Message
                 </h2>
@@ -73,7 +73,7 @@ export default function ContactPage() {
                     <select
                       id="reason"
                       name="reason"
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:bg-white focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 transition-all outline-none"
+                      className="w-full px-4 py-3 border border-brand-light rounded-xl bg-brand-soft focus:bg-white focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 transition-all outline-none"
                     >
                       <option value="seeking-support">Seeking support</option>
                       <option value="referring-someone">Referring someone</option>
@@ -93,7 +93,7 @@ export default function ContactPage() {
                       type="text"
                       id="name"
                       name="name"
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:bg-white focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 transition-all outline-none"
+                      className="w-full px-4 py-3 border border-brand-light rounded-xl bg-brand-soft focus:bg-white focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 transition-all outline-none"
                       placeholder="Your name"
                     />
                   </div>
@@ -110,7 +110,7 @@ export default function ContactPage() {
                       id="email"
                       name="email"
                       required
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:bg-white focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 transition-all outline-none"
+                      className="w-full px-4 py-3 border border-brand-light rounded-xl bg-brand-soft focus:bg-white focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 transition-all outline-none"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -126,7 +126,7 @@ export default function ContactPage() {
                       type="tel"
                       id="phone"
                       name="phone"
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:bg-white focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 transition-all outline-none"
+                      className="w-full px-4 py-3 border border-brand-light rounded-xl bg-brand-soft focus:bg-white focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 transition-all outline-none"
                       placeholder="(817) 555-1234"
                     />
                   </div>
@@ -142,7 +142,7 @@ export default function ContactPage() {
                       id="message"
                       name="message"
                       rows={5}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:bg-white focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 transition-all outline-none resize-none"
+                      className="w-full px-4 py-3 border border-brand-light rounded-xl bg-brand-soft focus:bg-white focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 transition-all outline-none resize-none"
                       placeholder="How can we help you?"
                     ></textarea>
                   </div>
@@ -169,7 +169,7 @@ export default function ContactPage() {
               <div className="space-y-6">
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="flex items-start gap-4 p-5 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-brand-primary/20 transition-all group"
+                  className="flex items-start gap-4 p-5 bg-white rounded-xl shadow-sm border border-brand-light hover:shadow-md hover:border-brand-primary/20 transition-all group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-brand-light text-brand-primary flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-colors">
                     <MailIcon className="w-6 h-6" />
@@ -182,7 +182,7 @@ export default function ContactPage() {
 
                 <a
                   href={`tel:${siteConfig.phone}`}
-                  className="flex items-start gap-4 p-5 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-brand-primary/20 transition-all group"
+                  className="flex items-start gap-4 p-5 bg-white rounded-xl shadow-sm border border-brand-light hover:shadow-md hover:border-brand-primary/20 transition-all group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-brand-light text-brand-primary flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-colors">
                     <PhoneIcon className="w-6 h-6" />
@@ -193,7 +193,7 @@ export default function ContactPage() {
                   </div>
                 </a>
 
-                <div className="flex items-start gap-4 p-5 bg-white rounded-xl shadow-sm border border-gray-100">
+                <div className="flex items-start gap-4 p-5 bg-white rounded-xl shadow-sm border border-brand-light">
                   <div className="w-12 h-12 rounded-xl bg-brand-light text-brand-primary flex items-center justify-center">
                     <MapPinIcon className="w-6 h-6" />
                   </div>

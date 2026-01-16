@@ -18,10 +18,10 @@
   --gradient-mid: #4a6b4a;
   --gradient-end: #7BA390;
 
-  /* Text colors */
-  --text-primary: #2d2d2d;
-  --text-secondary: #4a5548;
-  --text-muted: #6b7c6b;
+  /* Text colors - ensure good visibility */
+  --text-primary: #1a1a1a;
+  --text-secondary: #3d4a3d;
+  --text-muted: #5a6b5a;
 }
 
 @theme inline {

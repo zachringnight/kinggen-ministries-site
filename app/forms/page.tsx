@@ -69,7 +69,7 @@ export default function FormsPage() {
             <StaggerItem key={i}>
               <a
                 href={`/forms/${form.filename}`}
-                className="flex items-center justify-between p-5 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-brand-primary/20 transition-all group"
+                className="flex items-center justify-between p-5 bg-white rounded-xl shadow-sm border border-brand-light hover:shadow-md hover:border-brand-primary/20 transition-all group"
               >
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-brand-light text-brand-primary flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-colors">

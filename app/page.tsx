@@ -146,7 +146,7 @@ export default function Home() {
         <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           <StaggerItem>
             <TiltCard className="h-full">
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 h-full flex flex-col">
+              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full flex flex-col">
                 <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
                   Referrers
                 </h3>
@@ -162,7 +162,7 @@ export default function Home() {
 
           <StaggerItem>
             <TiltCard className="h-full">
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 h-full flex flex-col">
+              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full flex flex-col">
                 <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
                   Donors
                 </h3>
@@ -178,7 +178,7 @@ export default function Home() {
 
           <StaggerItem>
             <TiltCard className="h-full">
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 h-full flex flex-col">
+              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full flex flex-col">
                 <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
                   Grant Writers &amp; Foundations
                 </h3>
@@ -247,7 +247,7 @@ export default function Home() {
         <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
           <StaggerItem>
             <TiltCard className="h-full" tiltAmount={5}>
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 h-full relative">
+              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full relative">
                 <QuoteIcon className="absolute top-4 right-4 md:top-6 md:right-6 w-6 h-6 md:w-8 md:h-8 text-brand-accent/20" />
                 <p className="text-sm md:text-base text-text-secondary italic mb-4 md:mb-6 leading-relaxed pr-8">
                   &ldquo;As a pastor, I&apos;m grateful for a referral option that is compassionate, discreet, and Gospel-centered. I trust KingGen with the women in our congregation.&rdquo;
@@ -267,7 +267,7 @@ export default function Home() {
 
           <StaggerItem>
             <TiltCard className="h-full" tiltAmount={5}>
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 h-full relative">
+              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full relative">
                 <QuoteIcon className="absolute top-4 right-4 md:top-6 md:right-6 w-6 h-6 md:w-8 md:h-8 text-brand-accent/20" />
                 <p className="text-sm md:text-base text-text-secondary italic mb-4 md:mb-6 leading-relaxed pr-8">
                   &ldquo;Communication has been clear and respectful. I&apos;m grateful for a place to refer women who need support and privacy.&rdquo;
