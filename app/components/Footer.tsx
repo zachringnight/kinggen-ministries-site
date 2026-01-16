@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { siteConfig, footerLinks } from "../config/site";
-import { PhoneIcon, MailIcon, MapPinIcon } from "./Icons";
+import { PhoneIcon, MailIcon, MapPinIcon, InstagramIcon, FacebookIcon } from "./Icons";
 import Logo from "./Logo";
 
 export default function Footer() {
@@ -23,9 +23,30 @@ export default function Footer() {
               KingGen Ministries is a <strong className="text-white/80">501(c)(3)</strong>.
               Donations are tax deductible as allowed by law.
             </p>
-            <p className="text-white/60 text-sm">
+            <p className="text-white/60 text-sm mb-6">
               <strong className="text-white/80">EIN:</strong> {siteConfig.ein}
             </p>
+            {/* Social Links */}
+            <div className="flex gap-4">
+              <a
+                href={siteConfig.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/60 hover:text-brand-accent transition-colors"
+                aria-label="Follow us on Instagram"
+              >
+                <InstagramIcon className="w-6 h-6" />
+              </a>
+              <a
+                href={siteConfig.social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/60 hover:text-brand-accent transition-colors"
+                aria-label="Follow us on Facebook"
+              >
+                <FacebookIcon className="w-6 h-6" />
+              </a>
+            </div>
           </div>
 
           {/* Contact Info */}
