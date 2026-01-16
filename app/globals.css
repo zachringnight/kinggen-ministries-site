@@ -9,9 +9,9 @@
   --brand-secondary: #4a6b4a;    /* Lighter forest green */
   --brand-accent: #7BA390;       /* Sage Green - accents, icons, highlights */
   --brand-warm: #5c7a5c;         /* Mid green */
-  --brand-soft: #f5f3eb;         /* Soft cream */
-  --brand-light: #eef5f0;        /* Light sage tint */
-  --brand-cream: #faf8f2;        /* Cream background */
+  --brand-soft: #faf9f5;         /* Soft cream - no green tint */
+  --brand-light: #f5f5f2;        /* Light gray - neutral */
+  --brand-cream: #fffef9;        /* Cream background */
 
   /* Gradient colors */
   --gradient-start: #3D5A3D;
@@ -213,13 +213,13 @@ label {
   background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 50%, var(--brand-warm) 100%);
 }
 
-/* Section backgrounds */
+/* Section backgrounds - pure white/cream for green text contrast */
 .section-light {
-  background: linear-gradient(180deg, var(--brand-light) 0%, var(--background) 100%);
+  background: #ffffff;
 }
 
 .section-soft {
-  background: var(--brand-soft);
+  background: #fffef9;
 }
 
 /* Quote styling */
