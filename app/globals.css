@@ -18,10 +18,10 @@
   --gradient-mid: #4a6b4a;
   --gradient-end: #7BA390;
 
-  /* Text colors - ensure good visibility */
-  --text-primary: #1a1a1a;
-  --text-secondary: #3d4a3d;
-  --text-muted: #5a6b5a;
+  /* Text colors - green on white/cream, white on green */
+  --text-primary: #3D5A3D;         /* Brand green for headings on light bg */
+  --text-secondary: #3D5A3D;       /* Brand green for body on light bg */
+  --text-muted: #4a6b4a;           /* Slightly lighter green for subtle text */
 }
 
 @theme inline {
