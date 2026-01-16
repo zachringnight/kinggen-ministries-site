@@ -9,6 +9,7 @@ interface SectionProps {
   id?: string;
   containerSize?: "default" | "narrow" | "wide" | "full";
   padding?: "none" | "sm" | "md" | "lg" | "xl";
+  noWatermark?: boolean;
 }
 
 const variantStyles: Record<SectionVariant, string> = {
@@ -18,6 +19,9 @@ const variantStyles: Record<SectionVariant, string> = {
   primary: "hero-gradient text-white",
   dark: "bg-brand-primary text-white",
 };
+
+// Variants that should have white cross watermark background
+const watermarkVariants: SectionVariant[] = ["default", "light", "soft"];
 
 const containerSizes: Record<string, string> = {
   default: "max-w-7xl",
@@ -41,13 +45,25 @@ export default function Section({
   id,
   containerSize = "default",
   padding = "lg",
+  noWatermark = false,
 }: SectionProps) {
+  const hasWatermark = !noWatermark && watermarkVariants.includes(variant);
+
   return (
     <section
       id={id}
-      className={`${variantStyles[variant]} ${paddingStyles[padding]} ${className}`}
+      className={`${variantStyles[variant]} ${paddingStyles[padding]} ${className} relative overflow-hidden`}
     >
-      <div className={`container mx-auto px-4 lg:px-8 ${containerSizes[containerSize]}`}>
+      {hasWatermark && (
+        <div
+          className="absolute inset-0 bg-no-repeat bg-left-bottom pointer-events-none opacity-60"
+          style={{
+            backgroundImage: "url('/bg_white_cross.png')",
+            backgroundSize: "400px auto",
+          }}
+        />
+      )}
+      <div className={`container mx-auto px-4 lg:px-8 ${containerSizes[containerSize]} relative z-10`}>
         {children}
       </div>
     </section>
