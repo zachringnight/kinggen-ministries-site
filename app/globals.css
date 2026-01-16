@@ -59,7 +59,9 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
-  line-height: 1.7;
+  font-size: 17px;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
 }
 
 /* Smooth scrolling */
@@ -71,8 +73,31 @@ html {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   line-height: 1.2;
-  letter-spacing: 0;
-  font-weight: 600;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+/* Paragraph spacing */
+p + p {
+  margin-top: 1.25em;
+}
+
+/* Better text selection */
+::selection {
+  background: var(--brand-accent);
+  color: white;
+}
+
+/* Link styling for clarity */
+a:not([class]) {
+  color: var(--brand-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:not([class]):hover {
+  color: var(--brand-secondary);
 }
 
 /* Custom utilities */
@@ -135,6 +160,17 @@ select:focus {
   outline: none;
   border-color: var(--brand-primary);
   box-shadow: 0 0 0 3px rgba(61, 90, 61, 0.1);
+}
+
+/* Form placeholder - readable but distinct */
+::placeholder {
+  color: var(--brand-accent);
+  opacity: 0.8;
+}
+
+/* Form labels */
+label {
+  font-weight: 500;
 }
 
 /* Animation keyframes */
