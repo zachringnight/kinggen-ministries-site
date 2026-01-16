@@ -13,7 +13,7 @@ export const siteConfig = {
     zip: "76248",
   },
   ein: "33-3032264",
-  paypalUrl: "https://paypal.me/kinggenministries", // Update with actual PayPal link
+  paypalUrl: "https://www.paypal.com/ncp/payment/7BTC79TNBLL8E",
   formspreeEndpoint: "https://formspree.io/f/your-form-id", // Update with actual form ID
 };
 
