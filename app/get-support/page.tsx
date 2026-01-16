@@ -55,7 +55,7 @@ export default function GetSupport() {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
                 Get Support
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
                 If you&apos;re here, something may feel heavy. You may feel overwhelmed, discouraged, anxious, or simply exhausted. You are not alone.
               </p>
             </div>

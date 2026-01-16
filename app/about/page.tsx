@@ -34,7 +34,7 @@ export default function AboutPage() {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
                 About KingGen Ministries
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
                 KingGen Ministries exists to offer Gospel-centered counseling to women who need support, especially when cost is a barrier. We believe no woman should be left alone in her hardest seasons.
               </p>
             </div>

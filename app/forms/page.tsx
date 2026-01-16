@@ -37,7 +37,7 @@ export default function FormsPage() {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
                 Forms and Resources
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
                 We provide forms to keep the process simple and respectful. You can download and complete them at your own pace.
               </p>
             </div>

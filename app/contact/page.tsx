@@ -28,7 +28,7 @@ export default function ContactPage() {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
                 Contact Us
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
                 Whether you&apos;re reaching out for yourself, referring someone, or asking about donating, please contact us. We will respond as soon as possible.
               </p>
             </div>

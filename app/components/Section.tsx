@@ -82,7 +82,7 @@ export function SectionHeader({
       {subtitle && (
         <p
           className={`text-lg md:text-xl max-w-3xl ${centered ? "mx-auto" : ""} ${
-            light ? "text-white/80" : "text-text-secondary"
+            light ? "text-white" : "text-text-secondary"
           }`}
         >
           {subtitle}

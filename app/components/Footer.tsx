@@ -16,15 +16,15 @@ export default function Footer() {
             <Link href="/" className="inline-block mb-6">
               <Logo size="md" variant="horizontal" />
             </Link>
-            <p className="text-white/80 mb-4 leading-relaxed">
+            <p className="text-white mb-4 leading-relaxed">
               {siteConfig.tagline}
             </p>
-            <p className="text-white/60 text-sm mb-6">
-              KingGen Ministries is a <strong className="text-white/80">501(c)(3)</strong>.
+            <p className="text-white text-sm mb-6">
+              KingGen Ministries is a <strong>501(c)(3)</strong>.
               Donations are tax deductible as allowed by law.
             </p>
-            <p className="text-white/60 text-sm mb-6">
-              <strong className="text-white/80">EIN:</strong> {siteConfig.ein}
+            <p className="text-white text-sm mb-6">
+              <strong>EIN:</strong> {siteConfig.ein}
             </p>
             {/* Social Links */}
             <div className="flex gap-4">
@@ -32,7 +32,7 @@ export default function Footer() {
                 href={siteConfig.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/60 hover:text-brand-accent transition-colors"
+                className="text-white hover:text-brand-accent transition-colors"
                 aria-label="Follow us on Instagram"
               >
                 <InstagramIcon className="w-6 h-6" />
@@ -41,7 +41,7 @@ export default function Footer() {
                 href={siteConfig.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/60 hover:text-brand-accent transition-colors"
+                className="text-white hover:text-brand-accent transition-colors"
                 aria-label="Follow us on Facebook"
               >
                 <FacebookIcon className="w-6 h-6" />
@@ -56,7 +56,7 @@ export default function Footer() {
               <li>
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="flex items-start gap-3 text-white/80 hover:text-brand-accent transition-colors"
+                  className="flex items-start gap-3 text-white hover:text-brand-accent transition-colors"
                 >
                   <MailIcon className="w-5 h-5 flex-shrink-0 mt-0.5" />
                   <span>{siteConfig.email}</span>
@@ -65,13 +65,13 @@ export default function Footer() {
               <li>
                 <a
                   href={`tel:${siteConfig.phone}`}
-                  className="flex items-start gap-3 text-white/80 hover:text-brand-accent transition-colors"
+                  className="flex items-start gap-3 text-white hover:text-brand-accent transition-colors"
                 >
                   <PhoneIcon className="w-5 h-5 flex-shrink-0 mt-0.5" />
                   <span>{siteConfig.phone}</span>
                 </a>
               </li>
-              <li className="flex items-start gap-3 text-white/80">
+              <li className="flex items-start gap-3 text-white">
                 <MapPinIcon className="w-5 h-5 flex-shrink-0 mt-0.5" />
                 <address className="not-italic">
                   {siteConfig.address.line1}<br />
@@ -91,7 +91,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-white/80 hover:text-brand-accent transition-colors"
+                    className="text-white hover:text-brand-accent transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -103,9 +103,9 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-white/20">
         <div className="container mx-auto px-4 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/60">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white">
             <p>&copy; {currentYear} {siteConfig.name}. All rights reserved.</p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               {footerLinks.map((item, index) => (
@@ -117,7 +117,7 @@ export default function Footer() {
                     {item.label}
                   </Link>
                   {index < footerLinks.length - 1 && (
-                    <span className="text-white/30">|</span>
+                    <span className="text-white/50">|</span>
                   )}
                 </span>
               ))}

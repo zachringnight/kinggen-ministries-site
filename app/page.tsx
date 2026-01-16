@@ -48,7 +48,7 @@ export default function Home() {
             </FadeIn>
 
             <FadeIn delay={0.4}>
-              <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-xl mx-auto mb-6 md:mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-white max-w-xl mx-auto mb-6 md:mb-8 leading-relaxed">
                 KingGen Ministries is a 501(c)(3) nonprofit providing free clinical pastoral counseling. Partner with us through referrals, donations, or grants.
               </p>
             </FadeIn>
@@ -74,8 +74,8 @@ export default function Home() {
             </FadeIn>
 
             <FadeIn delay={0.8}>
-              <p className="text-white/70 text-sm">
-                <strong className="text-white/90">EIN:</strong> {siteConfig.ein}
+              <p className="text-white text-sm">
+                <strong>EIN:</strong> {siteConfig.ein}
               </p>
             </FadeIn>
           </div>
@@ -84,9 +84,9 @@ export default function Home() {
         {/* Scroll indicator - hidden on mobile */}
         <div className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2">
           <FadeIn delay={1.2}>
-            <div className="flex flex-col items-center gap-2 text-white/50">
+            <div className="flex flex-col items-center gap-2 text-white">
               <span className="text-xs tracking-widest uppercase">Scroll</span>
-              <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
+              <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center pt-2">
                 <div className="w-1.5 h-1.5 bg-white rounded-full animate-bounce" />
               </div>
             </div>
@@ -209,14 +209,14 @@ export default function Home() {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 md:mb-6">
                 Our commitment
               </h2>
-              <p className="text-base sm:text-lg text-white/90 mb-3 md:mb-4 leading-relaxed">
+              <p className="text-base sm:text-lg text-white mb-3 md:mb-4 leading-relaxed">
                 As a <strong>501(c)(3)</strong> nonprofit, KingGen Ministries is committed to stewardship, transparency, and accountability. Every donation directly supports our mission to provide free counseling for women in need.
               </p>
-              <p className="text-base sm:text-lg text-white/90 mb-2 leading-relaxed">
+              <p className="text-base sm:text-lg text-white mb-2 leading-relaxed">
                 We partner with churches, community organizations, and foundations who share our vision.
               </p>
-              <p className="text-white/70 mb-6 md:mb-8">
-                <strong className="text-white/90">EIN:</strong> {siteConfig.ein}
+              <p className="text-white mb-6 md:mb-8">
+                <strong>EIN:</strong> {siteConfig.ein}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Magnetic>

@@ -54,7 +54,7 @@ export default function ForGrantWriters() {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
                 For Grant Writers &amp; Foundations
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
                 Thank you for considering KingGen Ministries. This page provides organizational information to support grant applications and funding inquiries.
               </p>
             </div>
