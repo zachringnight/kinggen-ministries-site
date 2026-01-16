@@ -11,6 +11,7 @@ import {
   CheckCircleIcon,
   ArrowRightIcon,
   QuoteIcon,
+  ShieldIcon,
   // Motion components
   FadeIn,
   StaggerContainer,
@@ -34,7 +35,7 @@ export default function Home() {
           style={{ backgroundImage: "url('/bg_green_texture_1920x1080.png')" }}
         />
 
-        {/* Overlay - stronger on mobile for readability, subtle gradient on desktop */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-black/40 md:bg-gradient-to-r md:from-black/30 md:via-transparent md:to-black/30" />
 
         {/* Content */}
@@ -43,29 +44,24 @@ export default function Home() {
             {/* Left side - empty for stones graphic on desktop */}
             <div className="hidden lg:block" />
 
-            {/* Right side - content (centered on mobile) */}
+            {/* Right side - content */}
             <div className="text-center lg:text-left">
               <FadeIn delay={0.2}>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-white mb-4 md:mb-6 leading-tight">
-                  Christian counseling for women
+                  Gospel-centered counseling for women in need
                 </h1>
               </FadeIn>
 
               <FadeIn delay={0.4}>
                 <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-xl mx-auto lg:mx-0 mb-6 md:mb-8 leading-relaxed">
-                  You do not have to carry this alone. KingGen Ministries offers Gospel-centered counseling for women in need. Counseling is offered at no cost, made possible through donations.
+                  KingGen Ministries is a 501(c)(3) nonprofit providing free clinical pastoral counseling. Partner with us through referrals, donations, or grants.
                 </p>
               </FadeIn>
 
               <FadeIn delay={0.6}>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4 justify-center lg:justify-start">
                   <Magnetic strength={0.2}>
-                    <Button href="/get-support" variant="accent" size="lg" className="w-full sm:w-auto">
-                      Get Support
-                    </Button>
-                  </Magnetic>
-                  <Magnetic strength={0.2}>
-                    <Button href="/for-referrers" variant="outline" size="lg" className="w-full sm:w-auto border-white/40 text-white hover:bg-white/10">
+                    <Button href="/for-referrers" variant="accent" size="lg" className="w-full sm:w-auto">
                       For Referrers
                     </Button>
                   </Magnetic>
@@ -74,12 +70,17 @@ export default function Home() {
                       Donate
                     </Button>
                   </Magnetic>
+                  <Magnetic strength={0.2}>
+                    <Button href="/for-grant-writers" variant="outline" size="lg" className="w-full sm:w-auto border-white/40 text-white hover:bg-white/10">
+                      For Grant Writers
+                    </Button>
+                  </Magnetic>
                 </div>
               </FadeIn>
 
               <FadeIn delay={0.8}>
                 <p className="text-white/70 text-sm">
-                  Not sure what to say? A short message is enough.
+                  <strong className="text-white/90">EIN:</strong> {siteConfig.ein}
                 </p>
               </FadeIn>
             </div>
@@ -99,35 +100,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Welcome Section */}
+      {/* About the Ministry Section */}
       <Section variant="light" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center px-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 md:mb-6">
-              You are welcome here
+              About our ministry
             </h2>
+            <p className="text-base sm:text-lg text-text-secondary leading-relaxed mb-4">
+              KingGen Ministries exists so women can access counseling even when cost is a barrier. We provide compassionate, Gospel-centered care for women facing anxiety, grief, trauma, relationship pain, and life transitions.
+            </p>
             <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
-              Taking the first step can feel hard, especially when life feels heavy. Whether you are seeking support, helping someone you love, or looking for a trusted place to refer, we hope you find clarity and peace of mind here.
+              Counseling is offered at no cost to clients. Donations and grants make it possible to continue serving women in need.
             </p>
           </div>
         </FadeIn>
       </Section>
 
-      {/* What KingGen Offers Section */}
+      {/* What Sets Us Apart */}
       <Section variant="default" padding="xl">
         <FadeIn>
           <SectionHeader
-            title="What KingGen offers"
-            subtitle="KingGen Ministries provides Gospel-centered counseling for women in need. We offer a safe and respectful space to talk honestly, find steady ground, and take wise next steps at a manageable pace."
+            title="What sets KingGen apart"
+            subtitle="We are a trusted partner for churches, community organizations, and foundations seeking to support women's mental health and spiritual care."
           />
         </FadeIn>
 
         <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
           {[
-            { icon: HeartIcon, text: "Compassionate, faith-rooted care" },
-            { icon: CheckCircleIcon, text: "Practical guidance for everyday life" },
-            { icon: UsersIcon, text: "A steady pace, without pressure" },
-            { icon: HeartIcon, text: "No cost, because donors make it possible" },
+            { icon: HeartIcon, text: "Gospel-centered, compassionate care" },
+            { icon: ShieldIcon, text: "Confidential and trauma-informed" },
+            { icon: UsersIcon, text: "No cost barrier for clients" },
+            { icon: CheckCircleIcon, text: "501(c)(3) nonprofit accountability" },
           ].map((item, i) => (
             <StaggerItem key={i}>
               <div className="flex items-start gap-3 md:gap-4 p-4 md:p-6 bg-brand-light rounded-xl h-full">
@@ -139,10 +143,10 @@ export default function Home() {
         </StaggerContainer>
       </Section>
 
-      {/* Start Here Section */}
+      {/* Partner With Us Section */}
       <Section variant="soft" padding="xl">
         <FadeIn>
-          <SectionHeader title="Start here" />
+          <SectionHeader title="Partner with us" />
         </FadeIn>
 
         <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -150,26 +154,10 @@ export default function Home() {
             <TiltCard className="h-full">
               <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 h-full flex flex-col">
                 <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
-                  Women seeking support
-                </h3>
-                <p className="text-sm md:text-base text-text-secondary mb-4 md:mb-6 flex-grow">
-                  What to expect, how to reach out, and a simple next step.
-                </p>
-                <Button href="/get-support" variant="primary" fullWidth>
-                  Get Support
-                </Button>
-              </div>
-            </TiltCard>
-          </StaggerItem>
-
-          <StaggerItem>
-            <TiltCard className="h-full">
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 h-full flex flex-col">
-                <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
                   Referrers
                 </h3>
                 <p className="text-sm md:text-base text-text-secondary mb-4 md:mb-6 flex-grow">
-                  For pastors, churches, and trusted professionals making a referral.
+                  For pastors, churches, social workers, and trusted professionals looking for a compassionate referral option for women in need.
                 </p>
                 <Button href="/for-referrers" variant="primary" fullWidth>
                   For Referrers
@@ -185,7 +173,7 @@ export default function Home() {
                   Donors
                 </h3>
                 <p className="text-sm md:text-base text-text-secondary mb-4 md:mb-6 flex-grow">
-                  Help keep counseling free and support the mission.
+                  Your tax-deductible gift helps remove cost barriers and ensures women receive the care they need.
                 </p>
                 <Button href="/donate" variant="primary" fullWidth>
                   Donate
@@ -193,10 +181,26 @@ export default function Home() {
               </div>
             </TiltCard>
           </StaggerItem>
+
+          <StaggerItem>
+            <TiltCard className="h-full">
+              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 h-full flex flex-col">
+                <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
+                  Grant Writers &amp; Foundations
+                </h3>
+                <p className="text-sm md:text-base text-text-secondary mb-4 md:mb-6 flex-grow">
+                  Access organizational information, impact data, and resources to support grant applications.
+                </p>
+                <Button href="/for-grant-writers" variant="primary" fullWidth>
+                  For Grant Writers
+                </Button>
+              </div>
+            </TiltCard>
+          </StaggerItem>
         </StaggerContainer>
       </Section>
 
-      {/* Mission Section with Background */}
+      {/* Impact Section with Background */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         {/* Background Image */}
         <div
@@ -209,22 +213,29 @@ export default function Home() {
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 md:mb-6">
-                Our mission
+                Our commitment
               </h2>
               <p className="text-base sm:text-lg text-white/90 mb-3 md:mb-4 leading-relaxed">
-                KingGen Ministries exists so women can access counseling even when cost is a barrier. As a <strong>501(c)(3)</strong>, we provide Gospel-centered counseling for women in need.
+                As a <strong>501(c)(3)</strong> nonprofit, KingGen Ministries is committed to stewardship, transparency, and accountability. Every donation directly supports our mission to provide free counseling for women in need.
               </p>
               <p className="text-base sm:text-lg text-white/90 mb-2 leading-relaxed">
-                Counseling is offered at no cost. Donations make it possible to continue serving women in need.
+                We partner with churches, community organizations, and foundations who share our vision.
               </p>
               <p className="text-white/70 mb-6 md:mb-8">
                 <strong className="text-white/90">EIN:</strong> {siteConfig.ein}
               </p>
-              <Magnetic>
-                <Button href="/donate" variant="accent" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
-                  Donate
-                </Button>
-              </Magnetic>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Magnetic>
+                  <Button href="/donate" variant="accent" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
+                    Donate
+                  </Button>
+                </Magnetic>
+                <Magnetic>
+                  <Button href="/for-grant-writers" variant="outline" size="lg" className="border-white/40 text-white hover:bg-white/10">
+                    Grant Information
+                  </Button>
+                </Magnetic>
+              </div>
             </div>
           </FadeIn>
         </div>
@@ -234,8 +245,8 @@ export default function Home() {
       <Section variant="light" padding="xl">
         <FadeIn>
           <SectionHeader
-            title="Words shared with care"
-            subtitle="To protect privacy, we share first names and roles only."
+            title="What partners say"
+            subtitle="Hear from pastors, referrers, and community partners who trust KingGen Ministries."
           />
         </FadeIn>
 
@@ -245,15 +256,15 @@ export default function Home() {
               <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 h-full relative">
                 <QuoteIcon className="absolute top-4 right-4 md:top-6 md:right-6 w-6 h-6 md:w-8 md:h-8 text-brand-accent/20" />
                 <p className="text-sm md:text-base text-text-secondary italic mb-4 md:mb-6 leading-relaxed pr-8">
-                  &ldquo;KingGen gave me a calm place to breathe again. I felt cared for and guided with wisdom.&rdquo;
+                  &ldquo;As a pastor, I&apos;m grateful for a referral option that is compassionate, discreet, and Gospel-centered. I trust KingGen with the women in our congregation.&rdquo;
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white font-bold text-sm">
-                    S
+                    M
                   </div>
                   <div>
-                    <p className="font-bold text-text-primary text-sm md:text-base">Sarah</p>
-                    <p className="text-xs md:text-sm text-text-muted">Client</p>
+                    <p className="font-bold text-text-primary text-sm md:text-base">Mark</p>
+                    <p className="text-xs md:text-sm text-text-muted">Pastor</p>
                   </div>
                 </div>
               </div>
@@ -265,15 +276,15 @@ export default function Home() {
               <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 h-full relative">
                 <QuoteIcon className="absolute top-4 right-4 md:top-6 md:right-6 w-6 h-6 md:w-8 md:h-8 text-brand-accent/20" />
                 <p className="text-sm md:text-base text-text-secondary italic mb-4 md:mb-6 leading-relaxed pr-8">
-                  &ldquo;As a pastor, I&apos;m grateful for a referral option that is compassionate, discreet, and Gospel-centered.&rdquo;
+                  &ldquo;Communication has been clear and respectful. I&apos;m grateful for a place to refer women who need support and privacy.&rdquo;
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white font-bold text-sm">
-                    M
+                    J
                   </div>
                   <div>
-                    <p className="font-bold text-text-primary text-sm md:text-base">Mark</p>
-                    <p className="text-xs md:text-sm text-text-muted">Pastor</p>
+                    <p className="font-bold text-text-primary text-sm md:text-base">Jenna</p>
+                    <p className="text-xs md:text-sm text-text-muted">Community Referrer</p>
                   </div>
                 </div>
               </div>
@@ -306,14 +317,14 @@ export default function Home() {
 
             <div className="relative z-10">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 md:mb-6">
-                Ready to reach out?
+                Ready to partner with us?
               </h2>
               <p className="text-base sm:text-lg text-text-secondary mb-6 md:mb-8 leading-relaxed max-w-2xl mx-auto">
-                If you&apos;re seeking support, we&apos;re here. If you&apos;re making a referral, we&apos;re grateful to partner with you. If you feel led to give, thank you for helping keep counseling free.
+                Whether you&apos;re making a referral, considering a donation, or exploring grant opportunities, we&apos;d love to connect.
               </p>
               <Magnetic>
                 <Button href="/contact" variant="primary" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-                  Contact
+                  Contact Us
                 </Button>
               </Magnetic>
             </div>

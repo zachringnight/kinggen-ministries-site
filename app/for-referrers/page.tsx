@@ -6,51 +6,99 @@ import {
   CheckCircleIcon,
   ShieldIcon,
   ArrowRightIcon,
+  HeartIcon,
   FadeIn,
   StaggerContainer,
   StaggerItem,
 } from "../components";
 
 export default function ForReferrers() {
+  const whoCanRefer = [
+    "Pastors and church staff",
+    "Licensed counselors and therapists",
+    "Social workers and case managers",
+    "Healthcare professionals",
+    "Community organization leaders",
+    "Trusted family members or mentors",
+  ];
+
   const referralReasons = [
     "is seeking counseling support and cost is a barrier",
     "is open to Gospel-centered counseling",
-    "can participate by appointment",
+    "can participate by appointment (in-person or telehealth)",
+  ];
+
+  const whatToExpect = [
+    { title: "Confidential intake", description: "We protect the privacy of every woman referred to us" },
+    { title: "Clear communication", description: "We keep referrers informed as appropriate and permitted" },
+    { title: "Compassionate care", description: "Women receive Gospel-centered support at their own pace" },
+    { title: "Professional standards", description: "Licensed clinical pastoral counseling with ethical guidelines" },
   ];
 
   const helpfulInfo = [
-    "first name",
-    "best contact method",
-    "general reason for referral",
-    "any immediate safety concerns",
+    "First name of the person being referred",
+    "Best contact method (email or phone)",
+    "General reason for referral",
+    "Any immediate safety concerns",
   ];
 
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-brand-primary to-brand-secondary py-20 md:py-28">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/bg_green_texture_1920x1080.png')" }}
+        />
+        <div className="absolute inset-0 bg-brand-primary/80" />
+
+        <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center text-white">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
                 For Referrers
               </h1>
-              <p className="text-xl text-white/90 leading-relaxed">
-                Thank you for caring for people well. If you&apos;re supporting a woman who needs counseling and cost is a barrier, we&apos;re grateful you&apos;re here. KingGen Ministries aims to be a trustworthy, compassionate referral partner.
+              <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
+                Thank you for caring for women well. If you&apos;re supporting someone who needs counseling and cost is a barrier, we&apos;re grateful you&apos;re here. KingGen Ministries aims to be a trustworthy, compassionate referral partner.
               </p>
             </div>
           </FadeIn>
         </div>
       </section>
 
-      {/* When Referral is Appropriate */}
+      {/* Who Can Refer */}
       <Section variant="light" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 text-center">
+              Who can refer
+            </h2>
+            <p className="text-base sm:text-lg text-text-secondary mb-8 text-center">
+              We welcome referrals from trusted sources who are supporting women in need:
+            </p>
+          </div>
+        </FadeIn>
+
+        <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
+          {whoCanRefer.map((referrer, i) => (
+            <StaggerItem key={i}>
+              <div className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm">
+                <CheckCircleIcon className="w-5 h-5 text-brand-primary flex-shrink-0" />
+                <p className="text-sm md:text-base text-text-secondary">{referrer}</p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </Section>
+
+      {/* When Referral is Appropriate */}
+      <Section variant="default" padding="xl">
+        <FadeIn>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 text-center">
               When a referral may be appropriate
             </h2>
-            <p className="text-lg text-text-secondary mb-8 text-center">
+            <p className="text-base sm:text-lg text-text-secondary mb-8 text-center">
               A referral may be a good fit when someone:
             </p>
           </div>
@@ -59,9 +107,9 @@ export default function ForReferrers() {
         <StaggerContainer staggerDelay={0.1} className="max-w-2xl mx-auto">
           {referralReasons.map((reason, i) => (
             <StaggerItem key={i}>
-              <div className="flex items-start gap-4 p-4 mb-3 bg-white rounded-xl shadow-sm">
+              <div className="flex items-start gap-4 p-4 mb-3 bg-brand-light rounded-xl">
                 <CheckCircleIcon className="w-6 h-6 text-brand-primary flex-shrink-0" />
-                <p className="text-text-secondary text-lg">{reason}</p>
+                <p className="text-text-primary text-base sm:text-lg">{reason}</p>
               </div>
             </StaggerItem>
           ))}
@@ -69,32 +117,52 @@ export default function ForReferrers() {
 
         <FadeIn delay={0.3}>
           <div className="max-w-3xl mx-auto mt-8 bg-red-50 border border-red-200 rounded-2xl p-6">
-            <p className="text-red-800 text-center">
-              If someone is in immediate danger or active crisis, please call <strong>911</strong> or local emergency services.
+            <p className="text-red-800 text-center text-sm md:text-base">
+              <strong>Important:</strong> If someone is in immediate danger or active crisis, please call <strong>911</strong> or local emergency services. KingGen Ministries is not an emergency service.
             </p>
           </div>
         </FadeIn>
+      </Section>
+
+      {/* What to Expect */}
+      <Section variant="soft" padding="xl">
+        <FadeIn>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-8 text-center">
+            What referrers can expect
+          </h2>
+        </FadeIn>
+
+        <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
+          {whatToExpect.map((item, i) => (
+            <StaggerItem key={i}>
+              <div className="bg-white rounded-xl p-5 md:p-6 shadow-sm h-full">
+                <h3 className="font-bold text-text-primary mb-2">{item.title}</h3>
+                <p className="text-sm md:text-base text-text-secondary">{item.description}</p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
       </Section>
 
       {/* How to Refer Section */}
       <Section variant="default" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-8 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-8 text-center">
               How to refer someone
             </h2>
 
-            <div className="bg-brand-light rounded-2xl p-8 mb-8">
-              <p className="text-lg text-text-primary mb-4">
+            <div className="bg-brand-light rounded-2xl p-6 md:p-8 mb-8">
+              <p className="text-base sm:text-lg text-text-primary mb-4">
                 <strong>Preferred:</strong> Encourage her to reach out directly. This helps her remain in control of her story and timing.
               </p>
               <p className="text-text-secondary">
-                If needed, you may also contact us to initiate a referral.
+                If needed, you may also contact us to initiate a referral on her behalf.
               </p>
             </div>
 
-            <h3 className="text-xl font-bold font-heading text-text-primary mb-4">
-              Helpful to include:
+            <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-4">
+              Helpful information to include:
             </h3>
           </div>
         </FadeIn>
@@ -104,7 +172,7 @@ export default function ForReferrers() {
             <StaggerItem key={i}>
               <div className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm">
                 <CheckCircleIcon className="w-5 h-5 text-brand-primary flex-shrink-0" />
-                <p className="text-text-secondary">{info}</p>
+                <p className="text-text-secondary text-sm md:text-base">{info}</p>
               </div>
             </StaggerItem>
           ))}
@@ -113,26 +181,48 @@ export default function ForReferrers() {
         <FadeIn delay={0.4}>
           <div className="text-center mt-10">
             <Button href="/contact" variant="primary" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-              Contact
+              Contact to Refer
             </Button>
           </div>
         </FadeIn>
       </Section>
 
       {/* Confidentiality Section */}
-      <Section variant="soft" padding="lg">
+      <Section variant="light" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
-            <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-sm">
+            <div className="flex flex-col sm:flex-row items-start gap-4 p-6 bg-white rounded-2xl shadow-sm">
               <ShieldIcon className="w-8 h-8 text-brand-primary flex-shrink-0" />
               <div>
-                <h3 className="text-xl font-bold font-heading text-text-primary mb-2">
+                <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2">
                   Confidentiality
                 </h3>
-                <p className="text-text-secondary">
-                  We do not share session details without the client&apos;s permission, except where disclosure is required by law or where there is a serious safety concern.
+                <p className="text-text-secondary text-sm md:text-base">
+                  We do not share session details without the client&apos;s permission, except where disclosure is required by law or where there is a serious safety concern. Your referral is handled with discretion and care.
                 </p>
               </div>
+            </div>
+          </div>
+        </FadeIn>
+      </Section>
+
+      {/* Partner CTA */}
+      <Section variant="default" padding="xl">
+        <FadeIn>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
+              Partner with us
+            </h2>
+            <p className="text-base sm:text-lg text-text-secondary mb-8">
+              If you&apos;d like to establish an ongoing referral relationship or learn more about how KingGen can serve your community, we&apos;d love to connect.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button href="/contact" variant="primary" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                Contact Us
+              </Button>
+              <Button href="/donate" variant="outline" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
+                Support the Mission
+              </Button>
             </div>
           </div>
         </FadeIn>

@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "KingGen Ministries",
-  tagline: "Christian counseling for women.",
-  description: "Gospel-centered counseling for women in need. Counseling is offered at no cost, made possible through donations.",
+  tagline: "Gospel-centered counseling for women in need.",
+  description: "A 501(c)(3) nonprofit providing free clinical pastoral counseling for women. Partner with us through referrals, donations, or grants.",
   phone: "(817) 682-4341",
   email: "kinggencounseling@gmail.com",
   address: {
@@ -19,18 +19,17 @@ export const siteConfig = {
 
 export const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/get-support", label: "Get Support" },
   { href: "/for-referrers", label: "For Referrers" },
+  { href: "/for-grant-writers", label: "For Grant Writers" },
   { href: "/donate", label: "Donate" },
   { href: "/about", label: "About" },
-  { href: "/forms", label: "Forms" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/contact", label: "Contact" },
 ];
 
 export const footerLinks = [
+  { href: "/get-support", label: "Get Support" },
+  { href: "/forms", label: "Forms" },
   { href: "/privacy", label: "Privacy and Confidentiality" },
   { href: "/disclaimer", label: "Disclaimer" },
-  { href: "/donate", label: "Donate" },
-  { href: "/contact", label: "Contact" },
 ];
