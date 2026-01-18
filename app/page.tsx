@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { siteConfig } from "./config/site";
 import {
   Section,
@@ -113,7 +112,7 @@ export default function Home() {
       </Section>
 
       {/* What Sets Us Apart - GREEN */}
-      <Section variant="primary" padding="xl" watermark="none">
+      <Section variant="primary" padding="xl" watermark="logo">
         <FadeIn>
           <SectionHeader
             title="What sets KingGen apart"
@@ -204,6 +203,11 @@ export default function Home() {
           style={{ backgroundImage: "url('/bg-green-alternate.png')" }}
         />
         <div className="absolute inset-0 bg-brand-primary/85" />
+        {/* Logo watermark */}
+        <div
+          className="absolute inset-0 bg-no-repeat bg-center pointer-events-none opacity-[0.06]"
+          style={{ backgroundImage: "url('/logo-full.png')", backgroundSize: "350px auto" }}
+        />
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
@@ -304,6 +308,11 @@ export default function Home() {
           style={{ backgroundImage: "url('/bg_green_texture_1920x1080.png')" }}
         />
         <div className="absolute inset-0 bg-brand-primary/85" />
+        {/* Logo watermark */}
+        <div
+          className="absolute inset-0 bg-no-repeat bg-center pointer-events-none opacity-[0.06]"
+          style={{ backgroundImage: "url('/logo-full.png')", backgroundSize: "300px auto" }}
+        />
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
@@ -332,32 +341,20 @@ export default function Home() {
       </section>
 
       {/* Closing Invitation Section - GREEN */}
-      <Section variant="primary" padding="xl" watermark="none">
+      <Section variant="primary" padding="xl" watermark="logo">
         <FadeIn>
-          <div className="max-w-3xl mx-auto text-center relative">
-            {/* Decorative logo */}
-            <div className="absolute -bottom-8 -right-8 w-32 h-32 md:w-40 md:h-40 opacity-[0.08] pointer-events-none">
-              <Image
-                src="/logo-icon.png"
-                alt=""
-                fill
-                className="object-contain"
-              />
-            </div>
-
-            <div className="relative z-10">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 md:mb-6">
-                Ready to partner with us?
-              </h2>
-              <p className="text-base sm:text-lg text-white/90 mb-6 md:mb-8 leading-relaxed max-w-2xl mx-auto">
-                Whether you&apos;re making a referral, considering a donation, or exploring grant opportunities, we&apos;d love to connect.
-              </p>
-              <Magnetic>
-                <Button href="/contact" variant="white" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-                  Contact Us
-                </Button>
-              </Magnetic>
-            </div>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 md:mb-6">
+              Ready to partner with us?
+            </h2>
+            <p className="text-base sm:text-lg text-white/90 mb-6 md:mb-8 leading-relaxed max-w-2xl mx-auto">
+              Whether you&apos;re making a referral, considering a donation, or exploring grant opportunities, we&apos;d love to connect.
+            </p>
+            <Magnetic>
+              <Button href="/contact" variant="white" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                Contact Us
+              </Button>
+            </Magnetic>
           </div>
         </FadeIn>
       </Section>
