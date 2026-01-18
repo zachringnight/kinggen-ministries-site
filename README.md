@@ -1,61 +1,115 @@
 # KingGen Ministries Website
 
-A fast, easy-to-manage site using Next.js + Tailwind, deployed on Vercel.
+A professional nonprofit website for KingGen Ministries, a 501(c)(3) organization providing free gospel-centered clinical pastoral counseling services for women in need.
 
-## Quick Start (Local)
+## Tech Stack
 
-1. Prereqs: Node 18+ and Git
-2. Install deps:
-   ```bash
-   npm install
-   ```
-3. Run dev:
-   ```bash
-   npm run dev
-   ```
-4. Open http://localhost:3000
+- **Framework**: Next.js 15.5 with App Router
+- **Language**: TypeScript 5
+- **Styling**: Tailwind CSS 4
+- **Animations**: Framer Motion
+- **Deployment**: Static export (GitHub Pages, Vercel, or Netlify)
 
-## Configure Fonts (Adobe Fonts)
-- Your kit is already linked in `app/layout.tsx`:
-  ```html
-  <link rel="stylesheet" href="https://use.typekit.net/yqt0fpz.css" />
-  ```
-- Publish your Adobe Fonts kit if you just created/edited it.
+## Getting Started
 
-## One-place Settings
-Edit `app/config/site.ts`:
-- `phone`, `email` (for Call/Email buttons)
-- `calendlyUrl` (appointments embed + link fallback)
-- `donorboxCampaignId` OR use the iframe in `/donate`
-- `donorboxPageUrl` (for the link fallback)
-- `formspreeEndpoint` (contact form action URL)
+```bash
+# Install dependencies
+npm install
 
-## Donations (Donorbox)
-- Create a campaign in Donorbox
-- In `app/config/site.ts`, set:
-  - `donorboxCampaignId` (for widget embed)
-  - `donorboxPageUrl` (for fallback link)
-- Or replace the widget with the Donorbox iframe (see comments in `/donate`)
+# Start development server
+npm run dev
 
-## Forms (Formspree)
-- Create a form in Formspree
-- Set `formspreeEndpoint` in `app/config/site.ts`
-- In Formspree settings, enable email notifications for LeeAnn
+# Build for production
+npm run build
 
-## Appointments (Calendly)
-- Set `calendlyUrl` in `app/config/site.ts`
-- In Calendly, enable email/SMS notifications for LeeAnn
+# Run linter
+npm run lint
+```
 
-## Deploy to Vercel
-- Push this repo to GitHub
-- In Vercel, "Add New Project" -> import your repo -> Deploy
-- Connect your domain in Vercel Settings -> Domains and follow DNS instructions
+## Project Structure
 
-## Customization
-- Colors: adjust Tailwind brand colors in `tailwind.config.ts`
-- Typography: Cera Pro for headings, Archivo for body (via Adobe Fonts kit)
-- Navigation: update links in `app/layout.tsx` Header
-- SEO: edit `metadata` in `app/layout.tsx`
+```
+app/
+├── components/     # Reusable UI components
+├── config/         # Site configuration (site.ts)
+├── about/          # About page
+├── contact/        # Contact page with form
+├── donate/         # Donation page
+├── for-referrers/  # Information for referrers
+├── for-grant-writers/ # Grant writer resources
+├── get-support/    # Support request page
+├── forms/          # Downloadable forms page
+├── testimonials/   # Testimonials page
+├── privacy/        # Privacy policy
+├── disclaimer/     # Disclaimer
+├── layout.tsx      # Root layout with metadata
+├── page.tsx        # Homepage
+└── globals.css     # Global styles and CSS variables
+```
 
-## Support
-If you need help, open an issue or contact the maintainer.
+## Configuration
+
+Update `app/config/site.ts` with your organization's information:
+
+- Contact information (phone, email, address)
+- EIN number
+- PayPal donation URL
+- Social media links
+- Formspree endpoint (for contact form)
+
+## Before Deployment
+
+### 1. Update Formspree Endpoint
+
+Create a form at [Formspree](https://formspree.io) and update the endpoint in `app/config/site.ts`:
+
+```typescript
+formspreeEndpoint: "https://formspree.io/f/YOUR-FORM-ID",
+```
+
+### 2. Add PDF Forms
+
+Add the following PDF forms to `/public/forms/`:
+
+- `client-intake-form.pdf`
+- `consent-for-counseling.pdf`
+- `confidentiality-notice.pdf`
+- `release-of-information.pdf`
+- `policies-scheduling.pdf`
+- `telehealth-consent.pdf`
+
+### 3. Add Favicon
+
+Replace `/public/favicon.ico` with your organization's favicon.
+
+## Deployment
+
+The site is configured for static export. Build outputs to the `out/` directory.
+
+### GitHub Pages
+
+1. Push to GitHub
+2. Enable GitHub Pages in repository settings
+3. Set source to GitHub Actions or the `out/` folder
+
+### Vercel
+
+1. Import repository to Vercel
+2. Deploy automatically
+
+### Netlify
+
+1. Connect repository to Netlify
+2. Build command: `npm run build`
+3. Publish directory: `out`
+
+## Color Palette
+
+- **Primary**: `#3D5A3D` (Forest Green)
+- **Secondary**: `#4a6b4a` (Lighter Forest Green)
+- **Accent**: `#7BA390` (Sage Green)
+- **Background**: `#faf8f2` (Cream)
+
+## License
+
+All rights reserved. KingGen Ministries.
