@@ -41,19 +41,25 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 sm:px-6 py-16 md:py-20">
           <div className="max-w-3xl mx-auto text-center">
-            <FadeIn delay={0.2}>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-white mb-4 md:mb-6 leading-tight">
-                Gospel-centered counseling for women in need
+            <FadeIn delay={0.1}>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-heading text-white mb-3 md:mb-4 leading-tight">
+                KingGen Ministries
               </h1>
             </FadeIn>
 
-            <FadeIn delay={0.4}>
-              <p className="text-base sm:text-lg md:text-xl text-white max-w-xl mx-auto mb-6 md:mb-8 leading-relaxed">
-                KingGen Ministries is a 501(c)(3) nonprofit providing free clinical pastoral counseling. Partner with us through referrals, donations, or grants.
+            <FadeIn delay={0.3}>
+              <p className="text-xl sm:text-2xl md:text-3xl font-heading text-white/90 mb-4 md:mb-6">
+                Gospel-centered counseling for women in need
               </p>
             </FadeIn>
 
-            <FadeIn delay={0.6}>
+            <FadeIn delay={0.5}>
+              <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-xl mx-auto mb-6 md:mb-8 leading-relaxed">
+                A 501(c)(3) nonprofit providing free clinical pastoral counseling. Partner with us through referrals, donations, or grants.
+              </p>
+            </FadeIn>
+
+            <FadeIn delay={0.7}>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4 justify-center">
                 <Magnetic strength={0.2}>
                   <Button href="/for-referrers" variant="accent" size="lg" className="w-full sm:w-auto">
