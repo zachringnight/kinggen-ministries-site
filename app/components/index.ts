@@ -6,3 +6,4 @@ export { default as Hero, PageHero } from "./Hero";
 export { default as Section, SectionHeader } from "./Section";
 export { default as Logo, LogoIcon } from "./Logo";
 export * from "./Icons";
+export * from "./MotionComponents";
