@@ -82,7 +82,7 @@ export default function ForReferrers() {
         <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
           {whoCanRefer.map((referrer, i) => (
             <StaggerItem key={i}>
-              <div className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm">
+              <div className="flex items-center gap-3 p-4 bg-brand-cream rounded-xl border border-brand-light">
                 <CheckCircleIcon className="w-5 h-5 text-brand-primary flex-shrink-0" />
                 <p className="text-sm md:text-base text-text-secondary">{referrer}</p>
               </div>
@@ -135,7 +135,7 @@ export default function ForReferrers() {
         <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
           {whatToExpect.map((item, i) => (
             <StaggerItem key={i}>
-              <div className="bg-white rounded-xl p-5 md:p-6 shadow-sm h-full">
+              <div className="bg-brand-cream rounded-xl p-5 md:p-6 border border-brand-light h-full">
                 <h3 className="font-bold text-text-primary mb-2">{item.title}</h3>
                 <p className="text-sm md:text-base text-text-secondary">{item.description}</p>
               </div>
@@ -170,7 +170,7 @@ export default function ForReferrers() {
         <StaggerContainer staggerDelay={0.1} className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
           {helpfulInfo.map((info, i) => (
             <StaggerItem key={i}>
-              <div className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm">
+              <div className="flex items-center gap-3 p-4 bg-brand-cream rounded-xl border border-brand-light">
                 <CheckCircleIcon className="w-5 h-5 text-brand-primary flex-shrink-0" />
                 <p className="text-text-secondary text-sm md:text-base">{info}</p>
               </div>
@@ -191,7 +191,7 @@ export default function ForReferrers() {
       <Section variant="light" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
-            <div className="flex flex-col sm:flex-row items-start gap-4 p-6 bg-white rounded-2xl shadow-sm">
+            <div className="flex flex-col sm:flex-row items-start gap-4 p-6 bg-brand-cream rounded-2xl border border-brand-light">
               <ShieldIcon className="w-8 h-8 text-brand-primary flex-shrink-0" />
               <div>
                 <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2">

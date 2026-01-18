@@ -142,7 +142,7 @@ export default function Home() {
         <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           <StaggerItem>
             <TiltCard className="h-full">
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full flex flex-col">
+              <div className="bg-brand-cream rounded-2xl p-6 md:p-8 shadow-md border border-brand-light h-full flex flex-col">
                 <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
                   Referrers
                 </h3>
@@ -158,7 +158,7 @@ export default function Home() {
 
           <StaggerItem>
             <TiltCard className="h-full">
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full flex flex-col">
+              <div className="bg-brand-cream rounded-2xl p-6 md:p-8 shadow-md border border-brand-light h-full flex flex-col">
                 <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
                   Donors
                 </h3>
@@ -174,7 +174,7 @@ export default function Home() {
 
           <StaggerItem>
             <TiltCard className="h-full">
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full flex flex-col">
+              <div className="bg-brand-cream rounded-2xl p-6 md:p-8 shadow-md border border-brand-light h-full flex flex-col">
                 <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
                   Grant Writers &amp; Foundations
                 </h3>

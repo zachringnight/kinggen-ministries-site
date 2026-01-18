@@ -13,9 +13,9 @@ interface SectionProps {
 }
 
 const variantStyles: Record<SectionVariant, string> = {
-  default: "bg-white",
-  light: "bg-white",
-  soft: "bg-brand-soft",
+  default: "bg-brand-soft",
+  light: "bg-brand-light",
+  soft: "bg-brand-cream",
   primary: "bg-brand-primary text-white",
   dark: "bg-brand-primary text-white",
 };

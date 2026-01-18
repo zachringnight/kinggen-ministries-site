@@ -90,7 +90,7 @@ export default function DonatePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
           <FadeIn delay={0.1}>
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg h-full">
+            <div className="bg-brand-cream rounded-2xl p-6 md:p-8 shadow-md border border-brand-light h-full">
               <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-3 md:mb-4">
                 Online giving
               </h3>
@@ -110,7 +110,7 @@ export default function DonatePage() {
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg h-full">
+            <div className="bg-brand-cream rounded-2xl p-6 md:p-8 shadow-md border border-brand-light h-full">
               <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-3 md:mb-4">
                 Mail a check
               </h3>

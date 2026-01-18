@@ -202,13 +202,13 @@ label {
   background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 50%, var(--brand-warm) 100%);
 }
 
-/* Section backgrounds - pure white/cream for green text contrast */
+/* Section backgrounds - cream tones for warm, inviting feel */
 .section-light {
-  background: #ffffff;
+  background: #faf8f2;
 }
 
 .section-soft {
-  background: #fffef9;
+  background: #f8f6f0;
 }
 
 /* Quote styling */
