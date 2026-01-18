@@ -46,33 +46,35 @@ export default function Section({
   watermark = "cross",
 }: SectionProps) {
   const isLightSection = ["default", "light", "soft"].includes(variant);
-  const showWatermark = watermark !== "none" && isLightSection;
+  const isGreenSection = ["primary", "dark"].includes(variant);
+  const showCrossWatermark = watermark === "cross" && isLightSection;
+  const showLogoWatermark = watermark === "logo" && isGreenSection;
 
   return (
     <section
       id={id}
       className={`${variantStyles[variant]} ${paddingStyles[padding]} ${className} relative overflow-hidden`}
     >
-      {/* Cross pattern watermark - subtle background */}
-      {showWatermark && watermark === "cross" && (
+      {/* Cross watermark for cream/light sections - using Untitled cross designs */}
+      {showCrossWatermark && (
         <div
-          className="absolute inset-0 bg-no-repeat pointer-events-none opacity-50"
+          className="absolute inset-0 bg-no-repeat pointer-events-none opacity-40"
           style={{
-            backgroundImage: "url('/bg_white_cross.png')",
+            backgroundImage: "url('/Untitled-2.png')",
             backgroundPosition: "left bottom",
-            backgroundSize: "300px auto",
+            backgroundSize: "280px auto",
           }}
           aria-hidden="true"
         />
       )}
 
-      {/* Full logo watermark - centered, very subtle */}
-      {showWatermark && watermark === "logo" && (
+      {/* Full logo watermark for green sections */}
+      {showLogoWatermark && (
         <div
-          className="absolute inset-0 bg-no-repeat bg-center pointer-events-none opacity-[0.035]"
+          className="absolute inset-0 bg-no-repeat bg-center pointer-events-none opacity-[0.06]"
           style={{
             backgroundImage: "url('/logo-full.png')",
-            backgroundSize: "320px auto",
+            backgroundSize: "350px auto",
           }}
           aria-hidden="true"
         />
