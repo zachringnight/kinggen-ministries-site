@@ -96,7 +96,7 @@ export default function Home() {
       </section>
 
       {/* About the Ministry Section */}
-      <Section variant="light" padding="xl" watermarkPosition="bottom-left" watermarkSize="xl">
+      <Section variant="light" padding="xl" watermark="cross">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center px-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 md:mb-6">
@@ -113,7 +113,7 @@ export default function Home() {
       </Section>
 
       {/* What Sets Us Apart - GREEN */}
-      <Section variant="primary" padding="xl" noWatermark>
+      <Section variant="primary" padding="xl" watermark="none">
         <FadeIn>
           <SectionHeader
             title="What sets KingGen apart"
@@ -139,8 +139,8 @@ export default function Home() {
         </StaggerContainer>
       </Section>
 
-      {/* Partner With Us Section - WHITE */}
-      <Section variant="light" padding="xl" watermarkPosition="top-right" watermarkSize="lg">
+      {/* Partner With Us Section */}
+      <Section variant="light" padding="xl" watermark="logo">
         <FadeIn>
           <SectionHeader title="Partner with us" />
         </FadeIn>
@@ -204,10 +204,6 @@ export default function Home() {
           style={{ backgroundImage: "url('/bg-green-alternate.png')" }}
         />
         <div className="absolute inset-0 bg-brand-primary/85" />
-        {/* Logo watermark */}
-        <div className="absolute bottom-0 left-0 -translate-x-1/4 translate-y-1/4 w-80 h-80 md:w-96 md:h-96 pointer-events-none">
-          <Image src="/logo-icon.png" alt="" fill className="object-contain opacity-[0.06]" />
-        </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
@@ -241,8 +237,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Preview Section - WHITE */}
-      <Section variant="light" padding="xl" watermarkPosition="bottom-right" watermarkSize="xl">
+      {/* Testimonials Preview Section */}
+      <Section variant="light" padding="xl" watermark="cross">
         <FadeIn>
           <SectionHeader
             title="What partners say"
@@ -308,10 +304,6 @@ export default function Home() {
           style={{ backgroundImage: "url('/bg_green_texture_1920x1080.png')" }}
         />
         <div className="absolute inset-0 bg-brand-primary/85" />
-        {/* Logo watermark */}
-        <div className="absolute top-0 right-0 translate-x-1/4 -translate-y-1/4 w-64 h-64 md:w-80 md:h-80 pointer-events-none">
-          <Image src="/logo-icon.png" alt="" fill className="object-contain opacity-[0.06]" />
-        </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
@@ -340,11 +332,11 @@ export default function Home() {
       </section>
 
       {/* Closing Invitation Section - GREEN */}
-      <Section variant="primary" padding="xl" noWatermark>
+      <Section variant="primary" padding="xl" watermark="none">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center relative">
-            {/* Decorative stones image */}
-            <div className="absolute -bottom-8 -right-8 w-32 h-32 md:w-40 md:h-40 opacity-[0.1] pointer-events-none">
+            {/* Decorative logo */}
+            <div className="absolute -bottom-8 -right-8 w-32 h-32 md:w-40 md:h-40 opacity-[0.08] pointer-events-none">
               <Image
                 src="/logo-icon.png"
                 alt=""
