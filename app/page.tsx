@@ -73,11 +73,6 @@ export default function Home() {
               </div>
             </FadeIn>
 
-            <FadeIn delay={0.8}>
-              <p className="text-white text-sm">
-                <strong>EIN:</strong> {siteConfig.ein}
-              </p>
-            </FadeIn>
           </div>
         </div>
 
@@ -111,12 +106,13 @@ export default function Home() {
         </FadeIn>
       </Section>
 
-      {/* What Sets Us Apart */}
-      <Section variant="default" padding="xl">
+      {/* What Sets Us Apart - GREEN */}
+      <Section variant="primary" padding="xl" noWatermark>
         <FadeIn>
           <SectionHeader
             title="What sets KingGen apart"
             subtitle="We are a trusted partner for churches, community organizations, and foundations seeking to support women's mental health and spiritual care."
+            light
           />
         </FadeIn>
 
@@ -128,17 +124,17 @@ export default function Home() {
             { icon: CheckCircleIcon, text: "501(c)(3) nonprofit accountability" },
           ].map((item, i) => (
             <StaggerItem key={i}>
-              <div className="flex items-start gap-3 md:gap-4 p-4 md:p-6 bg-brand-light rounded-xl h-full">
-                <item.icon className="w-5 h-5 md:w-6 md:h-6 text-brand-primary flex-shrink-0 mt-0.5" />
-                <p className="text-sm md:text-base text-text-primary font-medium">{item.text}</p>
+              <div className="flex items-start gap-3 md:gap-4 p-4 md:p-6 bg-white/10 backdrop-blur-sm rounded-xl h-full border border-white/20">
+                <item.icon className="w-5 h-5 md:w-6 md:h-6 text-white flex-shrink-0 mt-0.5" />
+                <p className="text-sm md:text-base text-white font-medium">{item.text}</p>
               </div>
             </StaggerItem>
           ))}
         </StaggerContainer>
       </Section>
 
-      {/* Partner With Us Section */}
-      <Section variant="soft" padding="xl">
+      {/* Partner With Us Section - WHITE */}
+      <Section variant="light" padding="xl">
         <FadeIn>
           <SectionHeader title="Partner with us" />
         </FadeIn>
@@ -146,7 +142,7 @@ export default function Home() {
         <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           <StaggerItem>
             <TiltCard className="h-full">
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full flex flex-col">
+              <div className="bg-brand-cream rounded-2xl p-6 md:p-8 shadow-md border border-brand-light h-full flex flex-col">
                 <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
                   Referrers
                 </h3>
@@ -162,7 +158,7 @@ export default function Home() {
 
           <StaggerItem>
             <TiltCard className="h-full">
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full flex flex-col">
+              <div className="bg-brand-cream rounded-2xl p-6 md:p-8 shadow-md border border-brand-light h-full flex flex-col">
                 <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
                   Donors
                 </h3>
@@ -178,7 +174,7 @@ export default function Home() {
 
           <StaggerItem>
             <TiltCard className="h-full">
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full flex flex-col">
+              <div className="bg-brand-cream rounded-2xl p-6 md:p-8 shadow-md border border-brand-light h-full flex flex-col">
                 <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
                   Grant Writers &amp; Foundations
                 </h3>
@@ -235,7 +231,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Preview Section */}
+      {/* Testimonials Preview Section - WHITE */}
       <Section variant="light" padding="xl">
         <FadeIn>
           <SectionHeader
@@ -247,8 +243,8 @@ export default function Home() {
         <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
           <StaggerItem>
             <TiltCard className="h-full" tiltAmount={5}>
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full relative">
-                <QuoteIcon className="absolute top-4 right-4 md:top-6 md:right-6 w-6 h-6 md:w-8 md:h-8 text-brand-accent/20" />
+              <div className="bg-brand-soft rounded-2xl p-6 md:p-8 shadow-md h-full relative border border-brand-light/50">
+                <QuoteIcon className="absolute top-4 right-4 md:top-6 md:right-6 w-6 h-6 md:w-8 md:h-8 text-brand-primary/20" />
                 <p className="text-sm md:text-base text-text-secondary italic mb-4 md:mb-6 leading-relaxed pr-8">
                   &ldquo;As a pastor, I&apos;m grateful for a referral option that is compassionate, discreet, and Gospel-centered. I trust KingGen with the women in our congregation.&rdquo;
                 </p>
@@ -267,8 +263,8 @@ export default function Home() {
 
           <StaggerItem>
             <TiltCard className="h-full" tiltAmount={5}>
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full relative">
-                <QuoteIcon className="absolute top-4 right-4 md:top-6 md:right-6 w-6 h-6 md:w-8 md:h-8 text-brand-accent/20" />
+              <div className="bg-brand-soft rounded-2xl p-6 md:p-8 shadow-md h-full relative border border-brand-light/50">
+                <QuoteIcon className="absolute top-4 right-4 md:top-6 md:right-6 w-6 h-6 md:w-8 md:h-8 text-brand-primary/20" />
                 <p className="text-sm md:text-base text-text-secondary italic mb-4 md:mb-6 leading-relaxed pr-8">
                   &ldquo;Communication has been clear and respectful. I&apos;m grateful for a place to refer women who need support and privacy.&rdquo;
                 </p>
@@ -288,19 +284,19 @@ export default function Home() {
 
         <FadeIn delay={0.3}>
           <div className="text-center mt-8 md:mt-10">
-            <Button href="/testimonials" variant="outline" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+            <Button href="/testimonials" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
               Read Testimonials
             </Button>
           </div>
         </FadeIn>
       </Section>
 
-      {/* Closing Invitation Section */}
-      <Section variant="default" padding="xl">
+      {/* Closing Invitation Section - GREEN */}
+      <Section variant="primary" padding="xl" noWatermark>
         <FadeIn>
-          <div className="bg-gradient-to-br from-brand-light to-brand-soft rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 text-center max-w-4xl mx-auto relative overflow-hidden">
-            {/* Decorative stones image - contained within bounds */}
-            <div className="absolute bottom-4 right-4 w-24 h-24 md:w-32 md:h-32 opacity-[0.08] pointer-events-none">
+          <div className="max-w-3xl mx-auto text-center relative">
+            {/* Decorative stones image */}
+            <div className="absolute -bottom-8 -right-8 w-32 h-32 md:w-40 md:h-40 opacity-[0.1] pointer-events-none">
               <Image
                 src="/logo-icon.png"
                 alt=""
@@ -310,14 +306,14 @@ export default function Home() {
             </div>
 
             <div className="relative z-10">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 md:mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 md:mb-6">
                 Ready to partner with us?
               </h2>
-              <p className="text-base sm:text-lg text-text-secondary mb-6 md:mb-8 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg text-white/90 mb-6 md:mb-8 leading-relaxed max-w-2xl mx-auto">
                 Whether you&apos;re making a referral, considering a donation, or exploring grant opportunities, we&apos;d love to connect.
               </p>
               <Magnetic>
-                <Button href="/contact" variant="primary" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                <Button href="/contact" variant="white" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
                   Contact Us
                 </Button>
               </Magnetic>

@@ -24,13 +24,13 @@ export default function GetSupport() {
   const steps = [
     {
       number: "1",
-      title: "Reach out",
-      description: "Send a brief message using our contact form, email, or phone.",
+      title: "Your referrer reaches out",
+      description: "The pastor, counselor, or trusted person who shared this page contacts us on your behalf, or encourages you to reach out directly.",
     },
     {
       number: "2",
       title: "We follow up",
-      description: "We'll respond and help clarify next steps.",
+      description: "We'll respond and help clarify next steps together.",
     },
     {
       number: "3",
@@ -53,10 +53,10 @@ export default function GetSupport() {
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center text-white">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
-                Get Support
+                Information for Clients
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
-                If you&apos;re here, something may feel heavy. You may feel overwhelmed, discouraged, anxious, or simply exhausted. You are not alone.
+                If someone you trust shared this page with you, it&apos;s because they care about your well-being. You are not alone.
               </p>
             </div>
           </FadeIn>
@@ -68,20 +68,20 @@ export default function GetSupport() {
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center px-2">
             <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
-              KingGen Ministries offers Gospel-centered counseling for women in need. Counseling is offered at no cost, supported by donations.
+              KingGen Ministries offers Gospel-centered counseling for women in need. Counseling is offered at no cost through referrals from pastors, counselors, and trusted community partners.
             </p>
           </div>
         </FadeIn>
       </Section>
 
       {/* What to Expect Section */}
-      <Section variant="default" padding="xl">
+      <Section variant="primary" padding="xl" noWatermark>
         <FadeIn>
           <div className="max-w-3xl mx-auto px-2">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 md:mb-6 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 md:mb-6 text-center">
               What to expect
             </h2>
-            <p className="text-base sm:text-lg text-text-secondary leading-relaxed text-center">
+            <p className="text-base sm:text-lg text-white/90 leading-relaxed text-center">
               Counseling is a place to slow down, tell the truth about what you&apos;re carrying, and take steady steps forward with hope and wisdom. You will be met with compassion and respect, at a pace that feels manageable.
             </p>
           </div>
@@ -89,14 +89,14 @@ export default function GetSupport() {
       </Section>
 
       {/* Reasons Section */}
-      <Section variant="soft" padding="xl">
+      <Section variant="light" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto px-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-3 md:mb-4 text-center">
               You don&apos;t have to have the perfect words
             </h2>
             <p className="text-base sm:text-lg text-text-secondary mb-6 md:mb-8 text-center">
-              Women reach out for many reasons, including:
+              Women are referred for many reasons, including:
             </p>
           </div>
         </FadeIn>
@@ -104,26 +104,20 @@ export default function GetSupport() {
         <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
           {reasons.map((reason, i) => (
             <StaggerItem key={i}>
-              <div className="flex items-start gap-3 p-3 md:p-4 bg-white rounded-xl shadow-sm">
+              <div className="flex items-start gap-3 p-3 md:p-4 bg-brand-cream rounded-xl border border-brand-light">
                 <CheckCircleIcon className="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" />
                 <p className="text-sm md:text-base text-text-secondary">{reason}</p>
               </div>
             </StaggerItem>
           ))}
         </StaggerContainer>
-
-        <FadeIn delay={0.3}>
-          <p className="text-center text-text-muted mt-6 md:mt-8 max-w-2xl mx-auto text-sm md:text-base px-2">
-            If you&apos;re unsure whether this is a fit, you&apos;re welcome to reach out anyway.
-          </p>
-        </FadeIn>
       </Section>
 
       {/* How to Begin Section */}
-      <Section variant="default" padding="xl">
+      <Section variant="primary" padding="xl" noWatermark>
         <FadeIn>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-8 md:mb-12 text-center">
-            How to begin
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-8 md:mb-12 text-center">
+            How it works
           </h2>
         </FadeIn>
 
@@ -131,37 +125,26 @@ export default function GetSupport() {
           {steps.map((step, i) => (
             <StaggerItem key={i}>
               <div className="text-center">
-                <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-brand-primary text-white text-xl md:text-2xl font-bold flex items-center justify-center mx-auto mb-3 md:mb-4">
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/20 text-white text-xl md:text-2xl font-bold flex items-center justify-center mx-auto mb-3 md:mb-4 border border-white/30">
                   {step.number}
                 </div>
-                <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2">
+                <h3 className="text-lg md:text-xl font-bold font-heading text-white mb-2">
                   {step.title}
                 </h3>
-                <p className="text-sm md:text-base text-text-secondary">
+                <p className="text-sm md:text-base text-white/80">
                   {step.description}
                 </p>
               </div>
             </StaggerItem>
           ))}
         </StaggerContainer>
-
-        <FadeIn delay={0.4}>
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mt-8 md:mt-12">
-            <Button href="/contact" variant="primary" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right" className="w-full sm:w-auto">
-              Contact
-            </Button>
-            <Button href="/forms" variant="outline" size="lg" className="w-full sm:w-auto">
-              Forms
-            </Button>
-          </div>
-        </FadeIn>
       </Section>
 
       {/* Privacy Section */}
       <Section variant="light" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
-            <div className="flex flex-col sm:flex-row items-start gap-4 p-4 md:p-6 bg-white rounded-2xl shadow-sm">
+            <div className="flex flex-col sm:flex-row items-start gap-4 p-4 md:p-6 bg-brand-cream rounded-2xl border border-brand-light">
               <ShieldIcon className="w-6 h-6 md:w-8 md:h-8 text-brand-primary flex-shrink-0" />
               <div>
                 <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2">
@@ -179,8 +162,25 @@ export default function GetSupport() {
         </FadeIn>
       </Section>
 
+      {/* For Referrers Note */}
+      <Section variant="primary" padding="lg" noWatermark>
+        <FadeIn>
+          <div className="max-w-3xl mx-auto text-center">
+            <h3 className="text-lg md:text-xl font-bold font-heading text-white mb-3">
+              Are you a referrer?
+            </h3>
+            <p className="text-white/90 mb-6">
+              If you&apos;re a pastor, counselor, or community professional looking to refer someone, visit our referrer page for more information.
+            </p>
+            <Button href="/for-referrers" variant="white" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+              For Referrers
+            </Button>
+          </div>
+        </FadeIn>
+      </Section>
+
       {/* Crisis Note Section */}
-      <Section variant="default" padding="lg">
+      <Section variant="light" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto bg-red-50 border border-red-200 rounded-2xl p-4 md:p-6">
             <p className="text-red-800 text-center text-sm md:text-base">

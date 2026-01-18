@@ -32,8 +32,8 @@ export const navLinks = [
 ];
 
 export const footerLinks = [
-  { href: "/get-support", label: "Get Support" },
-  { href: "/forms", label: "Resources" },
-  { href: "/privacy", label: "Privacy and Confidentiality" },
+  { href: "/get-support", label: "Client Information" },
+  { href: "/forms", label: "Forms & Resources" },
+  { href: "/privacy", label: "Privacy" },
   { href: "/disclaimer", label: "Disclaimer" },
 ];

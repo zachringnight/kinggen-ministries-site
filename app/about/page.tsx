@@ -56,17 +56,17 @@ export default function AboutPage() {
         </FadeIn>
       </Section>
 
-      {/* Heart and Approach Section */}
-      <Section variant="default" padding="xl">
+      {/* Heart and Approach Section - GREEN */}
+      <Section variant="primary" padding="xl" noWatermark>
         <FadeIn>
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-6 text-center">
               Our heart and approach
             </h2>
-            <p className="text-lg text-text-secondary mb-8 text-center leading-relaxed">
+            <p className="text-lg text-white/90 mb-8 text-center leading-relaxed">
               We believe the Gospel brings hope, truth, and healing. Counseling is a place to bring what feels heavy into the light, to be met with compassion, and to take wise steps forward.
             </p>
-            <p className="text-lg text-text-secondary mb-6 text-center">
+            <p className="text-lg text-white mb-6 text-center">
               You can expect:
             </p>
           </div>
@@ -75,17 +75,17 @@ export default function AboutPage() {
         <StaggerContainer staggerDelay={0.1} className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
           {expectations.map((item, i) => (
             <StaggerItem key={i}>
-              <div className="flex items-center gap-3 p-4 bg-brand-light rounded-xl">
-                <CheckCircleIcon className="w-5 h-5 text-brand-primary flex-shrink-0" />
-                <p className="text-text-primary">{item}</p>
+              <div className="flex items-center gap-3 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                <CheckCircleIcon className="w-5 h-5 text-white flex-shrink-0" />
+                <p className="text-white">{item}</p>
               </div>
             </StaggerItem>
           ))}
         </StaggerContainer>
       </Section>
 
-      {/* For Referrers CTA */}
-      <Section variant="soft" padding="lg">
+      {/* For Referrers CTA - WHITE */}
+      <Section variant="light" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold font-heading text-text-primary mb-4">
@@ -101,17 +101,17 @@ export default function AboutPage() {
         </FadeIn>
       </Section>
 
-      {/* Speaking Requests */}
-      <Section variant="default" padding="lg">
+      {/* Speaking Requests - GREEN */}
+      <Section variant="primary" padding="lg" noWatermark>
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold font-heading text-text-primary mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold font-heading text-white mb-4">
               Speaking and ministry requests
             </h2>
-            <p className="text-lg text-text-secondary mb-8">
+            <p className="text-lg text-white/90 mb-8">
               If you&apos;d like KingGen to speak to your church or group, contact us with details and availability.
             </p>
-            <Button href="/contact" variant="outline" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+            <Button href="/contact" variant="white" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
               Contact
             </Button>
           </div>
