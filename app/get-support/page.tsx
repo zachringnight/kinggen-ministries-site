@@ -179,16 +179,6 @@ export default function GetSupport() {
         </FadeIn>
       </Section>
 
-      {/* Crisis Note Section */}
-      <Section variant="light" padding="lg">
-        <FadeIn>
-          <div className="max-w-3xl mx-auto bg-red-50 border border-red-200 rounded-2xl p-4 md:p-6">
-            <p className="text-red-800 text-center text-sm md:text-base">
-              <strong>KingGen Ministries is not an emergency service.</strong> If you are in immediate danger, call <strong>911</strong>. If you are experiencing thoughts of self-harm, call or text <strong>988</strong> (United States).
-            </p>
-          </div>
-        </FadeIn>
-      </Section>
     </>
   );
 }
