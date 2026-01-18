@@ -96,7 +96,7 @@ export default function Home() {
       </section>
 
       {/* About the Ministry Section */}
-      <Section variant="light" padding="xl">
+      <Section variant="light" padding="xl" watermarkPosition="bottom-left" watermarkSize="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center px-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 md:mb-6">
@@ -140,7 +140,7 @@ export default function Home() {
       </Section>
 
       {/* Partner With Us Section - WHITE */}
-      <Section variant="light" padding="xl">
+      <Section variant="light" padding="xl" watermarkPosition="top-right" watermarkSize="lg">
         <FadeIn>
           <SectionHeader title="Partner with us" />
         </FadeIn>
@@ -204,6 +204,10 @@ export default function Home() {
           style={{ backgroundImage: "url('/bg-green-alternate.png')" }}
         />
         <div className="absolute inset-0 bg-brand-primary/85" />
+        {/* Logo watermark */}
+        <div className="absolute bottom-0 left-0 -translate-x-1/4 translate-y-1/4 w-80 h-80 md:w-96 md:h-96 pointer-events-none">
+          <Image src="/logo-icon.png" alt="" fill className="object-contain opacity-[0.06]" />
+        </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
@@ -238,7 +242,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Preview Section - WHITE */}
-      <Section variant="light" padding="xl">
+      <Section variant="light" padding="xl" watermarkPosition="bottom-right" watermarkSize="xl">
         <FadeIn>
           <SectionHeader
             title="What partners say"
@@ -304,6 +308,10 @@ export default function Home() {
           style={{ backgroundImage: "url('/bg_green_texture_1920x1080.png')" }}
         />
         <div className="absolute inset-0 bg-brand-primary/85" />
+        {/* Logo watermark */}
+        <div className="absolute top-0 right-0 translate-x-1/4 -translate-y-1/4 w-64 h-64 md:w-80 md:h-80 pointer-events-none">
+          <Image src="/logo-icon.png" alt="" fill className="object-contain opacity-[0.06]" />
+        </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
