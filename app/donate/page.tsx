@@ -1,330 +1,155 @@
-import type { Metadata } from "next";
+"use client";
+
+import { siteConfig } from "../config/site";
 import {
-  PageHero,
   Section,
-  SectionHeader,
   Button,
   HeartIcon,
-  CheckCircleIcon,
-  GiftIcon,
-  UsersIcon,
-  SparklesIcon,
-  ShieldIcon,
+  MailIcon,
+  FadeIn,
+  StaggerContainer,
+  StaggerItem,
+  TiltCard,
 } from "../components";
-import { siteConfig } from "../config/site";
-
-export const metadata: Metadata = {
-  title: "Donate",
-  description:
-    "Support KingGen Ministries with a tax-deductible donation. Your generosity helps us provide free counseling services to women in need.",
-};
-
-const impactTiers = [
-  {
-    amount: "$25",
-    title: "Provides Resources",
-    description: "Supplies materials and resources for counseling sessions",
-    icon: <GiftIcon className="w-6 h-6" />,
-  },
-  {
-    amount: "$50",
-    title: "One Session",
-    description: "Funds one complete counseling session for a woman in need",
-    icon: <HeartIcon className="w-6 h-6" />,
-    featured: true,
-  },
-  {
-    amount: "$100",
-    title: "Multiple Sessions",
-    description: "Provides ongoing counseling support over several weeks",
-    icon: <UsersIcon className="w-6 h-6" />,
-  },
-  {
-    amount: "$250",
-    title: "Monthly Support",
-    description: "Sustains free counseling services for an entire month",
-    icon: <SparklesIcon className="w-6 h-6" />,
-  },
-];
-
-const benefits = [
-  "100% of donations directly support counseling services",
-  "All gifts are tax-deductible",
-  "Regular updates on ministry impact",
-  "Recognition in our annual report (optional)",
-];
 
 export default function DonatePage() {
+  const impactLevels = [
+    { amount: "$25", description: "supports resources and materials" },
+    { amount: "$50", description: "helps sustain weekly care" },
+    { amount: "$100", description: "strengthens monthly capacity" },
+    { amount: "$250+", description: "helps expand access for women in need" },
+  ];
+
   return (
     <>
-      <PageHero
-        title="Support Our Ministry"
-        description="Your generosity makes free counseling possible for women who need it most."
-      />
+      {/* Hero Section with Background */}
+      <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/bg-green-alternate.png')" }}
+        />
+        <div className="absolute inset-0 bg-brand-primary/85" />
 
-      {/* Main Donation Section */}
-      <Section variant="light" padding="xl">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left Column - Why Give */}
-          <div>
-            <div className="decorative-line mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6">
-              Why Your Gift Matters
-            </h2>
-            <p className="text-lg text-text-secondary mb-6 leading-relaxed">
-              At KingGen Ministries, we believe that financial barriers should never prevent a woman
-              from receiving the help she needs. Your generous donation makes it possible for us to
-              provide professional, Gospel-centered clinical pastoral counseling completely free of
-              charge.
-            </p>
-            <p className="text-lg text-text-secondary mb-8 leading-relaxed">
-              Every gift—no matter the size—directly impacts the lives of women seeking hope and
-              healing during their most challenging moments.
-            </p>
-
-            {/* Benefits */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-8">
-              <h3 className="font-bold font-heading text-text-primary mb-4 flex items-center gap-2">
-                <ShieldIcon className="w-5 h-5 text-brand-accent" />
-                Your Donation Benefits
-              </h3>
-              <ul className="space-y-3">
-                {benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <CheckCircleIcon className="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" />
-                    <span className="text-text-secondary">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Nonprofit Status */}
-            <div className="bg-brand-soft rounded-2xl p-6">
-              <p className="text-text-secondary text-sm">
-                <strong className="text-text-primary">{siteConfig.name}</strong> is a registered
-                501(c)(3) nonprofit organization. All donations are tax-deductible to the full extent
-                allowed by law. You will receive a receipt for your records.
+        <div className="relative z-10 container mx-auto px-4 sm:px-6">
+          <FadeIn>
+            <div className="max-w-3xl mx-auto text-center text-white">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
+                Help keep counseling free
+              </h1>
+              <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
+                KingGen Ministries provides Gospel-centered counseling for women in need. Counseling is offered at no cost. Donations allow us to continue offering care and expanding access for women who need support.
               </p>
             </div>
-          </div>
-
-          {/* Right Column - Donation CTA */}
-          <div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 text-center">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-brand-accent to-brand-primary flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <HeartIcon className="w-10 h-10 text-white" />
-              </div>
-
-              <h3 className="text-2xl font-bold font-heading text-text-primary mb-4">
-                Give Securely Online
-              </h3>
-
-              <p className="text-text-secondary mb-8">
-                Make a one-time gift or set up recurring monthly donations through our secure
-                donation platform.
-              </p>
-
-              <Button
-                href={siteConfig.donorboxPageUrl}
-                variant="accent"
-                size="lg"
-                fullWidth
-                external
-                icon={<HeartIcon className="w-5 h-5" />}
-              >
-                Donate Now
-              </Button>
-
-              <p className="text-sm text-text-muted mt-4">
-                You&apos;ll be redirected to our secure Donorbox page
-              </p>
-
-              {/* Trust badges */}
-              <div className="flex items-center justify-center gap-4 mt-8 pt-6 border-t border-gray-100">
-                <div className="flex items-center gap-2 text-text-muted text-sm">
-                  <ShieldIcon className="w-4 h-4" />
-                  <span>Secure</span>
-                </div>
-                <div className="flex items-center gap-2 text-text-muted text-sm">
-                  <CheckCircleIcon className="w-4 h-4" />
-                  <span>Tax-Deductible</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Monthly Giving */}
-            <div className="bg-brand-light rounded-2xl p-6 mt-6 text-center">
-              <h4 className="font-bold font-heading text-text-primary mb-2">
-                Consider Monthly Giving
-              </h4>
-              <p className="text-text-secondary text-sm">
-                Recurring donations help us plan ahead and serve more women consistently throughout
-                the year.
-              </p>
-            </div>
-          </div>
+          </FadeIn>
         </div>
+      </section>
+
+      {/* Thank You Message */}
+      <Section variant="light" padding="lg">
+        <FadeIn>
+          <div className="max-w-3xl mx-auto text-center px-2">
+            <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
+              Thank you for considering giving. Your generosity helps remove barriers and makes space for hope, healing, and steady next steps.
+            </p>
+          </div>
+        </FadeIn>
       </Section>
 
       {/* Impact Section */}
       <Section variant="default" padding="xl">
-        <SectionHeader
-          title="Your Impact"
-          subtitle="See how your donation directly supports women in need."
-        />
+        <FadeIn>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 md:mb-8 text-center">
+            Your gift makes this possible
+          </h2>
+          <p className="text-base sm:text-lg text-text-secondary mb-8 md:mb-12 text-center max-w-2xl mx-auto px-2">
+            Your donation helps sustain counseling availability and the practical needs that support this work.
+          </p>
+        </FadeIn>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {impactTiers.map((tier) => (
-            <div
-              key={tier.amount}
-              className={`rounded-2xl p-6 text-center card-hover ${
-                tier.featured
-                  ? "bg-gradient-to-br from-brand-primary to-brand-secondary text-white shadow-xl shadow-brand-primary/20 ring-4 ring-brand-accent/30"
-                  : "bg-white shadow-sm border border-gray-100"
-              }`}
-            >
-              <div
-                className={`w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4 ${
-                  tier.featured
-                    ? "bg-white/20 text-white"
-                    : "bg-brand-light text-brand-primary"
-                }`}
-              >
-                {tier.icon}
-              </div>
-
-              <p
-                className={`text-3xl font-bold font-heading mb-2 ${
-                  tier.featured ? "text-white" : "text-brand-accent"
-                }`}
-              >
-                {tier.amount}
-              </p>
-
-              <h3
-                className={`font-bold font-heading mb-2 ${
-                  tier.featured ? "text-white" : "text-text-primary"
-                }`}
-              >
-                {tier.title}
-              </h3>
-
-              <p
-                className={`text-sm ${
-                  tier.featured ? "text-white/80" : "text-text-secondary"
-                }`}
-              >
-                {tier.description}
-              </p>
-            </div>
+        <StaggerContainer staggerDelay={0.1} className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 max-w-5xl mx-auto">
+          {impactLevels.map((level, i) => (
+            <StaggerItem key={i}>
+              <TiltCard className="h-full">
+                <div className="bg-brand-light rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center h-full">
+                  <p className="text-2xl sm:text-3xl font-bold text-brand-primary mb-1 sm:mb-2">{level.amount}</p>
+                  <p className="text-xs sm:text-sm md:text-base text-text-secondary">{level.description}</p>
+                </div>
+              </TiltCard>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </Section>
 
-      {/* Other Ways to Give */}
+      {/* Ways to Give Section */}
       <Section variant="soft" padding="xl">
-        <SectionHeader
-          title="Other Ways to Give"
-          subtitle="There are many ways to support our ministry beyond online donations."
-        />
-
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-            <div className="w-12 h-12 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center mb-6">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-bold font-heading text-text-primary mb-3">
-              By Mail
-            </h3>
-            <p className="text-text-secondary mb-4">
-              Send a check payable to KingGen Ministries. Contact us for our mailing address.
-            </p>
-            <Button href="/contact" variant="ghost" size="sm">
-              Get Address
-            </Button>
-          </div>
-
-          <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-            <div className="w-12 h-12 rounded-xl bg-brand-accent/10 text-brand-accent flex items-center justify-center mb-6">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-bold font-heading text-text-primary mb-3">
-              Monthly Partnership
-            </h3>
-            <p className="text-text-secondary mb-4">
-              Become a sustaining partner with automatic monthly donations that provide consistent support.
-            </p>
-            <Button href={siteConfig.donorboxPageUrl} variant="ghost" size="sm" external>
-              Set Up Monthly
-            </Button>
-          </div>
-
-          <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-            <div className="w-12 h-12 rounded-xl bg-brand-secondary/10 text-brand-secondary flex items-center justify-center mb-6">
-              <GiftIcon className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-bold font-heading text-text-primary mb-3">
-              In-Kind Donations
-            </h3>
-            <p className="text-text-secondary mb-4">
-              Donate supplies, services, or other resources that support our ministry operations.
-            </p>
-            <Button href="/contact" variant="ghost" size="sm">
-              Contact Us
-            </Button>
-          </div>
-        </div>
-      </Section>
-
-      {/* Impact Stats */}
-      <Section variant="primary" padding="xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-white mb-4">
-            Together, We&apos;re Making a Difference
+        <FadeIn>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-8 md:mb-12 text-center">
+            Ways to give
           </h2>
-          <p className="text-xl text-white/80 max-w-2xl mx-auto">
-            Your support joins a community of generous donors helping women find hope and healing.
-          </p>
-        </div>
+        </FadeIn>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="text-center p-6">
-            <p className="text-5xl md:text-6xl font-bold font-heading text-white mb-2">500+</p>
-            <p className="text-white/80">Women Served</p>
-          </div>
-          <div className="text-center p-6">
-            <p className="text-5xl md:text-6xl font-bold font-heading text-white mb-2">1000+</p>
-            <p className="text-white/80">Sessions Provided</p>
-          </div>
-          <div className="text-center p-6">
-            <p className="text-5xl md:text-6xl font-bold font-heading text-white mb-2">100%</p>
-            <p className="text-white/80">Free Services</p>
-          </div>
-          <div className="text-center p-6">
-            <p className="text-5xl md:text-6xl font-bold font-heading text-white mb-2">10+</p>
-            <p className="text-white/80">Years of Ministry</p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+          <FadeIn delay={0.1}>
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg h-full">
+              <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-3 md:mb-4">
+                Online giving
+              </h3>
+              <p className="text-sm md:text-base text-text-secondary mb-4 md:mb-6">
+                Give securely through PayPal.
+              </p>
+              <Button
+                href={siteConfig.paypalUrl}
+                variant="accent"
+                size="lg"
+                fullWidth
+                icon={<HeartIcon className="w-5 h-5" />}
+              >
+                Donate via PayPal
+              </Button>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.2}>
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg h-full">
+              <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-3 md:mb-4">
+                Mail a check
+              </h3>
+              <p className="text-sm md:text-base text-text-secondary mb-3 md:mb-4">
+                Payable to: <strong>KingGen Ministries</strong>
+              </p>
+              <address className="text-sm md:text-base text-text-secondary not-italic leading-relaxed">
+                {siteConfig.address.line1}<br />
+                {siteConfig.address.line2}<br />
+                {siteConfig.address.line3}<br />
+                {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
+              </address>
+            </div>
+          </FadeIn>
         </div>
       </Section>
 
-      {/* Final CTA */}
+      {/* Tax Deductible Section */}
       <Section variant="default" padding="lg">
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold font-heading text-text-primary mb-4">
-            Questions About Giving?
-          </h2>
-          <p className="text-lg text-text-secondary mb-8">
-            We&apos;re happy to answer any questions you have about donations, tax receipts, or other ways
-            to support our ministry.
-          </p>
-          <Button href="/contact" variant="outline" size="lg">
-            Contact Us
-          </Button>
-        </div>
+        <FadeIn>
+          <div className="max-w-3xl mx-auto bg-brand-light rounded-2xl p-6 md:p-8 text-center">
+            <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-3 md:mb-4">
+              Tax-deductible giving
+            </h3>
+            <p className="text-sm md:text-base text-text-secondary mb-2">
+              KingGen Ministries is a <strong>501(c)(3)</strong>. Donations are tax deductible as allowed by law.
+            </p>
+            <p className="text-text-primary font-semibold mb-4 md:mb-6">
+              EIN: {siteConfig.ein}
+            </p>
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="inline-flex items-center gap-2 text-brand-primary hover:text-brand-secondary transition-colors text-sm md:text-base"
+            >
+              <MailIcon className="w-4 h-4 md:w-5 md:h-5" />
+              <span>Donor questions: {siteConfig.email}</span>
+            </a>
+          </div>
+        </FadeIn>
       </Section>
     </>
   );

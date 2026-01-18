@@ -3,55 +3,45 @@
 import Link from "next/link";
 import { useState } from "react";
 import { MenuIcon, XIcon } from "./Icons";
-import Button from "./Button";
 import Logo from "./Logo";
-
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Contact", href: "/contact" },
-];
+import { navLinks } from "../config/site";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
-      <nav className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+      <nav className="container mx-auto px-3 sm:px-4 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20">
+          {/* Logo - sized to fit header */}
           <Link
             href="/"
-            className="text-brand-primary hover:text-brand-secondary transition-colors"
+            className="text-brand-primary hover:text-brand-secondary transition-colors flex-shrink-0"
           >
-            <Logo size="md" />
+            <Logo size="sm" variant="horizontal" />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            <ul className="flex items-center gap-6">
-              {navigation.map((item) => (
-                <li key={item.name}>
+          <div className="hidden lg:flex items-center gap-6">
+            <ul className="flex items-center gap-4 xl:gap-5">
+              {navLinks.map((item) => (
+                <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-text-secondary hover:text-brand-primary font-medium transition-colors relative group py-2"
+                    className="text-text-secondary hover:text-brand-primary font-medium transition-colors relative group py-2 text-sm whitespace-nowrap"
                   >
-                    {item.name}
+                    {item.label}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-accent group-hover:w-full transition-all duration-300" />
                   </Link>
                 </li>
               ))}
             </ul>
-            <Button href="/donate" variant="accent" size="sm">
-              Donate
-            </Button>
           </div>
 
           {/* Mobile menu button */}
           <button
             type="button"
-            className="lg:hidden p-2 text-text-secondary hover:text-brand-primary transition-colors"
+            className="lg:hidden p-2 -mr-2 text-text-secondary hover:text-brand-primary transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
@@ -63,32 +53,24 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - full screen overlay */}
         {mobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-gray-100">
-            <ul className="flex flex-col gap-2">
-              {navigation.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="block py-3 px-4 text-text-secondary hover:text-brand-primary hover:bg-brand-light rounded-lg font-medium transition-all"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-              <li className="pt-2">
-                <Button
-                  href="/donate"
-                  variant="accent"
-                  fullWidth
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Donate
-                </Button>
-              </li>
-            </ul>
+          <div className="lg:hidden fixed inset-x-0 top-16 sm:top-20 bottom-0 bg-white z-50 overflow-y-auto">
+            <div className="container mx-auto px-4 py-4">
+              <ul className="flex flex-col gap-1">
+                {navLinks.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="block py-4 px-4 text-text-primary hover:text-brand-primary hover:bg-brand-light rounded-xl font-medium transition-all text-lg"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         )}
       </nav>

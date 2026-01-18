@@ -25,13 +25,13 @@ const variantStyles: Record<ButtonVariant, string> = {
   secondary:
     "bg-brand-secondary text-white hover:bg-brand-primary shadow-lg shadow-brand-secondary/25",
   accent:
-    "bg-brand-accent text-white hover:bg-brand-accent/90 shadow-lg shadow-brand-accent/25",
+    "bg-brand-accent text-brand-primary hover:bg-brand-accent/80 shadow-lg shadow-brand-accent/25",
   outline:
     "border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white",
   ghost:
     "text-brand-primary hover:bg-brand-light",
   white:
-    "bg-white text-brand-primary hover:bg-gray-50 shadow-lg",
+    "bg-white text-brand-primary hover:bg-brand-soft shadow-lg",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
