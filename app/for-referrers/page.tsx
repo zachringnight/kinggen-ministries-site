@@ -124,25 +124,33 @@ export default function ForReferrers() {
         </FadeIn>
       </Section>
 
-      {/* What to Expect */}
-      <Section variant="soft" padding="xl">
-        <FadeIn>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-8 text-center">
-            What referrers can expect
-          </h2>
-        </FadeIn>
+      {/* What to Expect - GREEN with texture */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/bg_green_texture_1920x1080.png')" }}
+        />
+        <div className="absolute inset-0 bg-brand-primary/85" />
 
-        <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
-          {whatToExpect.map((item, i) => (
-            <StaggerItem key={i}>
-              <div className="bg-brand-cream rounded-xl p-5 md:p-6 border border-brand-light h-full">
-                <h3 className="font-bold text-text-primary mb-2">{item.title}</h3>
-                <p className="text-sm md:text-base text-text-secondary">{item.description}</p>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </Section>
+        <div className="relative z-10 container mx-auto px-4 sm:px-6">
+          <FadeIn>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-8 text-center">
+              What referrers can expect
+            </h2>
+          </FadeIn>
+
+          <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
+            {whatToExpect.map((item, i) => (
+              <StaggerItem key={i}>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-white/20 h-full">
+                  <h3 className="font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-sm md:text-base text-white/80">{item.description}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
 
       {/* How to Refer Section */}
       <Section variant="default" padding="xl">
@@ -206,27 +214,35 @@ export default function ForReferrers() {
         </FadeIn>
       </Section>
 
-      {/* Partner CTA */}
-      <Section variant="default" padding="xl">
-        <FadeIn>
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
-              Partner with us
-            </h2>
-            <p className="text-base sm:text-lg text-text-secondary mb-8">
-              If you&apos;d like to establish an ongoing referral relationship or learn more about how KingGen can serve your community, we&apos;d love to connect.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href="/contact" variant="primary" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-                Contact Us
-              </Button>
-              <Button href="/donate" variant="outline" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
-                Support the Mission
-              </Button>
+      {/* Partner CTA - GREEN with texture */}
+      <section className="relative py-16 md:py-20 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/bg-green-alternate.png')" }}
+        />
+        <div className="absolute inset-0 bg-brand-primary/90" />
+
+        <div className="relative z-10 container mx-auto px-4 sm:px-6">
+          <FadeIn>
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4">
+                Partner with us
+              </h2>
+              <p className="text-base sm:text-lg text-white/90 mb-8">
+                If you&apos;d like to establish an ongoing referral relationship or learn more about how KingGen can serve your community, we&apos;d love to connect.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button href="/contact" variant="white" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                  Contact Us
+                </Button>
+                <Button href="/donate" variant="outline" size="lg" icon={<HeartIcon className="w-5 h-5" />} className="border-white/40 text-white hover:bg-white/10">
+                  Support the Mission
+                </Button>
+              </div>
             </div>
-          </div>
-        </FadeIn>
-      </Section>
+          </FadeIn>
+        </div>
+      </section>
     </>
   );
 }
