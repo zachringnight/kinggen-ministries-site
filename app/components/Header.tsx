@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { MenuIcon, XIcon } from "./Icons";
-import Logo from "./Logo";
+import Logo, { LogoIcon } from "./Logo";
 import { navLinks } from "../config/site";
 
 export default function Header() {
@@ -12,13 +12,20 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
       <nav className="container mx-auto px-3 sm:px-4 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo - sized to fit header */}
+        <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
+          {/* Logo - responsive: icon on tiny screens, horizontal on larger */}
           <Link
             href="/"
             className="text-brand-primary hover:text-brand-secondary transition-colors flex-shrink-0"
           >
-            <Logo size="sm" variant="horizontal" />
+            {/* Icon logo for very small screens */}
+            <span className="sm:hidden">
+              <LogoIcon size={32} />
+            </span>
+            {/* Horizontal logo for larger screens */}
+            <span className="hidden sm:block">
+              <Logo size="sm" variant="horizontal" />
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -55,7 +62,7 @@ export default function Header() {
 
         {/* Mobile Navigation - full screen overlay */}
         {mobileMenuOpen && (
-          <div className="lg:hidden fixed inset-x-0 top-16 sm:top-20 bottom-0 bg-white z-50 overflow-y-auto">
+          <div className="lg:hidden fixed inset-x-0 top-14 sm:top-16 md:top-20 bottom-0 bg-white z-50 overflow-y-auto">
             <div className="container mx-auto px-4 py-4">
               <ul className="flex flex-col gap-1">
                 {navLinks.map((item) => (

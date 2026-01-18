@@ -55,13 +55,13 @@ export default function DonatePage() {
         </FadeIn>
       </Section>
 
-      {/* Impact Section */}
-      <Section variant="default" padding="xl">
+      {/* Impact Section - GREEN */}
+      <Section variant="primary" padding="xl" noWatermark>
         <FadeIn>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 md:mb-8 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-6 md:mb-8 text-center">
             Your gift makes this possible
           </h2>
-          <p className="text-base sm:text-lg text-text-secondary mb-8 md:mb-12 text-center max-w-2xl mx-auto px-2">
+          <p className="text-base sm:text-lg text-white/90 mb-8 md:mb-12 text-center max-w-2xl mx-auto px-2">
             Your donation helps sustain counseling availability and the practical needs that support this work.
           </p>
         </FadeIn>
@@ -70,9 +70,9 @@ export default function DonatePage() {
           {impactLevels.map((level, i) => (
             <StaggerItem key={i}>
               <TiltCard className="h-full">
-                <div className="bg-brand-light rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center h-full">
-                  <p className="text-2xl sm:text-3xl font-bold text-brand-primary mb-1 sm:mb-2">{level.amount}</p>
-                  <p className="text-xs sm:text-sm md:text-base text-text-secondary">{level.description}</p>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center h-full border border-white/20">
+                  <p className="text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2">{level.amount}</p>
+                  <p className="text-xs sm:text-sm md:text-base text-white/80">{level.description}</p>
                 </div>
               </TiltCard>
             </StaggerItem>
@@ -80,8 +80,8 @@ export default function DonatePage() {
         </StaggerContainer>
       </Section>
 
-      {/* Ways to Give Section */}
-      <Section variant="soft" padding="xl">
+      {/* Ways to Give Section - WHITE */}
+      <Section variant="light" padding="xl">
         <FadeIn>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-8 md:mb-12 text-center">
             Ways to give
@@ -128,22 +128,22 @@ export default function DonatePage() {
         </div>
       </Section>
 
-      {/* Tax Deductible Section */}
-      <Section variant="default" padding="lg">
+      {/* Tax Deductible Section - GREEN */}
+      <Section variant="primary" padding="lg" noWatermark>
         <FadeIn>
-          <div className="max-w-3xl mx-auto bg-brand-light rounded-2xl p-6 md:p-8 text-center">
-            <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-3 md:mb-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h3 className="text-lg md:text-xl font-bold font-heading text-white mb-3 md:mb-4">
               Tax-deductible giving
             </h3>
-            <p className="text-sm md:text-base text-text-secondary mb-2">
+            <p className="text-sm md:text-base text-white/90 mb-2">
               KingGen Ministries is a <strong>501(c)(3)</strong>. Donations are tax deductible as allowed by law.
             </p>
-            <p className="text-text-primary font-semibold mb-4 md:mb-6">
+            <p className="text-white font-semibold mb-4 md:mb-6">
               EIN: {siteConfig.ein}
             </p>
             <a
               href={`mailto:${siteConfig.email}`}
-              className="inline-flex items-center gap-2 text-brand-primary hover:text-brand-secondary transition-colors text-sm md:text-base"
+              className="inline-flex items-center gap-2 text-white hover:text-brand-accent transition-colors text-sm md:text-base"
             >
               <MailIcon className="w-4 h-4 md:w-5 md:h-5" />
               <span>Donor questions: {siteConfig.email}</span>

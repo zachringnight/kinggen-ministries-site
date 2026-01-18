@@ -13,9 +13,9 @@ export default function Logo({
 }: LogoProps) {
   // Size configurations for different variants
   const horizontalSizes = {
-    sm: { width: 180, height: 50 },
-    md: { width: 240, height: 65 },
-    lg: { width: 320, height: 85 },
+    sm: { width: 150, height: 42 },
+    md: { width: 200, height: 55 },
+    lg: { width: 280, height: 75 },
   };
 
   const stackedSizes = {

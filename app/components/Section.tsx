@@ -13,10 +13,10 @@ interface SectionProps {
 }
 
 const variantStyles: Record<SectionVariant, string> = {
-  default: "bg-background",
-  light: "section-light",
-  soft: "bg-brand-soft/50",
-  primary: "hero-gradient text-white",
+  default: "bg-white",
+  light: "bg-white",
+  soft: "bg-brand-soft",
+  primary: "bg-brand-primary text-white",
   dark: "bg-brand-primary text-white",
 };
 
