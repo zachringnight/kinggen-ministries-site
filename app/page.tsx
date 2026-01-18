@@ -73,11 +73,6 @@ export default function Home() {
               </div>
             </FadeIn>
 
-            <FadeIn delay={0.8}>
-              <p className="text-white text-sm">
-                <strong>EIN:</strong> {siteConfig.ein}
-              </p>
-            </FadeIn>
           </div>
         </div>
 

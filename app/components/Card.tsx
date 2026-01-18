@@ -96,7 +96,7 @@ export function ServiceCard({
       </div>
 
       {features && features.length > 0 && (
-        <ul className="mt-6 space-y-2 border-t border-gray-100 pt-6">
+        <ul className="mt-6 space-y-2 border-t border-brand-light pt-6">
           {features.map((feature, index) => (
             <li key={index} className="flex items-center gap-3 text-text-secondary">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-accent flex-shrink-0" />
