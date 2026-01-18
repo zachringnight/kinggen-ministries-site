@@ -75,7 +75,7 @@ export default function GetSupport() {
       </Section>
 
       {/* What to Expect Section */}
-      <Section variant="primary" padding="xl" noWatermark>
+      <Section variant="primary" padding="xl" watermark="none">
         <FadeIn>
           <div className="max-w-3xl mx-auto px-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 md:mb-6 text-center">
@@ -114,7 +114,7 @@ export default function GetSupport() {
       </Section>
 
       {/* How to Begin Section */}
-      <Section variant="primary" padding="xl" noWatermark>
+      <Section variant="primary" padding="xl" watermark="none">
         <FadeIn>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-8 md:mb-12 text-center">
             How it works
@@ -163,7 +163,7 @@ export default function GetSupport() {
       </Section>
 
       {/* For Referrers Note */}
-      <Section variant="primary" padding="lg" noWatermark>
+      <Section variant="primary" padding="lg" watermark="none">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <h3 className="text-lg md:text-xl font-bold font-heading text-white mb-3">
