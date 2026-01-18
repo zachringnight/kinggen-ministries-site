@@ -1,101 +1,122 @@
-import { siteConfig } from "../config/site";
+"use client";
+
+import {
+  Section,
+  Button,
+  CheckCircleIcon,
+  ArrowRightIcon,
+  FadeIn,
+  StaggerContainer,
+  StaggerItem,
+} from "../components";
 
 export default function AboutPage() {
+  const expectations = [
+    "kindness and respect",
+    "a steady pace and clear next steps",
+    "faith-rooted care grounded in Scripture",
+    "practical guidance for everyday life",
+  ];
+
   return (
-    <div>
-      <section className="bg-brand-primary text-white py-12">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold font-heading text-center">
-            About {siteConfig.name}
-          </h1>
-        </div>
-      </section>
+    <>
+      {/* Hero Section */}
+      <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/bg_green_texture_1920x1080.png')" }}
+        />
+        <div className="absolute inset-0 bg-brand-primary/80" />
 
-      <section className="py-16">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="prose prose-lg mx-auto">
-            <h2 className="text-3xl font-bold font-heading mb-6">Our Mission</h2>
-            <p className="text-gray-700 mb-6">
-              At {siteConfig.name}, we are dedicated to empowering individuals and
-              families through faith-based pastoral care and ministry. Our mission is
-              to provide compassionate support, biblical guidance, and spiritual
-              resources to help people navigate life&apos;s challenges and grow in their
-              relationship with God.
-            </p>
-
-            <h2 className="text-3xl font-bold font-heading mb-6 mt-12">
-              Meet Pastor LeeAnn
-            </h2>
-            <p className="text-gray-700 mb-6">
-              With years of experience in pastoral ministry, Pastor LeeAnn brings a
-              heart for service and a commitment to helping others discover God&apos;s
-              purpose for their lives. Her approach combines theological depth with
-              practical wisdom, creating a safe space for spiritual growth and
-              healing.
-            </p>
-
-            <h2 className="text-3xl font-bold font-heading mb-6 mt-12">
-              What We Offer
-            </h2>
-            <ul className="list-disc list-inside space-y-3 text-gray-700 mb-6">
-              <li>Individual and family pastoral counseling</li>
-              <li>Biblical teaching and discipleship</li>
-              <li>Prayer ministry and spiritual guidance</li>
-              <li>Life coaching from a Christian perspective</li>
-              <li>Crisis intervention and support</li>
-              <li>Wedding and funeral services</li>
-            </ul>
-
-            <h2 className="text-3xl font-bold font-heading mb-6 mt-12">
-              Our Values
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Faith</h3>
-                <p className="text-gray-700">
-                  Grounded in Scripture and centered on Christ
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Compassion</h3>
-                <p className="text-gray-700">
-                  Meeting people where they are with grace and understanding
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Integrity</h3>
-                <p className="text-gray-700">
-                  Honest, transparent, and trustworthy in all we do
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Excellence</h3>
-                <p className="text-gray-700">
-                  Committed to providing the highest quality care
-                </p>
-              </div>
+        <div className="relative z-10 container mx-auto px-4 sm:px-6">
+          <FadeIn>
+            <div className="max-w-3xl mx-auto text-center text-white">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
+                About KingGen Ministries
+              </h1>
+              <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
+                KingGen Ministries exists to offer Gospel-centered counseling to women who need support, especially when cost is a barrier. We believe no woman should be left alone in her hardest seasons.
+              </p>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
-      <section className="bg-gray-100 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold font-heading mb-4">
-            Connect With Us
-          </h2>
-          <p className="text-lg text-gray-700 mb-6">
-            We&apos;d love to hear from you and discuss how we can support your spiritual
-            journey.
-          </p>
-          <a
-            href="/contact"
-            className="inline-block bg-brand-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition"
-          >
-            Get in Touch
-          </a>
-        </div>
-      </section>
-    </div>
+      {/* Mission Section */}
+      <Section variant="light" padding="xl">
+        <FadeIn>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6">
+              Mission
+            </h2>
+            <p className="text-lg text-text-secondary leading-relaxed">
+              As a <strong>501(c)(3)</strong>, KingGen Ministries provides counseling at no cost. Donations allow us to continue offering care and expanding access for women in need.
+            </p>
+          </div>
+        </FadeIn>
+      </Section>
+
+      {/* Heart and Approach Section */}
+      <Section variant="default" padding="xl">
+        <FadeIn>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 text-center">
+              Our heart and approach
+            </h2>
+            <p className="text-lg text-text-secondary mb-8 text-center leading-relaxed">
+              We believe the Gospel brings hope, truth, and healing. Counseling is a place to bring what feels heavy into the light, to be met with compassion, and to take wise steps forward.
+            </p>
+            <p className="text-lg text-text-secondary mb-6 text-center">
+              You can expect:
+            </p>
+          </div>
+        </FadeIn>
+
+        <StaggerContainer staggerDelay={0.1} className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+          {expectations.map((item, i) => (
+            <StaggerItem key={i}>
+              <div className="flex items-center gap-3 p-4 bg-brand-light rounded-xl">
+                <CheckCircleIcon className="w-5 h-5 text-brand-primary flex-shrink-0" />
+                <p className="text-text-primary">{item}</p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </Section>
+
+      {/* For Referrers CTA */}
+      <Section variant="soft" padding="lg">
+        <FadeIn>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-bold font-heading text-text-primary mb-4">
+              A ministry you can refer to with confidence
+            </h2>
+            <p className="text-lg text-text-secondary mb-8">
+              If you are a pastor, church leader, or community professional, we aim to serve with discretion, clarity, and care.
+            </p>
+            <Button href="/for-referrers" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+              For Referrers
+            </Button>
+          </div>
+        </FadeIn>
+      </Section>
+
+      {/* Speaking Requests */}
+      <Section variant="default" padding="lg">
+        <FadeIn>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-bold font-heading text-text-primary mb-4">
+              Speaking and ministry requests
+            </h2>
+            <p className="text-lg text-text-secondary mb-8">
+              If you&apos;d like KingGen to speak to your church or group, contact us with details and availability.
+            </p>
+            <Button href="/contact" variant="outline" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+              Contact
+            </Button>
+          </div>
+        </FadeIn>
+      </Section>
+    </>
   );
 }
