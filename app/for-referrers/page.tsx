@@ -115,13 +115,6 @@ export default function ForReferrers() {
           ))}
         </StaggerContainer>
 
-        <FadeIn delay={0.3}>
-          <div className="max-w-3xl mx-auto mt-8 bg-red-50 border border-red-200 rounded-2xl p-6">
-            <p className="text-red-800 text-center text-sm md:text-base">
-              <strong>Important:</strong> If someone is in immediate danger or active crisis, please call <strong>911</strong> or local emergency services. KingGen Ministries is not an emergency service.
-            </p>
-          </div>
-        </FadeIn>
       </Section>
 
       {/* What to Expect - GREEN with texture */}

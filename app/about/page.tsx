@@ -109,8 +109,8 @@ export default function AboutPage() {
         </FadeIn>
       </Section>
 
-      {/* Speaking Requests - GREEN with texture */}
-      <section className="relative py-12 md:py-16 overflow-hidden">
+      {/* Speaking & Interview Requests - GREEN with texture */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/bg-green-alternate.png')" }}
@@ -119,16 +119,34 @@ export default function AboutPage() {
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-bold font-heading text-white mb-4">
-                Speaking and ministry requests
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 text-center">
+                Book LeeAnn as a speaker
               </h2>
-              <p className="text-lg text-white/90 mb-8">
-                If you&apos;d like KingGen to speak to your church or group, contact us with details and availability.
+              <p className="text-base sm:text-lg text-white/90 mb-10 text-center max-w-2xl mx-auto">
+                LeeAnn is available for speaking engagements, podcast interviews, and ministry events. Her heart is to encourage women, equip churches, and share the hope of the Gospel.
               </p>
-              <Button href="/contact" variant="white" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-                Contact
-              </Button>
+
+              <div className="grid md:grid-cols-3 gap-4 md:gap-6 mb-10">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-white/20 text-center">
+                  <h3 className="font-bold text-white mb-2">Churches & Retreats</h3>
+                  <p className="text-sm text-white/80">Women&apos;s events, Sunday services, and weekend retreats</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-white/20 text-center">
+                  <h3 className="font-bold text-white mb-2">Podcasts & Interviews</h3>
+                  <p className="text-sm text-white/80">Faith, counseling, ministry, and mental health topics</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-white/20 text-center">
+                  <h3 className="font-bold text-white mb-2">Conferences & Panels</h3>
+                  <p className="text-sm text-white/80">Workshops on pastoral care and women&apos;s ministry</p>
+                </div>
+              </div>
+
+              <div className="text-center">
+                <Button href="/contact" variant="white" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                  Request a Booking
+                </Button>
+              </div>
             </div>
           </FadeIn>
         </div>

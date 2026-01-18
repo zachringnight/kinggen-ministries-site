@@ -291,6 +291,40 @@ export default function Home() {
         </FadeIn>
       </Section>
 
+      {/* Book LeeAnn Section - GREEN with texture */}
+      <section className="relative py-16 md:py-20 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/bg_green_texture_1920x1080.png')" }}
+        />
+        <div className="absolute inset-0 bg-brand-primary/85" />
+
+        <div className="relative z-10 container mx-auto px-4 sm:px-6">
+          <FadeIn>
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4">
+                Invite LeeAnn to speak
+              </h2>
+              <p className="text-base sm:text-lg text-white/90 mb-6 md:mb-8 max-w-2xl mx-auto">
+                LeeAnn is available for speaking engagements, podcast interviews, and ministry events. Her heart is to encourage women and share the hope of the Gospel.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Magnetic>
+                  <Button href="/about#speaking" variant="white" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                    Learn More
+                  </Button>
+                </Magnetic>
+                <Magnetic>
+                  <Button href="/contact" variant="outline" size="lg" className="border-white/40 text-white hover:bg-white/10">
+                    Request a Booking
+                  </Button>
+                </Magnetic>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* Closing Invitation Section - GREEN */}
       <Section variant="primary" padding="xl" noWatermark>
         <FadeIn>
