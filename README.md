@@ -8,7 +8,7 @@ A professional nonprofit website for KingGen Ministries, a 501(c)(3) organizatio
 - **Language**: TypeScript 5
 - **Styling**: Tailwind CSS 4
 - **Animations**: Framer Motion
-- **Deployment**: Static export (GitHub Pages, Vercel, or Netlify)
+- **Deployment**: Vercel
 
 ## Getting Started
 
@@ -96,12 +96,6 @@ The site is configured for static export. Build outputs to the `out/` directory.
 
 1. Import repository to Vercel
 2. Deploy automatically
-
-### Netlify
-
-1. Connect repository to Netlify
-2. Build command: `npm run build`
-3. Publish directory: `out`
 
 ## Color Palette
 
