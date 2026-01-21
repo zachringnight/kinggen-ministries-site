@@ -50,7 +50,6 @@ export default function ForReferrers() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/bg-green.jpg')" }}
         />
-        <div className="absolute inset-0 bg-brand-primary/80" />
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
@@ -123,7 +122,6 @@ export default function ForReferrers() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/bg-green.jpg')" }}
         />
-        <div className="absolute inset-0 bg-brand-primary/85" />
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
@@ -213,7 +211,6 @@ export default function ForReferrers() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/bg-green.jpg')" }}
         />
-        <div className="absolute inset-0 bg-brand-primary/90" />
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>

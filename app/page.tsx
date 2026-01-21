@@ -34,8 +34,8 @@ export default function Home() {
           style={{ backgroundImage: "url('/bg-green.jpg')" }}
         />
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40 md:bg-gradient-to-r md:from-black/30 md:via-transparent md:to-black/30" />
+        {/* Minimal overlay for text readability */}
+        <div className="absolute inset-0 bg-black/10" />
 
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 sm:px-6 py-16 md:py-20">
@@ -202,13 +202,7 @@ export default function Home() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/bg-green.jpg')" }}
         />
-        <div className="absolute inset-0 bg-brand-primary/85" />
-        {/* Logo watermark */}
-        <div
-          className="absolute inset-0 bg-no-repeat bg-center pointer-events-none opacity-[0.06]"
-          style={{ backgroundImage: "url('/logo-full.png')", backgroundSize: "350px auto" }}
-        />
-
+        
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center">
@@ -307,13 +301,7 @@ export default function Home() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/bg-green.jpg')" }}
         />
-        <div className="absolute inset-0 bg-brand-primary/85" />
-        {/* Logo watermark */}
-        <div
-          className="absolute inset-0 bg-no-repeat bg-center pointer-events-none opacity-[0.06]"
-          style={{ backgroundImage: "url('/logo-full.png')", backgroundSize: "300px auto" }}
-        />
-
+        
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center">
