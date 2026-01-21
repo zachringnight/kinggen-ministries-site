@@ -61,7 +61,7 @@ export default function Home() {
             <FadeIn delay={0.7}>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4 justify-center">
                 <Magnetic strength={0.2}>
-                  <Button href="/for-referrers" variant="accent" size="lg" className="w-full sm:w-auto">
+                  <Button href="/for-referrers" variant="white" size="lg" className="w-full sm:w-auto">
                     For Referrers
                   </Button>
                 </Magnetic>
