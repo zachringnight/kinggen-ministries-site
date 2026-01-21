@@ -31,7 +31,7 @@ export default function Home() {
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg_green_texture_1920x1080.png')" }}
+          style={{ backgroundImage: "url('/bg-green.jpg')" }}
         />
 
         {/* Overlay */}
@@ -200,7 +200,7 @@ export default function Home() {
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg-green-alternate.png')" }}
+          style={{ backgroundImage: "url('/bg-green.jpg')" }}
         />
         <div className="absolute inset-0 bg-brand-primary/85" />
         {/* Logo watermark */}
@@ -305,7 +305,7 @@ export default function Home() {
       <section className="relative py-16 md:py-20 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg_green_texture_1920x1080.png')" }}
+          style={{ backgroundImage: "url('/bg-green.jpg')" }}
         />
         <div className="absolute inset-0 bg-brand-primary/85" />
         {/* Logo watermark */}
