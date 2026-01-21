@@ -26,7 +26,7 @@ export default function DonatePage() {
       <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg-green-alternate.png')" }}
+          style={{ backgroundImage: "url('/bg-green.jpg')" }}
         />
         <div className="absolute inset-0 bg-brand-primary/85" />
 

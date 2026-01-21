@@ -44,7 +44,7 @@ export default function ForGrantWriters() {
       <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg_green_texture_1920x1080.png')" }}
+          style={{ backgroundImage: "url('/bg-green.jpg')" }}
         />
         <div className="absolute inset-0 bg-brand-primary/80" />
 
