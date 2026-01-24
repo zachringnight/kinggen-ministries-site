@@ -59,7 +59,7 @@ export default function Header() {
             </Button>
             <button
               type="button"
-              className="p-2 text-text-secondary hover:text-brand-primary transition-colors"
+              className="p-2 rounded-lg bg-brand-light hover:bg-brand-primary hover:text-white text-brand-primary transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             >
@@ -74,7 +74,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="lg:hidden fixed inset-x-0 top-14 md:top-16 bottom-0 bg-brand-soft z-50 overflow-y-auto">
+          <div className="lg:hidden fixed inset-x-0 top-14 md:top-16 bottom-0 bg-brand-soft z-[100] overflow-y-auto shadow-xl">
             <div className="container mx-auto px-4 py-6">
               {/* Main Links */}
               <div className="space-y-1 mb-6">
