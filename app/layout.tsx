@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { siteConfig } from "./config/site";
-import { Header, Footer } from "./components";
+import { LayoutWrapper } from "./components";
 
 export const metadata: Metadata = {
   title: {
@@ -53,9 +53,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className="antialiased min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );

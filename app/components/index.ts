@@ -5,5 +5,6 @@ export { default as Footer } from "./Footer";
 export { default as Hero, PageHero } from "./Hero";
 export { default as Section, SectionHeader } from "./Section";
 export { default as Logo, LogoIcon } from "./Logo";
+export { LayoutWrapper } from "./LayoutWrapper";
 export * from "./Icons";
 export * from "./MotionComponents";
