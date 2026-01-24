@@ -57,26 +57,7 @@ Update `app/config/site.ts` with your organization's information:
 - Social media links
 - Formspree endpoint (for contact form)
 
-## Before Deployment
-
-### 1. Update Formspree Endpoint
-
-Create a form at [Formspree](https://formspree.io) and update the endpoint in `app/config/site.ts`:
-
-```typescript
-formspreeEndpoint: "https://formspree.io/f/YOUR-FORM-ID",
-```
-
-### 2. Add PDF Forms
-
-Add the following PDF forms to `/public/forms/`:
-
-- `client-intake-form.pdf`
-- `consent-for-counseling.pdf`
-- `confidentiality-notice.pdf`
-- `release-of-information.pdf`
-- `policies-scheduling.pdf`
-- `telehealth-consent.pdf`
+`
 
 ### 3. Add Favicon
 
@@ -85,12 +66,6 @@ Replace `/public/favicon.ico` with your organization's favicon.
 ## Deployment
 
 The site is configured for static export. Build outputs to the `out/` directory.
-
-### GitHub Pages
-
-1. Push to GitHub
-2. Enable GitHub Pages in repository settings
-3. Set source to GitHub Actions or the `out/` folder
 
 ### Vercel
 
