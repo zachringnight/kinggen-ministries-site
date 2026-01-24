@@ -87,13 +87,14 @@ export default function Button({
           className={combinedStyles}
           target={external ? "_blank" : undefined}
           rel={external ? "noopener noreferrer" : undefined}
+          onClick={onClick}
         >
           {content}
         </a>
       );
     }
     return (
-      <Link href={href} className={combinedStyles}>
+      <Link href={href} className={combinedStyles} onClick={onClick}>
         {content}
       </Link>
     );
