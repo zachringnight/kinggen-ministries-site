@@ -12,6 +12,50 @@ const GITHUB_OWNER = process.env.GITHUB_OWNER || "zachringnight";
 const GITHUB_REPO = process.env.GITHUB_REPO || "kinggen-ministries-site";
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH || "Claude/main";
 
+// Escape special regex characters in a string
+function escapeRegex(str: string): string {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+// Generate the regex pattern and replacement for a given field
+function getFieldReplacement(
+  field: string,
+  newValue: string,
+  oldValue: string
+): { pattern: RegExp; replacement: string } | null {
+  // Escape the old value for use in regex
+  const escapedOldValue = escapeRegex(oldValue);
+
+  // Simple top-level fields
+  const simpleFields = ["phone", "email", "tagline", "description"];
+  if (simpleFields.includes(field)) {
+    return {
+      pattern: new RegExp(`(${field}:\\s*)["']${escapedOldValue}["']`),
+      replacement: `$1"${newValue}"`,
+    };
+  }
+
+  // Nested address fields
+  if (field.startsWith("address.")) {
+    const subField = field.replace("address.", "");
+    return {
+      pattern: new RegExp(`(${subField}:\\s*)["']${escapedOldValue}["']`),
+      replacement: `$1"${newValue}"`,
+    };
+  }
+
+  // Nested social fields
+  if (field.startsWith("social.")) {
+    const subField = field.replace("social.", "");
+    return {
+      pattern: new RegExp(`(${subField}:\\s*)["']${escapedOldValue}["']`),
+      replacement: `$1"${newValue}"`,
+    };
+  }
+
+  return null;
+}
+
 async function updateSiteConfig(preview: Preview): Promise<{ success: boolean; error?: string }> {
   if (!GITHUB_TOKEN) {
     return { success: false, error: "GitHub token not configured" };
@@ -41,47 +85,41 @@ async function updateSiteConfig(preview: Preview): Promise<{ success: boolean; e
     const currentContent = Buffer.from(fileData.content, "base64").toString("utf-8");
     const sha = fileData.sha;
 
-    // 2. Update the content based on the field
-    let newContent = currentContent;
+    // 2. Get the replacement pattern for this field
+    const replacement = getFieldReplacement(preview.field, preview.newValue, preview.oldValue);
 
-    switch (preview.field) {
-      case "phone":
-        newContent = currentContent.replace(
-          /phone:\s*["']([^"']+)["']/,
-          `phone: "${preview.newValue}"`
-        );
-        break;
-      case "email":
-        newContent = currentContent.replace(
-          /email:\s*["']([^"']+)["']/,
-          `email: "${preview.newValue}"`
-        );
-        break;
-      case "tagline":
-        newContent = currentContent.replace(
-          /tagline:\s*["']([^"']+)["']/,
-          `tagline: "${preview.newValue}"`
-        );
-        break;
-      case "description":
-        newContent = currentContent.replace(
-          /description:\s*["']([^"']+)["']/,
-          `description: "${preview.newValue}"`
-        );
-        break;
-      default:
-        return { success: false, error: "Unknown field type" };
+    if (!replacement) {
+      return { success: false, error: "Unknown field type" };
     }
 
-    // 3. Check if content actually changed
+    // 3. Apply the replacement
+    const newContent = currentContent.replace(replacement.pattern, replacement.replacement);
+
+    // 4. Check if content actually changed
     if (newContent === currentContent) {
       return { success: false, error: "Could not find the field to update" };
     }
 
-    // 4. Commit the new content
-    const commitMessage = `Update ${preview.field}: "${preview.newValue}"
+    // 5. Create a friendly field name for the commit message
+    const fieldNames: Record<string, string> = {
+      phone: "phone number",
+      email: "email address",
+      tagline: "tagline",
+      description: "description",
+      "address.line2": "street address",
+      "address.line3": "suite/unit",
+      "address.city": "city",
+      "address.zip": "zip code",
+      "social.instagram": "Instagram",
+      "social.facebook": "Facebook",
+    };
 
-Changed via website editor by LeeAnn`;
+    const friendlyFieldName = fieldNames[preview.field] || preview.field;
+
+    // 6. Commit the new content
+    const commitMessage = `Update ${friendlyFieldName}
+
+Changed via website editor`;
 
     const updateResponse = await fetch(
       `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${filePath}`,

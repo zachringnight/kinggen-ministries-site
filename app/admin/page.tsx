@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { CheckCircleIcon, SparklesIcon } from "../components/Icons";
+import { CheckCircleIcon, SparklesIcon, LockIcon, ArrowLeftIcon } from "../components/Icons";
 
 interface Message {
   id: string;
@@ -20,15 +20,109 @@ const suggestions = [
   "Change the phone number",
   "Update the email address",
   "Edit the tagline",
+  "Update the address",
+  "Show current info",
 ];
 
-export default function AdminChatPage() {
+// PIN entry component - simple and friendly
+function PinEntry({ onSuccess }: { onSuccess: () => void }) {
+  const [pin, setPin] = useState("");
+  const [error, setError] = useState("");
+  const [isChecking, setIsChecking] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!pin.trim()) return;
+
+    setIsChecking(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/admin/verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pin: pin.trim() }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        // Remember for this session
+        sessionStorage.setItem("admin_verified", "true");
+        onSuccess();
+      } else {
+        setError("That PIN didn't work. Please try again.");
+        setPin("");
+        inputRef.current?.focus();
+      }
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setIsChecking(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-brand-cream to-brand-light flex items-center justify-center p-4">
+      <div className="bg-white rounded-3xl shadow-lg p-8 w-full max-w-md text-center">
+        <div className="w-16 h-16 rounded-full bg-brand-primary/10 flex items-center justify-center mx-auto mb-6">
+          <LockIcon className="w-8 h-8 text-brand-primary" />
+        </div>
+
+        <h1 className="text-2xl font-semibold text-brand-primary font-heading mb-2">
+          Website Editor
+        </h1>
+        <p className="text-gray-500 text-lg mb-8">
+          Enter your PIN to continue
+        </p>
+
+        <form onSubmit={handleSubmit}>
+          <input
+            ref={inputRef}
+            type="password"
+            inputMode="numeric"
+            value={pin}
+            onChange={(e) => setPin(e.target.value)}
+            placeholder="Enter PIN"
+            className="w-full text-center text-2xl tracking-widest py-4 px-6 rounded-2xl border-2 border-gray-200 focus:border-brand-accent focus:outline-none transition-colors mb-4"
+            maxLength={10}
+            autoComplete="off"
+          />
+
+          {error && (
+            <p className="text-red-500 text-base mb-4">{error}</p>
+          )}
+
+          <button
+            type="submit"
+            disabled={!pin.trim() || isChecking}
+            className="w-full bg-brand-primary text-white py-4 px-6 rounded-2xl text-lg font-medium hover:bg-brand-secondary transition-colors disabled:opacity-50"
+          >
+            {isChecking ? "Checking..." : "Continue"}
+          </button>
+        </form>
+
+        <p className="text-gray-400 text-sm mt-6">
+          Forgot your PIN? Contact Zach for help.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// Main chat interface
+function ChatInterface() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome",
       role: "assistant",
       content:
-        "Hi LeeAnn! I'm here to help you update the website. Just tell me what you'd like to change in plain English.\n\nFor example, you can say things like:\n• \"Change the phone number to 555-123-4567\"\n• \"Update our email to newemail@gmail.com\"\n• \"Change the tagline to something new\"",
+        "Hi LeeAnn! I'm here to help you update the website. Just tell me what you'd like to change in plain English.\n\nFor example:\n• \"Change the phone number to 555-123-4567\"\n• \"Update our email to newemail@gmail.com\"\n• \"Change the address to 123 Main St\"\n• \"Show me the current info\"",
     },
   ]);
   const [input, setInput] = useState("");
@@ -170,22 +264,36 @@ export default function AdminChatPage() {
     }
   };
 
+  const handleLogout = () => {
+    sessionStorage.removeItem("admin_verified");
+    window.location.reload();
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-brand-cream to-brand-light">
       {/* Simple Header */}
       <header className="bg-white/80 backdrop-blur-sm border-b border-brand-accent/20 sticky top-0 z-10">
-        <div className="max-w-3xl mx-auto px-4 py-4 flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-brand-primary/10 flex items-center justify-center">
-            <SparklesIcon className="w-5 h-5 text-brand-primary" />
+        <div className="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-brand-primary/10 flex items-center justify-center">
+              <SparklesIcon className="w-5 h-5 text-brand-primary" />
+            </div>
+            <div>
+              <h1 className="text-xl font-semibold text-brand-primary font-heading">
+                Website Editor
+              </h1>
+              <p className="text-sm text-gray-500">
+                Make changes by chatting with me
+              </p>
+            </div>
           </div>
-          <div>
-            <h1 className="text-xl font-semibold text-brand-primary font-heading">
-              Website Editor
-            </h1>
-            <p className="text-sm text-gray-500">
-              Make changes by chatting with me
-            </p>
-          </div>
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-2 text-gray-400 hover:text-gray-600 transition-colors text-base"
+          >
+            <ArrowLeftIcon className="w-4 h-4" />
+            Exit
+          </button>
         </div>
       </header>
 
@@ -343,4 +451,31 @@ export default function AdminChatPage() {
       </div>
     </div>
   );
+}
+
+// Main component with auth check
+export default function AdminChatPage() {
+  const [isVerified, setIsVerified] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    // Check if already verified this session
+    const verified = sessionStorage.getItem("admin_verified") === "true";
+    setIsVerified(verified);
+  }, []);
+
+  // Loading state
+  if (isVerified === null) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-brand-cream to-brand-light flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-brand-primary/30 border-t-brand-primary rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  // PIN entry or chat
+  if (!isVerified) {
+    return <PinEntry onSuccess={() => setIsVerified(true)} />;
+  }
+
+  return <ChatInterface />;
 }
