@@ -1,5 +1,6 @@
 "use client";
 
+import { siteConfig } from "../config/site";
 import {
   Section,
   Button,
@@ -24,7 +25,7 @@ export default function AboutPage() {
       <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg-green.jpg')" }}
+          style={{ backgroundImage: `url('${siteConfig.images.bgGreen}')` }}
         />
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
@@ -59,7 +60,7 @@ export default function AboutPage() {
       <section className="relative py-16 md:py-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg-green.jpg')" }}
+          style={{ backgroundImage: `url('${siteConfig.images.bgGreen}')` }}
         />
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
@@ -111,7 +112,7 @@ export default function AboutPage() {
       <section className="relative py-16 md:py-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg-green.jpg')" }}
+          style={{ backgroundImage: `url('${siteConfig.images.bgGreen}')` }}
         />
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
