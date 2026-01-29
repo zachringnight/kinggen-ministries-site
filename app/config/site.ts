@@ -19,6 +19,9 @@ export const siteConfig = {
     instagram: "https://www.instagram.com/kinggenministries/",
     facebook: "https://www.facebook.com/profile.php?id=61573569056063",
   },
+  images: {
+    bgGreen: "/bg-green.jpg",
+  },
 };
 
 export const navLinks = [

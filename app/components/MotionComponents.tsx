@@ -11,6 +11,25 @@ import {
 } from "framer-motion";
 
 // ============================================
+// UTILITIES
+// ============================================
+
+// Throttle helper for scroll events
+function throttle<T extends (...args: Parameters<T>) => void>(
+  func: T,
+  limit: number
+): (...args: Parameters<T>) => void {
+  let inThrottle: boolean;
+  return (...args: Parameters<T>) => {
+    if (!inThrottle) {
+      func(...args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+}
+
+// ============================================
 // FLOATING PARTICLES BACKGROUND
 // Creates a magical, spiritual atmosphere
 // ============================================
@@ -514,8 +533,11 @@ export function Parallax({ children, speed = 0.5, className = "" }: ParallaxProp
       }
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    // Throttle scroll handler to improve performance
+    const throttledScroll = throttle(handleScroll, 16); // ~60fps
+
+    window.addEventListener("scroll", throttledScroll, { passive: true });
+    return () => window.removeEventListener("scroll", throttledScroll);
   }, [speed]);
 
   return (
@@ -731,8 +753,11 @@ export function ScrollProgress() {
       setProgress(scrollProgress);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    // Throttle scroll handler to improve performance
+    const throttledScroll = throttle(handleScroll, 16); // ~60fps
+
+    window.addEventListener("scroll", throttledScroll, { passive: true });
+    return () => window.removeEventListener("scroll", throttledScroll);
   }, []);
 
   return (

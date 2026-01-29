@@ -31,7 +31,7 @@ export default function Home() {
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg-green.jpg')" }}
+          style={{ backgroundImage: `url('${siteConfig.images.bgGreen}')` }}
         />
 
         {/* Minimal overlay for text readability */}
@@ -200,7 +200,7 @@ export default function Home() {
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg-green.jpg')" }}
+          style={{ backgroundImage: `url('${siteConfig.images.bgGreen}')` }}
         />
         
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
@@ -299,7 +299,7 @@ export default function Home() {
       <section className="relative py-16 md:py-20 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg-green.jpg')" }}
+          style={{ backgroundImage: `url('${siteConfig.images.bgGreen}')` }}
         />
         
         <div className="relative z-10 container mx-auto px-4 sm:px-6">

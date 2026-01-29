@@ -1,20 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
-import { MenuIcon, XIcon, ChevronDownIcon, HeartIcon } from "./Icons";
+import { useState } from "react";
+import { MenuIcon, XIcon, HeartIcon } from "./Icons";
 import { LogoIcon } from "./Logo";
 import Button from "./Button";
-
-// Main nav links
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/for-referrers", label: "For Referrers" },
-  { href: "/for-grant-writers", label: "For Grant Writers" },
-  { href: "/testimonials", label: "Testimonials" },
-  { href: "/contact", label: "Contact" },
-];
+import { navLinks } from "../config/site";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
