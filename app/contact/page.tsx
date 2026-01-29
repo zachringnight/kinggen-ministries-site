@@ -67,11 +67,13 @@ export default function ContactPage() {
                       htmlFor="reason"
                       className="block text-sm font-medium text-text-primary mb-2"
                     >
-                      I am reaching out as:
+                      I am reaching out as: <span className="text-brand-accent">*</span>
                     </label>
                     <select
                       id="reason"
                       name="reason"
+                      required
+                      aria-required="true"
                       className="w-full px-4 py-3 border border-brand-light rounded-xl bg-brand-soft focus:bg-white focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 transition-all outline-none"
                     >
                       <option value="seeking-support">Seeking support</option>
@@ -86,12 +88,14 @@ export default function ContactPage() {
                       htmlFor="name"
                       className="block text-sm font-medium text-text-primary mb-2"
                     >
-                      Name
+                      Name <span className="text-brand-accent">*</span>
                     </label>
                     <input
                       type="text"
                       id="name"
                       name="name"
+                      required
+                      aria-required="true"
                       className="w-full px-4 py-3 border border-brand-light rounded-xl bg-brand-soft focus:bg-white focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 transition-all outline-none"
                       placeholder="Your name"
                     />
@@ -109,6 +113,7 @@ export default function ContactPage() {
                       id="email"
                       name="email"
                       required
+                      aria-required="true"
                       className="w-full px-4 py-3 border border-brand-light rounded-xl bg-brand-soft focus:bg-white focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 transition-all outline-none"
                       placeholder="your@email.com"
                     />
