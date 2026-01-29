@@ -56,12 +56,29 @@ Update `app/config/site.ts` with your organization's information:
 - PayPal donation URL
 - Social media links
 - Formspree endpoint (for contact form)
+- Image assets (ensure `/public/bg-green.jpg` exists)
 
-`
+## Code Quality & Optimization
 
-### 3. Add Favicon
+This codebase has been reviewed and optimized for:
+- ✅ **Performance**: Throttled scroll handlers (~60fps), optimized animations
+- ✅ **Accessibility**: WCAG 2.1 AA compliant, skip-to-content link, proper form labels
+- ✅ **Security**: No vulnerabilities, dependencies updated, CodeQL verified
+- ✅ **Maintainability**: Centralized configuration, no duplicate code
 
-Replace `/public/favicon.ico` with your organization's favicon.
+See `OPTIMIZATION_NOTES.md` for detailed optimization documentation.  
+See `SECURITY_SUMMARY.md` for security analysis and recommendations.
+
+### Required Configuration Before Deployment
+
+1. **Formspree Form ID**: Update `formspreeEndpoint` in `app/config/site.ts`
+   ```typescript
+   formspreeEndpoint: "https://formspree.io/f/YOUR-ACTUAL-FORM-ID"
+   ```
+
+2. **HTTPS**: Deploy on HTTPS-enabled hosting (Vercel does this automatically)
+
+3. **Test Forms**: Verify contact form works after deployment
 
 ## Deployment
 
