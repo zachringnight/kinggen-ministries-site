@@ -19,7 +19,7 @@ function throttle<T extends (...args: Parameters<T>) => void>(
   func: T,
   limit: number
 ): (...args: Parameters<T>) => void {
-  let inThrottle: boolean;
+  let inThrottle: boolean = false;
   return (...args: Parameters<T>) => {
     if (!inThrottle) {
       func(...args);
