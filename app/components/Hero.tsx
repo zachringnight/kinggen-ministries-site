@@ -147,7 +147,7 @@ interface PageHeroProps {
 
 const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay: string }> = {
   "kinggen-branded": {
-    primary: "/KingGen Background (1).png",
+    primary: "/KingGen-Background-1.png",
     overlay: "bg-gradient-to-br from-brand-primary/92 via-brand-secondary/88 to-brand-primary/95",
   },
   "green-texture": {
