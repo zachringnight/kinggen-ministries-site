@@ -8,35 +8,24 @@ import {
   MapPinIcon,
   FadeIn,
   TiltCard,
+  PageHero,
 } from "../components";
 import { siteConfig } from "../config/site";
 
 export default function ContactPage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg-green.jpg')" }}
-        />
-
-        <div className="relative z-10 container mx-auto px-4 sm:px-6">
-          <FadeIn>
-            <div className="max-w-3xl mx-auto text-center text-white">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
-                Contact Us
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
-                Whether you&apos;re reaching out for yourself, referring someone, or asking about donating, please contact us. We will respond as soon as possible.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      {/* Hero Section with KingGen branded background */}
+      <PageHero
+        title="Contact Us"
+        description="Whether you're reaching out for yourself, referring someone, or asking about donating, please contact us. We will respond as soon as possible."
+        background="kinggen-branded"
+        showArt={true}
+        artPosition="both"
+      />
 
       {/* Note */}
-      <Section variant="light" padding="lg">
+      <Section variant="art-cream" padding="lg" watermark="art-right" artImage="cross-3">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-lg text-text-secondary leading-relaxed">
@@ -47,7 +36,7 @@ export default function ContactPage() {
       </Section>
 
       {/* Contact Form and Info */}
-      <Section variant="default" padding="xl">
+      <Section variant="art-cream" padding="xl" watermark="art-left" artImage="cross-2">
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
           <FadeIn direction="left">

@@ -11,6 +11,7 @@ import {
   FadeIn,
   StaggerContainer,
   StaggerItem,
+  PageHero,
 } from "../components";
 
 export default function ForGrantWriters() {
@@ -40,29 +41,17 @@ export default function ForGrantWriters() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg-green.jpg')" }}
-        />
+      {/* Hero Section with KingGen branded background */}
+      <PageHero
+        title="For Grant Writers & Foundations"
+        description="Thank you for considering KingGen Ministries. This page provides organizational information to support grant applications and funding inquiries."
+        background="kinggen-branded"
+        showArt={true}
+        artPosition="both"
+      />
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6">
-          <FadeIn>
-            <div className="max-w-3xl mx-auto text-center text-white">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
-                For Grant Writers &amp; Foundations
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
-                Thank you for considering KingGen Ministries. This page provides organizational information to support grant applications and funding inquiries.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Organization Overview */}
-      <Section variant="light" padding="xl">
+      {/* Organization Overview with art */}
+      <Section variant="art-cream" padding="xl" watermark="art-right" artImage="cross-1">
         <FadeIn>
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 text-center">
@@ -86,8 +75,8 @@ export default function ForGrantWriters() {
         </div>
       </Section>
 
-      {/* Mission Statement */}
-      <Section variant="default" padding="xl">
+      {/* Mission Statement with art */}
+      <Section variant="art-cream" padding="xl" watermark="art-left" artImage="cross-4">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 text-center">
@@ -116,8 +105,8 @@ export default function ForGrantWriters() {
         </StaggerContainer>
       </Section>
 
-      {/* Funding Needs */}
-      <Section variant="soft" padding="xl">
+      {/* Funding Needs with art */}
+      <Section variant="art-cream" padding="xl" watermark="art-right" artImage="cross-3">
         <FadeIn>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-8 text-center">
             Funding Areas
@@ -136,8 +125,8 @@ export default function ForGrantWriters() {
         </StaggerContainer>
       </Section>
 
-      {/* Tax Information */}
-      <Section variant="default" padding="lg">
+      {/* Tax Information with art */}
+      <Section variant="art-cream" padding="lg" watermark="art-center" artImage="cross-6">
         <FadeIn>
           <div className="max-w-3xl mx-auto bg-brand-light rounded-2xl p-6 md:p-8">
             <h2 className="text-xl md:text-2xl font-bold font-heading text-text-primary mb-4 text-center">
@@ -156,8 +145,8 @@ export default function ForGrantWriters() {
         </FadeIn>
       </Section>
 
-      {/* Contact for Grant Inquiries */}
-      <Section variant="light" padding="xl">
+      {/* Contact for Grant Inquiries with art */}
+      <Section variant="art-cream" padding="xl" watermark="art-left" artImage="cross-2">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
@@ -189,8 +178,8 @@ export default function ForGrantWriters() {
         </FadeIn>
       </Section>
 
-      {/* Additional Resources Note */}
-      <Section variant="default" padding="lg">
+      {/* Additional Resources Note with art */}
+      <Section variant="art-cream" padding="lg" watermark="art-right" artImage="cross-5">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-text-muted text-sm md:text-base">

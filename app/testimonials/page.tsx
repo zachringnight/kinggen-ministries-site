@@ -10,6 +10,7 @@ import {
   StaggerContainer,
   StaggerItem,
   TiltCard,
+  PageHero,
 } from "../components";
 
 export default function TestimonialsPage() {
@@ -33,29 +34,17 @@ export default function TestimonialsPage() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg-green.jpg')" }}
-        />
+      {/* Hero Section with KingGen branded background */}
+      <PageHero
+        title="Testimonials"
+        description="These words reflect the experiences of those we've served. To protect privacy, we share first names and roles only."
+        background="kinggen-branded"
+        showArt={true}
+        artPosition="both"
+      />
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6">
-          <FadeIn>
-            <div className="max-w-3xl mx-auto text-center text-white">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
-                Testimonials
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
-                These words reflect the experiences of those we&apos;ve served. To protect privacy, we share first names and roles only.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <Section variant="light" padding="xl">
+      {/* Testimonials Section with art background */}
+      <Section variant="art-cream" padding="xl" watermark="art-left" artImage="cross-2">
         <StaggerContainer staggerDelay={0.15} className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, i) => (
             <StaggerItem key={i}>
@@ -86,8 +75,8 @@ export default function TestimonialsPage() {
         </StaggerContainer>
       </Section>
 
-      {/* CTA Section */}
-      <Section variant="default" padding="xl">
+      {/* CTA Section with art */}
+      <Section variant="art-cream" padding="xl" watermark="art-right" artImage="cross-1">
         <FadeIn>
           <div className="bg-gradient-to-br from-brand-light to-brand-soft rounded-3xl p-8 md:p-12 lg:p-16 text-center max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6">

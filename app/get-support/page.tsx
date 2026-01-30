@@ -9,6 +9,7 @@ import {
   FadeIn,
   StaggerContainer,
   StaggerItem,
+  PageHero,
 } from "../components";
 
 export default function GetSupport() {
@@ -41,29 +42,17 @@ export default function GetSupport() {
 
   return (
     <>
-      {/* Hero Section with Background */}
-      <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg-green.jpg')" }}
-        />
+      {/* Hero Section with KingGen branded background */}
+      <PageHero
+        title="Information for Clients"
+        description="If someone you trust shared this page with you, it's because they care about your well-being. You are not alone."
+        background="kinggen-branded"
+        showArt={true}
+        artPosition="both"
+      />
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6">
-          <FadeIn>
-            <div className="max-w-3xl mx-auto text-center text-white">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
-                Information for Clients
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
-                If someone you trust shared this page with you, it&apos;s because they care about your well-being. You are not alone.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Opening Section */}
-      <Section variant="light" padding="lg">
+      {/* Opening Section with art */}
+      <Section variant="art-cream" padding="lg" watermark="art-right" artImage="cross-3">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center px-2">
             <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
@@ -73,8 +62,34 @@ export default function GetSupport() {
         </FadeIn>
       </Section>
 
-      {/* What to Expect Section */}
-      <Section variant="primary" padding="xl" watermark="none">
+      {/* What to Expect Section with KingGen background */}
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        {/* KingGen branded background */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/KingGen Background (1).png')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/90 via-brand-secondary/85 to-brand-primary/92" />
+
+        {/* Cross art accents */}
+        <div
+          className="absolute left-0 bottom-0 w-48 h-48 md:w-64 md:h-64 bg-no-repeat pointer-events-none opacity-20"
+          style={{
+            backgroundImage: "url('/Untitled-4.png')",
+            backgroundPosition: "left bottom",
+            backgroundSize: "contain",
+          }}
+        />
+        <div
+          className="absolute right-0 top-0 w-40 h-40 md:w-56 md:h-56 bg-no-repeat pointer-events-none opacity-15"
+          style={{
+            backgroundImage: "url('/Untitled-7.png')",
+            backgroundPosition: "right top",
+            backgroundSize: "contain",
+          }}
+        />
+
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
         <FadeIn>
           <div className="max-w-3xl mx-auto px-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 md:mb-6 text-center">
@@ -85,10 +100,11 @@ export default function GetSupport() {
             </p>
           </div>
         </FadeIn>
-      </Section>
+        </div>
+      </section>
 
-      {/* Reasons Section */}
-      <Section variant="light" padding="xl">
+      {/* Reasons Section with art */}
+      <Section variant="art-cream" padding="xl" watermark="art-left" artImage="cross-2">
         <FadeIn>
           <div className="max-w-3xl mx-auto px-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-3 md:mb-4 text-center">
@@ -112,8 +128,34 @@ export default function GetSupport() {
         </StaggerContainer>
       </Section>
 
-      {/* How to Begin Section */}
-      <Section variant="primary" padding="xl" watermark="none">
+      {/* How to Begin Section with KingGen background */}
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        {/* KingGen background */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/bg_green_texture_1920x1080.png')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/88 to-brand-secondary/90" />
+
+        {/* Cross art accents */}
+        <div
+          className="absolute left-0 top-0 w-44 h-44 md:w-56 md:h-56 bg-no-repeat pointer-events-none opacity-15"
+          style={{
+            backgroundImage: "url('/Untitled-6.png')",
+            backgroundPosition: "left top",
+            backgroundSize: "contain",
+          }}
+        />
+        <div
+          className="absolute right-0 bottom-0 w-48 h-48 md:w-64 md:h-64 bg-no-repeat pointer-events-none opacity-20"
+          style={{
+            backgroundImage: "url('/Untitled-1.png')",
+            backgroundPosition: "right bottom",
+            backgroundSize: "contain",
+          }}
+        />
+
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
         <FadeIn>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-8 md:mb-12 text-center">
             How it works
@@ -137,10 +179,11 @@ export default function GetSupport() {
             </StaggerItem>
           ))}
         </StaggerContainer>
-      </Section>
+        </div>
+      </section>
 
-      {/* Privacy Section */}
-      <Section variant="light" padding="lg">
+      {/* Privacy Section with art */}
+      <Section variant="art-cream" padding="lg" watermark="art-right" artImage="cross-5">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-col sm:flex-row items-start gap-4 p-4 md:p-6 bg-brand-cream rounded-2xl border border-brand-light">
@@ -161,22 +204,41 @@ export default function GetSupport() {
         </FadeIn>
       </Section>
 
-      {/* For Referrers Note */}
-      <Section variant="primary" padding="lg" watermark="none">
-        <FadeIn>
-          <div className="max-w-3xl mx-auto text-center">
-            <h3 className="text-lg md:text-xl font-bold font-heading text-white mb-3">
-              Are you a referrer?
-            </h3>
-            <p className="text-white/90 mb-6">
-              If you&apos;re a pastor, counselor, or community professional looking to refer someone, visit our referrer page for more information.
-            </p>
-            <Button href="/for-referrers" variant="white" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-              For Referrers
-            </Button>
-          </div>
-        </FadeIn>
-      </Section>
+      {/* For Referrers Note with KingGen background */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        {/* KingGen branded background */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/KingGen Background (1).png')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/90 via-brand-secondary/85 to-brand-primary/92" />
+
+        {/* Art accent */}
+        <div
+          className="absolute right-0 bottom-0 w-56 h-56 md:w-72 md:h-72 bg-no-repeat pointer-events-none opacity-15"
+          style={{
+            backgroundImage: "url('/Untitled-3.png')",
+            backgroundPosition: "right bottom",
+            backgroundSize: "contain",
+          }}
+        />
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <FadeIn>
+            <div className="max-w-3xl mx-auto text-center">
+              <h3 className="text-lg md:text-xl font-bold font-heading text-white mb-3">
+                Are you a referrer?
+              </h3>
+              <p className="text-white/90 mb-6">
+                If you&apos;re a pastor, counselor, or community professional looking to refer someone, visit our referrer page for more information.
+              </p>
+              <Button href="/for-referrers" variant="white" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                For Referrers
+              </Button>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
 
     </>
   );
