@@ -77,7 +77,7 @@ export default function DonatePage() {
       <section className="relative py-20 md:py-32 overflow-hidden">
         {/* KingGen branded background */}
         <OptimizedBackground
-          src="/KingGen Background (1).png"
+          src="/bg-green-alternate.png"
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/90 via-brand-secondary/85 to-brand-primary/92" />

@@ -145,7 +145,7 @@ export default function AboutPage() {
       <section id="speaking" className="relative py-16 md:py-24 overflow-hidden">
         {/* KingGen background */}
         <OptimizedBackground
-          src="/KingGen Background (1).png"
+          src="/bg-green-alternate.png"
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/90 via-brand-secondary/85 to-brand-primary/92" />

@@ -1,16 +1,19 @@
 "use client";
 
+import Image from "next/image";
 import {
   Section,
   Button,
   QuoteIcon,
   HeartIcon,
   ArrowRightIcon,
+  CrossIcon,
   FadeIn,
   StaggerContainer,
   StaggerItem,
   TiltCard,
   PageHero,
+  OptimizedBackground,
 } from "../components";
 
 export default function TestimonialsPage() {
@@ -74,6 +77,90 @@ export default function TestimonialsPage() {
           ))}
         </StaggerContainer>
       </Section>
+
+      {/* Scripture & Hope Section - Featuring Social Images */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        {/* KingGen branded background */}
+        <OptimizedBackground
+          src="/bg_green_texture_1920x1080.png"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/90 via-brand-secondary/85 to-brand-primary/92" />
+
+        {/* Cross watermark */}
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute inset-0 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "center",
+            backgroundSize: "180px auto",
+            opacity: 0.06,
+          }}
+        />
+
+        <div className="relative z-10 container mx-auto px-4 sm:px-6">
+          <FadeIn>
+            <div className="flex justify-center mb-4">
+              <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 text-center">
+              Hope in Every Season
+            </h2>
+            <p className="text-base sm:text-lg text-white/90 mb-10 text-center max-w-2xl mx-auto">
+              We share encouragement through Scripture and prayer, reminding women of the hope found in Christ.
+            </p>
+          </FadeIn>
+
+          {/* Social Media Image Showcase */}
+          <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <StaggerItem>
+              <TiltCard tiltAmount={5} className="h-full">
+                <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl border-2 border-white/20">
+                  <Image
+                    src="/social-scripture.png"
+                    alt="Scripture encouragement - Luke 19:36-38"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+              </TiltCard>
+            </StaggerItem>
+            <StaggerItem>
+              <TiltCard tiltAmount={5} className="h-full">
+                <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl border-2 border-white/20">
+                  <Image
+                    src="/social-hero.png"
+                    alt="National Day of Prayer for Mental Illness - KingGen Ministries"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+              </TiltCard>
+            </StaggerItem>
+            <StaggerItem>
+              <TiltCard tiltAmount={5} className="h-full">
+                <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl border-2 border-white/20">
+                  <Image
+                    src="/social-prayer.png"
+                    alt="National Day of Prayer - If you are in crisis, call 988"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+              </TiltCard>
+            </StaggerItem>
+          </StaggerContainer>
+
+          <FadeIn delay={0.5}>
+            <p className="text-center text-white/70 text-sm mt-8">
+              Follow us on social media for daily encouragement
+            </p>
+          </FadeIn>
+        </div>
+      </section>
 
       {/* CTA Section with art */}
       <Section variant="art-cream" padding="xl" watermark="stones-right">

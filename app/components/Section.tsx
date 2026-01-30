@@ -130,7 +130,7 @@ export default function Section({
       {/* KingGen branded full background */}
       {showKinggenBg && (
         <OptimizedBackground
-          src="/KingGen Background (1).png"
+          src="/bg-green-alternate.png"
           className="absolute inset-0 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "center",
@@ -143,7 +143,7 @@ export default function Section({
       {/* KingGen branded background for art-cream variant */}
       {variant === "art-cream" && (
         <OptimizedBackground
-          src="/KingGen Background (1).png"
+          src="/bg-green-alternate.png"
           className="absolute inset-0 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "center",
@@ -156,7 +156,7 @@ export default function Section({
       {/* KingGen branded background for kinggen-branded and art-green variants */}
       {(variant === "art-green" || variant === "kinggen-branded") && (
         <OptimizedBackground
-          src="/KingGen Background (1).png"
+          src="/bg-green-alternate.png"
           className="absolute inset-0 pointer-events-none"
           style={{
             backgroundPosition: "center",
@@ -182,7 +182,7 @@ export default function Section({
       {variant === "cross-green" && (
         <>
           <OptimizedBackground
-            src="/KingGen Background (1).png"
+            src="/bg-green-alternate.png"
             className="absolute inset-0 pointer-events-none"
             style={{
               backgroundPosition: "center",

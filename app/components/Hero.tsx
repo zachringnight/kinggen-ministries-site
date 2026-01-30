@@ -150,8 +150,8 @@ interface PageHeroProps {
 
 const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay: string; hasCross?: boolean }> = {
   "kinggen-branded": {
-    primary: "/KingGen Background (1).png",
-    overlay: "bg-gradient-to-br from-brand-primary/75 via-brand-secondary/70 to-brand-primary/80",
+    primary: "/bg-green-alternate.png",
+    overlay: "bg-gradient-to-br from-brand-primary/70 via-brand-secondary/65 to-brand-primary/75",
   },
   "green-texture": {
     primary: "/bg_green_texture_1920x1080.png",
@@ -166,12 +166,12 @@ const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay
     overlay: "bg-gradient-to-b from-brand-primary/75 to-brand-primary/80",
   },
   "cream": {
-    primary: "/bg-cream.jpg",
-    overlay: "bg-gradient-to-b from-brand-cream/80 to-brand-cream/85",
+    primary: "/bg-light-stones.png",
+    overlay: "bg-gradient-to-b from-brand-soft/60 to-brand-cream/70",
   },
   "cross-branded": {
-    primary: "/KingGen Background (1).png",
-    overlay: "bg-gradient-to-br from-brand-primary/80 via-brand-secondary/75 to-brand-primary/85",
+    primary: "/bg-green-alternate.png",
+    overlay: "bg-gradient-to-br from-brand-primary/75 via-brand-secondary/70 to-brand-primary/80",
     hasCross: true,
   },
   "cross-texture": {
