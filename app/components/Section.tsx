@@ -41,14 +41,23 @@ const paddingStyles: Record<string, string> = {
 
 // Art images for watermarks
 const artImages: Record<string, { src: string; position: string; size: string; opacity: string }> = {
+  // cross-1 -> /Untitled-1.png
   "cross-1": { src: "/Untitled-1.png", position: "right bottom", size: "320px auto", opacity: "0.35" },
+  // cross-2 -> /Untitled-2.png
   "cross-2": { src: "/Untitled-2.png", position: "left bottom", size: "280px auto", opacity: "0.40" },
+  // cross-3 -> /Untitled-3.png
   "cross-3": { src: "/Untitled-3.png", position: "right top", size: "300px auto", opacity: "0.30" },
+  // cross-4 -> /Untitled-4.png
   "cross-4": { src: "/Untitled-4.png", position: "left center", size: "260px auto", opacity: "0.35" },
+  // cross-5 -> /Untitled-5.png
   "cross-5": { src: "/Untitled-5.png", position: "right center", size: "280px auto", opacity: "0.30" },
+  // cross-6 -> /Untitled-6.png
   "cross-6": { src: "/Untitled-6.png", position: "center bottom", size: "320px auto", opacity: "0.25" },
+  // cross-7 -> /Untitled-7.png
   "cross-7": { src: "/Untitled-7.png", position: "left top", size: "260px auto", opacity: "0.35" },
+  // white-cross -> /bg_white_cross.png
   "white-cross": { src: "/bg_white_cross.png", position: "center center", size: "400px auto", opacity: "0.08" },
+  // kinggen-bg -> /KingGen Background (1).png
   "kinggen-bg": { src: "/KingGen Background (1).png", position: "center center", size: "cover", opacity: "0.15" },
 };
 
