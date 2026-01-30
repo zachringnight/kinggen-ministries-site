@@ -77,7 +77,7 @@ export default function Home() {
       <section className="relative min-h-[90vh] md:min-h-[85vh] flex items-center overflow-hidden">
         {/* KingGen branded background - prominently displayed */}
         <OptimizedBackground
-          src="/KingGen Background (1).png"
+          src="/bg-green-alternate.png"
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           priority
         />
