@@ -15,7 +15,7 @@ import {
 // ============================================
 
 // Throttle helper for scroll events
-function throttle<T extends (...args: Parameters<T>) => void>(
+function throttle<T extends (...args: any[]) => void>(
   func: T,
   limit: number
 ): (...args: Parameters<T>) => void {
