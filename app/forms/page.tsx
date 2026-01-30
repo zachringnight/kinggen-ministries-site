@@ -50,12 +50,12 @@ export default function ResourcesPage() {
         title="Resources"
         description="Free resources to encourage you in your journey. Download and use at your own pace."
         background="kinggen-branded"
-        showArt={true}
-        artPosition="both"
+        showStones={true}
+        stonesPosition="both"
       />
 
       {/* Opening Section with art */}
-      <Section variant="art-cream" padding="lg" watermark="art-right" artImage="cross-3">
+      <Section variant="art-cream" padding="lg" watermark="stones-right">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-lg text-text-secondary leading-relaxed">
@@ -66,7 +66,7 @@ export default function ResourcesPage() {
       </Section>
 
       {/* Downloads Section with art */}
-      <Section variant="art-cream" padding="xl" watermark="art-left" artImage="cross-2">
+      <Section variant="art-cream" padding="xl" watermark="stones-left">
         <FadeIn>
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-8 text-center">
             Free Downloads
@@ -105,7 +105,7 @@ export default function ResourcesPage() {
       </Section>
 
       {/* Contact CTA with art */}
-      <Section variant="art-cream" padding="lg" watermark="art-center" artImage="cross-6">
+      <Section variant="art-cream" padding="lg" watermark="stones">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold font-heading text-text-primary mb-4">

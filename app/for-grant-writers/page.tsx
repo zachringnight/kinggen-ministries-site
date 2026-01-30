@@ -46,12 +46,12 @@ export default function ForGrantWriters() {
         title="For Grant Writers & Foundations"
         description="Thank you for considering KingGen Ministries. This page provides organizational information to support grant applications and funding inquiries."
         background="kinggen-branded"
-        showArt={true}
-        artPosition="both"
+        showStones={true}
+        stonesPosition="both"
       />
 
       {/* Organization Overview with art */}
-      <Section variant="art-cream" padding="xl" watermark="art-right" artImage="cross-1">
+      <Section variant="art-cream" padding="xl" watermark="stones-right">
         <FadeIn>
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 text-center">
@@ -76,7 +76,7 @@ export default function ForGrantWriters() {
       </Section>
 
       {/* Mission Statement with art */}
-      <Section variant="art-cream" padding="xl" watermark="art-left" artImage="cross-4">
+      <Section variant="art-cream" padding="xl" watermark="stones-left">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 text-center">
@@ -106,7 +106,7 @@ export default function ForGrantWriters() {
       </Section>
 
       {/* Funding Needs with art */}
-      <Section variant="art-cream" padding="xl" watermark="art-right" artImage="cross-3">
+      <Section variant="art-cream" padding="xl" watermark="stones-right">
         <FadeIn>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-8 text-center">
             Funding Areas
@@ -126,7 +126,7 @@ export default function ForGrantWriters() {
       </Section>
 
       {/* Tax Information with art */}
-      <Section variant="art-cream" padding="lg" watermark="art-center" artImage="cross-6">
+      <Section variant="art-cream" padding="lg" watermark="stones">
         <FadeIn>
           <div className="max-w-3xl mx-auto bg-brand-light rounded-2xl p-6 md:p-8">
             <h2 className="text-xl md:text-2xl font-bold font-heading text-text-primary mb-4 text-center">
@@ -146,7 +146,7 @@ export default function ForGrantWriters() {
       </Section>
 
       {/* Contact for Grant Inquiries with art */}
-      <Section variant="art-cream" padding="xl" watermark="art-left" artImage="cross-2">
+      <Section variant="art-cream" padding="xl" watermark="stones-left">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
@@ -179,7 +179,7 @@ export default function ForGrantWriters() {
       </Section>
 
       {/* Additional Resources Note with art */}
-      <Section variant="art-cream" padding="lg" watermark="art-right" artImage="cross-5">
+      <Section variant="art-cream" padding="lg" watermark="stones-right">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-text-muted text-sm md:text-base">

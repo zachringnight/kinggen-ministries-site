@@ -39,12 +39,12 @@ export default function TestimonialsPage() {
         title="Testimonials"
         description="These words reflect the experiences of those we've served. To protect privacy, we share first names and roles only."
         background="kinggen-branded"
-        showArt={true}
-        artPosition="both"
+        showStones={true}
+        stonesPosition="both"
       />
 
       {/* Testimonials Section with art background */}
-      <Section variant="art-cream" padding="xl" watermark="art-left" artImage="cross-2">
+      <Section variant="art-cream" padding="xl" watermark="stones-left">
         <StaggerContainer staggerDelay={0.15} className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, i) => (
             <StaggerItem key={i}>
@@ -76,7 +76,7 @@ export default function TestimonialsPage() {
       </Section>
 
       {/* CTA Section with art */}
-      <Section variant="art-cream" padding="xl" watermark="art-right" artImage="cross-1">
+      <Section variant="art-cream" padding="xl" watermark="stones-right">
         <FadeIn>
           <div className="bg-gradient-to-br from-brand-light to-brand-soft rounded-3xl p-8 md:p-12 lg:p-16 text-center max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6">

@@ -13,12 +13,12 @@ export default function PrivacyPage() {
       <PageHero
         title="Privacy and Confidentiality"
         background="kinggen-branded"
-        showArt={true}
-        artPosition="both"
+        showStones={true}
+        stonesPosition="both"
       />
 
       {/* Content Section with art */}
-      <Section variant="art-cream" padding="xl" watermark="art-right" artImage="cross-1">
+      <Section variant="art-cream" padding="xl" watermark="stones-right">
         <FadeIn>
           <div className="max-w-3xl mx-auto prose prose-lg">
             <p className="text-lg text-text-secondary leading-relaxed mb-6">

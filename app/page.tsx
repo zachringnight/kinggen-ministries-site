@@ -71,13 +71,33 @@ export default function Home() {
         label="Support Our Mission"
       />
 
-      {/* Hero Section - Enhanced */}
+      {/* Hero Section - Enhanced with KingGen branded background */}
       <section className="relative min-h-[90vh] md:min-h-[85vh] flex items-center overflow-hidden">
-        {/* Animated Gradient Background */}
+        {/* KingGen branded background - prominently displayed */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/KingGen Background (1).png')" }}
+          aria-hidden="true"
+        />
+
+        {/* Animated Gradient Background overlay */}
         <AnimatedGradientBg />
 
         {/* Floating Particles */}
         <FloatingParticles count={30} className="opacity-40" />
+
+        {/* Stone cairn art accent on the right */}
+        <div
+          className="absolute right-0 bottom-0 w-64 sm:w-80 md:w-96 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundImage: "url('/logo_stack_cropped.png')",
+            backgroundPosition: "right bottom",
+            backgroundSize: "contain",
+            opacity: 0.12,
+            height: "450px",
+          }}
+          aria-hidden="true"
+        />
 
         {/* Subtle overlay for depth */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/20" />
@@ -156,7 +176,7 @@ export default function Home() {
       <AnimatedDivider variant="wave" color="var(--brand-soft)" className="-mt-1" />
 
       {/* About the Ministry Section */}
-      <Section variant="light" padding="xl" watermark="cross">
+      <Section variant="light" padding="xl" watermark="stones">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center px-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 md:mb-6">
@@ -194,7 +214,7 @@ export default function Home() {
       <AnimatedDivider variant="curve" color="var(--brand-soft)" flip className="-mb-1" />
 
       {/* What Sets Us Apart - Enhanced with Glass Cards */}
-      <Section variant="light" padding="xl" watermark="logo">
+      <Section variant="light" padding="xl" watermark="stones-left">
         <FadeIn>
           <SectionHeader
             title="What sets KingGen apart"
@@ -224,7 +244,7 @@ export default function Home() {
       </Section>
 
       {/* Partner With Us Section - Enhanced */}
-      <Section variant="soft" padding="xl" watermark="logo">
+      <Section variant="soft" padding="xl" watermark="stones-left">
         <FadeIn>
           <SectionHeader title="Partner with us" />
         </FadeIn>
@@ -343,7 +363,7 @@ export default function Home() {
       <AnimatedDivider variant="wave" color="var(--brand-soft)" className="-mt-1" />
 
       {/* Testimonials Section - Enhanced with Carousel */}
-      <Section variant="light" padding="xl" watermark="cross">
+      <Section variant="light" padding="xl" watermark="stones">
         <FadeIn>
           <SectionHeader
             title="What partners say"

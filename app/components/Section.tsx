@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
-type SectionVariant = "default" | "light" | "soft" | "primary" | "dark" | "art-cream" | "art-green";
-type WatermarkType = "cross" | "logo" | "art-left" | "art-right" | "art-center" | "kinggen-bg" | "none";
+type SectionVariant = "default" | "light" | "soft" | "primary" | "dark" | "art-cream" | "art-green" | "kinggen-branded";
+type WatermarkType = "stones" | "stones-left" | "stones-right" | "logo" | "kinggen-bg" | "none";
 
 interface SectionProps {
   children: ReactNode;
@@ -11,7 +11,6 @@ interface SectionProps {
   containerSize?: "default" | "narrow" | "wide" | "full";
   padding?: "none" | "sm" | "md" | "lg" | "xl";
   watermark?: WatermarkType;
-  artImage?: string;
 }
 
 const variantStyles: Record<SectionVariant, string> = {
@@ -22,6 +21,7 @@ const variantStyles: Record<SectionVariant, string> = {
   dark: "bg-brand-primary text-white",
   "art-cream": "bg-brand-cream",
   "art-green": "bg-brand-primary text-white",
+  "kinggen-branded": "bg-brand-primary text-white",
 };
 
 const containerSizes: Record<string, string> = {
@@ -39,28 +39,6 @@ const paddingStyles: Record<string, string> = {
   xl: "py-20 md:py-32",
 };
 
-// Art images for watermarks
-const artImages: Record<string, { src: string; position: string; size: string; opacity: string }> = {
-  // cross-1 -> /Untitled-1.png
-  "cross-1": { src: "/Untitled-1.png", position: "right bottom", size: "320px auto", opacity: "0.35" },
-  // cross-2 -> /Untitled-2.png
-  "cross-2": { src: "/Untitled-2.png", position: "left bottom", size: "280px auto", opacity: "0.40" },
-  // cross-3 -> /Untitled-3.png
-  "cross-3": { src: "/Untitled-3.png", position: "right top", size: "300px auto", opacity: "0.30" },
-  // cross-4 -> /Untitled-4.png
-  "cross-4": { src: "/Untitled-4.png", position: "left center", size: "260px auto", opacity: "0.35" },
-  // cross-5 -> /Untitled-5.png
-  "cross-5": { src: "/Untitled-5.png", position: "right center", size: "280px auto", opacity: "0.30" },
-  // cross-6 -> /Untitled-6.png
-  "cross-6": { src: "/Untitled-6.png", position: "center bottom", size: "320px auto", opacity: "0.25" },
-  // cross-7 -> /Untitled-7.png
-  "cross-7": { src: "/Untitled-7.png", position: "left top", size: "260px auto", opacity: "0.35" },
-  // white-cross -> /bg_white_cross.png
-  "white-cross": { src: "/bg_white_cross.png", position: "center center", size: "400px auto", opacity: "0.08" },
-  // kinggen-bg -> /KingGen Background (1).png
-  "kinggen-bg": { src: "/KingGen Background (1).png", position: "center center", size: "cover", opacity: "0.15" },
-};
-
 export default function Section({
   children,
   variant = "default",
@@ -68,46 +46,63 @@ export default function Section({
   id,
   containerSize = "default",
   padding = "lg",
-  watermark = "cross",
-  artImage,
+  watermark = "stones",
 }: SectionProps) {
   const isLightSection = ["default", "light", "soft", "art-cream"].includes(variant);
-  const isGreenSection = ["primary", "dark", "art-green"].includes(variant);
+  const isGreenSection = ["primary", "dark", "art-green", "kinggen-branded"].includes(variant);
 
-  // Determine which art to show
-  const showCrossWatermark = watermark === "cross" && isLightSection;
+  // Watermark settings
+  const showStonesWatermark = watermark === "stones" && isLightSection;
+  const showStonesLeft = watermark === "stones-left";
+  const showStonesRight = watermark === "stones-right";
   const showLogoWatermark = watermark === "logo" && isGreenSection;
-  const showArtLeft = watermark === "art-left";
-  const showArtRight = watermark === "art-right";
-  const showArtCenter = watermark === "art-center";
   const showKinggenBg = watermark === "kinggen-bg";
-
-  // Get custom art or default based on position
-  const getArtConfig = () => {
-    if (artImage && artImages[artImage]) return artImages[artImage];
-    if (showArtLeft) return artImages["cross-4"];
-    if (showArtRight) return artImages["cross-1"];
-    if (showArtCenter) return artImages["cross-6"];
-    if (showKinggenBg) return artImages["kinggen-bg"];
-    return null;
-  };
-
-  const artConfig = getArtConfig();
 
   return (
     <section
       id={id}
       className={`${variantStyles[variant]} ${paddingStyles[padding]} ${className} relative overflow-hidden`}
     >
-      {/* Cross watermark for cream/light sections - using Untitled cross designs */}
-      {showCrossWatermark && (
+      {/* Stacked stones watermark for cream/light sections - signature branding */}
+      {showStonesWatermark && (
         <div
-          className="absolute inset-0 bg-no-repeat pointer-events-none"
+          className="absolute right-0 bottom-0 w-64 h-auto md:w-80 bg-no-repeat pointer-events-none"
           style={{
-            backgroundImage: "url('/Untitled-2.png')",
+            backgroundImage: "url('/logo_stack_cropped.png')",
+            backgroundPosition: "right bottom",
+            backgroundSize: "contain",
+            opacity: 0.12,
+            height: "400px",
+          }}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Stones watermark on left */}
+      {showStonesLeft && (
+        <div
+          className="absolute left-0 bottom-0 w-56 h-auto md:w-72 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundImage: "url('/logo_stack_cropped.png')",
             backgroundPosition: "left bottom",
-            backgroundSize: "280px auto",
-            opacity: 0.40,
+            backgroundSize: "contain",
+            opacity: 0.10,
+            height: "350px",
+          }}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Stones watermark on right */}
+      {showStonesRight && (
+        <div
+          className="absolute right-0 bottom-0 w-56 h-auto md:w-72 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundImage: "url('/logo_stack_cropped.png')",
+            backgroundPosition: "right bottom",
+            backgroundSize: "contain",
+            opacity: 0.10,
+            height: "350px",
           }}
           aria-hidden="true"
         />
@@ -118,50 +113,51 @@ export default function Section({
         <div
           className="absolute inset-0 bg-no-repeat bg-center pointer-events-none"
           style={{
-            backgroundImage: "url('/logo-full.png')",
-            backgroundSize: "350px auto",
-            opacity: 0.06,
-          }}
-          aria-hidden="true"
-        />
-      )}
-
-      {/* Custom art watermark */}
-      {artConfig && (showArtLeft || showArtRight || showArtCenter || showKinggenBg) && (
-        <div
-          className="absolute inset-0 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundImage: `url('${artConfig.src}')`,
-            backgroundPosition: artConfig.position,
-            backgroundSize: artConfig.size,
-            opacity: parseFloat(artConfig.opacity),
-          }}
-          aria-hidden="true"
-        />
-      )}
-
-      {/* KingGen branded background texture overlay for art variants */}
-      {variant === "art-cream" && (
-        <div
-          className="absolute inset-0 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundImage: "url('/kinggen-background-1.png')",
-            backgroundPosition: "center",
-            backgroundSize: "cover",
+            backgroundImage: "url('/Untitled design.png')",
+            backgroundSize: "320px auto",
             opacity: 0.08,
           }}
           aria-hidden="true"
         />
       )}
 
-      {variant === "art-green" && (
+      {/* KingGen branded full background */}
+      {showKinggenBg && (
+        <div
+          className="absolute inset-0 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundImage: "url('/KingGen Background (1).png')",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            opacity: 0.15,
+          }}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* KingGen branded background for art-cream variant */}
+      {variant === "art-cream" && (
+        <div
+          className="absolute inset-0 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundImage: "url('/KingGen Background (1).png')",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            opacity: 0.06,
+          }}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* KingGen branded background for kinggen-branded and art-green variants */}
+      {(variant === "art-green" || variant === "kinggen-branded") && (
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            backgroundImage: "url('/bg_green_texture_1920x1080.png')",
+            backgroundImage: "url('/KingGen Background (1).png')",
             backgroundPosition: "center",
             backgroundSize: "cover",
-            opacity: 0.3,
+            opacity: 0.35,
           }}
           aria-hidden="true"
         />

@@ -13,12 +13,12 @@ export default function DisclaimerPage() {
       <PageHero
         title="Disclaimer"
         background="kinggen-branded"
-        showArt={true}
-        artPosition="both"
+        showStones={true}
+        stonesPosition="both"
       />
 
       {/* Content Section with art */}
-      <Section variant="art-cream" padding="xl" watermark="art-left" artImage="cross-2">
+      <Section variant="art-cream" padding="xl" watermark="stones-left">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <p className="text-lg text-text-secondary leading-relaxed mb-6">

@@ -20,12 +20,12 @@ export default function ContactPage() {
         title="Contact Us"
         description="Whether you're reaching out for yourself, referring someone, or asking about donating, please contact us. We will respond as soon as possible."
         background="kinggen-branded"
-        showArt={true}
-        artPosition="both"
+        showStones={true}
+        stonesPosition="both"
       />
 
       {/* Note */}
-      <Section variant="art-cream" padding="lg" watermark="art-right" artImage="cross-3">
+      <Section variant="art-cream" padding="lg" watermark="stones-right">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-lg text-text-secondary leading-relaxed">
@@ -36,7 +36,7 @@ export default function ContactPage() {
       </Section>
 
       {/* Contact Form and Info */}
-      <Section variant="art-cream" padding="xl" watermark="art-left" artImage="cross-2">
+      <Section variant="art-cream" padding="xl" watermark="stones-left">
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
           <FadeIn direction="left">

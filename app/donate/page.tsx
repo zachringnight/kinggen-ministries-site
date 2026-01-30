@@ -28,8 +28,8 @@ export default function DonatePage() {
         title="Help keep counseling free"
         description="Your generosity removes barriers and provides hope for women who need support but cannot afford care."
         background="kinggen-branded"
-        showArt={true}
-        artPosition="both"
+        showStones={true}
+        stonesPosition="both"
       >
         {/* Prominent Donate Button */}
         <Button
@@ -44,7 +44,7 @@ export default function DonatePage() {
       </PageHero>
 
       {/* Impact Section with art background */}
-      <Section variant="art-cream" padding="xl" watermark="art-right" artImage="cross-1">
+      <Section variant="art-cream" padding="xl" watermark="stones-right">
         <FadeIn>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 text-center">
             Your gift makes a difference
@@ -146,7 +146,7 @@ export default function DonatePage() {
       </section>
 
       {/* Tax Deductible Info with art */}
-      <Section variant="art-cream" padding="lg" watermark="art-left" artImage="cross-4">
+      <Section variant="art-cream" padding="lg" watermark="stones-left">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <div className="bg-brand-cream rounded-2xl p-6 md:p-8 border border-brand-light">

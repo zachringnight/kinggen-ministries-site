@@ -47,12 +47,12 @@ export default function GetSupport() {
         title="Information for Clients"
         description="If someone you trust shared this page with you, it's because they care about your well-being. You are not alone."
         background="kinggen-branded"
-        showArt={true}
-        artPosition="both"
+        showStones={true}
+        stonesPosition="both"
       />
 
       {/* Opening Section with art */}
-      <Section variant="art-cream" padding="lg" watermark="art-right" artImage="cross-3">
+      <Section variant="art-cream" padding="lg" watermark="stones-right">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center px-2">
             <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
@@ -104,7 +104,7 @@ export default function GetSupport() {
       </section>
 
       {/* Reasons Section with art */}
-      <Section variant="art-cream" padding="xl" watermark="art-left" artImage="cross-2">
+      <Section variant="art-cream" padding="xl" watermark="stones-left">
         <FadeIn>
           <div className="max-w-3xl mx-auto px-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-3 md:mb-4 text-center">
@@ -183,7 +183,7 @@ export default function GetSupport() {
       </section>
 
       {/* Privacy Section with art */}
-      <Section variant="art-cream" padding="lg" watermark="art-right" artImage="cross-5">
+      <Section variant="art-cream" padding="lg" watermark="stones-right">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-col sm:flex-row items-start gap-4 p-4 md:p-6 bg-brand-cream rounded-2xl border border-brand-light">

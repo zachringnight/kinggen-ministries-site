@@ -26,12 +26,12 @@ export default function AboutPage() {
         title="About KingGen Ministries"
         description="KingGen Ministries exists to offer Gospel-centered counseling to women who need support, especially when cost is a barrier. We believe no woman should be left alone in her hardest seasons."
         background="kinggen-branded"
-        showArt={true}
-        artPosition="both"
+        showStones={true}
+        stonesPosition="both"
       />
 
       {/* Mission Section with art background */}
-      <Section variant="art-cream" padding="xl" watermark="art-right" artImage="cross-1">
+      <Section variant="art-cream" padding="xl" watermark="stones-right">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6">
@@ -100,7 +100,7 @@ export default function AboutPage() {
       </section>
 
       {/* For Referrers CTA with art accent */}
-      <Section variant="art-cream" padding="lg" watermark="art-left" artImage="cross-4">
+      <Section variant="art-cream" padding="lg" watermark="stones-left">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold font-heading text-text-primary mb-4">

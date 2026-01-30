@@ -140,31 +140,31 @@ interface PageHeroProps {
   title: string;
   description?: string;
   background?: PageHeroBackground;
-  showArt?: boolean;
-  artPosition?: "left" | "right" | "both";
+  showStones?: boolean;
+  stonesPosition?: "left" | "right" | "both";
   children?: ReactNode;
 }
 
 const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay: string }> = {
   "kinggen-branded": {
-    primary: "/KingGen-Background-1.png",
-    overlay: "bg-gradient-to-br from-brand-primary/92 via-brand-secondary/88 to-brand-primary/95",
+    primary: "/KingGen Background (1).png",
+    overlay: "bg-gradient-to-br from-brand-primary/75 via-brand-secondary/70 to-brand-primary/80",
   },
   "green-texture": {
     primary: "/bg_green_texture_1920x1080.png",
-    overlay: "bg-gradient-to-b from-brand-primary/85 via-brand-primary/80 to-brand-primary/90",
+    overlay: "bg-gradient-to-b from-brand-primary/80 via-brand-primary/75 to-brand-primary/85",
   },
   "green-art": {
-    primary: "/bg-green.jpg",
-    overlay: "bg-gradient-to-br from-brand-primary/70 to-brand-secondary/80",
+    primary: "/bg-green-alternate.png",
+    overlay: "bg-gradient-to-br from-brand-primary/60 to-brand-secondary/70",
   },
   "sage": {
     primary: "/bg-sage.jpg",
-    overlay: "bg-gradient-to-b from-brand-primary/80 to-brand-primary/85",
+    overlay: "bg-gradient-to-b from-brand-primary/75 to-brand-primary/80",
   },
   "cream": {
     primary: "/bg-cream.jpg",
-    overlay: "bg-gradient-to-b from-brand-cream/85 to-brand-cream/90",
+    overlay: "bg-gradient-to-b from-brand-cream/80 to-brand-cream/85",
   },
 };
 
@@ -172,8 +172,8 @@ export function PageHero({
   title,
   description,
   background = "kinggen-branded",
-  showArt = true,
-  artPosition = "both",
+  showStones = true,
+  stonesPosition = "right",
   children,
 }: PageHeroProps) {
   const bgConfig = pageHeroBackgrounds[background];
@@ -181,53 +181,49 @@ export function PageHero({
 
   return (
     <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
-      {/* Main background image */}
+      {/* Main branded background image - featured prominently */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('${bgConfig.primary}')` }}
         aria-hidden="true"
       />
 
-      {/* Gradient overlay for readability */}
+      {/* Gradient overlay for text readability */}
       <div className={`absolute inset-0 ${bgConfig.overlay}`} aria-hidden="true" />
 
-      {/* Art decorations using KingGen cross designs */}
-      {showArt && (artPosition === "left" || artPosition === "both") && (
+      {/* Stone cairn art - signature KingGen branding */}
+      {showStones && (stonesPosition === "left" || stonesPosition === "both") && (
         <div
-          className="absolute left-0 bottom-0 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 pointer-events-none opacity-25"
+          className="absolute left-0 bottom-0 w-48 sm:w-56 md:w-72 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundImage: "url('/logo_stack_cropped.png')",
+            backgroundPosition: "left bottom",
+            backgroundSize: "contain",
+            opacity: 0.15,
+            height: "320px",
+          }}
           aria-hidden="true"
-        >
-          <img
-            src="/Untitled-3.webp"
-            alt=""
-            loading="lazy"
-            width={320}
-            height={320}
-            className="w-full h-full object-contain"
-          />
-        </div>
+        />
       )}
 
-      {showArt && (artPosition === "right" || artPosition === "both") && (
+      {showStones && (stonesPosition === "right" || stonesPosition === "both") && (
         <div
-          className="absolute right-0 top-0 w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 pointer-events-none opacity-20"
+          className="absolute right-0 bottom-0 w-48 sm:w-56 md:w-72 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundImage: "url('/logo_stack_cropped.png')",
+            backgroundPosition: "right bottom",
+            backgroundSize: "contain",
+            opacity: 0.15,
+            height: "320px",
+          }}
           aria-hidden="true"
-        >
-          <img
-            src="/Untitled-1.webp"
-            alt=""
-            loading="lazy"
-            width={288}
-            height={288}
-            className="w-full h-full object-contain"
-          />
-        </div>
+        />
       )}
 
-      {/* Additional decorative elements */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-0 right-1/4 w-64 h-64 bg-brand-accent/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-1/4 w-48 h-48 bg-white/10 rounded-full blur-2xl" />
+      {/* Subtle decorative glow */}
+      <div className="absolute inset-0 opacity-15 pointer-events-none" aria-hidden="true">
+        <div className="absolute top-0 right-1/4 w-64 h-64 bg-brand-accent/40 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-1/4 w-48 h-48 bg-white/20 rounded-full blur-2xl" />
       </div>
 
       {/* Content */}

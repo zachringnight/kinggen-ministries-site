@@ -50,12 +50,12 @@ export default function ForReferrers() {
         title="For Referrers"
         description="Thank you for caring for women well. If you're supporting someone who needs counseling and cost is a barrier, we're grateful you're here. KingGen Ministries aims to be a trustworthy, compassionate referral partner."
         background="kinggen-branded"
-        showArt={true}
-        artPosition="both"
+        showStones={true}
+        stonesPosition="both"
       />
 
       {/* Who Can Refer with art background */}
-      <Section variant="art-cream" padding="xl" watermark="art-right" artImage="cross-1">
+      <Section variant="art-cream" padding="xl" watermark="stones-right">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 text-center">
@@ -80,7 +80,7 @@ export default function ForReferrers() {
       </Section>
 
       {/* When Referral is Appropriate with art */}
-      <Section variant="art-cream" padding="xl" watermark="art-left" artImage="cross-4">
+      <Section variant="art-cream" padding="xl" watermark="stones-left">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 text-center">
@@ -153,7 +153,7 @@ export default function ForReferrers() {
       </section>
 
       {/* How to Refer Section with art */}
-      <Section variant="art-cream" padding="xl" watermark="art-right" artImage="cross-3">
+      <Section variant="art-cream" padding="xl" watermark="stones-right">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-8 text-center">
@@ -196,7 +196,7 @@ export default function ForReferrers() {
       </Section>
 
       {/* Confidentiality Section with art */}
-      <Section variant="art-cream" padding="lg" watermark="art-left" artImage="cross-7">
+      <Section variant="art-cream" padding="lg" watermark="stones-left">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-col sm:flex-row items-start gap-4 p-6 bg-brand-cream rounded-2xl border border-brand-light">
