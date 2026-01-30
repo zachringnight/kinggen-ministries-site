@@ -56,7 +56,7 @@ Update `app/config/site.ts` with your organization's information:
 - PayPal donation URL
 - Social media links
 - Formspree endpoint (for contact form)
-- Image assets (ensure `/public/bg-green.jpg` exists)
+- Image assets 
 
 ## Code Quality & Optimization
 
