@@ -135,7 +135,7 @@ export default function Hero({
   );
 }
 
-type PageHeroBackground = "kinggen-branded" | "green-texture" | "green-art" | "sage" | "cream";
+type PageHeroBackground = "kinggen-branded" | "green-texture" | "green-art" | "sage" | "cream" | "cross-branded" | "cross-texture";
 
 interface PageHeroProps {
   title: string;
@@ -143,10 +143,12 @@ interface PageHeroProps {
   background?: PageHeroBackground;
   showStones?: boolean;
   stonesPosition?: "left" | "right" | "both";
+  showCross?: boolean;
+  crossPosition?: "center" | "left" | "right";
   children?: ReactNode;
 }
 
-const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay: string }> = {
+const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay: string; hasCross?: boolean }> = {
   "kinggen-branded": {
     primary: "/KingGen Background (1).png",
     overlay: "bg-gradient-to-br from-brand-primary/75 via-brand-secondary/70 to-brand-primary/80",
@@ -167,6 +169,16 @@ const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay
     primary: "/bg-cream.jpg",
     overlay: "bg-gradient-to-b from-brand-cream/80 to-brand-cream/85",
   },
+  "cross-branded": {
+    primary: "/KingGen Background (1).png",
+    overlay: "bg-gradient-to-br from-brand-primary/80 via-brand-secondary/75 to-brand-primary/85",
+    hasCross: true,
+  },
+  "cross-texture": {
+    primary: "/bg_green_texture_1920x1080.png",
+    overlay: "bg-gradient-to-br from-brand-primary/82 via-brand-secondary/78 to-brand-primary/85",
+    hasCross: true,
+  },
 };
 
 export function PageHero({
@@ -175,10 +187,13 @@ export function PageHero({
   background = "kinggen-branded",
   showStones = true,
   stonesPosition = "right",
+  showCross = false,
+  crossPosition = "center",
   children,
 }: PageHeroProps) {
   const bgConfig = pageHeroBackgrounds[background];
   const isLight = background === "cream";
+  const displayCross = showCross || bgConfig.hasCross;
 
   return (
     <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
@@ -191,6 +206,45 @@ export function PageHero({
 
       {/* Gradient overlay for text readability */}
       <div className={`absolute inset-0 ${bgConfig.overlay}`} aria-hidden="true" />
+
+      {/* Cross branding element - Gospel-centered ministry */}
+      {displayCross && crossPosition === "center" && (
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute inset-0 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "center 40%",
+            backgroundSize: "220px auto",
+            opacity: 0.08,
+          }}
+        />
+      )}
+
+      {displayCross && crossPosition === "left" && (
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute left-4 md:left-12 top-1/2 -translate-y-1/2 w-32 md:w-48 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "left center",
+            backgroundSize: "contain",
+            opacity: 0.10,
+            height: "200px",
+          }}
+        />
+      )}
+
+      {displayCross && crossPosition === "right" && (
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 w-32 md:w-48 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "right center",
+            backgroundSize: "contain",
+            opacity: 0.10,
+            height: "200px",
+          }}
+        />
+      )}
 
       {/* Stone cairn art - signature KingGen branding */}
       {showStones && (stonesPosition === "left" || stonesPosition === "both") && (

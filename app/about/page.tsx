@@ -5,6 +5,7 @@ import {
   Button,
   CheckCircleIcon,
   ArrowRightIcon,
+  CrossIcon,
   FadeIn,
   StaggerContainer,
   StaggerItem,
@@ -22,19 +23,25 @@ export default function AboutPage() {
 
   return (
     <>
-      {/* Hero Section with KingGen branded background */}
+      {/* Hero Section with cross-branded background */}
       <PageHero
         title="About KingGen Ministries"
         description="KingGen Ministries exists to offer Gospel-centered counseling to women who need support, especially when cost is a barrier. We believe no woman should be left alone in her hardest seasons."
-        background="kinggen-branded"
+        background="cross-branded"
         showStones={true}
         stonesPosition="both"
+        showCross={true}
+        crossPosition="center"
       />
 
-      {/* Mission Section with art background */}
-      <Section variant="art-cream" padding="xl" watermark="stones-right">
+      {/* Mission Section with cross background */}
+      <Section variant="cross-light" padding="xl" watermark="none">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
+            {/* Decorative cross divider */}
+            <div className="flex justify-center mb-6">
+              <CrossIcon className="w-6 h-6 text-brand-primary/50" strokeWidth={1.5} />
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6">
               Mission
             </h2>
@@ -74,9 +81,24 @@ export default function AboutPage() {
           }}
         />
 
+        {/* Subtle cross watermark for Gospel-centered messaging */}
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute inset-0 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "center 30%",
+            backgroundSize: "180px auto",
+            opacity: 0.08,
+          }}
+        />
+
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
             <div className="max-w-3xl mx-auto">
+              {/* Cross icon above heading */}
+              <div className="flex justify-center mb-4">
+                <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
+              </div>
               <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-6 text-center">
                 Our heart and approach
               </h2>
@@ -102,8 +124,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* For Referrers CTA with art accent */}
-      <Section variant="art-cream" padding="lg" watermark="stones-left">
+      {/* For Referrers CTA with cross accent */}
+      <Section variant="art-cream" padding="lg" watermark="cross-right">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold font-heading text-text-primary mb-4">
