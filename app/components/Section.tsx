@@ -136,7 +136,7 @@ export default function Section({
         <div
           className="absolute inset-0 bg-no-repeat pointer-events-none"
           style={{
-            backgroundImage: "url('/KingGen Background (1).png')",
+            backgroundImage: "url('/kinggen-background-1.png')",
             backgroundPosition: "center",
             backgroundSize: "cover",
             opacity: 0.08,
