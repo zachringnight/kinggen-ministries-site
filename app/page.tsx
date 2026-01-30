@@ -12,6 +12,7 @@ import {
   QuoteIcon,
   ShieldIcon,
   GiftIcon,
+  OptimizedBackground,
   // Motion components
   FadeIn,
   StaggerContainer,
@@ -74,29 +75,28 @@ export default function Home() {
       {/* Hero Section - Enhanced with KingGen branded background */}
       <section className="relative min-h-[90vh] md:min-h-[85vh] flex items-center overflow-hidden">
         {/* KingGen branded background - prominently displayed */}
-        <div
+        <OptimizedBackground
+          src="/KingGen Background (1).png"
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/KingGen Background (1).png')" }}
-          aria-hidden="true"
+          priority
         />
 
         {/* Animated Gradient Background overlay */}
         <AnimatedGradientBg />
 
-        {/* Floating Particles */}
-        <FloatingParticles count={30} className="opacity-40" />
+        {/* Floating Particles - reduced count for performance */}
+        <FloatingParticles count={15} className="opacity-40" />
 
         {/* Stone cairn art accent on the right */}
-        <div
+        <OptimizedBackground
+          src="/logo_stack_cropped.png"
           className="absolute right-0 bottom-0 w-64 sm:w-80 md:w-96 bg-no-repeat pointer-events-none"
           style={{
-            backgroundImage: "url('/logo_stack_cropped.png')",
             backgroundPosition: "right bottom",
             backgroundSize: "contain",
             opacity: 0.12,
             height: "450px",
           }}
-          aria-hidden="true"
         />
 
         {/* Subtle overlay for depth */}
@@ -195,7 +195,7 @@ export default function Home() {
       {/* Impact Statistics Section - NEW */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         <AnimatedGradientBg />
-        <FloatingParticles count={20} className="opacity-30" />
+        <FloatingParticles count={10} className="opacity-30" />
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
@@ -325,7 +325,7 @@ export default function Home() {
       {/* Commitment Section with Enhanced Background */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         <AnimatedGradientBg />
-        <FloatingParticles count={25} className="opacity-30" />
+        <FloatingParticles count={10} className="opacity-30" />
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
@@ -437,7 +437,7 @@ export default function Home() {
       {/* Book LeeAnn Section - Enhanced */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         <AnimatedGradientBg />
-        <FloatingParticles count={20} className="opacity-25" />
+        <FloatingParticles count={8} className="opacity-25" />
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">

@@ -11,6 +11,7 @@ import {
   StaggerContainer,
   StaggerItem,
   PageHero,
+  OptimizedBackground,
 } from "../components";
 
 export default function DonatePage() {
@@ -69,27 +70,29 @@ export default function DonatePage() {
       {/* Ways to Give Section with KingGen branded background */}
       <section className="relative py-20 md:py-32 overflow-hidden">
         {/* KingGen branded background */}
-        <div
+        <OptimizedBackground
+          src="/KingGen Background (1).png"
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/KingGen Background (1).png')" }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/90 via-brand-secondary/85 to-brand-primary/92" />
 
         {/* Cross art accents */}
-        <div
-          className="absolute left-0 bottom-0 w-48 h-48 md:w-64 md:h-64 bg-no-repeat pointer-events-none opacity-20"
+        <OptimizedBackground
+          src="/Untitled-6.png"
+          className="absolute left-0 bottom-0 w-48 h-48 md:w-64 md:h-64 bg-no-repeat pointer-events-none"
           style={{
-            backgroundImage: "url('/Untitled-6.png')",
             backgroundPosition: "left bottom",
             backgroundSize: "contain",
+            opacity: 0.20,
           }}
         />
-        <div
-          className="absolute right-0 top-0 w-40 h-40 md:w-56 md:h-56 bg-no-repeat pointer-events-none opacity-15"
+        <OptimizedBackground
+          src="/Untitled-3.png"
+          className="absolute right-0 top-0 w-40 h-40 md:w-56 md:h-56 bg-no-repeat pointer-events-none"
           style={{
-            backgroundImage: "url('/Untitled-3.png')",
             backgroundPosition: "right top",
             backgroundSize: "contain",
+            opacity: 0.15,
           }}
         />
 
@@ -175,19 +178,20 @@ export default function DonatePage() {
       {/* Final CTA with KingGen background */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         {/* KingGen background */}
-        <div
+        <OptimizedBackground
+          src="/bg_green_texture_1920x1080.png"
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg_green_texture_1920x1080.png')" }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/88 to-brand-secondary/90" />
 
         {/* Art accent */}
-        <div
-          className="absolute right-0 bottom-0 w-56 h-56 md:w-72 md:h-72 bg-no-repeat pointer-events-none opacity-15"
+        <OptimizedBackground
+          src="/Untitled-1.png"
+          className="absolute right-0 bottom-0 w-56 h-56 md:w-72 md:h-72 bg-no-repeat pointer-events-none"
           style={{
-            backgroundImage: "url('/Untitled-1.png')",
             backgroundPosition: "right bottom",
             backgroundSize: "contain",
+            opacity: 0.15,
           }}
         />
 
