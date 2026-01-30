@@ -12,6 +12,7 @@ import {
   QuoteIcon,
   ShieldIcon,
   GiftIcon,
+  CrossIcon,
   OptimizedBackground,
   // Motion components
   FadeIn,
@@ -87,6 +88,17 @@ export default function Home() {
         {/* Floating Particles - reduced count for performance */}
         <FloatingParticles count={15} className="opacity-40" />
 
+        {/* Cross watermark - Gospel-centered ministry */}
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute inset-0 bg-no-repeat pointer-events-none animate-cross-fade"
+          style={{
+            backgroundPosition: "center 35%",
+            backgroundSize: "280px auto",
+            opacity: 0.07,
+          }}
+        />
+
         {/* Stone cairn art accent on the right */}
         <OptimizedBackground
           src="/logo_stack_cropped.png"
@@ -105,10 +117,10 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 sm:px-6 py-16 md:py-20">
           <div className="max-w-4xl mx-auto text-center">
-            {/* Badge */}
+            {/* Badge with cross */}
             <FadeIn delay={0.1}>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium mb-6">
-                <span className="w-2 h-2 rounded-full bg-brand-accent animate-pulse" />
+                <CrossIcon className="w-4 h-4 text-brand-accent" strokeWidth={2.5} />
                 501(c)(3) Nonprofit Ministry
               </div>
             </FadeIn>
@@ -176,7 +188,7 @@ export default function Home() {
       <AnimatedDivider variant="wave" color="var(--brand-soft)" className="-mt-1" />
 
       {/* About the Ministry Section */}
-      <Section variant="light" padding="xl" watermark="stones">
+      <Section variant="cross-light" padding="xl" watermark="none">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center px-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 md:mb-6">
@@ -224,7 +236,7 @@ export default function Home() {
 
         <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
           {[
-            { icon: HeartIcon, text: "Gospel-centered, compassionate care", color: "from-rose-500 to-pink-600" },
+            { icon: CrossIcon, text: "Gospel-centered, compassionate care", color: "from-brand-primary to-brand-secondary" },
             { icon: ShieldIcon, text: "Confidential and trauma-informed", color: "from-emerald-500 to-teal-600" },
             { icon: UsersIcon, text: "No cost barrier for clients", color: "from-blue-500 to-indigo-600" },
             { icon: CheckCircleIcon, text: "501(c)(3) nonprofit accountability", color: "from-amber-500 to-orange-600" },
@@ -327,9 +339,24 @@ export default function Home() {
         <AnimatedGradientBg />
         <FloatingParticles count={10} className="opacity-30" />
 
+        {/* Cross watermark for Gospel commitment */}
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute inset-0 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "center",
+            backgroundSize: "200px auto",
+            opacity: 0.06,
+          }}
+        />
+
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center">
+              {/* Cross icon above heading */}
+              <div className="flex justify-center mb-4">
+                <CrossIcon className="w-8 h-8 text-white/60" strokeWidth={1.5} />
+              </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 md:mb-6">
                 Our commitment
               </h2>
@@ -363,7 +390,7 @@ export default function Home() {
       <AnimatedDivider variant="wave" color="var(--brand-soft)" className="-mt-1" />
 
       {/* Testimonials Section - Enhanced with Carousel */}
-      <Section variant="light" padding="xl" watermark="stones">
+      <Section variant="light" padding="xl" watermark="cross-subtle">
         <FadeIn>
           <SectionHeader
             title="What partners say"
@@ -474,7 +501,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA Section */}
-      <Section variant="light" padding="xl">
+      <Section variant="light" padding="xl" watermark="cross">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 md:mb-6">

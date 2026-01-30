@@ -128,6 +128,53 @@ a:not([class]):hover {
   border-radius: 2px;
 }
 
+/* Cross decorative divider - Gospel-centered branding */
+.decorative-cross {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.decorative-cross::before,
+.decorative-cross::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--brand-accent), transparent);
+}
+
+.decorative-cross-icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+  color: var(--brand-primary);
+}
+
+/* Cross pattern overlay */
+.cross-pattern {
+  background-image: url('/bg_white_cross.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 200px auto;
+  opacity: 0.05;
+}
+
+/* Subtle cross accent for cards */
+.card-cross-accent::after {
+  content: '';
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 16px;
+  height: 24px;
+  background-image: url('/bg_white_cross.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.08;
+}
+
 /* Background patterns */
 .pattern-dots {
   background-image: radial-gradient(circle, var(--brand-primary) 1px, transparent 1px);
@@ -272,6 +319,24 @@ blockquote {
   }
 }
 
+@keyframes cross-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(123, 163, 144, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(123, 163, 144, 0.6));
+  }
+}
+
+@keyframes cross-fade {
+  0%, 100% {
+    opacity: 0.08;
+  }
+  50% {
+    opacity: 0.12;
+  }
+}
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
@@ -298,6 +363,14 @@ blockquote {
 
 .animate-border-dance {
   animation: border-dance 3s ease-in-out infinite;
+}
+
+.animate-cross-glow {
+  animation: cross-glow 4s ease-in-out infinite;
+}
+
+.animate-cross-fade {
+  animation: cross-fade 5s ease-in-out infinite;
 }
 
 /* Glassmorphism utility */
