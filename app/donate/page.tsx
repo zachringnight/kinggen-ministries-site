@@ -10,6 +10,7 @@ import {
   FadeIn,
   StaggerContainer,
   StaggerItem,
+  PageHero,
 } from "../components";
 
 export default function DonatePage() {
@@ -22,40 +23,28 @@ export default function DonatePage() {
 
   return (
     <>
-      {/* Hero Section with Donate CTA */}
-      <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg-green.jpg')" }}
-        />
+      {/* Hero Section with KingGen branded background */}
+      <PageHero
+        title="Help keep counseling free"
+        description="Your generosity removes barriers and provides hope for women who need support but cannot afford care."
+        background="kinggen-branded"
+        showStones={true}
+        stonesPosition="both"
+      >
+        {/* Prominent Donate Button */}
+        <Button
+          href={siteConfig.paypalUrl}
+          variant="white"
+          size="lg"
+          icon={<HeartIcon className="w-5 h-5" />}
+          className="text-brand-primary"
+        >
+          Donate via PayPal
+        </Button>
+      </PageHero>
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6">
-          <FadeIn>
-            <div className="max-w-3xl mx-auto text-center text-white">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
-                Help keep counseling free
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed mb-8">
-                Your generosity removes barriers and provides hope for women who need support but cannot afford care.
-              </p>
-
-              {/* Prominent Donate Button */}
-              <Button
-                href={siteConfig.paypalUrl}
-                variant="white"
-                size="lg"
-                icon={<HeartIcon className="w-5 h-5" />}
-                className="text-brand-primary"
-              >
-                Donate via PayPal
-              </Button>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Impact Section */}
-      <Section variant="light" padding="xl">
+      {/* Impact Section with art background */}
+      <Section variant="art-cream" padding="xl" watermark="stones-right">
         <FadeIn>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 text-center">
             Your gift makes a difference
@@ -77,8 +66,34 @@ export default function DonatePage() {
         </StaggerContainer>
       </Section>
 
-      {/* Ways to Give Section */}
-      <Section variant="primary" padding="xl" watermark="none">
+      {/* Ways to Give Section with KingGen branded background */}
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        {/* KingGen branded background */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/KingGen Background (1).png')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/90 via-brand-secondary/85 to-brand-primary/92" />
+
+        {/* Cross art accents */}
+        <div
+          className="absolute left-0 bottom-0 w-48 h-48 md:w-64 md:h-64 bg-no-repeat pointer-events-none opacity-20"
+          style={{
+            backgroundImage: "url('/Untitled-6.png')",
+            backgroundPosition: "left bottom",
+            backgroundSize: "contain",
+          }}
+        />
+        <div
+          className="absolute right-0 top-0 w-40 h-40 md:w-56 md:h-56 bg-no-repeat pointer-events-none opacity-15"
+          style={{
+            backgroundImage: "url('/Untitled-3.png')",
+            backgroundPosition: "right top",
+            backgroundSize: "contain",
+          }}
+        />
+
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
         <FadeIn>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-8 md:mb-12 text-center">
             Ways to give
@@ -127,10 +142,11 @@ export default function DonatePage() {
             </div>
           </FadeIn>
         </div>
-      </Section>
+        </div>
+      </section>
 
-      {/* Tax Deductible Info */}
-      <Section variant="light" padding="lg">
+      {/* Tax Deductible Info with art */}
+      <Section variant="art-cream" padding="lg" watermark="stones-left">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <div className="bg-brand-cream rounded-2xl p-6 md:p-8 border border-brand-light">
@@ -156,27 +172,46 @@ export default function DonatePage() {
         </FadeIn>
       </Section>
 
-      {/* Final CTA */}
-      <Section variant="primary" padding="lg" watermark="none">
-        <FadeIn>
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold font-heading text-white mb-4">
-              Ready to make a difference?
-            </h2>
-            <p className="text-white/90 mb-8">
-              Your support helps women access the care they need.
-            </p>
-            <Button
-              href={siteConfig.paypalUrl}
-              variant="white"
-              size="lg"
-              icon={<HeartIcon className="w-5 h-5" />}
-            >
-              Donate Now
-            </Button>
-          </div>
-        </FadeIn>
-      </Section>
+      {/* Final CTA with KingGen background */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        {/* KingGen background */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/bg_green_texture_1920x1080.png')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/88 to-brand-secondary/90" />
+
+        {/* Art accent */}
+        <div
+          className="absolute right-0 bottom-0 w-56 h-56 md:w-72 md:h-72 bg-no-repeat pointer-events-none opacity-15"
+          style={{
+            backgroundImage: "url('/Untitled-1.png')",
+            backgroundPosition: "right bottom",
+            backgroundSize: "contain",
+          }}
+        />
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <FadeIn>
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold font-heading text-white mb-4">
+                Ready to make a difference?
+              </h2>
+              <p className="text-white/90 mb-8">
+                Your support helps women access the care they need.
+              </p>
+              <Button
+                href={siteConfig.paypalUrl}
+                variant="white"
+                size="lg"
+                icon={<HeartIcon className="w-5 h-5" />}
+              >
+                Donate Now
+              </Button>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
     </>
   );
 }

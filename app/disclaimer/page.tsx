@@ -3,26 +3,22 @@
 import {
   Section,
   FadeIn,
+  PageHero,
 } from "../components";
 
 export default function DisclaimerPage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-brand-primary to-brand-secondary py-20 md:py-28">
-        <div className="container mx-auto px-4">
-          <FadeIn>
-            <div className="max-w-3xl mx-auto text-center text-white">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-6">
-                Disclaimer
-              </h1>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      {/* Hero Section with KingGen branded background */}
+      <PageHero
+        title="Disclaimer"
+        background="kinggen-branded"
+        showStones={true}
+        stonesPosition="both"
+      />
 
-      {/* Content Section */}
-      <Section variant="light" padding="xl">
+      {/* Content Section with art */}
+      <Section variant="art-cream" padding="xl" watermark="stones-left">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <p className="text-lg text-text-secondary leading-relaxed mb-6">

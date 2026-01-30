@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
-type SectionVariant = "default" | "light" | "soft" | "primary" | "dark";
-type WatermarkType = "cross" | "logo" | "none";
+type SectionVariant = "default" | "light" | "soft" | "primary" | "dark" | "art-cream" | "art-green" | "kinggen-branded";
+type WatermarkType = "stones" | "stones-left" | "stones-right" | "logo" | "kinggen-bg" | "none";
 
 interface SectionProps {
   children: ReactNode;
@@ -19,6 +19,9 @@ const variantStyles: Record<SectionVariant, string> = {
   soft: "bg-brand-cream",
   primary: "bg-brand-primary text-white",
   dark: "bg-brand-primary text-white",
+  "art-cream": "bg-brand-cream",
+  "art-green": "bg-brand-primary text-white",
+  "kinggen-branded": "bg-brand-primary text-white",
 };
 
 const containerSizes: Record<string, string> = {
@@ -43,26 +46,63 @@ export default function Section({
   id,
   containerSize = "default",
   padding = "lg",
-  watermark = "cross",
+  watermark = "stones",
 }: SectionProps) {
-  const isLightSection = ["default", "light", "soft"].includes(variant);
-  const isGreenSection = ["primary", "dark"].includes(variant);
-  const showCrossWatermark = watermark === "cross" && isLightSection;
+  const isLightSection = ["default", "light", "soft", "art-cream"].includes(variant);
+  const isGreenSection = ["primary", "dark", "art-green", "kinggen-branded"].includes(variant);
+
+  // Watermark settings
+  const showStonesWatermark = watermark === "stones" && isLightSection;
+  const showStonesLeft = watermark === "stones-left";
+  const showStonesRight = watermark === "stones-right";
   const showLogoWatermark = watermark === "logo" && isGreenSection;
+  const showKinggenBg = watermark === "kinggen-bg";
 
   return (
     <section
       id={id}
       className={`${variantStyles[variant]} ${paddingStyles[padding]} ${className} relative overflow-hidden`}
     >
-      {/* Cross watermark for cream/light sections - using Untitled cross designs */}
-      {showCrossWatermark && (
+      {/* Stacked stones watermark for cream/light sections - signature branding */}
+      {showStonesWatermark && (
         <div
-          className="absolute inset-0 bg-no-repeat pointer-events-none opacity-40"
+          className="absolute right-0 bottom-0 w-64 h-auto md:w-80 bg-no-repeat pointer-events-none"
           style={{
-            backgroundImage: "url('/Untitled-2.png')",
+            backgroundImage: "url('/logo_stack_cropped.png')",
+            backgroundPosition: "right bottom",
+            backgroundSize: "contain",
+            opacity: 0.12,
+            height: "400px",
+          }}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Stones watermark on left */}
+      {showStonesLeft && (
+        <div
+          className="absolute left-0 bottom-0 w-56 h-auto md:w-72 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundImage: "url('/logo_stack_cropped.png')",
             backgroundPosition: "left bottom",
-            backgroundSize: "280px auto",
+            backgroundSize: "contain",
+            opacity: 0.10,
+            height: "350px",
+          }}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Stones watermark on right */}
+      {showStonesRight && (
+        <div
+          className="absolute right-0 bottom-0 w-56 h-auto md:w-72 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundImage: "url('/logo_stack_cropped.png')",
+            backgroundPosition: "right bottom",
+            backgroundSize: "contain",
+            opacity: 0.10,
+            height: "350px",
           }}
           aria-hidden="true"
         />
@@ -71,10 +111,53 @@ export default function Section({
       {/* Full logo watermark for green sections */}
       {showLogoWatermark && (
         <div
-          className="absolute inset-0 bg-no-repeat bg-center pointer-events-none opacity-[0.06]"
+          className="absolute inset-0 bg-no-repeat bg-center pointer-events-none"
           style={{
-            backgroundImage: "url('/logo-full.png')",
-            backgroundSize: "350px auto",
+            backgroundImage: "url('/Untitled design.png')",
+            backgroundSize: "320px auto",
+            opacity: 0.08,
+          }}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* KingGen branded full background */}
+      {showKinggenBg && (
+        <div
+          className="absolute inset-0 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundImage: "url('/KingGen Background (1).png')",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            opacity: 0.15,
+          }}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* KingGen branded background for art-cream variant */}
+      {variant === "art-cream" && (
+        <div
+          className="absolute inset-0 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundImage: "url('/KingGen Background (1).png')",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            opacity: 0.06,
+          }}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* KingGen branded background for kinggen-branded and art-green variants */}
+      {(variant === "art-green" || variant === "kinggen-branded") && (
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: "url('/KingGen Background (1).png')",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            opacity: 0.35,
           }}
           aria-hidden="true"
         />
