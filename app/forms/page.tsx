@@ -12,6 +12,7 @@ import {
   FadeIn,
   StaggerContainer,
   StaggerItem,
+  PageHero,
 } from "../components";
 
 export default function ResourcesPage() {
@@ -44,29 +45,17 @@ export default function ResourcesPage() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg-green.jpg')" }}
-        />
+      {/* Hero Section with KingGen branded background */}
+      <PageHero
+        title="Resources"
+        description="Free resources to encourage you in your journey. Download and use at your own pace."
+        background="kinggen-branded"
+        showStones={true}
+        stonesPosition="both"
+      />
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6">
-          <FadeIn>
-            <div className="max-w-3xl mx-auto text-center text-white">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
-                Resources
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
-                Free resources to encourage you in your journey. Download and use at your own pace.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Opening Section */}
-      <Section variant="light" padding="lg">
+      {/* Opening Section with art */}
+      <Section variant="art-cream" padding="lg" watermark="stones-right">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-lg text-text-secondary leading-relaxed">
@@ -76,8 +65,8 @@ export default function ResourcesPage() {
         </FadeIn>
       </Section>
 
-      {/* Downloads Section */}
-      <Section variant="default" padding="xl">
+      {/* Downloads Section with art */}
+      <Section variant="art-cream" padding="xl" watermark="stones-left">
         <FadeIn>
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-8 text-center">
             Free Downloads
@@ -115,8 +104,8 @@ export default function ResourcesPage() {
         </FadeIn>
       </Section>
 
-      {/* Contact CTA */}
-      <Section variant="soft" padding="lg">
+      {/* Contact CTA with art */}
+      <Section variant="art-cream" padding="lg" watermark="stones">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold font-heading text-text-primary mb-4">

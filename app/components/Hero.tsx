@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import Button from "./Button";
+import OptimizedBackground from "./OptimizedBackground";
 
 interface HeroProps {
   title: string | ReactNode;
@@ -134,31 +135,116 @@ export default function Hero({
   );
 }
 
+type PageHeroBackground = "kinggen-branded" | "green-texture" | "green-art" | "sage" | "cream";
+
 interface PageHeroProps {
   title: string;
   description?: string;
+  background?: PageHeroBackground;
+  showStones?: boolean;
+  stonesPosition?: "left" | "right" | "both";
+  children?: ReactNode;
 }
 
-export function PageHero({ title, description }: PageHeroProps) {
+const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay: string }> = {
+  "kinggen-branded": {
+    primary: "/KingGen Background (1).png",
+    overlay: "bg-gradient-to-br from-brand-primary/75 via-brand-secondary/70 to-brand-primary/80",
+  },
+  "green-texture": {
+    primary: "/bg_green_texture_1920x1080.png",
+    overlay: "bg-gradient-to-b from-brand-primary/80 via-brand-primary/75 to-brand-primary/85",
+  },
+  "green-art": {
+    primary: "/bg-green-alternate.png",
+    overlay: "bg-gradient-to-br from-brand-primary/60 to-brand-secondary/70",
+  },
+  "sage": {
+    primary: "/bg-sage.jpg",
+    overlay: "bg-gradient-to-b from-brand-primary/75 to-brand-primary/80",
+  },
+  "cream": {
+    primary: "/bg-cream.jpg",
+    overlay: "bg-gradient-to-b from-brand-cream/80 to-brand-cream/85",
+  },
+};
+
+export function PageHero({
+  title,
+  description,
+  background = "kinggen-branded",
+  showStones = true,
+  stonesPosition = "right",
+  children,
+}: PageHeroProps) {
+  const bgConfig = pageHeroBackgrounds[background];
+  const isLight = background === "cream";
+
   return (
-    <section className="hero-gradient text-white py-20 md:py-28 relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-brand-accent/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full blur-2xl" />
+    <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
+      {/* Main branded background image - optimized with lazy loading */}
+      <OptimizedBackground
+        src={bgConfig.primary}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        priority
+      />
+
+      {/* Gradient overlay for text readability */}
+      <div className={`absolute inset-0 ${bgConfig.overlay}`} aria-hidden="true" />
+
+      {/* Stone cairn art - signature KingGen branding */}
+      {showStones && (stonesPosition === "left" || stonesPosition === "both") && (
+        <OptimizedBackground
+          src="/logo_stack_cropped.png"
+          className="absolute left-0 bottom-0 w-48 sm:w-56 md:w-72 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "left bottom",
+            backgroundSize: "contain",
+            opacity: 0.15,
+            height: "320px",
+          }}
+        />
+      )}
+
+      {showStones && (stonesPosition === "right" || stonesPosition === "both") && (
+        <OptimizedBackground
+          src="/logo_stack_cropped.png"
+          className="absolute right-0 bottom-0 w-48 sm:w-56 md:w-72 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "right bottom",
+            backgroundSize: "contain",
+            opacity: 0.15,
+            height: "320px",
+          }}
+        />
+      )}
+
+      {/* Subtle decorative glow */}
+      <div className="absolute inset-0 opacity-15 pointer-events-none" aria-hidden="true">
+        <div className="absolute top-0 right-1/4 w-64 h-64 bg-brand-accent/40 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-1/4 w-48 h-48 bg-white/20 rounded-full blur-2xl" />
       </div>
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="max-w-3xl">
-          <div className="decorative-line mb-6" />
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4">
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-6">
+        <div className={`max-w-3xl mx-auto text-center ${isLight ? "text-text-primary" : "text-white"}`}>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
             {title}
           </h1>
           {description && (
-            <p className="text-xl text-white/80 leading-relaxed">{description}</p>
+            <p className={`text-base sm:text-lg md:text-xl leading-relaxed ${isLight ? "text-text-secondary" : "text-white/90"}`}>
+              {description}
+            </p>
           )}
+          {children && <div className="mt-8">{children}</div>}
         </div>
       </div>
+
+      {/* Decorative bottom accent */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand-accent/50 to-transparent"
+        aria-hidden="true"
+      />
     </section>
   );
 }

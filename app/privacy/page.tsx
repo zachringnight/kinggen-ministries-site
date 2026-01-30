@@ -3,26 +3,22 @@
 import {
   Section,
   FadeIn,
+  PageHero,
 } from "../components";
 
 export default function PrivacyPage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-brand-primary to-brand-secondary py-20 md:py-28">
-        <div className="container mx-auto px-4">
-          <FadeIn>
-            <div className="max-w-3xl mx-auto text-center text-white">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-6">
-                Privacy and Confidentiality
-              </h1>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      {/* Hero Section with KingGen branded background */}
+      <PageHero
+        title="Privacy and Confidentiality"
+        background="kinggen-branded"
+        showStones={true}
+        stonesPosition="both"
+      />
 
-      {/* Content Section */}
-      <Section variant="light" padding="xl">
+      {/* Content Section with art */}
+      <Section variant="art-cream" padding="xl" watermark="stones-right">
         <FadeIn>
           <div className="max-w-3xl mx-auto prose prose-lg">
             <p className="text-lg text-text-secondary leading-relaxed mb-6">
