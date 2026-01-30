@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import Button from "./Button";
+import OptimizedBackground from "./OptimizedBackground";
 
 interface HeroProps {
   title: string | ReactNode;
@@ -181,11 +182,11 @@ export function PageHero({
 
   return (
     <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
-      {/* Main branded background image - featured prominently */}
-      <div
+      {/* Main branded background image - optimized with lazy loading */}
+      <OptimizedBackground
+        src={bgConfig.primary}
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('${bgConfig.primary}')` }}
-        aria-hidden="true"
+        priority
       />
 
       {/* Gradient overlay for text readability */}
@@ -193,30 +194,28 @@ export function PageHero({
 
       {/* Stone cairn art - signature KingGen branding */}
       {showStones && (stonesPosition === "left" || stonesPosition === "both") && (
-        <div
+        <OptimizedBackground
+          src="/logo_stack_cropped.png"
           className="absolute left-0 bottom-0 w-48 sm:w-56 md:w-72 bg-no-repeat pointer-events-none"
           style={{
-            backgroundImage: "url('/logo_stack_cropped.png')",
             backgroundPosition: "left bottom",
             backgroundSize: "contain",
             opacity: 0.15,
             height: "320px",
           }}
-          aria-hidden="true"
         />
       )}
 
       {showStones && (stonesPosition === "right" || stonesPosition === "both") && (
-        <div
+        <OptimizedBackground
+          src="/logo_stack_cropped.png"
           className="absolute right-0 bottom-0 w-48 sm:w-56 md:w-72 bg-no-repeat pointer-events-none"
           style={{
-            backgroundImage: "url('/logo_stack_cropped.png')",
             backgroundPosition: "right bottom",
             backgroundSize: "contain",
             opacity: 0.15,
             height: "320px",
           }}
-          aria-hidden="true"
         />
       )}
 

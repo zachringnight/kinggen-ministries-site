@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import OptimizedBackground from "./OptimizedBackground";
 
 type SectionVariant = "default" | "light" | "soft" | "primary" | "dark" | "art-cream" | "art-green" | "kinggen-branded";
 type WatermarkType = "stones" | "stones-left" | "stones-right" | "logo" | "kinggen-bg" | "none";
@@ -65,101 +66,94 @@ export default function Section({
     >
       {/* Stacked stones watermark for cream/light sections - signature branding */}
       {showStonesWatermark && (
-        <div
+        <OptimizedBackground
+          src="/logo_stack_cropped.png"
           className="absolute right-0 bottom-0 w-64 h-auto md:w-80 bg-no-repeat pointer-events-none"
           style={{
-            backgroundImage: "url('/logo_stack_cropped.png')",
             backgroundPosition: "right bottom",
             backgroundSize: "contain",
             opacity: 0.12,
             height: "400px",
           }}
-          aria-hidden="true"
         />
       )}
 
       {/* Stones watermark on left */}
       {showStonesLeft && (
-        <div
+        <OptimizedBackground
+          src="/logo_stack_cropped.png"
           className="absolute left-0 bottom-0 w-56 h-auto md:w-72 bg-no-repeat pointer-events-none"
           style={{
-            backgroundImage: "url('/logo_stack_cropped.png')",
             backgroundPosition: "left bottom",
             backgroundSize: "contain",
             opacity: 0.10,
             height: "350px",
           }}
-          aria-hidden="true"
         />
       )}
 
       {/* Stones watermark on right */}
       {showStonesRight && (
-        <div
+        <OptimizedBackground
+          src="/logo_stack_cropped.png"
           className="absolute right-0 bottom-0 w-56 h-auto md:w-72 bg-no-repeat pointer-events-none"
           style={{
-            backgroundImage: "url('/logo_stack_cropped.png')",
             backgroundPosition: "right bottom",
             backgroundSize: "contain",
             opacity: 0.10,
             height: "350px",
           }}
-          aria-hidden="true"
         />
       )}
 
       {/* Full logo watermark for green sections */}
       {showLogoWatermark && (
-        <div
+        <OptimizedBackground
+          src="/Untitled design.png"
           className="absolute inset-0 bg-no-repeat bg-center pointer-events-none"
           style={{
-            backgroundImage: "url('/Untitled design.png')",
             backgroundSize: "320px auto",
             opacity: 0.08,
           }}
-          aria-hidden="true"
         />
       )}
 
       {/* KingGen branded full background */}
       {showKinggenBg && (
-        <div
+        <OptimizedBackground
+          src="/KingGen Background (1).png"
           className="absolute inset-0 bg-no-repeat pointer-events-none"
           style={{
-            backgroundImage: "url('/KingGen Background (1).png')",
             backgroundPosition: "center",
             backgroundSize: "cover",
             opacity: 0.15,
           }}
-          aria-hidden="true"
         />
       )}
 
       {/* KingGen branded background for art-cream variant */}
       {variant === "art-cream" && (
-        <div
+        <OptimizedBackground
+          src="/KingGen Background (1).png"
           className="absolute inset-0 bg-no-repeat pointer-events-none"
           style={{
-            backgroundImage: "url('/KingGen Background (1).png')",
             backgroundPosition: "center",
             backgroundSize: "cover",
             opacity: 0.06,
           }}
-          aria-hidden="true"
         />
       )}
 
       {/* KingGen branded background for kinggen-branded and art-green variants */}
       {(variant === "art-green" || variant === "kinggen-branded") && (
-        <div
+        <OptimizedBackground
+          src="/KingGen Background (1).png"
           className="absolute inset-0 pointer-events-none"
           style={{
-            backgroundImage: "url('/KingGen Background (1).png')",
             backgroundPosition: "center",
             backgroundSize: "cover",
             opacity: 0.35,
           }}
-          aria-hidden="true"
         />
       )}
 
