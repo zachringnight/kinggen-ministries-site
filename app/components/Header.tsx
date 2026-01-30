@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
-import { MenuIcon, XIcon, ChevronDownIcon, HeartIcon } from "./Icons";
+import { useState } from "react";
+import { MenuIcon, XIcon, HeartIcon } from "./Icons";
 import { LogoIcon } from "./Logo";
 import Button from "./Button";
 
