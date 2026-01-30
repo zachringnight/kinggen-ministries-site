@@ -194,26 +194,34 @@ export function PageHero({
       {/* Art decorations using KingGen cross designs */}
       {showArt && (artPosition === "left" || artPosition === "both") && (
         <div
-          className="absolute left-0 bottom-0 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 bg-no-repeat pointer-events-none opacity-25"
-          style={{
-            backgroundImage: "url('/Untitled-3.png')",
-            backgroundPosition: "left bottom",
-            backgroundSize: "contain",
-          }}
+          className="absolute left-0 bottom-0 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 pointer-events-none opacity-25"
           aria-hidden="true"
-        />
+        >
+          <img
+            src="/Untitled-3.webp"
+            alt=""
+            loading="lazy"
+            width={320}
+            height={320}
+            className="w-full h-full object-contain"
+          />
+        </div>
       )}
 
       {showArt && (artPosition === "right" || artPosition === "both") && (
         <div
-          className="absolute right-0 top-0 w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 bg-no-repeat pointer-events-none opacity-20"
-          style={{
-            backgroundImage: "url('/Untitled-1.png')",
-            backgroundPosition: "right top",
-            backgroundSize: "contain",
-          }}
+          className="absolute right-0 top-0 w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 pointer-events-none opacity-20"
           aria-hidden="true"
-        />
+        >
+          <img
+            src="/Untitled-1.webp"
+            alt=""
+            loading="lazy"
+            width={288}
+            height={288}
+            className="w-full h-full object-contain"
+          />
+        </div>
       )}
 
       {/* Additional decorative elements */}
