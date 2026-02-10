@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 import OptimizedBackground from "./OptimizedBackground";
 
-type SectionVariant = "default" | "light" | "soft" | "primary" | "dark" | "art-cream" | "art-green" | "kinggen-branded" | "sage-mist" | "warm-cream";
-type WatermarkType = "stones" | "stones-left" | "stones-right" | "logo" | "kinggen-bg" | "none";
+type SectionVariant = "default" | "light" | "soft" | "primary" | "dark" | "art-cream" | "art-green" | "kinggen-branded" | "sage-mist" | "warm-cream" | "cross-light" | "cross-green";
+type WatermarkType = "stones" | "stones-left" | "stones-right" | "logo" | "kinggen-bg" | "cross" | "cross-subtle" | "cross-left" | "cross-right" | "none";
 
 interface SectionProps {
   children: ReactNode;
@@ -25,6 +25,8 @@ const variantStyles: Record<SectionVariant, string> = {
   "kinggen-branded": "bg-brand-primary text-white",
   "sage-mist": "bg-brand-sage-light",
   "warm-cream": "bg-[#f7f3eb]",
+  "cross-light": "bg-brand-cream",
+  "cross-green": "bg-brand-primary text-white",
 };
 
 const containerSizes: Record<string, string> = {
@@ -51,14 +53,19 @@ export default function Section({
   padding = "lg",
   watermark = "none",
 }: SectionProps) {
-  const isLightSection = ["default", "light", "soft", "art-cream", "sage-mist", "warm-cream"].includes(variant);
-  const isGreenSection = ["primary", "dark", "art-green", "kinggen-branded"].includes(variant);
+  const isLightSection = ["default", "light", "soft", "art-cream", "sage-mist", "warm-cream", "cross-light"].includes(variant);
+  const isGreenSection = ["primary", "dark", "art-green", "kinggen-branded", "cross-green"].includes(variant);
+  const isCrossVariant = variant === "cross-light" || variant === "cross-green";
 
   const showStonesWatermark = watermark === "stones" && isLightSection;
   const showStonesLeft = watermark === "stones-left";
   const showStonesRight = watermark === "stones-right";
   const showLogoWatermark = watermark === "logo" && isGreenSection;
   const showKinggenBg = watermark === "kinggen-bg";
+  const showCrossWatermark = watermark === "cross";
+  const showCrossSubtle = watermark === "cross-subtle";
+  const showCrossLeft = watermark === "cross-left";
+  const showCrossRight = watermark === "cross-right";
 
   return (
     <section
@@ -147,6 +154,63 @@ export default function Section({
             backgroundPosition: "center",
             backgroundSize: "cover",
             opacity: 0.3,
+          }}
+        />
+      )}
+
+      {isCrossVariant && (
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute inset-0 bg-repeat pointer-events-none"
+          style={{
+            backgroundSize: "200px 200px",
+            opacity: variant === "cross-light" ? 0.05 : 0.08,
+          }}
+        />
+      )}
+
+      {showCrossWatermark && (
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute inset-0 bg-repeat pointer-events-none"
+          style={{
+            backgroundSize: "200px 200px",
+            opacity: 0.08,
+          }}
+        />
+      )}
+
+      {showCrossSubtle && (
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute inset-0 bg-repeat pointer-events-none"
+          style={{
+            backgroundSize: "200px 200px",
+            opacity: 0.035,
+          }}
+        />
+      )}
+
+      {showCrossLeft && (
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute left-0 top-0 bottom-0 w-1/2 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "left center",
+            backgroundSize: "contain",
+            opacity: 0.08,
+          }}
+        />
+      )}
+
+      {showCrossRight && (
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute right-0 top-0 bottom-0 w-1/2 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "right center",
+            backgroundSize: "contain",
+            opacity: 0.08,
           }}
         />
       )}

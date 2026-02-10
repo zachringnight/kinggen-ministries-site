@@ -1,27 +1,25 @@
 import Link from "next/link";
-import { siteConfig } from "../config/site";
+import { siteConfig, navLinks, footerLinks } from "../config/site";
 import { PhoneIcon, MailIcon, InstagramIcon, FacebookIcon, HeartIcon } from "./Icons";
 import { LogoIcon } from "./Logo";
 import Button from "./Button";
+import OptimizedBackground from "./OptimizedBackground";
+
+// Filter out Home and Donate from footer main nav
+const mainNavLinks = navLinks.filter(link => link.href !== "/" && link.href !== "/donate");
+
+// Resource links from footer config
+const resourceNavLinks = footerLinks.filter(
+  link => link.href === "/get-support" || link.href === "/forms"
+);
+
+// Legal links from footer config
+const legalNavLinks = footerLinks.filter(
+  link => link.href === "/privacy" || link.href === "/disclaimer"
+);
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-
-  const mainLinks = [
-    { href: "/about", label: "About" },
-    { href: "/for-referrers", label: "For Referrers" },
-    { href: "/for-grant-writers", label: "For Grant Writers" },
-    { href: "/donate", label: "Donate" },
-    { href: "/testimonials", label: "Testimonials" },
-    { href: "/contact", label: "Contact" },
-  ];
-
-  const resourceLinks = [
-    { href: "/get-support", label: "Client Information" },
-    { href: "/forms", label: "Forms & Resources" },
-    { href: "/privacy", label: "Privacy" },
-    { href: "/disclaimer", label: "Disclaimer" },
-  ];
 
   return (
     <footer className="relative overflow-hidden">
@@ -30,9 +28,10 @@ export default function Footer() {
 
       {/* Main Footer */}
       <div className="relative">
-        <div
+        <OptimizedBackground
+          src="/bg-green.jpg"
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg-green.jpg')" }}
+          priority
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#3D5A3D]/95 to-[#2c4a2c]/98" />
 
@@ -98,7 +97,7 @@ export default function Footer() {
                 Navigate
               </h4>
               <nav className="grid grid-cols-2 gap-x-6 gap-y-2">
-                {mainLinks.map((item) => (
+                {mainNavLinks.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
@@ -115,7 +114,7 @@ export default function Footer() {
                 Resources
               </h4>
               <nav className="flex flex-col gap-2">
-                {resourceLinks.map((item) => (
+                {[...resourceNavLinks, ...legalNavLinks].map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}

@@ -6,16 +6,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MenuIcon, XIcon, HeartIcon, ArrowRightIcon } from "./Icons";
 import { LogoIcon } from "./Logo";
 import Button from "./Button";
+import { navLinks as configNavLinks, footerLinks } from "../config/site";
 
-// Main nav links
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/for-referrers", label: "For Referrers" },
-  { href: "/for-grant-writers", label: "For Grant Writers" },
-  { href: "/testimonials", label: "Testimonials" },
-  { href: "/contact", label: "Contact" },
-];
+// Filter out Donate from main nav (rendered as separate CTA button)
+const navLinks = configNavLinks.filter(link => link.href !== "/donate");
+
+// Resource links from footer config
+const resourceLinks = footerLinks.filter(
+  link => link.href === "/get-support" || link.href === "/forms"
+);
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -47,8 +46,8 @@ export default function Header() {
       <header
         className={`sticky top-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-[#faf8f2]/95 backdrop-blur-md shadow-[0_1px_3px_rgba(61,90,61,0.08),0_1px_2px_rgba(61,90,61,0.04)]"
-            : "bg-[#faf8f2]"
+            ? "bg-brand-soft/95 backdrop-blur-md shadow-[0_1px_3px_rgba(61,90,61,0.08),0_1px_2px_rgba(61,90,61,0.04)]"
+            : "bg-brand-soft"
         }`}
       >
         {/* Subtle bottom accent line */}
@@ -144,7 +143,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="absolute right-0 top-0 bottom-0 w-[85%] max-w-sm bg-[#faf8f2] shadow-2xl overflow-y-auto"
+              className="absolute right-0 top-0 bottom-0 w-[85%] max-w-sm bg-brand-soft shadow-2xl overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Mobile menu header */}
@@ -202,30 +201,18 @@ export default function Header() {
                     Resources
                   </p>
                   <div className="space-y-0.5">
-                    <Link
-                      href="/get-support"
-                      className="block py-3 px-4 hover:bg-brand-light rounded-xl transition-colors"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      <span className="block font-medium text-text-primary text-sm">
-                        Client Information
-                      </span>
-                      <span className="block text-xs text-text-muted mt-0.5">
-                        For referred clients
-                      </span>
-                    </Link>
-                    <Link
-                      href="/forms"
-                      className="block py-3 px-4 hover:bg-brand-light rounded-xl transition-colors"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      <span className="block font-medium text-text-primary text-sm">
-                        Forms & Resources
-                      </span>
-                      <span className="block text-xs text-text-muted mt-0.5">
-                        Guides & downloads
-                      </span>
-                    </Link>
+                    {resourceLinks.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="block py-3 px-4 hover:bg-brand-light rounded-xl transition-colors"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <span className="block font-medium text-text-primary text-sm">
+                          {item.label}
+                        </span>
+                      </Link>
+                    ))}
                   </div>
                 </motion.div>
 

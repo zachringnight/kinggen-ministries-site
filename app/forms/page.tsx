@@ -5,7 +5,6 @@ import {
   SectionHeader,
   Button,
   DocumentIcon,
-  DownloadIcon,
   ArrowRightIcon,
   HeartIcon,
   BookOpenIcon,
@@ -22,28 +21,24 @@ export default function ResourcesPage() {
     {
       name: "Scripture for Anxious Moments",
       description: "A collection of verses to read when you feel overwhelmed",
-      filename: "scripture-for-anxiety.pdf",
       icon: BookOpenIcon,
       color: "from-brand-primary to-brand-accent",
     },
     {
       name: "Prayer Guide for Hard Days",
       description: "Simple prayers for when words are hard to find",
-      filename: "prayer-guide.pdf",
       icon: HeartIcon,
       color: "from-brand-accent to-brand-warm",
     },
     {
       name: "Journaling Prompts for Healing",
       description: "Reflective questions to help process your thoughts",
-      filename: "journaling-prompts.pdf",
       icon: DocumentIcon,
       color: "from-brand-warm to-brand-primary",
     },
     {
       name: "Daily Encouragement Cards",
       description: "Printable cards with Scripture and affirmations",
-      filename: "encouragement-cards.pdf",
       icon: SunIcon,
       color: "from-brand-primary to-brand-warm",
     },
@@ -85,30 +80,29 @@ export default function ResourcesPage() {
         >
           {resources.map((resource, i) => (
             <StaggerItem key={i}>
-              <a
-                href={`/resources/${resource.filename}`}
-                className="block bg-white rounded-2xl shadow-brand border border-brand-light/50 overflow-hidden hover:shadow-brand-lg transition-all group h-full"
-              >
+              <div className="bg-white rounded-2xl shadow-brand border border-brand-light/50 overflow-hidden h-full">
                 {/* Accent bar */}
                 <div
                   className={`h-1 bg-gradient-to-r ${resource.color}`}
                 />
 
                 <div className="p-5 flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-brand-light text-brand-primary flex items-center justify-center flex-shrink-0 group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                  <div className="w-12 h-12 rounded-xl bg-brand-light/60 text-brand-primary/50 flex items-center justify-center flex-shrink-0">
                     <resource.icon className="w-6 h-6" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="font-bold text-text-primary mb-1">
+                    <p className="font-bold text-text-secondary mb-1">
                       {resource.name}
                     </p>
                     <p className="text-sm text-text-muted">
                       {resource.description}
                     </p>
                   </div>
-                  <DownloadIcon className="w-5 h-5 text-text-muted group-hover:text-brand-primary transition-colors flex-shrink-0 mt-1" />
+                  <span className="text-xs font-medium text-brand-accent bg-brand-accent/10 px-3 py-1 rounded-full flex-shrink-0">
+                    Coming Soon
+                  </span>
                 </div>
-              </a>
+              </div>
             </StaggerItem>
           ))}
         </StaggerContainer>
@@ -116,8 +110,7 @@ export default function ResourcesPage() {
         <FadeIn delay={0.3}>
           <div className="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-2xl text-center shadow-brand-sm">
             <p className="text-text-secondary">
-              More resources coming soon. If there&apos;s something specific
-              that would help you, let us know.
+              We&apos;re preparing these resources with care. Check back soon for downloadable PDFs.
             </p>
           </div>
         </FadeIn>

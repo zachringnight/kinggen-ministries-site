@@ -135,7 +135,7 @@ export default function Hero({
   );
 }
 
-type PageHeroBackground = "kinggen-branded" | "green-texture" | "green-art" | "sage" | "cream";
+type PageHeroBackground = "kinggen-branded" | "green-texture" | "green-art" | "sage" | "cream" | "cross-branded" | "cross-texture";
 
 interface PageHeroProps {
   title: string;
@@ -167,6 +167,14 @@ const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay
     primary: "/bg-cream.jpg",
     overlay: "bg-gradient-to-b from-brand-cream/80 to-brand-cream/85",
   },
+  "cross-branded": {
+    primary: "/bg-green-alternate.png",
+    overlay: "bg-gradient-to-br from-brand-primary/75 via-brand-secondary/70 to-brand-primary/80",
+  },
+  "cross-texture": {
+    primary: "/bg_green_texture_1920x1080.png",
+    overlay: "bg-gradient-to-b from-brand-primary/80 via-brand-primary/75 to-brand-primary/85",
+  },
 };
 
 export function PageHero({
@@ -179,6 +187,7 @@ export function PageHero({
 }: PageHeroProps) {
   const bgConfig = pageHeroBackgrounds[background];
   const isLight = background === "cream";
+  const isCrossHero = background === "cross-branded" || background === "cross-texture";
 
   return (
     <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
@@ -191,6 +200,19 @@ export function PageHero({
 
       {/* Gradient overlay for text readability */}
       <div className={`absolute inset-0 ${bgConfig.overlay}`} aria-hidden="true" />
+
+      {/* Cross pattern overlay for cross hero variants */}
+      {isCrossHero && (
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute inset-0 bg-repeat pointer-events-none"
+          priority
+          style={{
+            backgroundSize: "200px 200px",
+            opacity: 0.08,
+          }}
+        />
+      )}
 
       {/* Cross watermark - subtle KingGen branding */}
       {showStones && (stonesPosition === "left" || stonesPosition === "both") && (
