@@ -1,19 +1,22 @@
 {
-  "name": "kinggen-temp",
-  "version": "0.1.0",
+  "name": "kinggen-ministries-site",
+  "version": "1.0.0",
+  "description": "KingGen Ministries - Free Gospel-Centered Clinical Pastoral Counseling for Women",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "lint:fix": "eslint --fix",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "framer-motion": "^12.26.2",
-    "next": "15.5.9",
+    "next": "^16.1.6",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },
@@ -27,11 +30,15 @@
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^5.1.2",
     "eslint": "^9",
-    "eslint-config-next": "15.5.5",
+    "eslint-config-next": "^16.1.6",
     "jsdom": "^27.4.0",
     "sharp": "^0.34.5",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.0.18"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
   }
 }
