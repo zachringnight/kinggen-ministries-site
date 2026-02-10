@@ -10,18 +10,21 @@
   --brand-accent: #7BA390;       /* Sage Green - accents, icons, highlights */
   --brand-warm: #5c7a5c;         /* Mid green */
   --brand-soft: #faf8f2;         /* Soft cream */
-  --brand-light: #f8f6f0;        /* Light cream */
+  --brand-light: #f5f2ea;        /* Light cream - slightly more visible */
   --brand-cream: #fffef9;        /* Cream background */
+  --brand-gold: #c9a84c;         /* Warm gold accent for premium feel */
+  --brand-sage-light: #d4e4db;   /* Very light sage for subtle backgrounds */
 
   /* Gradient colors */
   --gradient-start: #3D5A3D;
   --gradient-mid: #4a6b4a;
   --gradient-end: #7BA390;
 
-  /* Text colors - green on white/cream, white on green */
-  --text-primary: #3D5A3D;         /* Brand green for headings on light bg */
-  --text-secondary: #3D5A3D;       /* Brand green for body on light bg */
-  --text-muted: #4a6b4a;           /* Slightly lighter green for subtle text */
+  /* Text colors - refined hierarchy */
+  --text-primary: #2c3e2c;         /* Deep forest for headings - more contrast */
+  --text-secondary: #4a5e4a;       /* Muted green for body text - readable */
+  --text-muted: #6b7f6b;           /* Lighter for captions and secondary info */
+  --text-on-dark: #f0ede6;         /* Warm white for text on dark backgrounds */
 }
 
 @theme inline {
@@ -34,9 +37,12 @@
   --color-brand-soft: var(--brand-soft);
   --color-brand-light: var(--brand-light);
   --color-brand-cream: var(--brand-cream);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-sage-light: var(--brand-sage-light);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
+  --color-text-on-dark: var(--text-on-dark);
 
   /* Font families - Google Fonts */
   --font-heading: "Cormorant Garamond", Georgia, "Times New Roman", serif;
@@ -51,6 +57,8 @@ body {
   font-size: 17px;
   line-height: 1.75;
   letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Smooth scrolling */
@@ -61,9 +69,14 @@ html {
 /* Typography enhancements */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   font-weight: 700;
+  color: var(--text-primary);
+}
+
+h1 {
+  letter-spacing: -0.03em;
 }
 
 /* Paragraph spacing */
@@ -82,7 +95,8 @@ a:not([class]) {
   color: var(--brand-primary);
   text-decoration: underline;
   text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
 }
 
 a:not([class]):hover {
@@ -104,28 +118,37 @@ a:not([class]):hover {
 
 /* Button hover effects */
 .btn-hover-lift {
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-hover-lift:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(61, 90, 61, 0.2);
+  box-shadow: 0 10px 25px -5px rgba(61, 90, 61, 0.25);
 }
 
 /* Card hover effects */
 .card-hover {
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -10px rgba(61, 90, 61, 0.12);
+  transform: translateY(-6px);
+  box-shadow:
+    0 20px 40px -10px rgba(61, 90, 61, 0.12),
+    0 8px 16px -4px rgba(61, 90, 61, 0.08);
 }
 
 /* Decorative elements */
 .decorative-line {
   width: 60px;
-  height: 4px;
+  height: 3px;
   background: linear-gradient(90deg, var(--brand-accent) 0%, var(--brand-primary) 100%);
   border-radius: 2px;
+}
+
+/* Wider decorative line for emphasis */
+.decorative-line-wide {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--brand-accent), transparent);
 }
 
 /* Background patterns */
@@ -135,11 +158,24 @@ a:not([class]):hover {
   opacity: 0.05;
 }
 
+/* Subtle linen texture overlay */
+.texture-linen {
+  position: relative;
+}
+.texture-linen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
 /* Focus styles for accessibility */
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--brand-accent);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 /* Form styles */
@@ -154,19 +190,20 @@ select:focus {
 /* Form placeholder - readable but distinct */
 ::placeholder {
   color: var(--brand-accent);
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 /* Form labels */
 label {
-  font-weight: 500;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 /* Animation keyframes */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -179,12 +216,12 @@ label {
     opacity: 1;
   }
   50% {
-    opacity: 0.8;
+    opacity: 0.7;
   }
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
+  animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .animate-pulse-soft {
@@ -208,7 +245,7 @@ label {
 }
 
 .section-soft {
-  background: #f8f6f0;
+  background: #f5f2ea;
 }
 
 /* Quote styling */
@@ -272,6 +309,17 @@ blockquote {
   }
 }
 
+@keyframes gentle-breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
@@ -300,19 +348,23 @@ blockquote {
   animation: border-dance 3s ease-in-out infinite;
 }
 
+.animate-breathe {
+  animation: gentle-breathe 4s ease-in-out infinite;
+}
+
 /* Glassmorphism utility */
 .glass {
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .glass-dark {
-  background: rgba(61, 90, 61, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(61, 90, 61, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* Improved text gradients */
@@ -346,10 +398,10 @@ blockquote {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.08),
     transparent
   );
-  transition: left 0.5s ease;
+  transition: left 0.6s ease;
 }
 
 .card-shine:hover::before {
@@ -362,7 +414,7 @@ blockquote {
 }
 
 .img-zoom img {
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .img-zoom:hover img {
@@ -371,17 +423,17 @@ blockquote {
 
 /* Custom scrollbar for webkit */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--brand-light);
+  background: var(--brand-soft);
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--brand-accent);
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -391,7 +443,7 @@ blockquote {
 /* Firefox scrollbar */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--brand-accent) var(--brand-light);
+  scrollbar-color: var(--brand-accent) var(--brand-soft);
 }
 
 /* Focus visible for better keyboard navigation */
@@ -399,6 +451,42 @@ blockquote {
   outline: 2px solid var(--brand-accent);
   outline-offset: 4px;
   border-radius: 4px;
+}
+
+/* Premium divider line */
+.divider-ornament {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.divider-ornament::before,
+.divider-ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--brand-accent), transparent);
+}
+
+/* Elegant shadow system */
+.shadow-brand-sm {
+  box-shadow:
+    0 1px 3px rgba(61, 90, 61, 0.06),
+    0 1px 2px rgba(61, 90, 61, 0.04);
+}
+.shadow-brand {
+  box-shadow:
+    0 4px 6px -1px rgba(61, 90, 61, 0.08),
+    0 2px 4px -2px rgba(61, 90, 61, 0.06);
+}
+.shadow-brand-lg {
+  box-shadow:
+    0 10px 15px -3px rgba(61, 90, 61, 0.1),
+    0 4px 6px -4px rgba(61, 90, 61, 0.06);
+}
+.shadow-brand-xl {
+  box-shadow:
+    0 20px 25px -5px rgba(61, 90, 61, 0.1),
+    0 8px 10px -6px rgba(61, 90, 61, 0.04);
 }
 
 /* Reduced motion preference */

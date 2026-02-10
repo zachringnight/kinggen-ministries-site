@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import OptimizedBackground from "./OptimizedBackground";
 
-type SectionVariant = "default" | "light" | "soft" | "primary" | "dark" | "art-cream" | "art-green" | "kinggen-branded";
+type SectionVariant = "default" | "light" | "soft" | "primary" | "dark" | "art-cream" | "art-green" | "kinggen-branded" | "sage-mist" | "warm-cream";
 type WatermarkType = "stones" | "stones-left" | "stones-right" | "logo" | "kinggen-bg" | "none";
 
 interface SectionProps {
@@ -23,6 +23,8 @@ const variantStyles: Record<SectionVariant, string> = {
   "art-cream": "bg-brand-cream",
   "art-green": "bg-brand-primary text-white",
   "kinggen-branded": "bg-brand-primary text-white",
+  "sage-mist": "bg-brand-sage-light",
+  "warm-cream": "bg-[#f7f3eb]",
 };
 
 const containerSizes: Record<string, string> = {
@@ -47,12 +49,11 @@ export default function Section({
   id,
   containerSize = "default",
   padding = "lg",
-  watermark = "stones",
+  watermark = "none",
 }: SectionProps) {
-  const isLightSection = ["default", "light", "soft", "art-cream"].includes(variant);
+  const isLightSection = ["default", "light", "soft", "art-cream", "sage-mist", "warm-cream"].includes(variant);
   const isGreenSection = ["primary", "dark", "art-green", "kinggen-branded"].includes(variant);
 
-  // Watermark settings
   const showStonesWatermark = watermark === "stones" && isLightSection;
   const showStonesLeft = watermark === "stones-left";
   const showStonesRight = watermark === "stones-right";
@@ -64,61 +65,56 @@ export default function Section({
       id={id}
       className={`${variantStyles[variant]} ${paddingStyles[padding]} ${className} relative overflow-hidden`}
     >
-      {/* Stacked stones watermark for cream/light sections - signature branding */}
       {showStonesWatermark && (
-        <OptimizedBackground
-          src="/logo_stack_cropped.png"
-          className="absolute right-0 bottom-0 w-64 h-auto md:w-80 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "right bottom",
-            backgroundSize: "contain",
-            opacity: 0.12,
-            height: "400px",
-          }}
-        />
-      )}
-
-      {/* Stones watermark on left */}
-      {showStonesLeft && (
-        <OptimizedBackground
-          src="/logo_stack_cropped.png"
-          className="absolute left-0 bottom-0 w-56 h-auto md:w-72 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "left bottom",
-            backgroundSize: "contain",
-            opacity: 0.10,
-            height: "350px",
-          }}
-        />
-      )}
-
-      {/* Stones watermark on right */}
-      {showStonesRight && (
         <OptimizedBackground
           src="/logo_stack_cropped.png"
           className="absolute right-0 bottom-0 w-56 h-auto md:w-72 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "right bottom",
             backgroundSize: "contain",
-            opacity: 0.10,
-            height: "350px",
+            opacity: 0.07,
+            height: "360px",
           }}
         />
       )}
 
-      {/* Full logo watermark for green sections */}
+      {showStonesLeft && (
+        <OptimizedBackground
+          src="/logo_stack_cropped.png"
+          className="absolute left-0 bottom-0 w-48 h-auto md:w-64 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "left bottom",
+            backgroundSize: "contain",
+            opacity: 0.06,
+            height: "320px",
+          }}
+        />
+      )}
+
+      {showStonesRight && (
+        <OptimizedBackground
+          src="/logo_stack_cropped.png"
+          className="absolute right-0 bottom-0 w-48 h-auto md:w-64 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "right bottom",
+            backgroundSize: "contain",
+            opacity: 0.06,
+            height: "320px",
+          }}
+        />
+      )}
+
       {showLogoWatermark && (
         <OptimizedBackground
           src="/Untitled design.png"
           className="absolute inset-0 bg-no-repeat bg-center pointer-events-none"
           style={{
             backgroundSize: "320px auto",
-            opacity: 0.08,
+            opacity: 0.06,
           }}
         />
       )}
 
-      {/* KingGen branded full background */}
       {showKinggenBg && (
         <OptimizedBackground
           src="/KingGen Background (1).png"
@@ -126,12 +122,11 @@ export default function Section({
           style={{
             backgroundPosition: "center",
             backgroundSize: "cover",
-            opacity: 0.15,
+            opacity: 0.12,
           }}
         />
       )}
 
-      {/* KingGen branded background for art-cream variant */}
       {variant === "art-cream" && (
         <OptimizedBackground
           src="/KingGen Background (1).png"
@@ -139,12 +134,11 @@ export default function Section({
           style={{
             backgroundPosition: "center",
             backgroundSize: "cover",
-            opacity: 0.06,
+            opacity: 0.04,
           }}
         />
       )}
 
-      {/* KingGen branded background for kinggen-branded and art-green variants */}
       {(variant === "art-green" || variant === "kinggen-branded") && (
         <OptimizedBackground
           src="/KingGen Background (1).png"
@@ -152,7 +146,7 @@ export default function Section({
           style={{
             backgroundPosition: "center",
             backgroundSize: "cover",
-            opacity: 0.35,
+            opacity: 0.3,
           }}
         />
       )}
@@ -170,6 +164,7 @@ interface SectionHeaderProps {
   centered?: boolean;
   light?: boolean;
   className?: string;
+  ornament?: boolean;
 }
 
 export function SectionHeader({
@@ -178,12 +173,15 @@ export function SectionHeader({
   centered = true,
   light = false,
   className = "",
+  ornament = true,
 }: SectionHeaderProps) {
   return (
     <div className={`mb-12 md:mb-16 ${centered ? "text-center" : ""} ${className}`}>
-      <div className={`decorative-line ${centered ? "mx-auto" : ""} mb-6`} />
+      {ornament && (
+        <div className={`decorative-line ${centered ? "mx-auto" : ""} mb-5`} />
+      )}
       <h2
-        className={`text-3xl md:text-4xl lg:text-5xl font-bold font-heading mb-4 ${
+        className={`text-3xl md:text-4xl lg:text-5xl font-bold font-heading mb-4 leading-tight ${
           light ? "text-white" : "text-text-primary"
         }`}
       >
@@ -191,8 +189,8 @@ export function SectionHeader({
       </h2>
       {subtitle && (
         <p
-          className={`text-lg md:text-xl max-w-3xl ${centered ? "mx-auto" : ""} ${
-            light ? "text-white" : "text-text-secondary"
+          className={`text-lg md:text-xl max-w-3xl leading-relaxed ${centered ? "mx-auto" : ""} ${
+            light ? "text-white/85" : "text-text-secondary"
           }`}
         >
           {subtitle}

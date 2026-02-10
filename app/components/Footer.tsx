@@ -17,72 +17,63 @@ export default function Footer() {
   ];
 
   const resourceLinks = [
-    { href: "/get-support", label: "Client Info" },
-    { href: "/forms", label: "Forms" },
+    { href: "/get-support", label: "Client Information" },
+    { href: "/forms", label: "Forms & Resources" },
+    { href: "/privacy", label: "Privacy" },
+    { href: "/disclaimer", label: "Disclaimer" },
   ];
 
   return (
     <footer className="relative overflow-hidden">
-      {/* Main Footer with Green Texture Background */}
+      {/* Elegant top border */}
+      <div className="h-px bg-gradient-to-r from-transparent via-brand-accent/30 to-transparent" />
+
+      {/* Main Footer */}
       <div className="relative">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/bg-green.jpg')" }}
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#3D5A3D]/95 to-[#2c4a2c]/98" />
 
-        <div className="relative z-10 container mx-auto px-4 lg:px-8 py-10 md:py-12">
-          {/* Top Row: Brand + Nav Links */}
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-8">
-            {/* Brand */}
-            <div className="flex items-center gap-3">
-              <Link href="/" className="flex items-center gap-3">
-                <LogoIcon className="w-10 h-10" />
-                <span className="text-white font-heading font-bold text-xl">KingGen Ministries</span>
+        <div className="relative z-10 container mx-auto px-4 lg:px-8 py-14 md:py-16">
+          {/* Top: Brand + CTA */}
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-12">
+            <div className="max-w-xs">
+              <Link href="/" className="flex items-center gap-3 mb-4 group">
+                <div className="transition-transform duration-300 group-hover:scale-105">
+                  <LogoIcon className="w-10 h-10" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-white font-heading font-bold text-xl leading-tight">
+                    KingGen
+                  </span>
+                  <span className="text-white/50 text-[10px] tracking-[0.15em] uppercase font-medium">
+                    Ministries
+                  </span>
+                </div>
               </Link>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Gospel-centered counseling for women in need. A 501(c)(3) nonprofit ministry.
+              </p>
             </div>
 
-            {/* Navigation - horizontal */}
-            <nav className="flex flex-wrap gap-x-6 gap-y-2">
-              {mainLinks.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-white/80 hover:text-white transition-colors text-sm"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          {/* Middle Row: Contact + Social + Donate */}
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pb-8 border-b border-white/10">
-            {/* Contact Info - horizontal */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/80">
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="flex items-center gap-2 hover:text-white transition-colors"
+            <div className="flex flex-col items-start md:items-end gap-3">
+              <Button
+                href="/donate"
+                variant="white"
+                size="md"
+                icon={<HeartIcon className="w-4 h-4" />}
+                className="!rounded-full"
               >
-                <MailIcon className="w-4 h-4" />
-                <span>{siteConfig.email}</span>
-              </a>
-              <a
-                href={`tel:${siteConfig.phone}`}
-                className="flex items-center gap-2 hover:text-white transition-colors"
-              >
-                <PhoneIcon className="w-4 h-4" />
-                <span>{siteConfig.phone}</span>
-              </a>
-            </div>
-
-            {/* Social + Donate */}
-            <div className="flex items-center gap-4">
-              <div className="flex gap-2">
+                Support Our Mission
+              </Button>
+              <div className="flex gap-3">
                 <a
                   href={siteConfig.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                  className="w-9 h-9 rounded-full bg-white/8 flex items-center justify-center text-white/70 hover:bg-white/15 hover:text-white transition-all duration-300"
                   aria-label="Instagram"
                 >
                   <InstagramIcon className="w-4 h-4" />
@@ -91,47 +82,84 @@ export default function Footer() {
                   href={siteConfig.social.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                  className="w-9 h-9 rounded-full bg-white/8 flex items-center justify-center text-white/70 hover:bg-white/15 hover:text-white transition-all duration-300"
                   aria-label="Facebook"
                 >
                   <FacebookIcon className="w-4 h-4" />
                 </a>
               </div>
-              <Button
-                href="/donate"
-                variant="white"
-                size="sm"
-                icon={<HeartIcon className="w-4 h-4" />}
-              >
-                Donate
-              </Button>
             </div>
           </div>
 
-          {/* Bottom Row: Legal + EIN */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-6 text-xs text-white/60">
+          {/* Links grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pb-10 border-b border-white/8">
+            <div>
+              <h4 className="text-[10px] font-semibold text-white/40 uppercase tracking-[0.2em] mb-4">
+                Navigate
+              </h4>
+              <nav className="grid grid-cols-2 gap-x-6 gap-y-2">
+                {mainLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-white/65 hover:text-white transition-colors text-sm py-0.5"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+
+            <div>
+              <h4 className="text-[10px] font-semibold text-white/40 uppercase tracking-[0.2em] mb-4">
+                Resources
+              </h4>
+              <nav className="flex flex-col gap-2">
+                {resourceLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-white/65 hover:text-white transition-colors text-sm py-0.5"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+
+            <div>
+              <h4 className="text-[10px] font-semibold text-white/40 uppercase tracking-[0.2em] mb-4">
+                Contact
+              </h4>
+              <div className="space-y-3">
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="flex items-center gap-2.5 text-white/65 hover:text-white transition-colors text-sm"
+                >
+                  <MailIcon className="w-4 h-4 flex-shrink-0" />
+                  <span>{siteConfig.email}</span>
+                </a>
+                <a
+                  href={`tel:${siteConfig.phone}`}
+                  className="flex items-center gap-2.5 text-white/65 hover:text-white transition-colors text-sm"
+                >
+                  <PhoneIcon className="w-4 h-4 flex-shrink-0" />
+                  <span>{siteConfig.phone}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-6 text-xs text-white/40">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
               <p>&copy; {currentYear} {siteConfig.name}</p>
-              <span className="hidden sm:inline text-white/30">·</span>
-              <p>501(c)(3) EIN: {siteConfig.ein}</p>
+              <span className="hidden sm:inline text-white/20">&middot;</span>
+              <p>501(c)(3) &middot; EIN: {siteConfig.ein}</p>
             </div>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-              {resourceLinks.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="hover:text-white transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <Link href="/privacy" className="hover:text-white transition-colors">
-                Privacy
-              </Link>
-              <Link href="/disclaimer" className="hover:text-white transition-colors">
-                Disclaimer
-              </Link>
-            </div>
+            <p className="text-white/30">
+              All services are free and confidential
+            </p>
           </div>
         </div>
       </div>

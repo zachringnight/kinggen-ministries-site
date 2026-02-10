@@ -3,6 +3,7 @@
 import { siteConfig } from "../config/site";
 import {
   Section,
+  SectionHeader,
   Button,
   HeartIcon,
   MailIcon,
@@ -38,33 +39,47 @@ export default function DonatePage() {
           variant="white"
           size="lg"
           icon={<HeartIcon className="w-5 h-5" />}
-          className="text-brand-primary"
+          className="text-brand-primary !rounded-full"
         >
           Donate via PayPal
         </Button>
       </PageHero>
 
-      {/* Impact Section with art background */}
-      <Section variant="art-cream" padding="xl" watermark="stones-right">
+      {/* Impact Section */}
+      <Section variant="warm-cream" padding="xl" watermark="none">
         <FadeIn>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 text-center">
-            Your gift makes a difference
-          </h2>
-          <p className="text-base sm:text-lg text-text-secondary mb-8 md:mb-12 text-center max-w-2xl mx-auto">
-            Every donation directly supports our mission to provide free, Gospel-centered counseling.
-          </p>
+          <SectionHeader
+            title="Your gift makes a difference"
+            subtitle="Every donation directly supports our mission to provide free, Gospel-centered counseling."
+          />
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+        <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 max-w-3xl mx-auto">
           {impactPoints.map((point, i) => (
             <StaggerItem key={i}>
-              <div className="flex items-start gap-3 p-4 bg-brand-cream rounded-xl border border-brand-light">
+              <div className="flex items-start gap-3 p-5 bg-white rounded-xl shadow-brand border border-brand-light">
                 <CheckCircleIcon className="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" />
                 <p className="text-text-secondary">{point}</p>
               </div>
             </StaggerItem>
           ))}
         </StaggerContainer>
+      </Section>
+
+      {/* Scripture Divider */}
+      <Section variant="sage-mist" padding="lg" watermark="none">
+        <FadeIn>
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="decorative-line mx-auto mb-6" />
+            <blockquote className="border-l-0 pl-0 text-xl md:text-2xl font-heading italic text-text-primary leading-relaxed">
+              &ldquo;Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver.&rdquo;
+            </blockquote>
+            <p className="mt-4 text-text-muted text-sm tracking-wide uppercase">
+              2 Corinthians 9:7
+            </p>
+            <div className="decorative-line mx-auto mt-6" />
+          </div>
+        </FadeIn>
       </Section>
 
       {/* Ways to Give Section with KingGen branded background */}
@@ -97,62 +112,79 @@ export default function DonatePage() {
         />
 
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
-        <FadeIn>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-8 md:mb-12 text-center">
-            Ways to give
-          </h2>
-        </FadeIn>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
-          {/* Online Giving Card */}
-          <FadeIn delay={0.1}>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20 h-full flex flex-col">
-              <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
-                Online
-              </h3>
-              <p className="text-white/80 mb-6 flex-grow">
-                Give securely through PayPal. One-time or recurring gifts welcome.
-              </p>
-              <Button
-                href={siteConfig.paypalUrl}
-                variant="white"
-                size="lg"
-                fullWidth
-                icon={<HeartIcon className="w-5 h-5" />}
-              >
-                Donate via PayPal
-              </Button>
-            </div>
+          <FadeIn>
+            <div className="decorative-line-wide mx-auto mb-8" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent)" }} />
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 text-center">
+              Ways to give
+            </h2>
+            <p className="text-white/80 text-center mb-10 md:mb-14 max-w-xl mx-auto">
+              Choose the giving method that works best for you. Every gift, no matter the size, helps a woman receive the care she needs.
+            </p>
           </FadeIn>
 
-          {/* Mail a Check Card */}
-          <FadeIn delay={0.2}>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20 h-full">
-              <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
-                By Mail
-              </h3>
-              <p className="text-white/80 mb-4">
-                Make checks payable to:
-              </p>
-              <div className="bg-white/10 rounded-xl p-4 mb-4">
-                <p className="text-white font-semibold">KingGen Ministries</p>
-                <address className="text-white/80 not-italic text-sm leading-relaxed mt-2">
-                  {siteConfig.address.line2}<br />
-                  {siteConfig.address.line3}<br />
-                  {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
-                </address>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+            {/* Online Giving Card - Featured */}
+            <FadeIn delay={0.1}>
+              <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/25 h-full flex flex-col relative overflow-hidden">
+                {/* Subtle highlight for the primary option */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-accent via-white/60 to-brand-accent" />
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                    <HeartIcon className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold font-heading text-white">
+                    Online
+                  </h3>
+                </div>
+                <p className="text-white/85 mb-6 flex-grow leading-relaxed">
+                  Give securely through PayPal. One-time or recurring gifts welcome.
+                </p>
+                <Button
+                  href={siteConfig.paypalUrl}
+                  variant="white"
+                  size="lg"
+                  fullWidth
+                  icon={<HeartIcon className="w-5 h-5" />}
+                  className="!rounded-full"
+                >
+                  Donate via PayPal
+                </Button>
               </div>
-            </div>
-          </FadeIn>
-        </div>
+            </FadeIn>
+
+            {/* Mail a Check Card */}
+            <FadeIn delay={0.2}>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20 h-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center">
+                    <MailIcon className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold font-heading text-white">
+                    By Mail
+                  </h3>
+                </div>
+                <p className="text-white/85 mb-4 leading-relaxed">
+                  Make checks payable to:
+                </p>
+                <div className="bg-white/10 rounded-xl p-4 mb-4">
+                  <p className="text-white font-semibold">KingGen Ministries</p>
+                  <address className="text-white/80 not-italic text-sm leading-relaxed mt-2">
+                    {siteConfig.address.line2}<br />
+                    {siteConfig.address.line3}<br />
+                    {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
+                  </address>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
-      {/* Tax Deductible Info with art */}
-      <Section variant="art-cream" padding="lg" watermark="stones-left">
+      {/* Tax Deductible Info */}
+      <Section variant="light" padding="lg" watermark="none">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
-            <div className="bg-brand-cream rounded-2xl p-6 md:p-8 border border-brand-light">
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-brand-lg border border-brand-light">
               <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-3">
                 Tax-deductible giving
               </h3>
@@ -198,6 +230,7 @@ export default function DonatePage() {
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <FadeIn>
             <div className="max-w-2xl mx-auto text-center">
+              <div className="decorative-line-wide mx-auto mb-8" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent)" }} />
               <h2 className="text-2xl md:text-3xl font-bold font-heading text-white mb-4">
                 Ready to make a difference?
               </h2>
@@ -209,6 +242,7 @@ export default function DonatePage() {
                 variant="white"
                 size="lg"
                 icon={<HeartIcon className="w-5 h-5" />}
+                className="!rounded-full"
               >
                 Donate Now
               </Button>
