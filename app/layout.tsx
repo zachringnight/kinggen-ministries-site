@@ -37,9 +37,6 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  other: {
-    'google-fonts-preconnect': 'true',
-  },
 };
 
 export default function RootLayout({

@@ -4,13 +4,21 @@ A professional nonprofit website for KingGen Ministries, a 501(c)(3) organizatio
 
 ## Tech Stack
 
-- **Framework**: Next.js 15.5 with App Router
+- **Framework**: Next.js 16.1 with App Router
 - **Language**: TypeScript 5
 - **Styling**: Tailwind CSS 4
 - **Animations**: Framer Motion
-- **Deployment**: Vercel
+- **Testing**: Vitest + React Testing Library
+- **Deployment**: Vercel (or GitHub Pages)
 
 ## Getting Started
+
+### Prerequisites
+
+- Node.js 20.18.2 or higher (see `.nvmrc`)
+- npm 10.0.0 or higher
+
+### Installation
 
 ```bash
 # Install dependencies
@@ -24,6 +32,18 @@ npm run build
 
 # Run linter
 npm run lint
+
+# Fix linting issues automatically
+npm run lint:fix
+
+# Run TypeScript type checking
+npm run type-check
+
+# Run tests
+npm run test
+
+# Run tests with UI
+npm run test:ui
 ```
 
 ## Project Structure
@@ -56,6 +76,17 @@ Update `app/config/site.ts` with your organization's information:
 - PayPal donation URL
 - Social media links
 - Formspree endpoint (for contact form)
+
+## CI/CD
+
+This project uses GitHub Actions for continuous integration:
+
+- **Linting**: ESLint runs on every push and pull request
+- **Type Checking**: TypeScript type checking ensures type safety
+- **Testing**: Vitest runs the test suite
+- **Building**: Production build is created and validated
+
+See `.github/workflows/ci.yml` for the complete workflow.
 
 `
 
