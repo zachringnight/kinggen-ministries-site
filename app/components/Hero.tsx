@@ -192,15 +192,15 @@ export function PageHero({
       {/* Gradient overlay for text readability */}
       <div className={`absolute inset-0 ${bgConfig.overlay}`} aria-hidden="true" />
 
-      {/* Stone cairn art - signature KingGen branding */}
+      {/* Cross watermark - subtle KingGen branding */}
       {showStones && (stonesPosition === "left" || stonesPosition === "both") && (
         <OptimizedBackground
-          src="/logo_stack_cropped.png"
+          src="/bg_white_cross.png"
           className="absolute left-0 bottom-0 w-48 sm:w-56 md:w-72 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "left bottom",
             backgroundSize: "contain",
-            opacity: 0.15,
+            opacity: 0.2,
             height: "320px",
           }}
         />
@@ -208,12 +208,12 @@ export function PageHero({
 
       {showStones && (stonesPosition === "right" || stonesPosition === "both") && (
         <OptimizedBackground
-          src="/logo_stack_cropped.png"
+          src="/bg_white_cross.png"
           className="absolute right-0 bottom-0 w-48 sm:w-56 md:w-72 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "right bottom",
             backgroundSize: "contain",
-            opacity: 0.15,
+            opacity: 0.2,
             height: "320px",
           }}
         />

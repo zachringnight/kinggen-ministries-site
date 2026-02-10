@@ -80,12 +80,12 @@ export default function Home() {
         <FloatingParticles count={12} className="opacity-30" />
 
         <OptimizedBackground
-          src="/logo_stack_cropped.png"
+          src="/bg_white_cross.png"
           className="absolute right-0 bottom-0 w-64 sm:w-80 md:w-96 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "right bottom",
             backgroundSize: "contain",
-            opacity: 0.1,
+            opacity: 0.15,
             height: "450px",
           }}
         />

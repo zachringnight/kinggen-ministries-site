@@ -67,12 +67,12 @@ export default function Section({
     >
       {showStonesWatermark && (
         <OptimizedBackground
-          src="/logo_stack_cropped.png"
+          src="/bg_white_cross.png"
           className="absolute right-0 bottom-0 w-56 h-auto md:w-72 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "right bottom",
             backgroundSize: "contain",
-            opacity: 0.07,
+            opacity: 0.12,
             height: "360px",
           }}
         />
@@ -80,12 +80,12 @@ export default function Section({
 
       {showStonesLeft && (
         <OptimizedBackground
-          src="/logo_stack_cropped.png"
+          src="/bg_white_cross.png"
           className="absolute left-0 bottom-0 w-48 h-auto md:w-64 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "left bottom",
             backgroundSize: "contain",
-            opacity: 0.06,
+            opacity: 0.1,
             height: "320px",
           }}
         />
@@ -93,12 +93,12 @@ export default function Section({
 
       {showStonesRight && (
         <OptimizedBackground
-          src="/logo_stack_cropped.png"
+          src="/bg_white_cross.png"
           className="absolute right-0 bottom-0 w-48 h-auto md:w-64 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "right bottom",
             backgroundSize: "contain",
-            opacity: 0.06,
+            opacity: 0.1,
             height: "320px",
           }}
         />
@@ -106,11 +106,11 @@ export default function Section({
 
       {showLogoWatermark && (
         <OptimizedBackground
-          src="/Untitled design.png"
+          src="/bg_white_cross.png"
           className="absolute inset-0 bg-no-repeat bg-center pointer-events-none"
           style={{
             backgroundSize: "320px auto",
-            opacity: 0.06,
+            opacity: 0.1,
           }}
         />
       )}
