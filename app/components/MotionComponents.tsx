@@ -23,6 +23,7 @@ interface Particle {
   duration: number;
   delay: number;
   opacity: number;
+  xOffset: number;
 }
 
 export function FloatingParticles({
@@ -45,8 +46,10 @@ export function FloatingParticles({
         duration: Math.random() * 20 + 15,
         delay: Math.random() * 5,
         opacity: Math.random() * 0.5 + 0.1,
+        xOffset: Math.random() * 20 - 10,
       });
     }
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- Particles are initialized once on mount
     setParticles(newParticles);
   }, [count]);
 
@@ -66,7 +69,7 @@ export function FloatingParticles({
           }}
           animate={{
             y: [0, -30, 0],
-            x: [0, Math.random() * 20 - 10, 0],
+            x: [0, particle.xOffset, 0],
             scale: [1, 1.2, 1],
             opacity: [particle.opacity, particle.opacity * 1.5, particle.opacity],
           }}
