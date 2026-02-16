@@ -360,3 +360,92 @@ export function FacebookIcon({ className = "w-6 h-6" }: IconProps) {
     </svg>
   );
 }
+
+export function ExternalLinkIcon({ className = "w-6 h-6", strokeWidth = 2 }: IconProps) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} d="M15 3h6v6M10 14L21 3" />
+    </svg>
+  );
+}
+
+export function HandHeldHeartIcon({ className = "w-6 h-6", strokeWidth = 2 }: IconProps) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+    </svg>
+  );
+}
+
+export function ClockIcon({ className = "w-6 h-6", strokeWidth = 2 }: IconProps) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} />
+      <polyline points="12 6 12 12 16 14" strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} />
+    </svg>
+  );
+}
+
+export function EyeIcon({ className = "w-6 h-6", strokeWidth = 2 }: IconProps) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
+    </svg>
+  );
+}
+
+export function LockIcon({ className = "w-6 h-6", strokeWidth = 2 }: IconProps) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} d="M19 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} d="M7 11V7a5 5 0 0 1 10 0v4" />
+    </svg>
+  );
+}
+
+export function AlertIcon({ className = "w-6 h-6", strokeWidth = 2 }: IconProps) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+      <line x1="12" y1="9" x2="12" y2="13" strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} />
+      <line x1="12" y1="17" x2="12.01" y2="17" strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} />
+    </svg>
+  );
+}
+
+export function StarIcon({ className = "w-6 h-6", strokeWidth = 2 }: IconProps) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+    </svg>
+  );
+}
+
+export function TrendingUpIcon({ className = "w-6 h-6", strokeWidth = 2 }: IconProps) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} d="M23 6l-9.5 9.5-5-5L1 18" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} d="M17 6h6v6" />
+    </svg>
+  );
+}
+
+export function BuildingIcon({ className = "w-6 h-6", strokeWidth = 2 }: IconProps) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} d="M3 21h18M3 7v14M21 7v14M6 11h.01M6 15h.01M6 19h.01M10 11h.01M10 15h.01M10 19h.01M14 11h.01M14 15h.01M14 19h.01M18 11h.01M18 15h.01M18 19h.01" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} d="M6 7l6-4 6 4" />
+    </svg>
+  );
+}
+
+export function FileTextIcon({ className = "w-6 h-6", strokeWidth = 2 }: IconProps) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
+    </svg>
+  );
+}
