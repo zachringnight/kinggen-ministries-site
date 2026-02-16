@@ -7,6 +7,7 @@ import {
   HeartIcon,
   MailIcon,
   CheckCircleIcon,
+  CrossIcon,
   FadeIn,
   StaggerContainer,
   StaggerItem,
@@ -24,13 +25,14 @@ export default function DonatePage() {
 
   return (
     <>
-      {/* Hero Section with KingGen branded background */}
+      {/* Hero Section with cross-branded background */}
       <PageHero
         title="Help keep counseling free"
         description="Your generosity removes barriers and provides hope for women who need support but cannot afford care."
-        background="kinggen-branded"
+        background="cross-branded"
         showStones={true}
         stonesPosition="both"
+        showCross={true}
       >
         {/* Prominent Donate Button */}
         <Button
@@ -44,9 +46,13 @@ export default function DonatePage() {
         </Button>
       </PageHero>
 
-      {/* Impact Section with art background */}
-      <Section variant="art-cream" padding="xl" watermark="stones-right">
+      {/* Impact Section with cross background */}
+      <Section variant="cross-light" padding="xl" watermark="none">
         <FadeIn>
+          {/* Cross icon */}
+          <div className="flex justify-center mb-4">
+            <CrossIcon className="w-6 h-6 text-brand-primary/50" strokeWidth={1.5} />
+          </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 text-center">
             Your gift makes a difference
           </h2>
@@ -71,7 +77,7 @@ export default function DonatePage() {
       <section className="relative py-20 md:py-32 overflow-hidden">
         {/* KingGen branded background */}
         <OptimizedBackground
-          src="/KingGen Background (1).png"
+          src="/bg-green-alternate.png"
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/90 via-brand-secondary/85 to-brand-primary/92" />
@@ -96,8 +102,23 @@ export default function DonatePage() {
           }}
         />
 
+        {/* Cross watermark */}
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute inset-0 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "center 40%",
+            backgroundSize: "180px auto",
+            opacity: 0.08,
+          }}
+        />
+
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
         <FadeIn>
+          {/* Cross icon above heading */}
+          <div className="flex justify-center mb-4">
+            <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
+          </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-8 md:mb-12 text-center">
             Ways to give
           </h2>
@@ -148,8 +169,8 @@ export default function DonatePage() {
         </div>
       </section>
 
-      {/* Tax Deductible Info with art */}
-      <Section variant="art-cream" padding="lg" watermark="stones-left">
+      {/* Tax Deductible Info with cross */}
+      <Section variant="art-cream" padding="lg" watermark="cross-subtle">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <div className="bg-brand-cream rounded-2xl p-6 md:p-8 border border-brand-light">
@@ -195,9 +216,24 @@ export default function DonatePage() {
           }}
         />
 
+        {/* Cross watermark */}
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute inset-0 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "center",
+            backgroundSize: "160px auto",
+            opacity: 0.06,
+          }}
+        />
+
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <FadeIn>
             <div className="max-w-2xl mx-auto text-center">
+              {/* Cross icon */}
+              <div className="flex justify-center mb-4">
+                <CrossIcon className="w-8 h-8 text-white/50" strokeWidth={1.5} />
+              </div>
               <h2 className="text-2xl md:text-3xl font-bold font-heading text-white mb-4">
                 Ready to make a difference?
               </h2>

@@ -34,13 +34,14 @@ This Next.js website provides a complete, professional online presence for KingG
 ## 🎨 Design Features
 
 - **Brand Colors:**
-  - Primary: #4a5568 (slate gray)
-  - Secondary: #2d3748 (darker gray)
-  - Accent: #d69e2e (gold)
+  - Primary: #3D5A3D (Forest Green)
+  - Secondary: #4a6b4a (Lighter Forest Green)
+  - Accent: #7BA390 (Sage Green)
+  - Background: #faf8f2 (Cream)
 
 - **Typography:**
-  - Heading font: Cera Pro (via Adobe Fonts)
-  - Body font: Archivo (via Adobe Fonts)
+  - Heading font: Cormorant Garamond (serif)
+  - Body font: Nunito Sans (sans-serif)
   - Fallbacks to system fonts
 
 - **Layout:**
@@ -81,7 +82,7 @@ Ready to deploy to Vercel:
 
 ## 📦 Technical Details
 
-- **Framework:** Next.js 15.5.5
+- **Framework:** Next.js 16.1.6
 - **React:** 19.x
 - **TypeScript:** Latest
 - **Tailwind CSS:** v4 (via @tailwindcss/postcss)

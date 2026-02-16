@@ -1,11 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import {
   Section,
   Button,
   CheckCircleIcon,
   ShieldIcon,
   ArrowRightIcon,
+  PhoneIcon,
   FadeIn,
   StaggerContainer,
   StaggerItem,
@@ -67,7 +69,7 @@ export default function GetSupport() {
       <section className="relative py-20 md:py-32 overflow-hidden">
         {/* KingGen branded background */}
         <OptimizedBackground
-          src="/KingGen Background (1).png"
+          src="/bg-green-alternate.png"
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/90 via-brand-secondary/85 to-brand-primary/92" />
@@ -209,11 +211,56 @@ export default function GetSupport() {
         </FadeIn>
       </Section>
 
+      {/* Crisis Resources Section */}
+      <Section variant="cross-light" padding="lg" watermark="none">
+        <FadeIn>
+          <div className="max-w-4xl mx-auto">
+            <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 p-6 md:p-8 bg-brand-cream rounded-2xl border border-brand-light shadow-lg">
+              {/* Social Prayer Image */}
+              <div className="relative w-full md:w-64 aspect-square md:aspect-auto md:h-64 flex-shrink-0 rounded-xl overflow-hidden shadow-md">
+                <Image
+                  src="/social-prayer.png"
+                  alt="National Day of Prayer for Mental Illness - If you are in crisis, call 988"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 256px"
+                />
+              </div>
+
+              {/* Crisis Information */}
+              <div className="flex-1 text-center md:text-left">
+                <h3 className="text-xl md:text-2xl font-bold font-heading text-text-primary mb-3">
+                  In Crisis?
+                </h3>
+                <p className="text-text-secondary mb-4">
+                  If you or someone you know is experiencing a mental health crisis, please reach out for immediate help. You are not alone, and support is available.
+                </p>
+                <div className="flex flex-col sm:flex-row items-center gap-3 justify-center md:justify-start">
+                  <a
+                    href="tel:988"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-white font-bold rounded-xl hover:bg-brand-secondary transition-colors shadow-md"
+                  >
+                    <PhoneIcon className="w-5 h-5" />
+                    Call or Text 988
+                  </a>
+                  <span className="text-sm text-text-muted">
+                    Suicide & Crisis Lifeline
+                  </span>
+                </div>
+                <p className="text-xs text-text-muted mt-4">
+                  We are praying for you.
+                </p>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+      </Section>
+
       {/* For Referrers Note with KingGen background */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         {/* KingGen branded background */}
         <OptimizedBackground
-          src="/KingGen Background (1).png"
+          src="/bg-green-alternate.png"
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/90 via-brand-secondary/85 to-brand-primary/92" />

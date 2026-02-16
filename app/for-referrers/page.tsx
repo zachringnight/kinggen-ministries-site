@@ -7,6 +7,7 @@ import {
   ShieldIcon,
   ArrowRightIcon,
   HeartIcon,
+  CrossIcon,
   FadeIn,
   StaggerContainer,
   StaggerItem,
@@ -46,17 +47,18 @@ export default function ForReferrers() {
 
   return (
     <>
-      {/* Hero Section with KingGen branded background */}
+      {/* Hero Section with cross-branded background */}
       <PageHero
         title="For Referrers"
         description="Thank you for caring for women well. If you're supporting someone who needs counseling and cost is a barrier, we're grateful you're here. KingGen Ministries aims to be a trustworthy, compassionate referral partner."
-        background="kinggen-branded"
+        background="cross-branded"
         showStones={true}
         stonesPosition="both"
+        showCross={true}
       />
 
-      {/* Who Can Refer with art background */}
-      <Section variant="art-cream" padding="xl" watermark="stones-right">
+      {/* Who Can Refer with cross background */}
+      <Section variant="cross-light" padding="xl" watermark="none">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 text-center">
@@ -110,7 +112,7 @@ export default function ForReferrers() {
       <section className="relative py-16 md:py-24 overflow-hidden">
         {/* KingGen branded background */}
         <OptimizedBackground
-          src="/KingGen Background (1).png"
+          src="/bg-green-alternate.png"
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/90 via-brand-secondary/85 to-brand-primary/92" />
@@ -135,8 +137,23 @@ export default function ForReferrers() {
           }}
         />
 
+        {/* Cross watermark */}
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute inset-0 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "center 30%",
+            backgroundSize: "160px auto",
+            opacity: 0.08,
+          }}
+        />
+
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
+            {/* Cross icon */}
+            <div className="flex justify-center mb-4">
+              <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
+            </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-8 text-center">
               What referrers can expect
             </h2>
@@ -246,9 +263,24 @@ export default function ForReferrers() {
           }}
         />
 
+        {/* Cross watermark */}
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute inset-0 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "center",
+            backgroundSize: "140px auto",
+            opacity: 0.06,
+          }}
+        />
+
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center">
+              {/* Cross icon */}
+              <div className="flex justify-center mb-4">
+                <CrossIcon className="w-8 h-8 text-white/50" strokeWidth={1.5} />
+              </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4">
                 Partner with us
               </h2>

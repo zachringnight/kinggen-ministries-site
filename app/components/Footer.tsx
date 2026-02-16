@@ -3,6 +3,7 @@ import { siteConfig } from "../config/site";
 import { PhoneIcon, MailIcon, InstagramIcon, FacebookIcon, HeartIcon } from "./Icons";
 import { LogoIcon } from "./Logo";
 import Button from "./Button";
+import OptimizedBackground from "./OptimizedBackground";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -25,9 +26,9 @@ export default function Footer() {
     <footer className="relative overflow-hidden">
       {/* Main Footer with Green Texture Background */}
       <div className="relative">
-        <div
+        <OptimizedBackground
+          src="/bg-green.jpg"
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg-green.jpg')" }}
         />
 
         <div className="relative z-10 container mx-auto px-4 lg:px-8 py-10 md:py-12">

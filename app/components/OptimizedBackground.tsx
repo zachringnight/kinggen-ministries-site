@@ -62,6 +62,10 @@ const optimizedImageMap: Record<string, { webp: string; png: string }> = {
     webp: "/optimized/Untitled-7.webp",
     png: "/optimized/Untitled-7.png",
   },
+  "/bg-light-stones.png": {
+    webp: "/bg-light-stones.png",
+    png: "/bg-light-stones.png",
+  },
 };
 
 /**

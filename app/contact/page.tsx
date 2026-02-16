@@ -15,17 +15,18 @@ import { siteConfig } from "../config/site";
 export default function ContactPage() {
   return (
     <>
-      {/* Hero Section with KingGen branded background */}
+      {/* Hero Section with cross-branded background */}
       <PageHero
         title="Contact Us"
         description="Whether you're reaching out for yourself, referring someone, or asking about donating, please contact us. We will respond as soon as possible."
-        background="kinggen-branded"
+        background="cross-branded"
         showStones={true}
         stonesPosition="both"
+        showCross={true}
       />
 
       {/* Note */}
-      <Section variant="art-cream" padding="lg" watermark="stones-right">
+      <Section variant="cross-light" padding="lg" watermark="none">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-lg text-text-secondary leading-relaxed">
@@ -36,7 +37,7 @@ export default function ContactPage() {
       </Section>
 
       {/* Contact Form and Info */}
-      <Section variant="art-cream" padding="xl" watermark="stones-left">
+      <Section variant="art-cream" padding="xl" watermark="cross-subtle">
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
           <FadeIn direction="left">

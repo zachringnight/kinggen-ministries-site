@@ -6,7 +6,7 @@ A professional nonprofit website for KingGen Ministries, a 501(c)(3) organizatio
 
 ## Tech Stack
 
-- **Framework**: Next.js 15.5 with App Router
+- **Framework**: Next.js 16.1 with App Router
 - **Language**: TypeScript 5
 - **Styling**: Tailwind CSS 4
 - **Testing**: Vitest + React Testing Library

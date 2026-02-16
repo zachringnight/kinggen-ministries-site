@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 import OptimizedBackground from "./OptimizedBackground";
 
-type SectionVariant = "default" | "light" | "soft" | "primary" | "dark" | "art-cream" | "art-green" | "kinggen-branded";
-type WatermarkType = "stones" | "stones-left" | "stones-right" | "logo" | "kinggen-bg" | "none";
+type SectionVariant = "default" | "light" | "soft" | "primary" | "dark" | "art-cream" | "art-green" | "kinggen-branded" | "cross-light" | "cross-green";
+type WatermarkType = "stones" | "stones-left" | "stones-right" | "logo" | "kinggen-bg" | "cross" | "cross-subtle" | "cross-left" | "cross-right" | "none";
 
 interface SectionProps {
   children: ReactNode;
@@ -23,6 +23,8 @@ const variantStyles: Record<SectionVariant, string> = {
   "art-cream": "bg-brand-cream",
   "art-green": "bg-brand-primary text-white",
   "kinggen-branded": "bg-brand-primary text-white",
+  "cross-light": "bg-brand-cream",
+  "cross-green": "bg-brand-primary text-white",
 };
 
 const containerSizes: Record<string, string> = {
@@ -49,15 +51,22 @@ export default function Section({
   padding = "lg",
   watermark = "stones",
 }: SectionProps) {
-  const isLightSection = ["default", "light", "soft", "art-cream"].includes(variant);
-  const isGreenSection = ["primary", "dark", "art-green", "kinggen-branded"].includes(variant);
+  const isLightSection = ["default", "light", "soft", "art-cream", "cross-light"].includes(variant);
+  const isGreenSection = ["primary", "dark", "art-green", "kinggen-branded", "cross-green"].includes(variant);
+  const isCrossVariant = ["cross-light", "cross-green"].includes(variant);
 
   // Watermark settings
-  const showStonesWatermark = watermark === "stones" && isLightSection;
-  const showStonesLeft = watermark === "stones-left";
-  const showStonesRight = watermark === "stones-right";
+  const showStonesWatermark = watermark === "stones" && isLightSection && !isCrossVariant;
+  const showStonesLeft = watermark === "stones-left" && !isCrossVariant;
+  const showStonesRight = watermark === "stones-right" && !isCrossVariant;
   const showLogoWatermark = watermark === "logo" && isGreenSection;
   const showKinggenBg = watermark === "kinggen-bg";
+
+  // Cross watermark settings
+  const showCrossWatermark = watermark === "cross" || isCrossVariant;
+  const showCrossSubtle = watermark === "cross-subtle";
+  const showCrossLeft = watermark === "cross-left";
+  const showCrossRight = watermark === "cross-right";
 
   return (
     <section
@@ -121,7 +130,7 @@ export default function Section({
       {/* KingGen branded full background */}
       {showKinggenBg && (
         <OptimizedBackground
-          src="/KingGen Background (1).png"
+          src="/bg-green-alternate.png"
           className="absolute inset-0 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "center",
@@ -134,7 +143,7 @@ export default function Section({
       {/* KingGen branded background for art-cream variant */}
       {variant === "art-cream" && (
         <OptimizedBackground
-          src="/KingGen Background (1).png"
+          src="/bg-green-alternate.png"
           className="absolute inset-0 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "center",
@@ -147,12 +156,103 @@ export default function Section({
       {/* KingGen branded background for kinggen-branded and art-green variants */}
       {(variant === "art-green" || variant === "kinggen-branded") && (
         <OptimizedBackground
-          src="/KingGen Background (1).png"
+          src="/bg-green-alternate.png"
           className="absolute inset-0 pointer-events-none"
           style={{
             backgroundPosition: "center",
             backgroundSize: "cover",
             opacity: 0.35,
+          }}
+        />
+      )}
+
+      {/* Cross background for cross variants */}
+      {variant === "cross-light" && (
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundPosition: "center",
+            backgroundSize: "400px auto",
+            opacity: 0.08,
+          }}
+        />
+      )}
+
+      {variant === "cross-green" && (
+        <>
+          <OptimizedBackground
+            src="/bg-green-alternate.png"
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              opacity: 0.25,
+            }}
+          />
+          <OptimizedBackground
+            src="/bg_white_cross.png"
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundPosition: "center",
+              backgroundSize: "350px auto",
+              opacity: 0.12,
+            }}
+          />
+        </>
+      )}
+
+      {/* Cross watermark - centered */}
+      {showCrossWatermark && !isCrossVariant && (
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute inset-0 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "center",
+            backgroundSize: isLightSection ? "300px auto" : "280px auto",
+            opacity: isLightSection ? 0.06 : 0.10,
+          }}
+        />
+      )}
+
+      {/* Cross watermark - subtle/small */}
+      {showCrossSubtle && (
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute right-8 bottom-8 w-32 h-auto md:w-40 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "right bottom",
+            backgroundSize: "contain",
+            opacity: isLightSection ? 0.05 : 0.08,
+            height: "180px",
+          }}
+        />
+      )}
+
+      {/* Cross watermark on left */}
+      {showCrossLeft && (
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute left-0 bottom-0 w-48 h-auto md:w-64 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "left bottom",
+            backgroundSize: "contain",
+            opacity: isLightSection ? 0.06 : 0.10,
+            height: "280px",
+          }}
+        />
+      )}
+
+      {/* Cross watermark on right */}
+      {showCrossRight && (
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute right-0 bottom-0 w-48 h-auto md:w-64 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "right bottom",
+            backgroundSize: "contain",
+            opacity: isLightSection ? 0.06 : 0.10,
+            height: "280px",
           }}
         />
       )}
