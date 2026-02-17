@@ -71,7 +71,7 @@ export default function Home() {
     <>
       {/* Hero Section — branded image with lightweight live message */}
       <section
-        className="relative brand-hero-banner w-full min-h-[60vh] bg-cover bg-center animate-fade-in-up"
+        className="relative brand-hero-banner home-hero-bg w-full min-h-[42vh] sm:min-h-[52vh] md:min-h-[60vh] bg-cover bg-center bg-no-repeat animate-fade-in-up"
         style={{ backgroundImage: "url('/brand/headers/homepage-hero.webp')" }}
         role="banner"
         aria-label="KingGen Ministries — Christian Counseling for Women"

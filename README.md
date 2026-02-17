@@ -53,6 +53,12 @@ npm run optimize-images
 
 # Rebuild optimized brand WebP assets
 npm run optimize-brand-images
+
+# Verify critical routes after build
+npm run verify:routes
+
+# (Optional) Verify canonical Vercel check context on latest commit
+npm run verify:deploy-context
 ```
 
 ## Project Structure
@@ -89,6 +95,8 @@ Update `app/config/site.ts` with your organization's information:
 ## Asset Notes
 
 - Runtime web assets live under `/public`.
+- Canonical runtime brand assets live under `/public/brand`.
+- Runtime downloadable documents live under `/public/resources`.
 - Large source artwork files used for editing are stored under `/assets/brand-source` and are not served at runtime.
 - If source PNGs are updated, regenerate public WebP assets with `npm run optimize-brand-images`.
 
@@ -113,12 +121,15 @@ This repository is configured for Vercel deployment only.
 
 ### Vercel
 
-1. Import this repository in Vercel
-2. Set the Production Branch you want Vercel to deploy from
+1. Canonical project: `kinggen-ministries-site-mwqc`
+2. Production branch: `Claude/main`
 3. Add required environment variables in Vercel Project Settings
-4. Deploy
+4. Deploy from canonical project only
+5. `vercel.json` contains a host-scoped redirect rule for legacy `kinggen-ministries-site.vercel.app` -> canonical URL when legacy project is deployed from this branch
 
 Do not set up parallel deployments on other hosting platforms for this repo.
+
+For redirect strategy, rollback flow, and canonical/legacy project rules, see `/DEPLOYMENT.md`.
 
 ## Color Palette
 

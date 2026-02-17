@@ -174,7 +174,7 @@ export default function ContactPage() {
       <InnerPageHero
         title="Contact KingGen"
         subtitle="Referral and partner inquiries are welcome."
-        background="inner-logo"
+        background="inner"
         ariaLabel="Contact KingGen Ministries"
         showWatermarkCorners
       />

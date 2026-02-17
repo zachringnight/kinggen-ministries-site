@@ -81,6 +81,17 @@ html {
   isolation: isolate;
 }
 
+.home-hero-bg {
+  background-position: center;
+}
+
+@media (max-width: 639px) {
+  .home-hero-bg {
+    background-position: 55% 12%;
+    background-size: 190% auto;
+  }
+}
+
 .brand-hero-banner::before {
   content: "";
   position: absolute;

@@ -29,6 +29,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+.playwright-cli/
+output/playwright/
+output/review-*/
 
 # env files (can opt-in for committing if needed)
 .env*
@@ -39,3 +42,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local/source asset dumps that are not runtime dependencies
+assets/brand-source/kinggen-logo and background files/public/
+public/kinggen-logo and background files/
+public/Untitled*.png
+public/Untitled design*.png
+public/KingGen Background (1).png
+public/bg-green-alternate.png
+public/bg-light-stones.png
+public/bg_green_texture_1920x1080.png
+public/logo_stack_cropped.png

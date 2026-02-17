@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, Claude/main]
   pull_request:
-    branches: [main]
+    branches: [main, Claude/main]
 
 permissions:
   contents: read
@@ -76,3 +76,6 @@ jobs:
 
       - name: Build application
         run: npm run build
+
+      - name: Route smoke verification
+        run: npm run verify:routes
