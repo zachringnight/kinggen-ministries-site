@@ -103,8 +103,14 @@ export default function Header({
                 priority
               />
               {showBrandText && (
-                <span className="hidden md:block whitespace-nowrap text-brand-primary font-heading font-semibold text-lg leading-none">
-                  KingGen Ministries
+                <span className="hidden xl:flex flex-col whitespace-nowrap leading-none">
+                  <span className="text-brand-primary text-lg tracking-tight">
+                    <span className="font-extrabold">KingGen</span>{" "}
+                    <span className="font-light">Ministries</span>
+                  </span>
+                  <span className="mt-1 text-[10px] uppercase tracking-[0.16em] text-brand-primary/75 font-semibold">
+                    Christian Counseling for Women
+                  </span>
                 </span>
               )}
             </Link>
@@ -121,7 +127,7 @@ export default function Header({
                     className={`px-3 py-2 font-medium transition-colors text-sm whitespace-nowrap rounded-lg ${
                       active
                         ? "text-brand-primary bg-brand-soft shadow-inner"
-                        : "text-text-secondary hover:text-brand-primary hover:bg-brand-soft/70"
+                        : "text-brand-primary/85 hover:text-brand-primary hover:bg-brand-soft/70"
                     }`}
                     onClick={closeResourcesMenu}
                   >
@@ -141,7 +147,7 @@ export default function Header({
                   className={`list-none px-3 py-2 font-medium transition-colors text-sm whitespace-nowrap rounded-lg cursor-pointer flex items-center gap-1 ${
                     secondaryActive
                       ? "text-brand-primary bg-brand-soft shadow-inner"
-                      : "text-text-secondary hover:text-brand-primary hover:bg-brand-soft/70"
+                      : "text-brand-primary/85 hover:text-brand-primary hover:bg-brand-soft/70"
                   }`}
                   aria-expanded={resourcesOpen}
                 >
@@ -159,7 +165,7 @@ export default function Header({
                         className={`block rounded-xl px-3 py-2 transition-colors ${
                           active
                             ? "bg-brand-soft text-brand-primary"
-                            : "text-text-secondary hover:bg-brand-soft/70 hover:text-brand-primary"
+                            : "text-brand-primary/85 hover:bg-brand-soft/70 hover:text-brand-primary"
                         }`}
                         onClick={closeResourcesMenu}
                       >
@@ -227,7 +233,7 @@ export default function Header({
                       className={`block py-3 px-4 rounded-xl font-medium text-lg transition-colors ${
                         active
                           ? "bg-brand-soft text-brand-primary border border-brand-light"
-                          : "text-gray-900 hover:bg-gray-100"
+                          : "text-brand-primary hover:bg-brand-soft/70"
                       }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -238,8 +244,8 @@ export default function Header({
               </div>
 
               {/* Resources Section */}
-              <div className="border-t border-gray-200 pt-6">
-                <p className="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+              <div className="border-t border-brand-light pt-6">
+                <p className="px-4 text-xs font-semibold text-brand-primary/65 uppercase tracking-wider mb-3">
                   Resources
                 </p>
                 <div className="space-y-1">
@@ -247,12 +253,12 @@ export default function Header({
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="block py-3 px-4 hover:bg-gray-100 rounded-xl"
+                      className="block py-3 px-4 hover:bg-brand-soft/70 rounded-xl"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      <span className="block font-medium text-gray-900">{item.label}</span>
+                      <span className="block font-medium text-brand-primary">{item.label}</span>
                       {item.description && (
-                        <span className="block text-sm text-gray-500">{item.description}</span>
+                        <span className="block text-sm text-brand-primary/70">{item.description}</span>
                       )}
                     </Link>
                   ))}

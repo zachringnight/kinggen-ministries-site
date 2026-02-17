@@ -55,8 +55,9 @@ export default function Logo({
           className="object-contain"
           priority
         />
-        <span className={`mt-2 text-brand-primary font-heading font-bold leading-none ${textSizes[size]}`}>
-          KingGen Ministries
+        <span className={`mt-2 text-brand-primary leading-none ${textSizes[size]}`}>
+          <span className="font-extrabold">KingGen</span>{" "}
+          <span className="font-light">Ministries</span>
         </span>
         <span className={`mt-1 text-text-secondary tracking-[0.08em] uppercase ${subtitleSizes[size]}`}>
           Christian Counseling for Women
@@ -76,8 +77,9 @@ export default function Logo({
         priority
       />
       <div className="leading-none">
-        <span className={`block text-brand-primary font-heading font-bold ${textSizes[size]}`}>
-          KingGen Ministries
+        <span className={`block text-brand-primary ${textSizes[size]}`}>
+          <span className="font-extrabold">KingGen</span>{" "}
+          <span className="font-light">Ministries</span>
         </span>
         <span className={`block mt-1 text-text-secondary tracking-[0.08em] uppercase ${subtitleSizes[size]}`}>
           Christian Counseling for Women

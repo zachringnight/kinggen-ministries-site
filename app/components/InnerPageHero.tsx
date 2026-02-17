@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import OptimizedBackground from "./OptimizedBackground";
 
-type HeroBackground = "inner" | "about";
+type HeroBackground = "inner" | "about" | "inner-logo";
 
 interface InnerPageHeroProps {
   title: string;
@@ -23,6 +23,7 @@ const backgroundMap: Record<
     eyebrowClassName: string;
     watermarkSrc: string;
     watermarkOpacity: number;
+    showEyebrow: boolean;
   }
 > = {
   inner: {
@@ -34,16 +35,29 @@ const backgroundMap: Record<
     eyebrowClassName: "border-white/30 bg-white/10 text-white/85",
     watermarkSrc: "/brand/logo/icon-white.webp",
     watermarkOpacity: 0.12,
+    showEyebrow: true,
   },
   about: {
-    texture: "/brand/social/content-section-bg.webp",
+    texture: "/brand/headers/about-header.webp",
     overlayClassName:
-      "bg-gradient-to-b from-brand-soft/60 via-brand-soft/72 to-brand-light/82",
+      "bg-gradient-to-b from-white/25 via-brand-soft/45 to-brand-light/62",
     titleClassName: "text-brand-primary",
     subtitleClassName: "text-text-secondary",
     eyebrowClassName: "border-brand-primary/20 bg-white/70 text-brand-primary",
     watermarkSrc: "/brand/logo/icon-dark-green.webp",
     watermarkOpacity: 0.08,
+    showEyebrow: false,
+  },
+  "inner-logo": {
+    texture: "/brand/headers/inner-header.webp",
+    overlayClassName:
+      "bg-gradient-to-b from-white/24 via-brand-soft/40 to-brand-light/60",
+    titleClassName: "text-brand-primary",
+    subtitleClassName: "text-text-secondary",
+    eyebrowClassName: "border-brand-primary/20 bg-white/70 text-brand-primary",
+    watermarkSrc: "/brand/logo/icon-dark-green.webp",
+    watermarkOpacity: 0.06,
+    showEyebrow: false,
   },
 };
 
@@ -53,7 +67,7 @@ export default function InnerPageHero({
   background = "inner",
   ariaLabel,
   children,
-  minHeightClassName = "min-h-[40vh] md:min-h-[50vh]",
+  minHeightClassName = "min-h-[34vh] md:min-h-[44vh]",
   showWatermarkCorners = false,
 }: InnerPageHeroProps) {
   const backgroundConfig = backgroundMap[background];
@@ -92,13 +106,15 @@ export default function InnerPageHero({
       <div className="relative z-10 w-full pb-10 pt-24 md:pb-14 md:pt-28">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <p
-              className={`inline-flex items-center rounded-full border px-4 py-2 text-xs sm:text-sm font-semibold tracking-[0.08em] uppercase backdrop-blur-sm ${backgroundConfig.eyebrowClassName}`}
-            >
-              KingGen Ministries
-            </p>
+            {backgroundConfig.showEyebrow && (
+              <p
+                className={`inline-flex items-center rounded-full border px-4 py-2 text-xs sm:text-sm font-semibold tracking-[0.08em] uppercase backdrop-blur-sm ${backgroundConfig.eyebrowClassName}`}
+              >
+                KingGen Ministries
+              </p>
+            )}
             <h1
-              className={`mt-5 text-4xl sm:text-5xl lg:text-6xl font-bold font-heading leading-tight ${backgroundConfig.titleClassName}`}
+              className={`${backgroundConfig.showEyebrow ? "mt-5" : "mt-0"} text-4xl sm:text-5xl lg:text-6xl font-bold font-heading leading-tight ${backgroundConfig.titleClassName}`}
             >
               {title}
             </h1>

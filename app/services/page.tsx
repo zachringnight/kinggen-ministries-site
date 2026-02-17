@@ -67,7 +67,7 @@ export default function ServicesPage() {
       <InnerPageHero
         title="Our Services"
         subtitle="Compassionate, Gospel-centered counseling at no cost to clients."
-        background="inner"
+        background="inner-logo"
         ariaLabel="Our Services"
         showWatermarkCorners
       />
