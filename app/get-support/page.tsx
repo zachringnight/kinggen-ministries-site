@@ -62,7 +62,7 @@ export default function GetSupport() {
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center px-2">
             <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
-              At KingGen Ministries, we believe everyone should have access to counseling.  As a 501(C)3 we offer Gospel-Centered counseling for women in need by a licensed clincial pastoral counselor.
+              At KingGen Ministries, we believe everyone should have access to counseling. As a 501(c)(3), we offer Gospel-centered counseling for women in need by a licensed clinical pastoral counselor.
             </p>
           </div>
         </FadeIn>

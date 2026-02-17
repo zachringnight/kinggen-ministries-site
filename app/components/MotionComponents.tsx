@@ -8,6 +8,7 @@ import {
   useMotionValue,
   useSpring,
   useTransform,
+  useReducedMotion,
 } from "framer-motion";
 
 // ============================================
@@ -332,9 +333,11 @@ export function TiltCard({
   tiltAmount = 10,
   glareEnable = true,
 }: TiltCardProps) {
+  const shouldReduceMotion = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+  const interactiveTilt = !shouldReduceMotion && tiltAmount > 0;
 
   const mouseXSpring = useSpring(x, { stiffness: 150, damping: 15 });
   const mouseYSpring = useSpring(y, { stiffness: 150, damping: 15 });
@@ -354,6 +357,7 @@ export function TiltCard({
   );
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!interactiveTilt) return;
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     const width = rect.width;
@@ -367,9 +371,14 @@ export function TiltCard({
   };
 
   const handleMouseLeave = () => {
+    if (!interactiveTilt) return;
     x.set(0);
     y.set(0);
   };
+
+  if (!interactiveTilt) {
+    return <div className={`relative ${className}`}>{children}</div>;
+  }
 
   return (
     <motion.div
@@ -384,7 +393,7 @@ export function TiltCard({
       className={`relative ${className}`}
     >
       {children}
-      {glareEnable && (
+      {glareEnable && !shouldReduceMotion && (
         <motion.div
           className="absolute inset-0 rounded-inherit pointer-events-none"
           style={{
@@ -539,6 +548,7 @@ interface MagneticProps {
 }
 
 export function Magnetic({ children, className = "", strength = 0.3 }: MagneticProps) {
+  const shouldReduceMotion = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -548,6 +558,7 @@ export function Magnetic({ children, className = "", strength = 0.3 }: MagneticP
   const ySpring = useSpring(y, springConfig);
 
   const handleMouseMove = (e: React.MouseEvent) => {
+    if (shouldReduceMotion) return;
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
@@ -559,9 +570,14 @@ export function Magnetic({ children, className = "", strength = 0.3 }: MagneticP
   };
 
   const handleMouseLeave = () => {
+    if (shouldReduceMotion) return;
     x.set(0);
     y.set(0);
   };
+
+  if (shouldReduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div
@@ -996,25 +1012,36 @@ interface AnimatedBorderCardProps {
 }
 
 export function AnimatedBorderCard({ children, className = "" }: AnimatedBorderCardProps) {
+  const shouldReduceMotion = useReducedMotion();
   return (
     <div className={`relative p-[2px] rounded-2xl overflow-hidden ${className}`}>
       {/* Animated gradient border */}
       <motion.div
         className="absolute inset-0"
-        animate={{
-          background: [
-            "linear-gradient(0deg, #3D5A3D, #7BA390, #3D5A3D)",
-            "linear-gradient(90deg, #3D5A3D, #7BA390, #3D5A3D)",
-            "linear-gradient(180deg, #3D5A3D, #7BA390, #3D5A3D)",
-            "linear-gradient(270deg, #3D5A3D, #7BA390, #3D5A3D)",
-            "linear-gradient(360deg, #3D5A3D, #7BA390, #3D5A3D)",
-          ],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "linear",
-        }}
+        animate={
+          shouldReduceMotion
+            ? {
+                background: "linear-gradient(90deg, #3D5A3D, #7BA390, #3D5A3D)",
+              }
+            : {
+                background: [
+                  "linear-gradient(0deg, #3D5A3D, #7BA390, #3D5A3D)",
+                  "linear-gradient(90deg, #3D5A3D, #7BA390, #3D5A3D)",
+                  "linear-gradient(180deg, #3D5A3D, #7BA390, #3D5A3D)",
+                  "linear-gradient(270deg, #3D5A3D, #7BA390, #3D5A3D)",
+                  "linear-gradient(360deg, #3D5A3D, #7BA390, #3D5A3D)",
+                ],
+              }
+        }
+        transition={
+          shouldReduceMotion
+            ? { duration: 0 }
+            : {
+                duration: 4,
+                repeat: Infinity,
+                ease: "linear",
+              }
+        }
       />
       <div className="relative bg-brand-cream rounded-[14px] p-6 h-full">
         {children}

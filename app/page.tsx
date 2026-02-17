@@ -15,12 +15,9 @@ import {
   FadeIn,
   StaggerContainer,
   StaggerItem,
-  TiltCard,
-  Magnetic,
   ImpactCounterSection,
   AnimatedDivider,
   GlassCard,
-  AnimatedBorderCard,
 } from "./components";
 
 const impactStats = [
@@ -72,7 +69,7 @@ const services = [
 export default function Home() {
   return (
     <>
-      {/* Hero Section — baked-in banner image, no text overlay */}
+      {/* Hero Section — branded image with lightweight live message */}
       <section
         className="relative brand-hero-banner w-full min-h-[60vh] bg-cover bg-center animate-fade-in-up"
         style={{ backgroundImage: "url('/brand/headers/homepage-hero.webp')" }}
@@ -80,6 +77,23 @@ export default function Home() {
         aria-label="KingGen Ministries — Christian Counseling for Women"
       >
         <h1 className="sr-only">KingGen Ministries</h1>
+        <div className="absolute inset-x-0 bottom-8 md:bottom-12 z-10">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="max-w-xl rounded-2xl border border-white/70 bg-white/88 backdrop-blur-sm shadow-lg px-5 py-4 md:px-6 md:py-5">
+              <p className="text-lg md:text-xl font-heading font-bold text-brand-primary leading-tight">
+                Free Gospel-centered counseling for women in need.
+              </p>
+              <p className="text-sm md:text-base text-text-secondary mt-2">
+                Compassionate care for referrals, donors, and ministry partners.
+              </p>
+              <div className="mt-4">
+                <Button href="/contact" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                  Start a Referral Conversation
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Wave Divider */}
@@ -101,7 +115,7 @@ export default function Home() {
                 About our ministry
               </h2>
               <p className="text-base sm:text-lg text-text-secondary leading-relaxed mb-8">
-                At KingGen Ministries, we believe everyone should have access to counseling.  As a 501(C)3 we offer Gospel-Centered counseling for women in need by a licensed clincial pastoral counselor.
+                At KingGen Ministries, we believe everyone should have access to counseling. As a 501(c)(3), we offer Gospel-centered counseling for women in need by a licensed clinical pastoral counselor.
               </p>
               <Button href="/about" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
                 Learn More
@@ -123,19 +137,17 @@ export default function Home() {
         <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
           {services.map((service, i) => (
             <StaggerItem key={i}>
-              <TiltCard className="h-full" tiltAmount={4}>
-                <div className="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-brand-light h-full flex flex-col">
-                  <div className="w-14 h-14 rounded-2xl bg-brand-primary flex items-center justify-center mb-5 shadow-lg">
-                    <service.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm md:text-base text-text-secondary flex-grow">
-                    {service.description}
-                  </p>
+              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-brand-light h-full flex flex-col">
+                <div className="w-14 h-14 rounded-2xl bg-brand-primary flex items-center justify-center mb-5 shadow-lg">
+                  <service.icon className="w-7 h-7 text-white" />
                 </div>
-              </TiltCard>
+                <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-sm md:text-base text-text-secondary flex-grow">
+                  {service.description}
+                </p>
+              </div>
             </StaggerItem>
           ))}
         </StaggerContainer>
@@ -191,14 +203,14 @@ export default function Home() {
             { icon: CheckCircleIcon, text: "501(c)(3) nonprofit accountability" },
           ].map((item, i) => (
             <StaggerItem key={i}>
-              <AnimatedBorderCard>
+              <div className="bg-white rounded-2xl border border-brand-light shadow-sm p-4 h-full">
                 <div className="flex flex-col items-center text-center p-2">
                   <div className="w-12 h-12 rounded-xl bg-brand-primary flex items-center justify-center mb-4 shadow-lg">
                     <item.icon className="w-6 h-6 text-white" />
                   </div>
                   <p className="text-sm md:text-base text-text-primary font-medium">{item.text}</p>
                 </div>
-              </AnimatedBorderCard>
+              </div>
             </StaggerItem>
           ))}
         </StaggerContainer>
@@ -212,69 +224,63 @@ export default function Home() {
 
         <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           <StaggerItem>
-            <TiltCard className="h-full">
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full flex flex-col relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-brand-primary flex items-center justify-center mb-4 shadow-lg">
-                    <UsersIcon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
-                    Referrers
-                  </h3>
-                  <p className="text-sm md:text-base text-text-secondary mb-4 md:mb-6 flex-grow">
-                    For pastors, churches, social workers, and trusted professionals looking for a compassionate referral option for women in need.
-                  </p>
-                  <Button href="/for-referrers" variant="primary" fullWidth>
-                    For Referrers
-                  </Button>
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full flex flex-col relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-brand-primary flex items-center justify-center mb-4 shadow-lg">
+                  <UsersIcon className="w-7 h-7 text-white" />
                 </div>
+                <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
+                  Referrers
+                </h3>
+                <p className="text-sm md:text-base text-text-secondary mb-4 md:mb-6 flex-grow">
+                  For pastors, churches, social workers, and trusted professionals looking for a compassionate referral option for women in need.
+                </p>
+                <Button href="/for-referrers" variant="primary" fullWidth>
+                  For Referrers
+                </Button>
               </div>
-            </TiltCard>
+            </div>
           </StaggerItem>
 
           <StaggerItem>
-            <TiltCard className="h-full">
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full flex flex-col relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/5 to-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-brand-accent flex items-center justify-center mb-4 shadow-lg">
-                    <HeartIcon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
-                    Donors
-                  </h3>
-                  <p className="text-sm md:text-base text-text-secondary mb-4 md:mb-6 flex-grow">
-                    Your tax-deductible gift helps remove cost barriers and ensures women receive the care they need.
-                  </p>
-                  <Button href="/donate" variant="primary" fullWidth>
-                    Donate
-                  </Button>
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full flex flex-col relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/5 to-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-brand-accent flex items-center justify-center mb-4 shadow-lg">
+                  <HeartIcon className="w-7 h-7 text-white" />
                 </div>
+                <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
+                  Donors
+                </h3>
+                <p className="text-sm md:text-base text-text-secondary mb-4 md:mb-6 flex-grow">
+                  Your tax-deductible gift helps remove cost barriers and ensures women receive the care they need.
+                </p>
+                <Button href="/donate" variant="primary" fullWidth>
+                  Donate
+                </Button>
               </div>
-            </TiltCard>
+            </div>
           </StaggerItem>
 
           <StaggerItem>
-            <TiltCard className="h-full">
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full flex flex-col relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-warm/5 to-brand-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-brand-warm flex items-center justify-center mb-4 shadow-lg">
-                    <GiftIcon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
-                    Grant Writers &amp; Foundations
-                  </h3>
-                  <p className="text-sm md:text-base text-text-secondary mb-4 md:mb-6 flex-grow">
-                    Access organizational information, impact data, and resources to support grant applications.
-                  </p>
-                  <Button href="/for-grant-writers" variant="primary" fullWidth>
-                    For Grant Writers
-                  </Button>
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full flex flex-col relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-warm/5 to-brand-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-brand-warm flex items-center justify-center mb-4 shadow-lg">
+                  <GiftIcon className="w-7 h-7 text-white" />
                 </div>
+                <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
+                  Grant Writers &amp; Foundations
+                </h3>
+                <p className="text-sm md:text-base text-text-secondary mb-4 md:mb-6 flex-grow">
+                  Access organizational information, impact data, and resources to support grant applications.
+                </p>
+                <Button href="/for-grant-writers" variant="primary" fullWidth>
+                  For Grant Writers
+                </Button>
               </div>
-            </TiltCard>
+            </div>
           </StaggerItem>
         </StaggerContainer>
       </Section>
@@ -317,16 +323,12 @@ export default function Home() {
                 <strong>EIN:</strong> {siteConfig.ein}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Magnetic>
-                  <Button href="/donate" variant="white" size="lg" icon={<HeartIcon className="w-5 h-5" />} className="shadow-xl shadow-black/20">
-                    Donate Now
-                  </Button>
-                </Magnetic>
-                <Magnetic>
-                  <Button href="/for-grant-writers" variant="outline" size="lg" className="border-white/40 text-white hover:bg-white/10 backdrop-blur-sm">
-                    Grant Information
-                  </Button>
-                </Magnetic>
+                <Button href="/donate" variant="white" size="lg" icon={<HeartIcon className="w-5 h-5" />} className="shadow-xl shadow-black/20">
+                  Donate Now
+                </Button>
+                <Button href="/for-grant-writers" variant="outline" size="lg" className="border-white/40 text-white hover:bg-white/10 backdrop-blur-sm">
+                  Grant Information
+                </Button>
               </div>
             </div>
           </FadeIn>
@@ -358,23 +360,21 @@ export default function Home() {
               <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 {testimonialData.slice(0, 2).map((testimonial, index) => (
                   <StaggerItem key={index}>
-                    <TiltCard className="h-full" tiltAmount={5}>
-                      <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg h-full relative border border-brand-light group">
-                        <QuoteIcon className="absolute top-4 right-4 md:top-6 md:right-6 w-6 h-6 md:w-8 md:h-8 text-brand-primary/20 group-hover:text-brand-accent/30 transition-colors" />
-                        <p className="text-sm md:text-base text-text-secondary italic mb-4 md:mb-6 leading-relaxed pr-8">
-                          &ldquo;{testimonial.quote}&rdquo;
-                        </p>
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white font-bold text-lg shadow-lg">
-                            {testimonial.initial}
-                          </div>
-                          <div>
-                            <p className="font-bold text-text-primary text-sm md:text-base">{testimonial.author}</p>
-                            <p className="text-xs md:text-sm text-text-muted">{testimonial.role}</p>
-                          </div>
+                    <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg h-full relative border border-brand-light group">
+                      <QuoteIcon className="absolute top-4 right-4 md:top-6 md:right-6 w-6 h-6 md:w-8 md:h-8 text-brand-primary/20 group-hover:text-brand-accent/30 transition-colors" />
+                      <p className="text-sm md:text-base text-text-secondary italic mb-4 md:mb-6 leading-relaxed pr-8">
+                        &ldquo;{testimonial.quote}&rdquo;
+                      </p>
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                          {testimonial.initial}
+                        </div>
+                        <div>
+                          <p className="font-bold text-text-primary text-sm md:text-base">{testimonial.author}</p>
+                          <p className="text-xs md:text-sm text-text-muted">{testimonial.role}</p>
                         </div>
                       </div>
-                    </TiltCard>
+                    </div>
                   </StaggerItem>
                 ))}
               </StaggerContainer>
@@ -440,16 +440,12 @@ export default function Home() {
                 </FadeIn>
                 <FadeIn delay={0.2}>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Magnetic>
-                      <Button href="/about#speaking" variant="white" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-                        Learn More
-                      </Button>
-                    </Magnetic>
-                    <Magnetic>
-                      <Button href="/contact" variant="outline" size="lg" className="border-white/40 text-white hover:bg-white/10">
-                        Request a Booking
-                      </Button>
-                    </Magnetic>
+                    <Button href="/about#speaking" variant="white" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                      Learn More
+                    </Button>
+                    <Button href="/contact" variant="outline" size="lg" className="border-white/40 text-white hover:bg-white/10">
+                      Request a Booking
+                    </Button>
                   </div>
                 </FadeIn>
               </div>
@@ -476,16 +472,12 @@ export default function Home() {
               Whether you&apos;re making a referral, considering a donation, or exploring grant opportunities, we&apos;d love to connect.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Magnetic>
-                <Button href="/contact" variant="primary" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-                  Contact Us
-                </Button>
-              </Magnetic>
-              <Magnetic>
-                <Button href="/donate" variant="outline" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
-                  Support Our Mission
-                </Button>
-              </Magnetic>
+              <Button href="/contact" variant="primary" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                Contact Us
+              </Button>
+              <Button href="/donate" variant="outline" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
+                Support Our Mission
+              </Button>
             </div>
           </div>
         </FadeIn>

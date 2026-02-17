@@ -1,0 +1,162 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e5]:
+        - link "KingGen Ministries Home" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - img "KingGen Ministries" [ref=e7]
+        - generic [ref=e8]:
+          - link "Home" [ref=e9] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=e10] [cursor=pointer]:
+            - /url: /about
+          - link "Services" [ref=e11] [cursor=pointer]:
+            - /url: /services
+          - link "For Referrers" [ref=e12] [cursor=pointer]:
+            - /url: /for-referrers
+          - link "For Grant Writers" [ref=e13] [cursor=pointer]:
+            - /url: /for-grant-writers
+          - link "Testimonials" [ref=e14] [cursor=pointer]:
+            - /url: /testimonials
+          - link "Contact" [ref=e15] [cursor=pointer]:
+            - /url: /contact
+        - link "Donate" [ref=e17] [cursor=pointer]:
+          - /url: /donate
+          - img [ref=e19]
+          - generic [ref=e21]: Donate
+  - main [ref=e22]:
+    - banner "Contact KingGen Ministries" [ref=e23]:
+      - generic [ref=e27]:
+        - paragraph [ref=e28]: KingGen Ministries
+        - heading "Contact KingGen" [level=1] [ref=e29]
+        - paragraph [ref=e30]: Referral and partner inquiries are welcome.
+    - paragraph [ref=e35]: We often coordinate intake through referrers and ministry partners. If you are seeking support personally, we encourage you to ask a pastor, counselor, or trusted professional to submit a referral with you.
+    - generic [ref=e38]:
+      - generic [ref=e41]:
+        - heading "Referral & Partner Contact" [level=2] [ref=e42]
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - generic [ref=e45]: "I am contacting KingGen as:"
+            - combobox "I am contacting KingGen as:" [ref=e46]:
+              - option "Referring someone" [selected]
+              - option "Pastor or church staff"
+              - option "Professional partner"
+              - option "Donor or partner"
+              - option "Other"
+            - paragraph [ref=e47]: For privacy and coordinated care, intake usually begins through a referrer.
+          - generic [ref=e48]:
+            - generic [ref=e49]: Name
+            - textbox "Name" [ref=e50]:
+              - /placeholder: Your name
+          - generic [ref=e51]:
+            - generic [ref=e52]: Email *
+            - textbox "Email *" [ref=e53]:
+              - /placeholder: your@email.com
+          - generic [ref=e54]:
+            - generic [ref=e55]: Phone (optional)
+            - textbox "Phone (optional)" [ref=e56]:
+              - /placeholder: (817) 555-1234
+          - generic [ref=e57]:
+            - generic [ref=e58]: Message
+            - textbox "Message" [ref=e59]:
+              - /placeholder: How can we help you?
+            - generic [ref=e60]:
+              - generic [ref=e61]: Please keep private details minimal in your first message.
+              - generic [ref=e62]: 0/1500
+          - button "Send Message" [ref=e63]:
+            - generic [ref=e64]: Send Message
+          - paragraph [ref=e65]: Your information is safe with us. We typically reply within 1-2 business days.
+          - paragraph [ref=e66]: Online form routing is temporarily using your email app.
+      - generic [ref=e68]:
+        - heading "Direct contact" [level=2] [ref=e69]
+        - generic [ref=e70]:
+          - link "Email kinggencounseling@gmail.com" [ref=e71] [cursor=pointer]:
+            - /url: mailto:kinggencounseling@gmail.com
+            - img [ref=e73]
+            - generic [ref=e75]:
+              - paragraph [ref=e76]: Email
+              - paragraph [ref=e77]: kinggencounseling@gmail.com
+          - link "Phone (817) 682-4341" [ref=e78] [cursor=pointer]:
+            - /url: tel:(817) 682-4341
+            - img [ref=e80]
+            - generic [ref=e82]:
+              - paragraph [ref=e83]: Phone
+              - paragraph [ref=e84]: (817) 682-4341
+          - generic [ref=e85]:
+            - img [ref=e87]
+            - generic [ref=e90]:
+              - paragraph [ref=e91]: Mailing Address
+              - generic [ref=e92]:
+                - text: KingGen Ministries
+                - text: 1540 Keller Parkway
+                - text: Suite 108, Box 102
+                - text: Keller, TX 76248
+        - generic [ref=e93]:
+          - heading "What Happens Next" [level=3] [ref=e94]
+          - list [ref=e95]:
+            - listitem [ref=e96]: 1. We review your message and pray over your request.
+            - listitem [ref=e97]: 2. We respond with next-step guidance (usually within 1-2 business days).
+            - listitem [ref=e98]: 3. If needed, we help route you to the right support path.
+  - contentinfo [ref=e99]:
+    - generic [ref=e102]:
+      - generic [ref=e103]:
+        - link "KingGen Ministries KingGen Ministries" [ref=e105] [cursor=pointer]:
+          - /url: /
+          - img "KingGen Ministries" [ref=e106]
+          - generic [ref=e107]: KingGen Ministries
+        - navigation [ref=e108]:
+          - link "About" [ref=e109] [cursor=pointer]:
+            - /url: /about
+          - link "Services" [ref=e110] [cursor=pointer]:
+            - /url: /services
+          - link "For Referrers" [ref=e111] [cursor=pointer]:
+            - /url: /for-referrers
+          - link "For Grant Writers" [ref=e112] [cursor=pointer]:
+            - /url: /for-grant-writers
+          - link "Donate" [ref=e113] [cursor=pointer]:
+            - /url: /donate
+          - link "Testimonials" [ref=e114] [cursor=pointer]:
+            - /url: /testimonials
+          - link "Contact" [ref=e115] [cursor=pointer]:
+            - /url: /contact
+      - generic [ref=e116]:
+        - generic [ref=e117]:
+          - link "kinggencounseling@gmail.com" [ref=e118] [cursor=pointer]:
+            - /url: mailto:kinggencounseling@gmail.com
+            - img [ref=e119]
+            - generic [ref=e121]: kinggencounseling@gmail.com
+          - link "(817) 682-4341" [ref=e122] [cursor=pointer]:
+            - /url: tel:(817) 682-4341
+            - img [ref=e123]
+            - generic [ref=e125]: (817) 682-4341
+        - generic [ref=e126]:
+          - generic [ref=e127]:
+            - link "Instagram" [ref=e128] [cursor=pointer]:
+              - /url: https://www.instagram.com/kinggenministries/
+              - img [ref=e129]
+            - link "Facebook" [ref=e131] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=61573569056063
+              - img [ref=e132]
+          - link "Donate" [ref=e134] [cursor=pointer]:
+            - /url: /donate
+            - img [ref=e136]
+            - generic [ref=e138]: Donate
+      - generic [ref=e139]:
+        - generic [ref=e140]:
+          - paragraph [ref=e141]: © 2026 KingGen Ministries
+          - generic [ref=e142]: ·
+          - paragraph [ref=e143]: "501(c)(3) EIN: 33-3032264"
+        - generic [ref=e144]:
+          - link "Client Info" [ref=e145] [cursor=pointer]:
+            - /url: /get-support
+          - link "Forms" [ref=e146] [cursor=pointer]:
+            - /url: /forms
+          - link "Privacy" [ref=e147] [cursor=pointer]:
+            - /url: /privacy
+          - link "Disclaimer" [ref=e148] [cursor=pointer]:
+            - /url: /disclaimer
+  - button "Open Next.js Dev Tools" [ref=e154] [cursor=pointer]:
+    - img [ref=e155]
+  - alert [ref=e158]

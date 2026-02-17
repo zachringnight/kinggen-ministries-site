@@ -4,27 +4,46 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { MenuIcon, XIcon, HeartIcon } from "./Icons";
+import { MenuIcon, XIcon, HeartIcon, ChevronDownIcon } from "./Icons";
 import Button from "./Button";
+import { primaryNavLinks, secondaryNavLinks } from "../config/site";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/for-referrers", label: "For Referrers" },
-  { href: "/for-grant-writers", label: "For Grant Writers" },
-  { href: "/testimonials", label: "Testimonials" },
-  { href: "/contact", label: "Contact" },
-];
+interface HeaderLink {
+  href: string;
+  label: string;
+  description?: string;
+}
 
-export default function Header() {
+interface HeaderProps {
+  primaryLinks?: HeaderLink[];
+  secondaryLinks?: HeaderLink[];
+  showBrandText?: boolean;
+}
+
+const defaultPrimaryLinks: HeaderLink[] = primaryNavLinks;
+const defaultSecondaryLinks: HeaderLink[] = secondaryNavLinks;
+
+export default function Header({
+  primaryLinks = defaultPrimaryLinks,
+  secondaryLinks = defaultSecondaryLinks,
+  showBrandText = true,
+}: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
   const isActiveLink = (href: string) => {
     if (href === "/") return pathname === "/";
     return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
+  const closeResourcesMenu = () => {
+    const resourcesDetails = document.getElementById("desktop-resources-menu") as HTMLDetailsElement | null;
+    if (resourcesDetails) {
+      resourcesDetails.open = false;
+    }
+    setResourcesOpen(false);
   };
 
   useEffect(() => {
@@ -55,6 +74,8 @@ export default function Header() {
     };
   }, [mobileMenuOpen]);
 
+  const secondaryActive = secondaryLinks.some((item) => isActiveLink(item.href));
+
   return (
     <>
       <header
@@ -65,12 +86,13 @@ export default function Header() {
         }`}
       >
         <nav className="container mx-auto px-4 lg:px-8">
-          <div className="flex items-center h-14 md:h-16 gap-6">
-            {/* Icon-only logo */}
+          <div className="flex items-center h-14 md:h-16 gap-4">
+            {/* Brand lockup */}
             <Link
               href="/"
-              className="flex items-center flex-shrink-0"
+              className="flex items-center gap-3 flex-shrink-0"
               aria-label="KingGen Ministries Home"
+              onClick={closeResourcesMenu}
             >
               <Image
                 src="/brand/logo/icon-dark-green.webp"
@@ -80,11 +102,16 @@ export default function Header() {
                 className="rounded-lg"
                 priority
               />
+              {showBrandText && (
+                <span className="hidden md:block whitespace-nowrap text-brand-primary font-heading font-semibold text-lg leading-none">
+                  KingGen Ministries
+                </span>
+              )}
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1 flex-1">
-              {navLinks.map((item) => {
+            <div className="hidden lg:flex items-center gap-1 flex-1 min-w-0">
+              {primaryLinks.map((item) => {
                 const active = isActiveLink(item.href);
                 return (
                   <Link
@@ -96,11 +123,55 @@ export default function Header() {
                         ? "text-brand-primary bg-brand-soft shadow-inner"
                         : "text-text-secondary hover:text-brand-primary hover:bg-brand-soft/70"
                     }`}
+                    onClick={closeResourcesMenu}
                   >
                     {item.label}
                   </Link>
                 );
               })}
+
+              <details
+                id="desktop-resources-menu"
+                className="relative"
+                onToggle={(event) => {
+                  setResourcesOpen((event.currentTarget as HTMLDetailsElement).open);
+                }}
+              >
+                <summary
+                  className={`list-none px-3 py-2 font-medium transition-colors text-sm whitespace-nowrap rounded-lg cursor-pointer flex items-center gap-1 ${
+                    secondaryActive
+                      ? "text-brand-primary bg-brand-soft shadow-inner"
+                      : "text-text-secondary hover:text-brand-primary hover:bg-brand-soft/70"
+                  }`}
+                  aria-expanded={resourcesOpen}
+                >
+                  Resources
+                  <ChevronDownIcon className={`w-4 h-4 transition-transform ${resourcesOpen ? "rotate-180" : ""}`} />
+                </summary>
+                <div className="absolute left-0 top-full mt-2 w-72 rounded-2xl border border-brand-light bg-white shadow-xl p-2 z-[60]">
+                  {secondaryLinks.map((item) => {
+                    const active = isActiveLink(item.href);
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        aria-current={active ? "page" : undefined}
+                        className={`block rounded-xl px-3 py-2 transition-colors ${
+                          active
+                            ? "bg-brand-soft text-brand-primary"
+                            : "text-text-secondary hover:bg-brand-soft/70 hover:text-brand-primary"
+                        }`}
+                        onClick={closeResourcesMenu}
+                      >
+                        <span className="block text-sm font-medium">{item.label}</span>
+                        {item.description && (
+                          <span className="block text-xs text-text-muted mt-0.5">{item.description}</span>
+                        )}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </details>
             </div>
 
             {/* CTA Button - right */}
@@ -146,7 +217,7 @@ export default function Header() {
           >
             <div className="container mx-auto px-4 py-6">
               <div className="space-y-1 mb-6">
-                {navLinks.map((item) => {
+                {primaryLinks.map((item) => {
                   const active = isActiveLink(item.href);
                   return (
                     <Link
@@ -172,22 +243,19 @@ export default function Header() {
                   Resources
                 </p>
                 <div className="space-y-1">
-                  <Link
-                    href="/get-support"
-                    className="block py-3 px-4 hover:bg-gray-100 rounded-xl"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <span className="block font-medium text-gray-900">Client Information</span>
-                    <span className="block text-sm text-gray-500">Guidance for referred clients</span>
-                  </Link>
-                  <Link
-                    href="/forms"
-                    className="block py-3 px-4 hover:bg-gray-100 rounded-xl"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <span className="block font-medium text-gray-900">Forms</span>
-                    <span className="block text-sm text-gray-500">Intake & resources</span>
-                  </Link>
+                  {secondaryLinks.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="block py-3 px-4 hover:bg-gray-100 rounded-xl"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <span className="block font-medium text-gray-900">{item.label}</span>
+                      {item.description && (
+                        <span className="block text-sm text-gray-500">{item.description}</span>
+                      )}
+                    </Link>
+                  ))}
                 </div>
               </div>
 

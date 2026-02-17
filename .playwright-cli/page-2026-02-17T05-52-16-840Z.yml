@@ -1,0 +1,252 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e5]:
+        - link "KingGen Ministries Home" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - img "KingGen Ministries" [ref=e7]
+        - generic [ref=e8]:
+          - link "Home" [ref=e9] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=e10] [cursor=pointer]:
+            - /url: /about
+          - link "Services" [ref=e11] [cursor=pointer]:
+            - /url: /services
+          - link "For Referrers" [ref=e12] [cursor=pointer]:
+            - /url: /for-referrers
+          - link "For Grant Writers" [ref=e13] [cursor=pointer]:
+            - /url: /for-grant-writers
+          - link "Testimonials" [ref=e14] [cursor=pointer]:
+            - /url: /testimonials
+          - link "Contact" [ref=e15] [cursor=pointer]:
+            - /url: /contact
+        - link "Donate" [ref=e17] [cursor=pointer]:
+          - /url: /donate
+          - img [ref=e19]
+          - generic [ref=e21]: Donate
+  - main [ref=e22]:
+    - banner "KingGen Ministries — Christian Counseling for Women" [ref=e23]:
+      - heading "KingGen Ministries" [level=1] [ref=e24]
+    - img [ref=e26]
+    - generic [ref=e31]:
+      - heading "About our ministry" [level=2] [ref=e32]
+      - paragraph [ref=e33]: At KingGen Ministries, we believe everyone should have access to counseling. As a 501(C)3 we offer Gospel-Centered counseling for women in need by a licensed clincial pastoral counselor.
+      - link "Learn More" [ref=e34] [cursor=pointer]:
+        - /url: /about
+        - generic [ref=e35]: Learn More
+        - img [ref=e37]
+    - generic [ref=e40]:
+      - generic [ref=e42]:
+        - heading "Our services" [level=2] [ref=e44]
+        - paragraph [ref=e45]: Free, Gospel-centered clinical pastoral counseling for women in need.
+      - generic [ref=e46]:
+        - generic [ref=e49]:
+          - img [ref=e51]
+          - heading "Individual Pastoral Counseling" [level=3] [ref=e53]
+          - paragraph [ref=e54]: Gospel-centered support for anxiety, stress, grief, and life transitions — offered at no cost to clients.
+        - generic [ref=e57]:
+          - img [ref=e59]
+          - heading "Crisis & Trauma Support" [level=3] [ref=e61]
+          - paragraph [ref=e62]: Compassionate, confidential care for women walking through trauma, crisis, and seasons of deep pain.
+        - generic [ref=e65]:
+          - img [ref=e67]
+          - heading "Spiritual & Emotional Growth" [level=3] [ref=e69]
+          - paragraph [ref=e70]: Help with boundaries, identity, confidence, and spiritual discouragement — rooted in Scripture and hope.
+      - link "View All Services" [ref=e73] [cursor=pointer]:
+        - /url: /services
+        - generic [ref=e74]: View All Services
+        - img [ref=e76]
+    - generic [ref=e79]:
+      - generic [ref=e81]:
+        - heading "Our impact" [level=2] [ref=e83]
+        - paragraph [ref=e84]: Making a difference in women's lives through Gospel-centered care
+      - generic [ref=e85]:
+        - generic [ref=e86]:
+          - generic [ref=e88]: 0%
+          - generic [ref=e89]: Free Services
+          - generic [ref=e90]: No cost to clients
+        - generic [ref=e91]:
+          - generic [ref=e93]: 0(c)(3)
+          - generic [ref=e94]: Nonprofit Status
+          - generic [ref=e95]: Tax-deductible gifts
+        - generic [ref=e96]:
+          - generic [ref=e98]: 0+
+          - generic [ref=e99]: Years Experience
+          - generic [ref=e100]: Clinical pastoral care
+        - generic [ref=e101]:
+          - generic [ref=e103]: 0/7
+          - generic [ref=e104]: Confidential
+          - generic [ref=e105]: Private & secure
+    - img [ref=e107]
+    - generic [ref=e110]:
+      - generic [ref=e112]:
+        - heading "What sets KingGen apart" [level=2] [ref=e114]
+        - paragraph [ref=e115]: We are a trusted partner for churches, community organizations, and foundations seeking to support women's mental health and spiritual care.
+      - generic [ref=e116]:
+        - generic [ref=e121]:
+          - img [ref=e123]
+          - paragraph [ref=e125]: Gospel-centered, compassionate care
+        - generic [ref=e130]:
+          - img [ref=e132]
+          - paragraph [ref=e134]: Confidential and trauma-informed
+        - generic [ref=e139]:
+          - img [ref=e141]
+          - paragraph [ref=e143]: No cost barrier for clients
+        - generic [ref=e148]:
+          - img [ref=e150]
+          - paragraph [ref=e152]: 501(c)(3) nonprofit accountability
+    - generic [ref=e154]:
+      - heading "Partner with us" [level=2] [ref=e158]
+      - generic [ref=e159]:
+        - generic [ref=e164]:
+          - img [ref=e166]
+          - heading "Referrers" [level=3] [ref=e168]
+          - paragraph [ref=e169]: For pastors, churches, social workers, and trusted professionals looking for a compassionate referral option for women in need.
+          - link "For Referrers" [ref=e170] [cursor=pointer]:
+            - /url: /for-referrers
+            - generic [ref=e171]: For Referrers
+        - generic [ref=e176]:
+          - img [ref=e178]
+          - heading "Donors" [level=3] [ref=e180]
+          - paragraph [ref=e181]: Your tax-deductible gift helps remove cost barriers and ensures women receive the care they need.
+          - link "Donate" [ref=e182] [cursor=pointer]:
+            - /url: /donate
+            - generic [ref=e183]: Donate
+        - generic [ref=e188]:
+          - img [ref=e190]
+          - heading "Grant Writers & Foundations" [level=3] [ref=e192]
+          - paragraph [ref=e193]: Access organizational information, impact data, and resources to support grant applications.
+          - link "For Grant Writers" [ref=e194] [cursor=pointer]:
+            - /url: /for-grant-writers
+            - generic [ref=e195]: For Grant Writers
+    - generic [ref=e199]:
+      - img [ref=e201]
+      - heading "Our commitment" [level=2] [ref=e203]
+      - paragraph [ref=e204]:
+        - text: As a
+        - strong [ref=e205]: 501(c)(3)
+        - text: nonprofit, KingGen Ministries is committed to stewardship, transparency, and accountability. Every donation directly supports our mission to provide free counseling for women in need.
+      - paragraph [ref=e206]: We partner with churches, community organizations, and foundations who share our vision.
+      - paragraph [ref=e207]:
+        - strong [ref=e208]: "EIN:"
+        - text: 33-3032264
+      - generic [ref=e209]:
+        - link "Donate Now" [ref=e211] [cursor=pointer]:
+          - /url: /donate
+          - img [ref=e213]
+          - generic [ref=e215]: Donate Now
+        - link "Grant Information" [ref=e217] [cursor=pointer]:
+          - /url: /for-grant-writers
+          - generic [ref=e218]: Grant Information
+    - img [ref=e220]
+    - generic [ref=e223]:
+      - generic [ref=e225]:
+        - heading "What partners say" [level=2] [ref=e227]
+        - paragraph [ref=e228]: Hear from pastors, referrers, and community partners who trust KingGen Ministries.
+      - generic [ref=e231]:
+        - generic [ref=e234]:
+          - img [ref=e235]
+          - paragraph [ref=e237]: “As a pastor, I'm grateful for a referral option that is compassionate, discreet, and Gospel-centered. I trust KingGen with the women in our congregation.”
+          - generic [ref=e238]:
+            - generic [ref=e239]: M
+            - generic [ref=e240]:
+              - paragraph [ref=e241]: Mark
+              - paragraph [ref=e242]: Pastor
+        - generic [ref=e245]:
+          - img [ref=e246]
+          - paragraph [ref=e248]: “Communication has been clear and respectful. I'm grateful for a place to refer women who need support and privacy.”
+          - generic [ref=e249]:
+            - generic [ref=e250]: J
+            - generic [ref=e251]:
+              - paragraph [ref=e252]: Jenna
+              - paragraph [ref=e253]: Community Referrer
+      - link "Read All Testimonials" [ref=e256] [cursor=pointer]:
+        - /url: /testimonials
+        - generic [ref=e257]: Read All Testimonials
+        - img [ref=e259]
+    - generic [ref=e266]:
+      - heading "Invite LeeAnn to speak" [level=2] [ref=e268]
+      - paragraph [ref=e270]: LeeAnn is available for speaking engagements, podcast interviews, and ministry events. Her heart is to encourage women and share the hope of the Gospel.
+      - generic [ref=e272]:
+        - link "Learn More" [ref=e274] [cursor=pointer]:
+          - /url: /about#speaking
+          - generic [ref=e275]: Learn More
+          - img [ref=e277]
+        - link "Request a Booking" [ref=e280] [cursor=pointer]:
+          - /url: /contact
+          - generic [ref=e281]: Request a Booking
+    - generic [ref=e284]:
+      - heading "Ready to partner with us?" [level=2] [ref=e285]
+      - paragraph [ref=e286]: Whether you're making a referral, considering a donation, or exploring grant opportunities, we'd love to connect.
+      - generic [ref=e287]:
+        - link "Contact Us" [ref=e289] [cursor=pointer]:
+          - /url: /contact
+          - generic [ref=e290]: Contact Us
+          - img [ref=e292]
+        - link "Support Our Mission" [ref=e295] [cursor=pointer]:
+          - /url: /donate
+          - img [ref=e297]
+          - generic [ref=e299]: Support Our Mission
+  - contentinfo [ref=e300]:
+    - generic [ref=e303]:
+      - generic [ref=e304]:
+        - link "KingGen Ministries KingGen Ministries" [ref=e306] [cursor=pointer]:
+          - /url: /
+          - img "KingGen Ministries" [ref=e307]
+          - generic [ref=e308]: KingGen Ministries
+        - navigation [ref=e309]:
+          - link "About" [ref=e310] [cursor=pointer]:
+            - /url: /about
+          - link "Services" [ref=e311] [cursor=pointer]:
+            - /url: /services
+          - link "For Referrers" [ref=e312] [cursor=pointer]:
+            - /url: /for-referrers
+          - link "For Grant Writers" [ref=e313] [cursor=pointer]:
+            - /url: /for-grant-writers
+          - link "Donate" [ref=e314] [cursor=pointer]:
+            - /url: /donate
+          - link "Testimonials" [ref=e315] [cursor=pointer]:
+            - /url: /testimonials
+          - link "Contact" [ref=e316] [cursor=pointer]:
+            - /url: /contact
+      - generic [ref=e317]:
+        - generic [ref=e318]:
+          - link "kinggencounseling@gmail.com" [ref=e319] [cursor=pointer]:
+            - /url: mailto:kinggencounseling@gmail.com
+            - img [ref=e320]
+            - generic [ref=e322]: kinggencounseling@gmail.com
+          - link "(817) 682-4341" [ref=e323] [cursor=pointer]:
+            - /url: tel:(817) 682-4341
+            - img [ref=e324]
+            - generic [ref=e326]: (817) 682-4341
+        - generic [ref=e327]:
+          - generic [ref=e328]:
+            - link "Instagram" [ref=e329] [cursor=pointer]:
+              - /url: https://www.instagram.com/kinggenministries/
+              - img [ref=e330]
+            - link "Facebook" [ref=e332] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=61573569056063
+              - img [ref=e333]
+          - link "Donate" [ref=e335] [cursor=pointer]:
+            - /url: /donate
+            - img [ref=e337]
+            - generic [ref=e339]: Donate
+      - generic [ref=e340]:
+        - generic [ref=e341]:
+          - paragraph [ref=e342]: © 2026 KingGen Ministries
+          - generic [ref=e343]: ·
+          - paragraph [ref=e344]: "501(c)(3) EIN: 33-3032264"
+        - generic [ref=e345]:
+          - link "Client Info" [ref=e346] [cursor=pointer]:
+            - /url: /get-support
+          - link "Forms" [ref=e347] [cursor=pointer]:
+            - /url: /forms
+          - link "Privacy" [ref=e348] [cursor=pointer]:
+            - /url: /privacy
+          - link "Disclaimer" [ref=e349] [cursor=pointer]:
+            - /url: /disclaimer
+  - button "Open Next.js Dev Tools" [ref=e355] [cursor=pointer]:
+    - img [ref=e356]
+  - alert [ref=e359]

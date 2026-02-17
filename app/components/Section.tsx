@@ -3,6 +3,7 @@ import OptimizedBackground from "./OptimizedBackground";
 
 type SectionVariant = "default" | "light" | "soft" | "primary" | "dark" | "art-cream" | "art-green" | "kinggen-branded" | "cross-light" | "cross-green";
 type WatermarkType = "stones" | "stones-left" | "stones-right" | "logo" | "kinggen-bg" | "cross" | "cross-subtle" | "cross-left" | "cross-right" | "none";
+type OrnamentLevel = "none" | "subtle" | "featured";
 
 interface SectionProps {
   children: ReactNode;
@@ -12,6 +13,7 @@ interface SectionProps {
   containerSize?: "default" | "narrow" | "wide" | "full";
   padding?: "none" | "sm" | "md" | "lg" | "xl";
   watermark?: WatermarkType;
+  ornamentLevel?: OrnamentLevel;
 }
 
 const variantStyles: Record<SectionVariant, string> = {
@@ -77,23 +79,26 @@ export default function Section({
   containerSize = "default",
   padding = "lg",
   watermark = "stones",
+  ornamentLevel = "subtle",
 }: SectionProps) {
   const isLightSection = ["default", "light", "soft", "art-cream", "cross-light"].includes(variant);
   const isGreenSection = ["primary", "dark", "art-green", "kinggen-branded", "cross-green"].includes(variant);
   const isCrossVariant = ["cross-light", "cross-green"].includes(variant);
+  const showTextureMotif = ornamentLevel === "subtle";
+  const showWatermarkMotif = ornamentLevel === "featured";
 
   // Watermark settings
-  const showStonesWatermark = watermark === "stones" && isLightSection && !isCrossVariant;
-  const showStonesLeft = watermark === "stones-left" && !isCrossVariant;
-  const showStonesRight = watermark === "stones-right" && !isCrossVariant;
-  const showLogoWatermark = watermark === "logo" && isGreenSection;
-  const showKinggenBg = watermark === "kinggen-bg";
+  const showStonesWatermark = showWatermarkMotif && watermark === "stones" && isLightSection && !isCrossVariant;
+  const showStonesLeft = showWatermarkMotif && watermark === "stones-left" && !isCrossVariant;
+  const showStonesRight = showWatermarkMotif && watermark === "stones-right" && !isCrossVariant;
+  const showLogoWatermark = showWatermarkMotif && watermark === "logo" && isGreenSection;
+  const showKinggenBg = showWatermarkMotif && watermark === "kinggen-bg";
 
   // Cross watermark settings
-  const showCrossWatermark = watermark === "cross" || isCrossVariant;
-  const showCrossSubtle = watermark === "cross-subtle";
-  const showCrossLeft = watermark === "cross-left";
-  const showCrossRight = watermark === "cross-right";
+  const showCrossWatermark = showWatermarkMotif && (watermark === "cross" || isCrossVariant);
+  const showCrossSubtle = showWatermarkMotif && watermark === "cross-subtle";
+  const showCrossLeft = showWatermarkMotif && watermark === "cross-left";
+  const showCrossRight = showWatermarkMotif && watermark === "cross-right";
   const centeredMarkSource = isLightSection ? curatedWatermarks.darkGreen : curatedWatermarks.dark;
   const sideMarkSource = isLightSection ? curatedWatermarks.light : curatedWatermarks.dark;
 
@@ -103,7 +108,7 @@ export default function Section({
       className={`${variantStyles[variant]} ${paddingStyles[padding]} ${className} relative overflow-hidden`}
     >
       {/* Branded texture base layers to keep visual identity cohesive */}
-      {isLightSection && (
+      {showTextureMotif && isLightSection && (
         <OptimizedBackground
           src={curatedTexture.light}
           className="absolute inset-0 pointer-events-none"
@@ -115,7 +120,7 @@ export default function Section({
         />
       )}
 
-      {isGreenSection && (
+      {showTextureMotif && isGreenSection && (
         <OptimizedBackground
           src={curatedTexture.dark}
           className="absolute inset-0 pointer-events-none"
@@ -195,7 +200,7 @@ export default function Section({
       )}
 
       {/* Cross background for cross variants */}
-      {variant === "cross-light" && (
+      {showWatermarkMotif && variant === "cross-light" && (
         <OptimizedBackground
           src={curatedWatermarks.darkGreen}
           className="absolute inset-0 pointer-events-none"
@@ -207,7 +212,7 @@ export default function Section({
         />
       )}
 
-      {variant === "cross-green" && (
+      {showWatermarkMotif && variant === "cross-green" && (
         <OptimizedBackground
           src={curatedWatermarks.dark}
           className="absolute inset-0 pointer-events-none"

@@ -1,0 +1,181 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e5]:
+        - link "KingGen Ministries Home" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - img "KingGen Ministries" [ref=e7]
+        - generic [ref=e8]:
+          - link "Home" [ref=e9] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=e10] [cursor=pointer]:
+            - /url: /about
+          - link "Services" [ref=e11] [cursor=pointer]:
+            - /url: /services
+          - link "For Referrers" [ref=e12] [cursor=pointer]:
+            - /url: /for-referrers
+          - link "For Grant Writers" [ref=e13] [cursor=pointer]:
+            - /url: /for-grant-writers
+          - link "Testimonials" [ref=e14] [cursor=pointer]:
+            - /url: /testimonials
+          - link "Contact" [ref=e15] [cursor=pointer]:
+            - /url: /contact
+        - link "Donate" [ref=e17] [cursor=pointer]:
+          - /url: /donate
+          - img [ref=e19]
+          - generic [ref=e21]: Donate
+  - main [ref=e22]:
+    - banner "For Grant Writers and Foundations" [ref=e23]:
+      - generic [ref=e27]:
+        - paragraph [ref=e28]: KingGen Ministries
+        - heading "For Grant Writers and Foundations" [level=1] [ref=e29]
+        - paragraph [ref=e30]: Organizational details and mission context to support partnership opportunities.
+    - generic [ref=e32]:
+      - generic [ref=e34]:
+        - heading "Organization Overview" [level=2] [ref=e35]
+        - paragraph [ref=e36]: KingGen Ministries is a 501(c)(3) nonprofit organization providing free clinical pastoral counseling for women in need.
+      - generic [ref=e37]:
+        - generic [ref=e39]:
+          - paragraph [ref=e40]: Organization Name
+          - paragraph [ref=e41]: KingGen Ministries
+        - generic [ref=e43]:
+          - paragraph [ref=e44]: Tax Status
+          - paragraph [ref=e45]: 501(c)(3) Nonprofit
+        - generic [ref=e47]:
+          - paragraph [ref=e48]: EIN
+          - paragraph [ref=e49]: 33-3032264
+        - generic [ref=e51]:
+          - paragraph [ref=e52]: Location
+          - paragraph [ref=e53]: Keller, Texas
+        - generic [ref=e55]:
+          - paragraph [ref=e56]: Service Area
+          - paragraph [ref=e57]: North Texas and surrounding regions
+        - generic [ref=e59]:
+          - paragraph [ref=e60]: Founded
+          - paragraph [ref=e61]: "2023"
+    - generic [ref=e63]:
+      - generic [ref=e65]:
+        - heading "Mission Statement" [level=2] [ref=e66]
+        - paragraph [ref=e68]: “KingGen Ministries exists so women can access counseling even when cost is a barrier. We provide Gospel-centered, compassionate care for women facing anxiety, grief, trauma, relationship pain, and life transitions.”
+      - generic [ref=e69]:
+        - heading "Core Activities" [level=3] [ref=e70]
+        - generic [ref=e72]:
+          - img [ref=e73]
+          - paragraph [ref=e75]: Provide Gospel-centered clinical pastoral counseling for women
+        - generic [ref=e77]:
+          - img [ref=e78]
+          - paragraph [ref=e80]: Remove cost barriers so women in need can access care
+        - generic [ref=e82]:
+          - img [ref=e83]
+          - paragraph [ref=e85]: Serve women facing anxiety, grief, trauma, and life transitions
+        - generic [ref=e87]:
+          - img [ref=e88]
+          - paragraph [ref=e90]: Partner with churches and community organizations for referrals
+        - generic [ref=e92]:
+          - img [ref=e93]
+          - paragraph [ref=e95]: Maintain confidentiality, compassion, and professionalism
+    - generic [ref=e97]:
+      - heading "Funding Areas" [level=2] [ref=e99]
+      - generic [ref=e100]:
+        - generic [ref=e102]:
+          - heading "Counseling Services" [level=3] [ref=e103]
+          - paragraph [ref=e104]: Direct support for counseling sessions and client care
+        - generic [ref=e106]:
+          - heading "Operations" [level=3] [ref=e107]
+          - paragraph [ref=e108]: Administrative costs, communications, and outreach
+        - generic [ref=e110]:
+          - heading "Training & Development" [level=3] [ref=e111]
+          - paragraph [ref=e112]: Continuing education and professional development
+        - generic [ref=e114]:
+          - heading "Technology" [level=3] [ref=e115]
+          - paragraph [ref=e116]: Secure platforms for scheduling and telehealth
+    - generic [ref=e120]:
+      - heading "Tax-Exempt Status" [level=2] [ref=e121]
+      - generic [ref=e122]:
+        - paragraph [ref=e123]:
+          - text: KingGen Ministries is recognized by the IRS as a
+          - strong [ref=e124]: 501(c)(3)
+          - text: tax-exempt organization. Donations are tax-deductible to the extent allowed by law.
+        - generic [ref=e125]:
+          - paragraph [ref=e126]: Employer Identification Number (EIN)
+          - paragraph [ref=e127]: 33-3032264
+    - generic [ref=e131]:
+      - heading "Contact for Grant Inquiries" [level=2] [ref=e132]
+      - paragraph [ref=e133]: For additional documentation, financial statements, or questions about partnership opportunities, please contact us directly.
+      - link "kinggencounseling@gmail.com" [ref=e135] [cursor=pointer]:
+        - /url: mailto:kinggencounseling@gmail.com
+        - img [ref=e136]
+        - generic [ref=e138]: kinggencounseling@gmail.com
+      - generic [ref=e139]:
+        - link "Contact Us" [ref=e140] [cursor=pointer]:
+          - /url: /contact
+          - generic [ref=e141]: Contact Us
+          - img [ref=e143]
+        - link "Donate" [ref=e145] [cursor=pointer]:
+          - /url: /donate
+          - img [ref=e147]
+          - generic [ref=e149]: Donate
+    - paragraph [ref=e154]: Additional documentation including IRS determination letters, financial reports, and organizational bylaws are available upon request for verified grant writers and foundation representatives.
+  - contentinfo [ref=e155]:
+    - generic [ref=e158]:
+      - generic [ref=e159]:
+        - link "KingGen Ministries KingGen Ministries" [ref=e161] [cursor=pointer]:
+          - /url: /
+          - img "KingGen Ministries" [ref=e162]
+          - generic [ref=e163]: KingGen Ministries
+        - navigation [ref=e164]:
+          - link "About" [ref=e165] [cursor=pointer]:
+            - /url: /about
+          - link "Services" [ref=e166] [cursor=pointer]:
+            - /url: /services
+          - link "For Referrers" [ref=e167] [cursor=pointer]:
+            - /url: /for-referrers
+          - link "For Grant Writers" [ref=e168] [cursor=pointer]:
+            - /url: /for-grant-writers
+          - link "Donate" [ref=e169] [cursor=pointer]:
+            - /url: /donate
+          - link "Testimonials" [ref=e170] [cursor=pointer]:
+            - /url: /testimonials
+          - link "Contact" [ref=e171] [cursor=pointer]:
+            - /url: /contact
+      - generic [ref=e172]:
+        - generic [ref=e173]:
+          - link "kinggencounseling@gmail.com" [ref=e174] [cursor=pointer]:
+            - /url: mailto:kinggencounseling@gmail.com
+            - img [ref=e175]
+            - generic [ref=e177]: kinggencounseling@gmail.com
+          - link "(817) 682-4341" [ref=e178] [cursor=pointer]:
+            - /url: tel:(817) 682-4341
+            - img [ref=e179]
+            - generic [ref=e181]: (817) 682-4341
+        - generic [ref=e182]:
+          - generic [ref=e183]:
+            - link "Instagram" [ref=e184] [cursor=pointer]:
+              - /url: https://www.instagram.com/kinggenministries/
+              - img [ref=e185]
+            - link "Facebook" [ref=e187] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=61573569056063
+              - img [ref=e188]
+          - link "Donate" [ref=e190] [cursor=pointer]:
+            - /url: /donate
+            - img [ref=e192]
+            - generic [ref=e194]: Donate
+      - generic [ref=e195]:
+        - generic [ref=e196]:
+          - paragraph [ref=e197]: © 2026 KingGen Ministries
+          - generic [ref=e198]: ·
+          - paragraph [ref=e199]: "501(c)(3) EIN: 33-3032264"
+        - generic [ref=e200]:
+          - link "Client Info" [ref=e201] [cursor=pointer]:
+            - /url: /get-support
+          - link "Forms" [ref=e202] [cursor=pointer]:
+            - /url: /forms
+          - link "Privacy" [ref=e203] [cursor=pointer]:
+            - /url: /privacy
+          - link "Disclaimer" [ref=e204] [cursor=pointer]:
+            - /url: /disclaimer
+  - button "Open Next.js Dev Tools" [ref=e210] [cursor=pointer]:
+    - img [ref=e211]
+  - alert [ref=e214]

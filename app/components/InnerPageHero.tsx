@@ -10,6 +10,7 @@ interface InnerPageHeroProps {
   ariaLabel?: string;
   children?: ReactNode;
   minHeightClassName?: string;
+  showWatermarkCorners?: boolean;
 }
 
 const backgroundMap: Record<
@@ -53,6 +54,7 @@ export default function InnerPageHero({
   ariaLabel,
   children,
   minHeightClassName = "min-h-[40vh] md:min-h-[50vh]",
+  showWatermarkCorners = false,
 }: InnerPageHeroProps) {
   const backgroundConfig = backgroundMap[background];
 
@@ -63,24 +65,28 @@ export default function InnerPageHero({
       role="banner"
       aria-label={ariaLabel ?? title}
     >
-      <OptimizedBackground
-        src={backgroundConfig.watermarkSrc}
-        className="absolute left-0 top-0 w-40 md:w-56 h-40 md:h-56 bg-no-repeat pointer-events-none"
-        style={{
-          backgroundPosition: "left top",
-          backgroundSize: "contain",
-          opacity: backgroundConfig.watermarkOpacity,
-        }}
-      />
-      <OptimizedBackground
-        src={backgroundConfig.watermarkSrc}
-        className="absolute right-0 bottom-0 w-44 md:w-60 h-44 md:h-60 bg-no-repeat pointer-events-none"
-        style={{
-          backgroundPosition: "right bottom",
-          backgroundSize: "contain",
-          opacity: backgroundConfig.watermarkOpacity * 0.95,
-        }}
-      />
+      {showWatermarkCorners && (
+        <>
+          <OptimizedBackground
+            src={backgroundConfig.watermarkSrc}
+            className="absolute left-0 top-0 w-40 md:w-56 h-40 md:h-56 bg-no-repeat pointer-events-none"
+            style={{
+              backgroundPosition: "left top",
+              backgroundSize: "contain",
+              opacity: backgroundConfig.watermarkOpacity,
+            }}
+          />
+          <OptimizedBackground
+            src={backgroundConfig.watermarkSrc}
+            className="absolute right-0 bottom-0 w-44 md:w-60 h-44 md:h-60 bg-no-repeat pointer-events-none"
+            style={{
+              backgroundPosition: "right bottom",
+              backgroundSize: "contain",
+              opacity: backgroundConfig.watermarkOpacity * 0.95,
+            }}
+          />
+        </>
+      )}
       <div className={`absolute inset-0 ${backgroundConfig.overlayClassName}`} />
 
       <div className="relative z-10 w-full pb-10 pt-24 md:pb-14 md:pt-28">

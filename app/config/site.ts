@@ -22,15 +22,23 @@ export const siteConfig = {
   },
 };
 
-export const navLinks = [
+export const primaryNavLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/for-referrers", label: "For Referrers" },
-  { href: "/for-grant-writers", label: "For Grant Writers" },
-  { href: "/testimonials", label: "Testimonials" },
   { href: "/contact", label: "Contact" },
 ];
+
+export const secondaryNavLinks = [
+  { href: "/for-grant-writers", label: "For Grant Writers" },
+  { href: "/testimonials", label: "Testimonials" },
+  { href: "/get-support", label: "Client Information", description: "Guidance for referred clients" },
+  { href: "/forms", label: "Forms", description: "Intake and resources" },
+];
+
+// Legacy export retained for compatibility.
+export const navLinks = [...primaryNavLinks, ...secondaryNavLinks];
 
 export const footerLinks = [
   { href: "/get-support", label: "Client Information" },

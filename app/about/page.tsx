@@ -39,7 +39,7 @@ export default function AboutPage() {
               Mission
             </h2>
             <p className="text-lg text-text-secondary leading-relaxed">
-              At KingGen Ministries, we believe everyone should have access to counseling.  As a 501(C)3 we offer Gospel-Centered counseling for women in need by a licensed clincial pastoral counselor.
+              At KingGen Ministries, we believe everyone should have access to counseling. As a 501(c)(3), we offer Gospel-centered counseling for women in need by a licensed clinical pastoral counselor.
             </p>
           </div>
         </FadeIn>
