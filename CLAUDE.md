@@ -10,7 +10,7 @@ A professional nonprofit website for KingGen Ministries, a 501(c)(3) organizatio
 - **Language**: TypeScript 5
 - **Styling**: Tailwind CSS 4
 - **Testing**: Vitest + React Testing Library
-- **Deployment**: Vercel (recommended) or GitHub Pages
+- **Deployment**: Vercel only
 
 ## Project Structure
 

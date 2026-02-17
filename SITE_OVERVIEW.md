@@ -69,7 +69,7 @@ export const siteConfig = {
 
 ## 🚀 Deployment
 
-Ready to deploy to Vercel:
+Deploy with Vercel:
 
 1. Push to GitHub (already done)
 2. Connect to Vercel
@@ -86,7 +86,7 @@ Ready to deploy to Vercel:
 - **React:** 19.x
 - **TypeScript:** Latest
 - **Tailwind CSS:** v4 (via @tailwindcss/postcss)
-- **Build:** Static site generation (SSG)
+- **Deployment Target:** Vercel
 - **Performance:** All pages pre-rendered at build time
 
 ## ✅ Quality Checks

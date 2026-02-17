@@ -9,7 +9,7 @@ A professional nonprofit website for KingGen Ministries, a 501(c)(3) organizatio
 - **Styling**: Tailwind CSS 4
 - **Animations**: Framer Motion
 - **Testing**: Vitest + React Testing Library
-- **Deployment**: Vercel (or GitHub Pages)
+- **Deployment**: Vercel only
 
 ## Getting Started
 
@@ -89,7 +89,7 @@ Update `app/config/site.ts` with your organization's information:
 ## Asset Notes
 
 - Runtime web assets live under `/public`.
-- Large source artwork files used for editing are stored under `/assets/brand-source` so static export does not ship them.
+- Large source artwork files used for editing are stored under `/assets/brand-source` and are not served at runtime.
 - If source PNGs are updated, regenerate public WebP assets with `npm run optimize-brand-images`.
 
 ## CI/CD
@@ -109,12 +109,16 @@ Replace `/public/favicon.ico` with your organization's favicon.
 
 ## Deployment
 
-The site is configured for static export. Build outputs to the `out/` directory.
+This repository is configured for Vercel deployment only.
 
 ### Vercel
 
-1. Import repository to Vercel
-2. Deploy automatically
+1. Import this repository in Vercel
+2. Set the Production Branch you want Vercel to deploy from
+3. Add required environment variables in Vercel Project Settings
+4. Deploy
+
+Do not set up parallel deployments on other hosting platforms for this repo.
 
 ## Color Palette
 
