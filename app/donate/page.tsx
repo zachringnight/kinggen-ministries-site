@@ -70,14 +70,14 @@ export default function DonatePage() {
       <section
         className="relative brand-surface-dark py-20 md:py-32 overflow-hidden"
         style={{
-          backgroundImage: "url('/brand/bg/dark-green-texture.webp')",
+          backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
         {/* Art accents */}
         <OptimizedBackground
-          src="/Untitled-6.png"
+          src="/brand/logo/icon-white.webp"
           className="absolute left-0 bottom-0 w-48 h-48 md:w-64 md:h-64 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "left bottom",
@@ -86,7 +86,7 @@ export default function DonatePage() {
           }}
         />
         <OptimizedBackground
-          src="/Untitled-3.png"
+          src="/brand/logo/icon-white.webp"
           className="absolute right-0 top-0 w-40 h-40 md:w-56 md:h-56 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "right top",
@@ -97,7 +97,7 @@ export default function DonatePage() {
 
         {/* Cross watermark */}
         <OptimizedBackground
-          src="/bg_white_cross.png"
+          src="/brand/logo/icon-white.webp"
           className="absolute inset-0 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "center 40%",
@@ -190,14 +190,14 @@ export default function DonatePage() {
       <section
         className="relative brand-surface-dark py-16 md:py-24 overflow-hidden"
         style={{
-          backgroundImage: "url('/brand/bg/dark-green-texture.webp')",
+          backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
         {/* Art accent */}
         <OptimizedBackground
-          src="/Untitled-1.png"
+          src="/brand/logo/icon-white.webp"
           className="absolute right-0 bottom-0 w-56 h-56 md:w-72 md:h-72 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "right bottom",
@@ -208,7 +208,7 @@ export default function DonatePage() {
 
         {/* Cross watermark */}
         <OptimizedBackground
-          src="/bg_white_cross.png"
+          src="/brand/logo/icon-white.webp"
           className="absolute inset-0 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "center",

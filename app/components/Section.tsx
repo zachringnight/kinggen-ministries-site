@@ -43,20 +43,31 @@ const paddingStyles: Record<string, string> = {
 };
 
 const lightTextureOpacity: Partial<Record<SectionVariant, number>> = {
-  default: 0.18,
-  light: 0.14,
-  soft: 0.12,
-  "art-cream": 0.36,
-  "cross-light": 0.32,
+  default: 0.22,
+  light: 0.18,
+  soft: 0.16,
+  "art-cream": 0.34,
+  "cross-light": 0.30,
 };
 
 const darkTextureOpacity: Partial<Record<SectionVariant, number>> = {
-  primary: 0.32,
-  dark: 0.36,
-  "art-green": 0.38,
-  "kinggen-branded": 0.42,
-  "cross-green": 0.34,
+  primary: 0.28,
+  dark: 0.30,
+  "art-green": 0.34,
+  "kinggen-branded": 0.36,
+  "cross-green": 0.32,
 };
+
+const curatedTexture = {
+  light: "/brand/social/content-section-bg.webp",
+  dark: "/brand/social/cta-testimonial-section-bg.webp",
+} as const;
+
+const curatedWatermarks = {
+  light: "/brand/logo/icon-light-gray.webp",
+  dark: "/brand/logo/icon-white.webp",
+  darkGreen: "/brand/logo/icon-dark-green.webp",
+} as const;
 
 export default function Section({
   children,
@@ -83,6 +94,8 @@ export default function Section({
   const showCrossSubtle = watermark === "cross-subtle";
   const showCrossLeft = watermark === "cross-left";
   const showCrossRight = watermark === "cross-right";
+  const centeredMarkSource = isLightSection ? curatedWatermarks.darkGreen : curatedWatermarks.dark;
+  const sideMarkSource = isLightSection ? curatedWatermarks.light : curatedWatermarks.dark;
 
   return (
     <section
@@ -92,7 +105,7 @@ export default function Section({
       {/* Branded texture base layers to keep visual identity cohesive */}
       {isLightSection && (
         <OptimizedBackground
-          src="/brand/bg/off-white-texture.webp"
+          src={curatedTexture.light}
           className="absolute inset-0 pointer-events-none"
           style={{
             backgroundPosition: "center",
@@ -104,7 +117,7 @@ export default function Section({
 
       {isGreenSection && (
         <OptimizedBackground
-          src="/brand/bg/dark-green-texture.webp"
+          src={curatedTexture.dark}
           className="absolute inset-0 pointer-events-none"
           style={{
             backgroundPosition: "center",
@@ -117,12 +130,12 @@ export default function Section({
       {/* Stacked stones watermark for cream/light sections - signature branding */}
       {showStonesWatermark && (
         <OptimizedBackground
-          src="/logo_stack_cropped.png"
+          src={sideMarkSource}
           className="absolute right-0 bottom-0 w-64 h-auto md:w-80 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "right bottom",
             backgroundSize: "contain",
-            opacity: 0.12,
+            opacity: 0.10,
             height: "400px",
           }}
         />
@@ -131,12 +144,12 @@ export default function Section({
       {/* Stones watermark on left */}
       {showStonesLeft && (
         <OptimizedBackground
-          src="/logo_stack_cropped.png"
+          src={sideMarkSource}
           className="absolute left-0 bottom-0 w-56 h-auto md:w-72 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "left bottom",
             backgroundSize: "contain",
-            opacity: 0.10,
+            opacity: 0.08,
             height: "350px",
           }}
         />
@@ -145,12 +158,12 @@ export default function Section({
       {/* Stones watermark on right */}
       {showStonesRight && (
         <OptimizedBackground
-          src="/logo_stack_cropped.png"
+          src={sideMarkSource}
           className="absolute right-0 bottom-0 w-56 h-auto md:w-72 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "right bottom",
             backgroundSize: "contain",
-            opacity: 0.10,
+            opacity: 0.08,
             height: "350px",
           }}
         />
@@ -159,11 +172,11 @@ export default function Section({
       {/* Full logo watermark for green sections */}
       {showLogoWatermark && (
         <OptimizedBackground
-          src="/Untitled design.png"
+          src={curatedWatermarks.dark}
           className="absolute inset-0 bg-no-repeat bg-center pointer-events-none"
           style={{
             backgroundSize: "320px auto",
-            opacity: 0.08,
+            opacity: 0.10,
           }}
         />
       )}
@@ -171,7 +184,7 @@ export default function Section({
       {/* KingGen branded full background */}
       {showKinggenBg && (
         <OptimizedBackground
-          src="/brand/bg/dark-green-texture.webp"
+          src={curatedTexture.dark}
           className="absolute inset-0 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "center",
@@ -184,19 +197,19 @@ export default function Section({
       {/* Cross background for cross variants */}
       {variant === "cross-light" && (
         <OptimizedBackground
-          src="/bg_white_cross.png"
+          src={curatedWatermarks.darkGreen}
           className="absolute inset-0 pointer-events-none"
           style={{
             backgroundPosition: "center",
             backgroundSize: "400px auto",
-            opacity: 0.08,
+            opacity: 0.06,
           }}
         />
       )}
 
       {variant === "cross-green" && (
         <OptimizedBackground
-          src="/bg_white_cross.png"
+          src={curatedWatermarks.dark}
           className="absolute inset-0 pointer-events-none"
           style={{
             backgroundPosition: "center",
@@ -209,7 +222,7 @@ export default function Section({
       {/* Cross watermark - centered */}
       {showCrossWatermark && !isCrossVariant && (
         <OptimizedBackground
-          src="/bg_white_cross.png"
+          src={centeredMarkSource}
           className="absolute inset-0 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "center",
@@ -222,7 +235,7 @@ export default function Section({
       {/* Cross watermark - subtle/small */}
       {showCrossSubtle && (
         <OptimizedBackground
-          src="/bg_white_cross.png"
+          src={centeredMarkSource}
           className="absolute right-8 bottom-8 w-32 h-auto md:w-40 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "right bottom",
@@ -236,7 +249,7 @@ export default function Section({
       {/* Cross watermark on left */}
       {showCrossLeft && (
         <OptimizedBackground
-          src="/bg_white_cross.png"
+          src={centeredMarkSource}
           className="absolute left-0 bottom-0 w-48 h-auto md:w-64 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "left bottom",
@@ -250,7 +263,7 @@ export default function Section({
       {/* Cross watermark on right */}
       {showCrossRight && (
         <OptimizedBackground
-          src="/bg_white_cross.png"
+          src={centeredMarkSource}
           className="absolute right-0 bottom-0 w-48 h-auto md:w-64 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "right bottom",

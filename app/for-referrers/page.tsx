@@ -111,11 +111,11 @@ export default function ForReferrers() {
       </Section>
 
       {/* What to Expect - KingGen branded background */}
-      <section className="relative brand-surface-dark py-16 md:py-24 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="relative brand-surface-dark py-16 md:py-24 overflow-hidden" style={{ backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
 
         {/* Cross art accents */}
         <OptimizedBackground
-          src="/Untitled-2.png"
+          src="/brand/logo/icon-white.webp"
           className="absolute left-0 bottom-0 w-48 h-48 md:w-64 md:h-64 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "left bottom",
@@ -124,7 +124,7 @@ export default function ForReferrers() {
           }}
         />
         <OptimizedBackground
-          src="/Untitled-5.png"
+          src="/brand/logo/icon-white.webp"
           className="absolute right-0 top-0 w-40 h-40 md:w-56 md:h-56 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "right top",
@@ -135,7 +135,7 @@ export default function ForReferrers() {
 
         {/* Cross watermark */}
         <OptimizedBackground
-          src="/bg_white_cross.png"
+          src="/brand/logo/icon-white.webp"
           className="absolute inset-0 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "center 30%",
@@ -231,11 +231,11 @@ export default function ForReferrers() {
       </Section>
 
       {/* Partner CTA - KingGen branded background */}
-      <section className="relative brand-surface-dark py-16 md:py-20 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="relative brand-surface-dark py-16 md:py-20 overflow-hidden" style={{ backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
 
         {/* Art accents */}
         <OptimizedBackground
-          src="/Untitled-6.png"
+          src="/brand/logo/icon-white.webp"
           className="absolute left-0 top-0 w-44 h-44 md:w-56 md:h-56 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "left top",
@@ -244,7 +244,7 @@ export default function ForReferrers() {
           }}
         />
         <OptimizedBackground
-          src="/Untitled-1.png"
+          src="/brand/logo/icon-white.webp"
           className="absolute right-0 bottom-0 w-48 h-48 md:w-64 md:h-64 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "right bottom",
@@ -255,7 +255,7 @@ export default function ForReferrers() {
 
         {/* Cross watermark */}
         <OptimizedBackground
-          src="/bg_white_cross.png"
+          src="/brand/logo/icon-white.webp"
           className="absolute inset-0 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "center",

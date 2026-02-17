@@ -1,16 +1,15 @@
-import { Button, Section, CrossIcon } from "./components";
+import { Button, Section, CrossIcon, InnerPageHero } from "./components";
 
 export default function NotFound() {
   return (
     <>
-      <section
-        className="relative brand-hero-banner w-full min-h-[35vh] md:min-h-[42vh] bg-cover bg-center"
-        style={{ backgroundImage: "url('/brand/headers/inner-header.webp')" }}
-        role="banner"
-        aria-label="Page Not Found"
-      >
-        <h1 className="sr-only">Page Not Found</h1>
-      </section>
+      <InnerPageHero
+        title="Page Not Found"
+        subtitle="The page may have moved or no longer exists."
+        background="inner"
+        ariaLabel="Page Not Found"
+        minHeightClassName="min-h-[32vh] md:min-h-[40vh]"
+      />
 
       <Section variant="cross-light" padding="xl" watermark="none">
         <div className="max-w-2xl mx-auto text-center">

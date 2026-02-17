@@ -82,11 +82,11 @@ export default function TestimonialsPage() {
       </Section>
 
       {/* Scripture & Hope Section - Featuring Social Images */}
-      <section className="relative brand-surface-dark py-16 md:py-24 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="relative brand-surface-dark py-16 md:py-24 overflow-hidden" style={{ backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
 
         {/* Cross watermark */}
         <OptimizedBackground
-          src="/bg_white_cross.png"
+          src="/brand/logo/icon-white.webp"
           className="absolute inset-0 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "center",

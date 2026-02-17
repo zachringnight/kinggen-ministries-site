@@ -80,7 +80,7 @@ export default function ServicesPage() {
             key={service.title}
             className="relative brand-surface-cream py-16 md:py-24"
             style={{
-              backgroundImage: "url('/brand/bg/off-white-texture.webp')",
+              backgroundImage: "url('/brand/social/content-section-bg.webp')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -108,7 +108,7 @@ export default function ServicesPage() {
             key={service.title}
             className="relative brand-surface-cream py-16 md:py-24"
             style={{
-              backgroundImage: "url('/brand/bg/off-white-texture.webp')",
+              backgroundImage: "url('/brand/social/content-section-bg.webp')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -138,7 +138,7 @@ export default function ServicesPage() {
       <section
         className="relative brand-surface-dark py-16 md:py-24 overflow-hidden"
         style={{
-          backgroundImage: "url('/brand/bg/dark-green-texture.webp')",
+          backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

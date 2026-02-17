@@ -4,44 +4,46 @@ import sharp from 'sharp';
 import { mkdir, stat } from 'fs/promises';
 import { dirname } from 'path';
 
+const curatedAssetRoot = './assets/brand-source/kinggen-logo and background files';
+
 const brandImages = [
   {
-    source: './assets/brand-source/original-png/brand/bg/dark-green-texture.png',
-    output: './public/brand/bg/dark-green-texture.webp',
+    source: `${curatedAssetRoot}/social/USE-FOR_cta-testimonial-section-bg_dark-green-texture_subtle-cross_3240x4050.png`,
+    output: './public/brand/social/cta-testimonial-section-bg.webp',
     quality: 82,
   },
   {
-    source: './assets/brand-source/original-png/brand/bg/off-white-texture.png',
-    output: './public/brand/bg/off-white-texture.webp',
+    source: `${curatedAssetRoot}/social/USE-FOR_content-section-bg_off-white-texture_subtle-cross_3240x4050.png`,
+    output: './public/brand/social/content-section-bg.webp',
     quality: 82,
   },
   {
-    source: './assets/brand-source/original-png/brand/headers/inner-header.png',
+    source: `${curatedAssetRoot}/headers/USE-FOR_inner-page-header_full-logo-text_light-gray_green-text_alt-layout_2460x1080.png`,
     output: './public/brand/headers/inner-header.webp',
     quality: 84,
   },
   {
-    source: './assets/brand-source/original-png/brand/headers/homepage-hero.png',
+    source: `${curatedAssetRoot}/headers/USE-FOR_homepage-hero_full-logo-text_dark-green_white-text_2460x1080.png`,
     output: './public/brand/headers/homepage-hero.webp',
     quality: 84,
   },
   {
-    source: './assets/brand-source/original-png/brand/headers/about-header.png',
+    source: `${curatedAssetRoot}/headers/USE-FOR_about-page-header_full-logo-text_light-gray_green-text_2460x1080.png`,
     output: './public/brand/headers/about-header.webp',
     quality: 84,
   },
   {
-    source: './assets/brand-source/original-png/brand/logo/icon-dark-green.png',
+    source: `${curatedAssetRoot}/logo/USE-FOR_navbar-favicon-footer_icon-only_dark-green-bg_960x960.png`,
     output: './public/brand/logo/icon-dark-green.webp',
     quality: 88,
   },
   {
-    source: './assets/brand-source/original-png/brand/logo/icon-light-gray.png',
+    source: `${curatedAssetRoot}/logo/USE-FOR_navbar-favicon-footer_icon-only_light-gray-bg_960x960.png`,
     output: './public/brand/logo/icon-light-gray.webp',
     quality: 88,
   },
   {
-    source: './assets/brand-source/original-png/brand/logo/icon-white.png',
+    source: `${curatedAssetRoot}/logo/USE-FOR_navbar-favicon-footer_icon-only_white-bg_960x960.png`,
     output: './public/brand/logo/icon-white.webp',
     quality: 88,
   },

@@ -69,11 +69,11 @@ export default function GetSupport() {
       </Section>
 
       {/* What to Expect Section with KingGen background */}
-      <section className="relative brand-surface-dark py-20 md:py-32 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="relative brand-surface-dark py-20 md:py-32 overflow-hidden" style={{ backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
 
         {/* Cross art accents */}
         <OptimizedBackground
-          src="/Untitled-4.png"
+          src="/brand/logo/icon-white.webp"
           className="absolute left-0 bottom-0 w-48 h-48 md:w-64 md:h-64 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "left bottom",
@@ -82,7 +82,7 @@ export default function GetSupport() {
           }}
         />
         <OptimizedBackground
-          src="/Untitled-7.png"
+          src="/brand/logo/icon-white.webp"
           className="absolute right-0 top-0 w-40 h-40 md:w-56 md:h-56 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "right top",
@@ -131,11 +131,11 @@ export default function GetSupport() {
       </Section>
 
       {/* How to Begin Section with KingGen background */}
-      <section className="relative brand-surface-dark py-20 md:py-32 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="relative brand-surface-dark py-20 md:py-32 overflow-hidden" style={{ backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
 
         {/* Cross art accents */}
         <OptimizedBackground
-          src="/Untitled-6.png"
+          src="/brand/logo/icon-white.webp"
           className="absolute left-0 top-0 w-44 h-44 md:w-56 md:h-56 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "left top",
@@ -144,7 +144,7 @@ export default function GetSupport() {
           }}
         />
         <OptimizedBackground
-          src="/Untitled-1.png"
+          src="/brand/logo/icon-white.webp"
           className="absolute right-0 bottom-0 w-48 h-48 md:w-64 md:h-64 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "right bottom",
@@ -248,11 +248,11 @@ export default function GetSupport() {
       </Section>
 
       {/* For Referrers Note with KingGen background */}
-      <section className="relative brand-surface-dark py-16 md:py-24 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="relative brand-surface-dark py-16 md:py-24 overflow-hidden" style={{ backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
 
         {/* Art accent */}
         <OptimizedBackground
-          src="/Untitled-3.png"
+          src="/brand/logo/icon-white.webp"
           className="absolute right-0 bottom-0 w-56 h-56 md:w-72 md:h-72 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "right bottom",

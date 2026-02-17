@@ -227,7 +227,7 @@ a:not([class]):hover {
 
 /* Cross pattern overlay */
 .cross-pattern {
-  background-image: url('/bg_white_cross.png');
+  background-image: url('/brand/logo/icon-light-gray.webp');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 200px auto;
@@ -242,7 +242,7 @@ a:not([class]):hover {
   right: 0.75rem;
   width: 16px;
   height: 24px;
-  background-image: url('/bg_white_cross.png');
+  background-image: url('/brand/logo/icon-light-gray.webp');
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0.08;

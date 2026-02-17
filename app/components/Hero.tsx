@@ -150,33 +150,33 @@ interface PageHeroProps {
 
 const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay: string; hasCross?: boolean }> = {
   "kinggen-branded": {
-    primary: "/brand/bg/dark-green-texture.webp",
-    overlay: "bg-gradient-to-br from-brand-primary/70 via-brand-secondary/65 to-brand-primary/75",
+    primary: "/brand/social/cta-testimonial-section-bg.webp",
+    overlay: "bg-gradient-to-b from-brand-primary/78 via-brand-primary/82 to-brand-primary/90",
   },
   "green-texture": {
-    primary: "/optimized/bg_green_texture_1920x1080.webp",
-    overlay: "bg-gradient-to-b from-brand-primary/80 via-brand-primary/75 to-brand-primary/85",
+    primary: "/brand/social/cta-testimonial-section-bg.webp",
+    overlay: "bg-gradient-to-b from-brand-primary/80 via-brand-primary/84 to-brand-primary/88",
   },
   "green-art": {
-    primary: "/optimized/bg-green-alternate.webp",
-    overlay: "bg-gradient-to-br from-brand-primary/60 to-brand-secondary/70",
+    primary: "/brand/social/cta-testimonial-section-bg.webp",
+    overlay: "bg-gradient-to-br from-brand-primary/70 via-brand-secondary/74 to-brand-primary/82",
   },
   "sage": {
-    primary: "/bg-sage.jpg",
-    overlay: "bg-gradient-to-b from-brand-primary/75 to-brand-primary/80",
+    primary: "/brand/social/content-section-bg.webp",
+    overlay: "bg-gradient-to-b from-brand-soft/45 via-brand-soft/60 to-brand-light/76",
   },
   "cream": {
-    primary: "/optimized/bg-light-stones.webp",
-    overlay: "bg-gradient-to-b from-brand-soft/60 to-brand-cream/70",
+    primary: "/brand/social/content-section-bg.webp",
+    overlay: "bg-gradient-to-b from-brand-soft/60 via-brand-cream/68 to-brand-cream/75",
   },
   "cross-branded": {
-    primary: "/brand/bg/dark-green-texture.webp",
-    overlay: "bg-gradient-to-br from-brand-primary/75 via-brand-secondary/70 to-brand-primary/80",
+    primary: "/brand/social/cta-testimonial-section-bg.webp",
+    overlay: "bg-gradient-to-br from-brand-primary/78 via-brand-secondary/76 to-brand-primary/86",
     hasCross: true,
   },
   "cross-texture": {
-    primary: "/optimized/bg_green_texture_1920x1080.webp",
-    overlay: "bg-gradient-to-br from-brand-primary/82 via-brand-secondary/78 to-brand-primary/85",
+    primary: "/brand/social/cta-testimonial-section-bg.webp",
+    overlay: "bg-gradient-to-br from-brand-primary/82 via-brand-secondary/80 to-brand-primary/88",
     hasCross: true,
   },
 };
@@ -210,7 +210,7 @@ export function PageHero({
       {/* Cross branding element - Gospel-centered ministry */}
       {displayCross && crossPosition === "center" && (
         <OptimizedBackground
-          src="/bg_white_cross.png"
+          src={isLight ? "/brand/logo/icon-dark-green.webp" : "/brand/logo/icon-white.webp"}
           className="absolute inset-0 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "center 40%",
@@ -222,7 +222,7 @@ export function PageHero({
 
       {displayCross && crossPosition === "left" && (
         <OptimizedBackground
-          src="/bg_white_cross.png"
+          src={isLight ? "/brand/logo/icon-dark-green.webp" : "/brand/logo/icon-white.webp"}
           className="absolute left-4 md:left-12 top-1/2 -translate-y-1/2 w-32 md:w-48 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "left center",
@@ -235,7 +235,7 @@ export function PageHero({
 
       {displayCross && crossPosition === "right" && (
         <OptimizedBackground
-          src="/bg_white_cross.png"
+          src={isLight ? "/brand/logo/icon-dark-green.webp" : "/brand/logo/icon-white.webp"}
           className="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 w-32 md:w-48 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "right center",
@@ -249,7 +249,7 @@ export function PageHero({
       {/* Stone cairn art - signature KingGen branding */}
       {showStones && (stonesPosition === "left" || stonesPosition === "both") && (
         <OptimizedBackground
-          src="/logo_stack_cropped.png"
+          src={isLight ? "/brand/logo/icon-light-gray.webp" : "/brand/logo/icon-white.webp"}
           className="absolute left-0 bottom-0 w-48 sm:w-56 md:w-72 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "left bottom",
@@ -262,7 +262,7 @@ export function PageHero({
 
       {showStones && (stonesPosition === "right" || stonesPosition === "both") && (
         <OptimizedBackground
-          src="/logo_stack_cropped.png"
+          src={isLight ? "/brand/logo/icon-light-gray.webp" : "/brand/logo/icon-white.webp"}
           className="absolute right-0 bottom-0 w-48 sm:w-56 md:w-72 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "right bottom",

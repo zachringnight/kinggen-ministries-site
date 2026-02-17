@@ -89,7 +89,7 @@ export default function Home() {
       <section
         className="relative brand-surface-cream py-16 md:py-24"
         style={{
-          backgroundImage: "url('/brand/bg/off-white-texture.webp')",
+          backgroundImage: "url('/brand/social/content-section-bg.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -153,7 +153,7 @@ export default function Home() {
       <section
         className="relative brand-surface-dark py-16 md:py-24 overflow-hidden"
         style={{
-          backgroundImage: "url('/brand/bg/dark-green-texture.webp')",
+          backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -283,13 +283,13 @@ export default function Home() {
       <section
         className="relative brand-surface-dark py-16 md:py-24 overflow-hidden"
         style={{
-          backgroundImage: "url('/brand/bg/dark-green-texture.webp')",
+          backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
         <OptimizedBackground
-          src="/bg_white_cross.png"
+          src="/brand/logo/icon-white.webp"
           className="absolute inset-0 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "center",
@@ -340,7 +340,7 @@ export default function Home() {
       <section
         className="relative brand-surface-cream py-16 md:py-24"
         style={{
-          backgroundImage: "url('/brand/bg/off-white-texture.webp')",
+          backgroundImage: "url('/brand/social/content-section-bg.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -419,7 +419,7 @@ export default function Home() {
       <section
         className="relative brand-surface-dark py-16 md:py-24 overflow-hidden"
         style={{
-          backgroundImage: "url('/brand/bg/dark-green-texture.webp')",
+          backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -462,7 +462,7 @@ export default function Home() {
       <section
         className="relative brand-surface-cream py-16 md:py-24"
         style={{
-          backgroundImage: "url('/brand/bg/off-white-texture.webp')",
+          backgroundImage: "url('/brand/social/content-section-bg.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

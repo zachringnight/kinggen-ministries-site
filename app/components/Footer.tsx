@@ -27,7 +27,7 @@ export default function Footer() {
       <div
         className="relative brand-surface-dark"
         style={{
-          backgroundImage: "url('/brand/bg/dark-green-texture.webp')",
+          backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
