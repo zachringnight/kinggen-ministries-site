@@ -1,15 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import Image from "next/image";
+import { useState, useEffect } from "react";
 import { MenuIcon, XIcon, HeartIcon } from "./Icons";
-import { LogoIcon } from "./Logo";
 import Button from "./Button";
 
-// Main nav links
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
   { href: "/for-referrers", label: "For Referrers" },
   { href: "/for-grant-writers", label: "For Grant Writers" },
   { href: "/testimonials", label: "Testimonials" },
@@ -18,22 +18,45 @@ const navLinks = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-[#faf8f2] shadow-sm">
+      <header
+        className={`sticky top-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-white shadow-sm"
+            : "bg-white/0"
+        }`}
+      >
         <nav className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center h-14 md:h-16 gap-6">
-            {/* Logo + Title */}
+            {/* Icon-only logo */}
             <Link
               href="/"
-              className="flex items-center gap-2 text-brand-primary hover:text-brand-secondary transition-colors flex-shrink-0"
+              className="flex items-center flex-shrink-0"
+              aria-label="KingGen Ministries Home"
             >
-              <LogoIcon size={32} />
-              <span className="font-heading font-bold text-lg hidden sm:block">KingGen Ministries</span>
+              <Image
+                src="/brand/logo/icon-dark-green.png"
+                alt="KingGen Ministries"
+                width={44}
+                height={44}
+                className="rounded-lg"
+                priority
+              />
             </Link>
 
-            {/* Desktop Navigation - centered */}
+            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1 flex-1">
               {navLinks.map((item) => (
                 <Link
@@ -75,14 +98,12 @@ export default function Header() {
         </nav>
       </header>
 
-      {/* Mobile Navigation - Outside header for proper fixed positioning */}
+      {/* Mobile Navigation */}
       {mobileMenuOpen && (
         <div
-          className="lg:hidden fixed top-14 md:top-16 left-0 right-0 bottom-0 z-[9999] overflow-y-auto"
-          style={{ backgroundColor: '#faf8f2' }}
+          className="lg:hidden fixed top-14 md:top-16 left-0 right-0 bottom-0 z-[9999] overflow-y-auto bg-white"
         >
           <div className="container mx-auto px-4 py-6">
-            {/* Main Links */}
             <div className="space-y-1 mb-6">
               {navLinks.map((item) => (
                 <Link

@@ -9,7 +9,6 @@ import {
   FadeIn,
   StaggerContainer,
   StaggerItem,
-  PageHero,
   OptimizedBackground,
 } from "../components";
 
@@ -23,22 +22,18 @@ export default function AboutPage() {
 
   return (
     <>
-      {/* Hero Section with cross-branded background */}
-      <PageHero
-        title="About KingGen Ministries"
-        description="KingGen Ministries exists to offer Gospel-centered counseling to women who need support, especially when cost is a barrier. We believe no woman should be left alone in her hardest seasons."
-        background="cross-branded"
-        showStones={true}
-        stonesPosition="both"
-        showCross={true}
-        crossPosition="center"
+      {/* Hero — about-header banner, text baked in */}
+      <section
+        className="relative w-full min-h-[40vh] md:min-h-[50vh] bg-cover bg-center animate-fade-in-up"
+        style={{ backgroundImage: "url('/brand/headers/about-header.png')" }}
+        role="banner"
+        aria-label="About KingGen Ministries"
       />
 
-      {/* Mission Section with cross background */}
+      {/* Mission Section */}
       <Section variant="cross-light" padding="xl" watermark="none">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
-            {/* Decorative cross divider */}
             <div className="flex justify-center mb-6">
               <CrossIcon className="w-6 h-6 text-brand-primary/50" strokeWidth={1.5} />
             </div>
@@ -52,15 +47,15 @@ export default function AboutPage() {
         </FadeIn>
       </Section>
 
-      {/* Heart and Approach Section - GREEN with KingGen texture */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
-        {/* KingGen branded background */}
-        <OptimizedBackground
-          src="/bg_green_texture_1920x1080.png"
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/85 to-brand-secondary/90" />
-
+      {/* Heart and Approach Section */}
+      <section
+        className="relative py-16 md:py-24 overflow-hidden"
+        style={{
+          backgroundImage: "url('/brand/bg/dark-green-texture.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         {/* Art accents */}
         <OptimizedBackground
           src="/Untitled-7.png"
@@ -81,7 +76,7 @@ export default function AboutPage() {
           }}
         />
 
-        {/* Subtle cross watermark for Gospel-centered messaging */}
+        {/* Cross watermark */}
         <OptimizedBackground
           src="/bg_white_cross.png"
           className="absolute inset-0 bg-no-repeat pointer-events-none"
@@ -95,7 +90,6 @@ export default function AboutPage() {
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
             <div className="max-w-3xl mx-auto">
-              {/* Cross icon above heading */}
               <div className="flex justify-center mb-4">
                 <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
               </div>
@@ -124,7 +118,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* For Referrers CTA with cross accent */}
+      {/* For Referrers CTA */}
       <Section variant="art-cream" padding="lg" watermark="cross-right">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
@@ -141,16 +135,17 @@ export default function AboutPage() {
         </FadeIn>
       </Section>
 
-      {/* Speaking & Interview Requests - KingGen branded section */}
-      <section id="speaking" className="relative py-16 md:py-24 overflow-hidden">
-        {/* KingGen background */}
-        <OptimizedBackground
-          src="/bg-green-alternate.png"
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/90 via-brand-secondary/85 to-brand-primary/92" />
-
-        {/* Cross art accents */}
+      {/* Speaking & Interview Requests */}
+      <section
+        id="speaking"
+        className="relative py-16 md:py-24 overflow-hidden"
+        style={{
+          backgroundImage: "url('/brand/bg/dark-green-texture.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* Art accents */}
         <OptimizedBackground
           src="/Untitled-2.png"
           className="absolute left-0 bottom-0 w-56 h-56 md:w-72 md:h-72 bg-no-repeat pointer-events-none"

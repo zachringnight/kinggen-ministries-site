@@ -8,21 +8,18 @@ import {
   MapPinIcon,
   FadeIn,
   TiltCard,
-  PageHero,
 } from "../components";
 import { siteConfig } from "../config/site";
 
 export default function ContactPage() {
   return (
     <>
-      {/* Hero Section with cross-branded background */}
-      <PageHero
-        title="Contact Us"
-        description="Whether you're reaching out for yourself, referring someone, or asking about donating, please contact us. We will respond as soon as possible."
-        background="cross-branded"
-        showStones={true}
-        stonesPosition="both"
-        showCross={true}
+      {/* Hero — inner-header banner, text baked in */}
+      <section
+        className="relative w-full min-h-[40vh] md:min-h-[50vh] bg-cover bg-center animate-fade-in-up"
+        style={{ backgroundImage: "url('/brand/headers/inner-header.png')" }}
+        role="banner"
+        aria-label="Contact Us"
       />
 
       {/* Note */}

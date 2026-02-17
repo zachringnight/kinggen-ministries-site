@@ -11,7 +11,6 @@ import {
   FadeIn,
   StaggerContainer,
   StaggerItem,
-  PageHero,
   OptimizedBackground,
 } from "../components";
 
@@ -45,13 +44,12 @@ export default function GetSupport() {
 
   return (
     <>
-      {/* Hero Section with KingGen branded background */}
-      <PageHero
-        title="Information for Clients"
-        description="If someone you trust shared this page with you, it's because they care about your well-being. You are not alone."
-        background="kinggen-branded"
-        showStones={true}
-        stonesPosition="both"
+      {/* Hero Section with inner-page header */}
+      <section
+        className="relative w-full min-h-[40vh] md:min-h-[50vh] bg-cover bg-center animate-fade-in-up"
+        style={{ backgroundImage: "url('/brand/headers/inner-header.png')" }}
+        role="banner"
+        aria-label="Information for Clients"
       />
 
       {/* Opening Section with art */}
@@ -66,13 +64,7 @@ export default function GetSupport() {
       </Section>
 
       {/* What to Expect Section with KingGen background */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
-        {/* KingGen branded background */}
-        <OptimizedBackground
-          src="/bg-green-alternate.png"
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/90 via-brand-secondary/85 to-brand-primary/92" />
+      <section className="relative py-20 md:py-32 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
 
         {/* Cross art accents */}
         <OptimizedBackground
@@ -134,13 +126,7 @@ export default function GetSupport() {
       </Section>
 
       {/* How to Begin Section with KingGen background */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
-        {/* KingGen background */}
-        <OptimizedBackground
-          src="/bg_green_texture_1920x1080.png"
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/88 to-brand-secondary/90" />
+      <section className="relative py-20 md:py-32 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
 
         {/* Cross art accents */}
         <OptimizedBackground
@@ -257,13 +243,7 @@ export default function GetSupport() {
       </Section>
 
       {/* For Referrers Note with KingGen background */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
-        {/* KingGen branded background */}
-        <OptimizedBackground
-          src="/bg-green-alternate.png"
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/90 via-brand-secondary/85 to-brand-primary/92" />
+      <section className="relative py-16 md:py-24 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
 
         {/* Art accent */}
         <OptimizedBackground
