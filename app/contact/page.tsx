@@ -176,6 +176,7 @@ export default function ContactPage() {
         subtitle="Referral and partner inquiries are welcome."
         background="inner"
         ariaLabel="Contact KingGen Ministries"
+        showWatermarkCorners
       />
 
       {/* Note */}
@@ -190,7 +191,7 @@ export default function ContactPage() {
       </Section>
 
       {/* Contact Form and Info */}
-      <Section variant="art-cream" padding="xl" watermark="cross-subtle">
+      <Section variant="art-cream" padding="xl" watermark="cross-subtle" ornamentLevel="featured">
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
           <FadeIn direction="left">

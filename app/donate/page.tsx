@@ -161,7 +161,7 @@ export default function DonatePage() {
       </section>
 
       {/* Tax Deductible Info */}
-      <Section variant="art-cream" padding="lg" watermark="cross-subtle">
+      <Section variant="art-cream" padding="lg" watermark="cross-subtle" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <div className="bg-brand-cream rounded-2xl p-6 md:p-8 border border-brand-light">

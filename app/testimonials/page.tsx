@@ -161,7 +161,7 @@ export default function TestimonialsPage() {
       </section>
 
       {/* CTA Section with art */}
-      <Section variant="art-cream" padding="xl" watermark="stones-right">
+      <Section variant="art-cream" padding="xl" watermark="stones-right" ornamentLevel="featured">
         <FadeIn>
           <div className="bg-gradient-to-br from-brand-light to-brand-soft rounded-3xl p-8 md:p-12 lg:p-16 text-center max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6">

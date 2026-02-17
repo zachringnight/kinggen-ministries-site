@@ -59,7 +59,7 @@ export default function GetSupport() {
       />
 
       {/* Opening Section with art */}
-      <Section variant="art-cream" padding="lg" watermark="stones-right">
+      <Section variant="art-cream" padding="lg" watermark="stones-right" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center px-2">
             <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
@@ -182,7 +182,7 @@ export default function GetSupport() {
       </section>
 
       {/* Privacy Section with art */}
-      <Section variant="art-cream" padding="lg" watermark="stones-right">
+      <Section variant="art-cream" padding="lg" watermark="stones-right" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-col sm:flex-row items-start gap-4 p-4 md:p-6 bg-brand-cream rounded-2xl border border-brand-light">

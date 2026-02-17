@@ -56,10 +56,11 @@ export default function ResourcesPage() {
         subtitle="Practical downloads and encouragement for this season."
         background="inner"
         ariaLabel="Forms and Resources"
+        showWatermarkCorners
       />
 
       {/* Opening Section with art */}
-      <Section variant="art-cream" padding="lg" watermark="stones-right">
+      <Section variant="art-cream" padding="lg" watermark="stones-right" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-lg text-text-secondary leading-relaxed">

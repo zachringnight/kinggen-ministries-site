@@ -126,7 +126,7 @@ export default function Home() {
       </section>
 
       {/* Services Section — 3-column cards */}
-      <Section variant="default" padding="xl">
+      <Section variant="default" padding="xl" watermark="stones-right" ornamentLevel="featured">
         <FadeIn>
           <SectionHeader
             title="Our services"
