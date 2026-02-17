@@ -39,7 +39,7 @@ export default function Footer() {
             {/* Brand — icon-only logo */}
             <div className="flex items-center gap-3">
               <Link href="/" className="flex items-center gap-3">
-                <Image src="/brand/logo/icon-light-gray.webp" alt="KingGen Ministries" width={36} height={36} className="rounded-lg" />
+                <Image src="/brand/logo/icon-white.webp" alt="KingGen Ministries" width={42} height={42} className="rounded-lg" />
                 <span className="text-white text-xl tracking-tight">
                   <span className="font-extrabold">KingGen</span>{" "}
                   <span className="font-light">Ministries</span>
