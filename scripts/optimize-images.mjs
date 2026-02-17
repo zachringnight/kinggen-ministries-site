@@ -5,7 +5,7 @@
  */
 
 import sharp from 'sharp';
-import { stat, mkdir } from 'fs/promises';
+import { readdir, stat, mkdir } from 'fs/promises';
 import { join, parse } from 'path';
 
 const PUBLIC_DIR = './public';
@@ -77,9 +77,7 @@ async function main() {
   // Create optimized directory
   try {
     await mkdir(OPTIMIZED_DIR, { recursive: true });
-  } catch {
-    // Directory already exists
-  }
+  } catch (e) {}
 
   let totalOriginal = 0;
   let totalWebp = 0;
