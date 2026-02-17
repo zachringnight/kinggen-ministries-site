@@ -150,32 +150,32 @@ interface PageHeroProps {
 
 const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay: string; hasCross?: boolean }> = {
   "kinggen-branded": {
-    primary: "/brand/social/cta-testimonial-section-bg.webp",
+    primary: "/brand/headers/inner-header.webp",
     overlay: "bg-gradient-to-b from-brand-primary/78 via-brand-primary/82 to-brand-primary/90",
   },
   "green-texture": {
-    primary: "/brand/social/cta-testimonial-section-bg.webp",
+    primary: "/brand/headers/inner-header.webp",
     overlay: "bg-gradient-to-b from-brand-primary/80 via-brand-primary/84 to-brand-primary/88",
   },
   "green-art": {
-    primary: "/brand/social/cta-testimonial-section-bg.webp",
+    primary: "/brand/headers/inner-header.webp",
     overlay: "bg-gradient-to-br from-brand-primary/70 via-brand-secondary/74 to-brand-primary/82",
   },
   "sage": {
-    primary: "/brand/social/content-section-bg.webp",
+    primary: "/brand/headers/about-header.webp",
     overlay: "bg-gradient-to-b from-brand-soft/45 via-brand-soft/60 to-brand-light/76",
   },
   "cream": {
-    primary: "/brand/social/content-section-bg.webp",
+    primary: "/brand/headers/about-header.webp",
     overlay: "bg-gradient-to-b from-brand-soft/60 via-brand-cream/68 to-brand-cream/75",
   },
   "cross-branded": {
-    primary: "/brand/social/cta-testimonial-section-bg.webp",
+    primary: "/brand/headers/inner-header.webp",
     overlay: "bg-gradient-to-br from-brand-primary/78 via-brand-secondary/76 to-brand-primary/86",
     hasCross: true,
   },
   "cross-texture": {
-    primary: "/brand/social/cta-testimonial-section-bg.webp",
+    primary: "/brand/headers/inner-header.webp",
     overlay: "bg-gradient-to-br from-brand-primary/82 via-brand-secondary/80 to-brand-primary/88",
     hasCross: true,
   },

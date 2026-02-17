@@ -26,7 +26,7 @@ const backgroundMap: Record<
   }
 > = {
   inner: {
-    texture: "/brand/social/cta-testimonial-section-bg.webp",
+    texture: "/brand/headers/inner-header.webp",
     overlayClassName:
       "bg-gradient-to-b from-brand-primary/72 via-brand-primary/80 to-brand-primary/90",
     titleClassName: "text-white",
@@ -36,7 +36,7 @@ const backgroundMap: Record<
     watermarkOpacity: 0.12,
   },
   about: {
-    texture: "/brand/social/content-section-bg.webp",
+    texture: "/brand/headers/about-header.webp",
     overlayClassName:
       "bg-gradient-to-b from-brand-soft/60 via-brand-soft/72 to-brand-light/82",
     titleClassName: "text-brand-primary",
