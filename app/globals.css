@@ -74,58 +74,6 @@ html {
   }
 }
 
-/* Shared premium surface treatments (keeps variety but consistent brand identity) */
-.brand-hero-banner {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.brand-hero-banner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    radial-gradient(120% 120% at 50% 0%, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 55%),
-    linear-gradient(180deg, rgba(23, 35, 24, 0.12) 0%, rgba(23, 35, 24, 0.22) 100%);
-}
-
-.brand-surface-cream {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.brand-surface-cream::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.76) 0%, rgba(240, 237, 232, 0.7) 100%),
-    radial-gradient(100% 90% at 50% 0%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 60%);
-}
-
-.brand-surface-dark {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.brand-surface-dark::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    linear-gradient(140deg, rgba(31, 53, 34, 0.8) 0%, rgba(45, 74, 44, 0.7) 55%, rgba(59, 94, 58, 0.74) 100%),
-    radial-gradient(120% 120% at 50% 0%, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0) 58%);
-}
-
 /* Keyboard skip link */
 .skip-link {
   position: absolute;
@@ -262,13 +210,6 @@ a:not([class]):hover {
   opacity: 0.08;
 }
 
-/* Background patterns */
-.pattern-dots {
-  background-image: radial-gradient(circle, var(--brand-primary) 1px, transparent 1px);
-  background-size: 20px 20px;
-  opacity: 0.05;
-}
-
 /* Focus styles for accessibility */
 a:focus-visible,
 button:focus-visible {
@@ -353,72 +294,6 @@ blockquote {
   color: var(--text-secondary);
 }
 
-/* Enhanced animations */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-.animate-shimmer {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    transparent 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 2s ease-in-out infinite;
-}
-
-.animate-gradient-shift {
-  background-size: 200% 200%;
-  animation: gradient-shift 8s ease infinite;
-}
-
-/* Glassmorphism utility */
-.glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.glass-dark {
-  background: rgba(59, 94, 58, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
 /* Improved text gradients */
 .text-gradient-primary {
   background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-accent) 100%);
@@ -432,32 +307,6 @@ blockquote {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-/* Hover card shine effect */
-.card-shine {
-  position: relative;
-  overflow: hidden;
-}
-
-.card-shine::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
-  transition: left 0.5s ease;
-}
-
-.card-shine:hover::before {
-  left: 100%;
 }
 
 /* Smooth image zoom */
@@ -505,14 +354,3 @@ blockquote {
   border-radius: 4px;
 }
 
-/* Reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}

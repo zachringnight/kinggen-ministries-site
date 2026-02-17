@@ -11,7 +11,6 @@ import {
   StaggerContainer,
   StaggerItem,
   TiltCard,
-  OptimizedBackground,
   InnerPageHero,
 } from "../components";
 
@@ -45,13 +44,11 @@ export default function TestimonialsPage() {
       <InnerPageHero
         title="Testimonials"
         subtitle="Stories of hope, trust, and Gospel-centered care."
-        background="inner"
         ariaLabel="Testimonials"
-        showWatermarkCorners
       />
 
       {/* Testimonials Section with art background */}
-      <Section variant="art-cream" padding="xl" watermark="stones-left" ornamentLevel="featured">
+      <Section variant="soft" padding="xl" watermark="stones-left" ornamentLevel="featured">
         <StaggerContainer staggerDelay={0.15} className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, i) => (
             <StaggerItem key={i}>
@@ -83,20 +80,7 @@ export default function TestimonialsPage() {
       </Section>
 
       {/* Scripture & Hope Section - Featuring Social Images */}
-      <section className="relative brand-surface-dark py-16 md:py-24 overflow-hidden" style={{ backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
-
-        {/* Cross watermark */}
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute inset-0 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "center",
-            backgroundSize: "180px auto",
-            opacity: 0.06,
-          }}
-        />
-
-        <div className="relative z-10 container mx-auto px-4 sm:px-6">
+      <Section variant="dark" padding="xl" watermark="cross" ornamentLevel="featured">
           <FadeIn>
             <div className="flex justify-center mb-4">
               <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
@@ -157,11 +141,10 @@ export default function TestimonialsPage() {
               Follow us on social media for daily encouragement
             </p>
           </FadeIn>
-        </div>
-      </section>
+      </Section>
 
       {/* CTA Section with art */}
-      <Section variant="art-cream" padding="xl" watermark="stones-right" ornamentLevel="featured">
+      <Section variant="soft" padding="xl" watermark="stones-right" ornamentLevel="featured">
         <FadeIn>
           <div className="bg-gradient-to-br from-brand-light to-brand-soft rounded-3xl p-8 md:p-12 lg:p-16 text-center max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6">

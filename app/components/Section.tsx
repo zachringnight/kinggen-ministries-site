@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 import OptimizedBackground from "./OptimizedBackground";
 
-type SectionVariant = "default" | "light" | "soft" | "primary" | "dark" | "art-cream" | "art-green" | "kinggen-branded" | "cross-light" | "cross-green";
-type WatermarkType = "stones" | "stones-left" | "stones-right" | "logo" | "kinggen-bg" | "cross" | "cross-subtle" | "cross-left" | "cross-right" | "none";
+type SectionVariant = "default" | "light" | "soft" | "primary" | "dark";
+type WatermarkType = "none" | "stones-left" | "stones-right" | "cross";
 type OrnamentLevel = "none" | "subtle" | "featured";
 
 interface SectionProps {
@@ -22,11 +22,6 @@ const variantStyles: Record<SectionVariant, string> = {
   soft: "bg-brand-cream",
   primary: "bg-brand-primary text-white",
   dark: "bg-brand-primary text-white",
-  "art-cream": "bg-brand-cream",
-  "art-green": "bg-brand-primary text-white",
-  "kinggen-branded": "bg-brand-primary text-white",
-  "cross-light": "bg-brand-cream",
-  "cross-green": "bg-brand-primary text-white",
 };
 
 const containerSizes: Record<string, string> = {
@@ -42,22 +37,6 @@ const paddingStyles: Record<string, string> = {
   md: "py-12 md:py-16",
   lg: "py-16 md:py-24",
   xl: "py-20 md:py-32",
-};
-
-const lightTextureOpacity: Partial<Record<SectionVariant, number>> = {
-  default: 0.22,
-  light: 0.18,
-  soft: 0.16,
-  "art-cream": 0.34,
-  "cross-light": 0.30,
-};
-
-const darkTextureOpacity: Partial<Record<SectionVariant, number>> = {
-  primary: 0.28,
-  dark: 0.30,
-  "art-green": 0.34,
-  "kinggen-branded": 0.36,
-  "cross-green": 0.32,
 };
 
 const curatedTexture = {
@@ -78,203 +57,73 @@ export default function Section({
   id,
   containerSize = "default",
   padding = "lg",
-  watermark = "stones",
+  watermark = "none",
   ornamentLevel = "subtle",
 }: SectionProps) {
-  const isLightSection = ["default", "light", "soft", "art-cream", "cross-light"].includes(variant);
-  const isGreenSection = ["primary", "dark", "art-green", "kinggen-branded", "cross-green"].includes(variant);
-  const isCrossVariant = ["cross-light", "cross-green"].includes(variant);
-  const showTextureMotif = ornamentLevel === "subtle" || ornamentLevel === "featured";
-  const showWatermarkMotif = ornamentLevel === "featured";
+  const isLight = ["default", "light", "soft"].includes(variant);
+  const isDark = ["primary", "dark"].includes(variant);
+  const showTexture = ornamentLevel === "subtle" || ornamentLevel === "featured";
+  const showWatermark = ornamentLevel === "featured" && watermark !== "none";
 
-  // Watermark settings
-  const showStonesWatermark = showWatermarkMotif && watermark === "stones" && isLightSection && !isCrossVariant;
-  const showStonesLeft = showWatermarkMotif && watermark === "stones-left" && !isCrossVariant;
-  const showStonesRight = showWatermarkMotif && watermark === "stones-right" && !isCrossVariant;
-  const showLogoWatermark = showWatermarkMotif && watermark === "logo" && isGreenSection;
-  const showKinggenBg = showWatermarkMotif && watermark === "kinggen-bg";
-
-  // Cross watermark settings
-  const showCrossWatermark = showWatermarkMotif && (watermark === "cross" || isCrossVariant);
-  const showCrossSubtle = showWatermarkMotif && watermark === "cross-subtle";
-  const showCrossLeft = showWatermarkMotif && watermark === "cross-left";
-  const showCrossRight = showWatermarkMotif && watermark === "cross-right";
-  const centeredMarkSource = isLightSection ? curatedWatermarks.darkGreen : curatedWatermarks.dark;
-  const sideMarkSource = isLightSection ? curatedWatermarks.light : curatedWatermarks.dark;
+  const textureOpacity = isLight ? 0.15 : 0.25;
+  const watermarkSrc = isLight ? curatedWatermarks.light : curatedWatermarks.dark;
+  const crossSrc = isLight ? curatedWatermarks.darkGreen : curatedWatermarks.dark;
 
   return (
     <section
       id={id}
       className={`${variantStyles[variant]} ${paddingStyles[padding]} ${className} relative overflow-hidden`}
     >
-      {/* Branded texture base layers to keep visual identity cohesive */}
-      {showTextureMotif && isLightSection && (
+      {/* Branded texture layer */}
+      {showTexture && (
         <OptimizedBackground
-          src={curatedTexture.light}
+          src={isLight ? curatedTexture.light : curatedTexture.dark}
           className="absolute inset-0 pointer-events-none"
           style={{
             backgroundPosition: "center",
             backgroundSize: "cover",
-            opacity: lightTextureOpacity[variant] ?? 0.16,
+            opacity: textureOpacity,
           }}
         />
       )}
 
-      {showTextureMotif && isGreenSection && (
+      {/* Watermark: stones left */}
+      {showWatermark && watermark === "stones-left" && (
         <OptimizedBackground
-          src={curatedTexture.dark}
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-            opacity: darkTextureOpacity[variant] ?? 0.34,
-          }}
-        />
-      )}
-
-      {/* Stacked stones watermark for cream/light sections - signature branding */}
-      {showStonesWatermark && (
-        <OptimizedBackground
-          src={sideMarkSource}
-          className="absolute right-0 bottom-0 w-64 h-auto md:w-80 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "right bottom",
-            backgroundSize: "contain",
-            opacity: 0.10,
-            height: "400px",
-          }}
-        />
-      )}
-
-      {/* Stones watermark on left */}
-      {showStonesLeft && (
-        <OptimizedBackground
-          src={sideMarkSource}
-          className="absolute left-0 bottom-0 w-56 h-auto md:w-72 bg-no-repeat pointer-events-none"
+          src={watermarkSrc}
+          className="absolute left-0 bottom-0 w-56 md:w-72 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "left bottom",
             backgroundSize: "contain",
-            opacity: 0.08,
+            opacity: 0.10,
             height: "350px",
           }}
         />
       )}
 
-      {/* Stones watermark on right */}
-      {showStonesRight && (
+      {/* Watermark: stones right */}
+      {showWatermark && watermark === "stones-right" && (
         <OptimizedBackground
-          src={sideMarkSource}
-          className="absolute right-0 bottom-0 w-56 h-auto md:w-72 bg-no-repeat pointer-events-none"
+          src={watermarkSrc}
+          className="absolute right-0 bottom-0 w-56 md:w-72 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "right bottom",
             backgroundSize: "contain",
-            opacity: 0.08,
+            opacity: 0.10,
             height: "350px",
           }}
         />
       )}
 
-      {/* Full logo watermark for green sections */}
-      {showLogoWatermark && (
+      {/* Watermark: cross centered */}
+      {showWatermark && watermark === "cross" && (
         <OptimizedBackground
-          src={curatedWatermarks.dark}
-          className="absolute inset-0 bg-no-repeat bg-center pointer-events-none"
-          style={{
-            backgroundSize: "320px auto",
-            opacity: 0.10,
-          }}
-        />
-      )}
-
-      {/* KingGen branded full background */}
-      {showKinggenBg && (
-        <OptimizedBackground
-          src={curatedTexture.dark}
+          src={crossSrc}
           className="absolute inset-0 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "center",
-            backgroundSize: "cover",
-            opacity: 0.24,
-          }}
-        />
-      )}
-
-      {/* Cross background for cross variants */}
-      {showWatermarkMotif && variant === "cross-light" && (
-        <OptimizedBackground
-          src={curatedWatermarks.darkGreen}
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundPosition: "center",
-            backgroundSize: "400px auto",
-            opacity: 0.06,
-          }}
-        />
-      )}
-
-      {showWatermarkMotif && variant === "cross-green" && (
-        <OptimizedBackground
-          src={curatedWatermarks.dark}
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundPosition: "center",
-            backgroundSize: "350px auto",
-            opacity: 0.12,
-          }}
-        />
-      )}
-
-      {/* Cross watermark - centered */}
-      {showCrossWatermark && !isCrossVariant && (
-        <OptimizedBackground
-          src={centeredMarkSource}
-          className="absolute inset-0 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "center",
-            backgroundSize: isLightSection ? "300px auto" : "280px auto",
-            opacity: isLightSection ? 0.06 : 0.10,
-          }}
-        />
-      )}
-
-      {/* Cross watermark - subtle/small */}
-      {showCrossSubtle && (
-        <OptimizedBackground
-          src={centeredMarkSource}
-          className="absolute right-8 bottom-8 w-32 h-auto md:w-40 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "right bottom",
-            backgroundSize: "contain",
-            opacity: isLightSection ? 0.05 : 0.08,
-            height: "180px",
-          }}
-        />
-      )}
-
-      {/* Cross watermark on left */}
-      {showCrossLeft && (
-        <OptimizedBackground
-          src={centeredMarkSource}
-          className="absolute left-0 bottom-0 w-48 h-auto md:w-64 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "left bottom",
-            backgroundSize: "contain",
-            opacity: isLightSection ? 0.06 : 0.10,
-            height: "280px",
-          }}
-        />
-      )}
-
-      {/* Cross watermark on right */}
-      {showCrossRight && (
-        <OptimizedBackground
-          src={centeredMarkSource}
-          className="absolute right-0 bottom-0 w-48 h-auto md:w-64 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "right bottom",
-            backgroundSize: "contain",
-            opacity: isLightSection ? 0.06 : 0.10,
-            height: "280px",
+            backgroundSize: isDark ? "280px auto" : "300px auto",
+            opacity: isDark ? 0.10 : 0.06,
           }}
         />
       )}

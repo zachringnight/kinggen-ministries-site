@@ -6,12 +6,10 @@ export default function NotFound() {
       <InnerPageHero
         title="Page Not Found"
         subtitle="The page may have moved or no longer exists."
-        background="inner"
         ariaLabel="Page Not Found"
-        minHeightClassName="min-h-[32vh] md:min-h-[40vh]"
       />
 
-      <Section variant="cross-light" padding="xl" watermark="none">
+      <Section variant="light" padding="xl" watermark="cross">
         <div className="max-w-2xl mx-auto text-center">
           <div className="flex justify-center mb-4">
             <CrossIcon className="w-6 h-6 text-brand-primary/50" />

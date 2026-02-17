@@ -25,7 +25,7 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden">
       <div
-        className="relative brand-surface-dark"
+        className="relative overflow-hidden"
         style={{
           backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')",
           backgroundSize: "cover",

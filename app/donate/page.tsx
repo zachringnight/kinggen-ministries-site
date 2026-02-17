@@ -9,7 +9,6 @@ import {
   FadeIn,
   StaggerContainer,
   StaggerItem,
-  OptimizedBackground,
   InnerPageHero,
 } from "../components";
 
@@ -26,9 +25,7 @@ export default function DonatePage() {
       <InnerPageHero
         title="Help Keep Counseling Free"
         subtitle="Every gift helps remove cost barriers for women who need care."
-        background="inner"
         ariaLabel="Help Keep Counseling Free"
-        showWatermarkCorners
       >
         <Button
           href={siteConfig.paypalUrl}
@@ -42,7 +39,7 @@ export default function DonatePage() {
       </InnerPageHero>
 
       {/* Impact Section */}
-      <Section variant="cross-light" padding="xl" watermark="none">
+      <Section variant="light" padding="xl" watermark="none">
         <FadeIn>
           <div className="flex justify-center mb-4">
             <CrossIcon className="w-6 h-6 text-brand-primary/50" strokeWidth={1.5} />
@@ -68,100 +65,60 @@ export default function DonatePage() {
       </Section>
 
       {/* Ways to Give Section */}
-      <section
-        className="relative brand-surface-dark py-20 md:py-32 overflow-hidden"
-        style={{
-          backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        {/* Art accents */}
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute left-0 bottom-0 w-48 h-48 md:w-64 md:h-64 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "left bottom",
-            backgroundSize: "contain",
-            opacity: 0.20,
-          }}
-        />
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute right-0 top-0 w-40 h-40 md:w-56 md:h-56 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "right top",
-            backgroundSize: "contain",
-            opacity: 0.15,
-          }}
-        />
+      <Section variant="dark" padding="xl" watermark="cross" ornamentLevel="featured">
+        <FadeIn>
+          <div className="flex justify-center mb-4">
+            <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-8 md:mb-12 text-center">
+            Ways to give
+          </h2>
+        </FadeIn>
 
-        {/* Cross watermark */}
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute inset-0 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "center 40%",
-            backgroundSize: "180px auto",
-            opacity: 0.08,
-          }}
-        />
-
-        <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
-          <FadeIn>
-            <div className="flex justify-center mb-4">
-              <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+          <FadeIn delay={0.1}>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20 h-full flex flex-col">
+              <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
+                Online
+              </h3>
+              <p className="text-white/80 mb-6 flex-grow">
+                Give securely through PayPal. One-time or recurring gifts welcome.
+              </p>
+              <Button
+                href={siteConfig.paypalUrl}
+                variant="white"
+                size="lg"
+                fullWidth
+                icon={<HeartIcon className="w-5 h-5" />}
+              >
+                Donate via PayPal
+              </Button>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-8 md:mb-12 text-center">
-              Ways to give
-            </h2>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
-            <FadeIn delay={0.1}>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20 h-full flex flex-col">
-                <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
-                  Online
-                </h3>
-                <p className="text-white/80 mb-6 flex-grow">
-                  Give securely through PayPal. One-time or recurring gifts welcome.
-                </p>
-                <Button
-                  href={siteConfig.paypalUrl}
-                  variant="white"
-                  size="lg"
-                  fullWidth
-                  icon={<HeartIcon className="w-5 h-5" />}
-                >
-                  Donate via PayPal
-                </Button>
+          <FadeIn delay={0.2}>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20 h-full">
+              <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
+                By Mail
+              </h3>
+              <p className="text-white/80 mb-4">
+                Make checks payable to:
+              </p>
+              <div className="bg-white/10 rounded-xl p-4 mb-4">
+                <p className="text-white font-semibold">KingGen Ministries</p>
+                <address className="text-white/80 not-italic text-sm leading-relaxed mt-2">
+                  {siteConfig.address.line2}<br />
+                  {siteConfig.address.line3}<br />
+                  {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
+                </address>
               </div>
-            </FadeIn>
-
-            <FadeIn delay={0.2}>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20 h-full">
-                <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
-                  By Mail
-                </h3>
-                <p className="text-white/80 mb-4">
-                  Make checks payable to:
-                </p>
-                <div className="bg-white/10 rounded-xl p-4 mb-4">
-                  <p className="text-white font-semibold">KingGen Ministries</p>
-                  <address className="text-white/80 not-italic text-sm leading-relaxed mt-2">
-                    {siteConfig.address.line2}<br />
-                    {siteConfig.address.line3}<br />
-                    {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
-                  </address>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
+            </div>
+          </FadeIn>
         </div>
-      </section>
+      </Section>
 
       {/* Tax Deductible Info */}
-      <Section variant="art-cream" padding="lg" watermark="cross-subtle" ornamentLevel="featured">
+      <Section variant="soft" padding="lg" watermark="cross" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <div className="bg-brand-cream rounded-2xl p-6 md:p-8 border border-brand-light">
@@ -188,60 +145,29 @@ export default function DonatePage() {
       </Section>
 
       {/* Final CTA */}
-      <section
-        className="relative brand-surface-dark py-16 md:py-24 overflow-hidden"
-        style={{
-          backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        {/* Art accent */}
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute right-0 bottom-0 w-56 h-56 md:w-72 md:h-72 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "right bottom",
-            backgroundSize: "contain",
-            opacity: 0.15,
-          }}
-        />
-
-        {/* Cross watermark */}
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute inset-0 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "center",
-            backgroundSize: "160px auto",
-            opacity: 0.06,
-          }}
-        />
-
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <FadeIn>
-            <div className="max-w-2xl mx-auto text-center">
-              <div className="flex justify-center mb-4">
-                <CrossIcon className="w-8 h-8 text-white/50" strokeWidth={1.5} />
-              </div>
-              <h2 className="text-2xl md:text-3xl font-bold font-heading text-white mb-4">
-                Ready to make a difference?
-              </h2>
-              <p className="text-white/90 mb-8">
-                Your support helps women access the care they need.
-              </p>
-              <Button
-                href={siteConfig.paypalUrl}
-                variant="white"
-                size="lg"
-                icon={<HeartIcon className="w-5 h-5" />}
-              >
-                Donate Now
-              </Button>
+      <Section variant="dark" padding="xl">
+        <FadeIn>
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="flex justify-center mb-4">
+              <CrossIcon className="w-8 h-8 text-white/50" strokeWidth={1.5} />
             </div>
-          </FadeIn>
-        </div>
-      </section>
+            <h2 className="text-2xl md:text-3xl font-bold font-heading text-white mb-4">
+              Ready to make a difference?
+            </h2>
+            <p className="text-white/90 mb-8">
+              Your support helps women access the care they need.
+            </p>
+            <Button
+              href={siteConfig.paypalUrl}
+              variant="white"
+              size="lg"
+              icon={<HeartIcon className="w-5 h-5" />}
+            >
+              Donate Now
+            </Button>
+          </div>
+        </FadeIn>
+      </Section>
     </>
   );
 }

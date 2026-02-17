@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import {
   Section,
   FadeIn,
-  PageHero,
+  InnerPageHero,
 } from "../components";
 
 export const metadata: Metadata = {
@@ -14,16 +14,10 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <>
-      {/* Hero Section with KingGen branded background */}
-      <PageHero
-        title="Privacy and Confidentiality"
-        background="kinggen-branded"
-        showStones={true}
-        stonesPosition="both"
-      />
+      <InnerPageHero title="Privacy and Confidentiality" />
 
       {/* Content Section with art */}
-      <Section variant="art-cream" padding="xl" watermark="stones-right" ornamentLevel="featured">
+      <Section variant="soft" padding="xl" watermark="stones-right" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto prose prose-lg">
             <p className="text-lg text-text-secondary leading-relaxed mb-6">

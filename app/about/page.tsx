@@ -7,7 +7,6 @@ import {
   FadeIn,
   StaggerContainer,
   StaggerItem,
-  OptimizedBackground,
   InnerPageHero,
 } from "../components";
 
@@ -24,13 +23,12 @@ export default function AboutPage() {
       <InnerPageHero
         title="About KingGen Ministries"
         subtitle="A Gospel-centered counseling ministry serving women in need."
-        background="about"
+        headerImage="about"
         ariaLabel="About KingGen Ministries"
-        showWatermarkCorners
       />
 
       {/* Mission Section */}
-      <Section variant="cross-light" padding="xl" watermark="none">
+      <Section variant="light" padding="xl" watermark="none">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <div className="flex justify-center mb-6">
@@ -47,78 +45,38 @@ export default function AboutPage() {
       </Section>
 
       {/* Heart and Approach Section */}
-      <section
-        className="relative brand-surface-dark py-16 md:py-24 overflow-hidden"
-        style={{
-          backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        {/* Art accents */}
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute left-0 top-0 w-40 h-40 md:w-56 md:h-56 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "left top",
-            backgroundSize: "contain",
-            opacity: 0.15,
-          }}
-        />
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute right-0 bottom-0 w-48 h-48 md:w-64 md:h-64 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "right bottom",
-            backgroundSize: "contain",
-            opacity: 0.20,
-          }}
-        />
-
-        {/* Cross watermark */}
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute inset-0 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "center 30%",
-            backgroundSize: "180px auto",
-            opacity: 0.08,
-          }}
-        />
-
-        <div className="relative z-10 container mx-auto px-4 sm:px-6">
-          <FadeIn>
-            <div className="max-w-3xl mx-auto">
-              <div className="flex justify-center mb-4">
-                <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-6 text-center">
-                Our heart and approach
-              </h2>
-              <p className="text-lg text-white/90 mb-8 text-center leading-relaxed">
-                We believe the Gospel brings hope, truth, and healing. Counseling is a place to bring what feels heavy into the light, to be met with compassion, and to take wise steps forward.
-              </p>
-              <p className="text-lg text-white mb-6 text-center">
-                You can expect:
-              </p>
+      <Section variant="dark" padding="xl" watermark="cross" ornamentLevel="featured">
+        <FadeIn>
+          <div className="max-w-3xl mx-auto">
+            <div className="flex justify-center mb-4">
+              <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
             </div>
-          </FadeIn>
+            <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-6 text-center">
+              Our heart and approach
+            </h2>
+            <p className="text-lg text-white/90 mb-8 text-center leading-relaxed">
+              We believe the Gospel brings hope, truth, and healing. Counseling is a place to bring what feels heavy into the light, to be met with compassion, and to take wise steps forward.
+            </p>
+            <p className="text-lg text-white mb-6 text-center">
+              You can expect:
+            </p>
+          </div>
+        </FadeIn>
 
-          <StaggerContainer staggerDelay={0.1} className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-            {expectations.map((item, i) => (
-              <StaggerItem key={i}>
-                <div className="flex items-center gap-3 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                  <CheckCircleIcon className="w-5 h-5 text-white flex-shrink-0" />
-                  <p className="text-white">{item}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
+        <StaggerContainer staggerDelay={0.1} className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+          {expectations.map((item, i) => (
+            <StaggerItem key={i}>
+              <div className="flex items-center gap-3 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                <CheckCircleIcon className="w-5 h-5 text-white flex-shrink-0" />
+                <p className="text-white">{item}</p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </Section>
 
       {/* For Referrers CTA */}
-      <Section variant="art-cream" padding="lg" watermark="cross-right" ornamentLevel="featured">
+      <Section variant="soft" padding="lg" watermark="cross" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold font-heading text-text-primary mb-4">
@@ -135,69 +93,39 @@ export default function AboutPage() {
       </Section>
 
       {/* Speaking & Interview Requests */}
-      <section
-        id="speaking"
-        className="relative brand-surface-dark py-16 md:py-24 overflow-hidden"
-        style={{
-          backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        {/* Art accents */}
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute left-0 bottom-0 w-56 h-56 md:w-72 md:h-72 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "left bottom",
-            backgroundSize: "contain",
-            opacity: 0.20,
-          }}
-        />
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute right-0 top-0 w-48 h-48 md:w-60 md:h-60 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "right top",
-            backgroundSize: "contain",
-            opacity: 0.15,
-          }}
-        />
+      <Section id="speaking" variant="dark" padding="xl" watermark="stones-left" ornamentLevel="featured">
+        <FadeIn>
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 text-center">
+              Book LeeAnn as a speaker
+            </h2>
+            <p className="text-base sm:text-lg text-white/90 mb-10 text-center max-w-2xl mx-auto">
+              LeeAnn is available for speaking engagements, podcast interviews, and ministry events. Her heart is to encourage women, equip churches, and share the hope of the Gospel.
+            </p>
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6">
-          <FadeIn>
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 text-center">
-                Book LeeAnn as a speaker
-              </h2>
-              <p className="text-base sm:text-lg text-white/90 mb-10 text-center max-w-2xl mx-auto">
-                LeeAnn is available for speaking engagements, podcast interviews, and ministry events. Her heart is to encourage women, equip churches, and share the hope of the Gospel.
-              </p>
-
-              <div className="grid md:grid-cols-3 gap-4 md:gap-6 mb-10">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-white/20 text-center">
-                  <h3 className="font-bold text-white mb-2">Churches & Retreats</h3>
-                  <p className="text-sm text-white/80">Women&apos;s events, Sunday services, and weekend retreats</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-white/20 text-center">
-                  <h3 className="font-bold text-white mb-2">Podcasts & Interviews</h3>
-                  <p className="text-sm text-white/80">Faith, counseling, ministry, and mental health topics</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-white/20 text-center">
-                  <h3 className="font-bold text-white mb-2">Conferences & Panels</h3>
-                  <p className="text-sm text-white/80">Workshops on pastoral care and women&apos;s ministry</p>
-                </div>
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6 mb-10">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-white/20 text-center">
+                <h3 className="font-bold text-white mb-2">Churches & Retreats</h3>
+                <p className="text-sm text-white/80">Women&apos;s events, Sunday services, and weekend retreats</p>
               </div>
-
-              <div className="text-center">
-                <Button href="/contact" variant="white" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-                  Request a Booking
-                </Button>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-white/20 text-center">
+                <h3 className="font-bold text-white mb-2">Podcasts & Interviews</h3>
+                <p className="text-sm text-white/80">Faith, counseling, ministry, and mental health topics</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-white/20 text-center">
+                <h3 className="font-bold text-white mb-2">Conferences & Panels</h3>
+                <p className="text-sm text-white/80">Workshops on pastoral care and women&apos;s ministry</p>
               </div>
             </div>
-          </FadeIn>
-        </div>
-      </section>
+
+            <div className="text-center">
+              <Button href="/contact" variant="white" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                Request a Booking
+              </Button>
+            </div>
+          </div>
+        </FadeIn>
+      </Section>
     </>
   );
 }

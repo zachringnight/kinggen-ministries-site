@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import {
   Section,
-  SectionHeader,
   Button,
   FadeIn,
-  StaggerContainer,
-  StaggerItem,
   ArrowRightIcon,
   HeartIcon,
   CrossIcon,
@@ -13,7 +10,6 @@ import {
   UsersIcon,
   CheckCircleIcon,
   InnerPageHero,
-  OptimizedBackground,
 } from "../components";
 
 export const metadata: Metadata = {
@@ -67,126 +63,56 @@ export default function ServicesPage() {
       <InnerPageHero
         title="Our Services"
         subtitle="Compassionate, Gospel-centered counseling at no cost to clients."
-        background="inner"
         ariaLabel="Our Services"
-        showWatermarkCorners
       />
 
       {/* Services List */}
-      {services.map((service, index) => {
+      {services.map((service) => {
         const Icon = service.icon;
-        const isEven = index % 2 === 1;
 
-        return isEven ? (
-          <section
-            key={service.title}
-            className="relative brand-surface-cream py-16 md:py-24"
-            style={{
-              backgroundImage: "url('/brand/social/content-section-bg.webp')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            <div className="relative z-10 container mx-auto px-4 sm:px-6">
-              <FadeIn>
-                <div className="max-w-3xl mx-auto text-center">
-                  <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 rounded-full bg-brand-primary/10 flex items-center justify-center">
-                      <Icon className="w-8 h-8 text-brand-primary" />
-                    </div>
+        return (
+          <Section key={service.title} variant="soft" padding="lg">
+            <FadeIn>
+              <div className="max-w-3xl mx-auto text-center">
+                <div className="flex justify-center mb-6">
+                  <div className="w-16 h-16 rounded-full bg-brand-primary/10 flex items-center justify-center">
+                    <Icon className="w-8 h-8 text-brand-primary" />
                   </div>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
-                    {service.title}
-                  </h2>
-                  <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
-                    {service.description}
-                  </p>
                 </div>
-              </FadeIn>
-            </div>
-          </section>
-        ) : (
-          <section
-            key={service.title}
-            className="relative brand-surface-cream py-16 md:py-24"
-            style={{
-              backgroundImage: "url('/brand/social/content-section-bg.webp')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            <div className="relative z-10 container mx-auto px-4 sm:px-6">
-              <FadeIn>
-                <div className="max-w-3xl mx-auto text-center">
-                  <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 rounded-full bg-brand-primary/10 flex items-center justify-center">
-                      <Icon className="w-8 h-8 text-brand-primary" />
-                    </div>
-                  </div>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
-                    {service.title}
-                  </h2>
-                  <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
-              </FadeIn>
-            </div>
-          </section>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
+                  {service.title}
+                </h2>
+                <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            </FadeIn>
+          </Section>
         );
       })}
 
       {/* Contact CTA */}
-      <section
-        className="relative brand-surface-dark py-16 md:py-24 overflow-hidden"
-        style={{
-          backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        {/* Logo art accents */}
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute left-0 bottom-0 w-48 h-48 md:w-64 md:h-64 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "left bottom",
-            backgroundSize: "contain",
-            opacity: 0.15,
-          }}
-        />
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute right-0 top-0 w-40 h-40 md:w-56 md:h-56 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "right top",
-            backgroundSize: "contain",
-            opacity: 0.12,
-          }}
-        />
-
-        <div className="relative z-10 container mx-auto px-4 sm:px-6">
-          <FadeIn>
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4">
-                Ready to take the next step?
-              </h2>
-              <p className="text-base sm:text-lg text-white/90 mb-8">
-                Connect with us to discuss a referral or partnership path. All services are offered at no cost to clients.
-              </p>
-              <Button
-                href="/contact"
-                variant="white"
-                size="lg"
-                icon={<ArrowRightIcon className="w-5 h-5" />}
-                iconPosition="right"
-              >
-                Start a Referral Conversation
-              </Button>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <Section variant="dark" padding="xl" watermark="stones-left" ornamentLevel="featured">
+        <FadeIn>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4">
+              Ready to take the next step?
+            </h2>
+            <p className="text-base sm:text-lg text-white/90 mb-8">
+              Connect with us to discuss a referral or partnership path. All services are offered at no cost to clients.
+            </p>
+            <Button
+              href="/contact"
+              variant="white"
+              size="lg"
+              icon={<ArrowRightIcon className="w-5 h-5" />}
+              iconPosition="right"
+            >
+              Start a Referral Conversation
+            </Button>
+          </div>
+        </FadeIn>
+      </Section>
     </>
   );
 }
