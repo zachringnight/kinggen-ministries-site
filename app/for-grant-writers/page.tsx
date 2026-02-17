@@ -130,7 +130,7 @@ export default function ForGrantWriters() {
       </Section>
 
       {/* Tax Information with art */}
-      <Section variant="art-cream" padding="lg" watermark="stones" ornamentLevel="featured">
+      <Section variant="art-cream" padding="lg" watermark="stones">
         <FadeIn>
           <div className="max-w-3xl mx-auto bg-brand-light rounded-2xl p-6 md:p-8">
             <h2 className="text-xl md:text-2xl font-bold font-heading text-text-primary mb-4 text-center">
@@ -183,7 +183,7 @@ export default function ForGrantWriters() {
       </Section>
 
       {/* Additional Resources Note with art */}
-      <Section variant="art-cream" padding="lg" watermark="stones-right" ornamentLevel="featured">
+      <Section variant="art-cream" padding="lg" watermark="stones-right">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-text-muted text-sm md:text-base">

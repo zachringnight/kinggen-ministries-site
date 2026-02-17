@@ -84,7 +84,7 @@ export default function Section({
   const isLightSection = ["default", "light", "soft", "art-cream", "cross-light"].includes(variant);
   const isGreenSection = ["primary", "dark", "art-green", "kinggen-branded", "cross-green"].includes(variant);
   const isCrossVariant = ["cross-light", "cross-green"].includes(variant);
-  const showTextureMotif = ornamentLevel === "subtle";
+  const showTextureMotif = ornamentLevel === "subtle" || ornamentLevel === "featured";
   const showWatermarkMotif = ornamentLevel === "featured";
 
   // Watermark settings
