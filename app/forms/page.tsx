@@ -12,7 +12,6 @@ import {
   FadeIn,
   StaggerContainer,
   StaggerItem,
-  PageHero,
 } from "../components";
 
 export default function ResourcesPage() {
@@ -45,13 +44,12 @@ export default function ResourcesPage() {
 
   return (
     <>
-      {/* Hero Section with KingGen branded background */}
-      <PageHero
-        title="Resources"
-        description="Free resources to encourage you in your journey. Download and use at your own pace."
-        background="kinggen-branded"
-        showStones={true}
-        stonesPosition="both"
+      {/* Hero Section with inner-page header */}
+      <section
+        className="relative w-full min-h-[40vh] md:min-h-[50vh] bg-cover bg-center animate-fade-in-up"
+        style={{ backgroundImage: "url('/brand/headers/inner-header.png')" }}
+        role="banner"
+        aria-label="Resources"
       />
 
       {/* Opening Section with art */}

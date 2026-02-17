@@ -11,7 +11,6 @@ import {
   FadeIn,
   StaggerContainer,
   StaggerItem,
-  PageHero,
   OptimizedBackground,
 } from "../components";
 
@@ -25,31 +24,32 @@ export default function DonatePage() {
 
   return (
     <>
-      {/* Hero Section with cross-branded background */}
-      <PageHero
-        title="Help keep counseling free"
-        description="Your generosity removes barriers and provides hope for women who need support but cannot afford care."
-        background="cross-branded"
-        showStones={true}
-        stonesPosition="both"
-        showCross={true}
+      {/* Hero — inner-header banner, text baked in + donate CTA */}
+      <section
+        className="relative w-full min-h-[40vh] md:min-h-[50vh] bg-cover bg-center animate-fade-in-up flex items-end"
+        style={{ backgroundImage: "url('/brand/headers/inner-header.png')" }}
+        role="banner"
+        aria-label="Help Keep Counseling Free"
       >
-        {/* Prominent Donate Button */}
-        <Button
-          href={siteConfig.paypalUrl}
-          variant="white"
-          size="lg"
-          icon={<HeartIcon className="w-5 h-5" />}
-          className="text-brand-primary"
-        >
-          Donate via PayPal
-        </Button>
-      </PageHero>
+        <div className="relative z-10 w-full pb-8 pt-16">
+          <div className="container mx-auto px-4 text-center">
+            <Button
+              href={siteConfig.paypalUrl}
+              variant="white"
+              size="lg"
+              icon={<HeartIcon className="w-5 h-5" />}
+              className="shadow-xl shadow-black/20"
+            >
+              Donate via PayPal
+            </Button>
+          </div>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+      </section>
 
-      {/* Impact Section with cross background */}
+      {/* Impact Section */}
       <Section variant="cross-light" padding="xl" watermark="none">
         <FadeIn>
-          {/* Cross icon */}
           <div className="flex justify-center mb-4">
             <CrossIcon className="w-6 h-6 text-brand-primary/50" strokeWidth={1.5} />
           </div>
@@ -73,16 +73,16 @@ export default function DonatePage() {
         </StaggerContainer>
       </Section>
 
-      {/* Ways to Give Section with KingGen branded background */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
-        {/* KingGen branded background */}
-        <OptimizedBackground
-          src="/bg-green-alternate.png"
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/90 via-brand-secondary/85 to-brand-primary/92" />
-
-        {/* Cross art accents */}
+      {/* Ways to Give Section */}
+      <section
+        className="relative py-20 md:py-32 overflow-hidden"
+        style={{
+          backgroundImage: "url('/brand/bg/dark-green-texture.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* Art accents */}
         <OptimizedBackground
           src="/Untitled-6.png"
           className="absolute left-0 bottom-0 w-48 h-48 md:w-64 md:h-64 bg-no-repeat pointer-events-none"
@@ -114,62 +114,59 @@ export default function DonatePage() {
         />
 
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
-        <FadeIn>
-          {/* Cross icon above heading */}
-          <div className="flex justify-center mb-4">
-            <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-8 md:mb-12 text-center">
-            Ways to give
-          </h2>
-        </FadeIn>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
-          {/* Online Giving Card */}
-          <FadeIn delay={0.1}>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20 h-full flex flex-col">
-              <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
-                Online
-              </h3>
-              <p className="text-white/80 mb-6 flex-grow">
-                Give securely through PayPal. One-time or recurring gifts welcome.
-              </p>
-              <Button
-                href={siteConfig.paypalUrl}
-                variant="white"
-                size="lg"
-                fullWidth
-                icon={<HeartIcon className="w-5 h-5" />}
-              >
-                Donate via PayPal
-              </Button>
+          <FadeIn>
+            <div className="flex justify-center mb-4">
+              <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
             </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-8 md:mb-12 text-center">
+              Ways to give
+            </h2>
           </FadeIn>
 
-          {/* Mail a Check Card */}
-          <FadeIn delay={0.2}>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20 h-full">
-              <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
-                By Mail
-              </h3>
-              <p className="text-white/80 mb-4">
-                Make checks payable to:
-              </p>
-              <div className="bg-white/10 rounded-xl p-4 mb-4">
-                <p className="text-white font-semibold">KingGen Ministries</p>
-                <address className="text-white/80 not-italic text-sm leading-relaxed mt-2">
-                  {siteConfig.address.line2}<br />
-                  {siteConfig.address.line3}<br />
-                  {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
-                </address>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+            <FadeIn delay={0.1}>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20 h-full flex flex-col">
+                <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
+                  Online
+                </h3>
+                <p className="text-white/80 mb-6 flex-grow">
+                  Give securely through PayPal. One-time or recurring gifts welcome.
+                </p>
+                <Button
+                  href={siteConfig.paypalUrl}
+                  variant="white"
+                  size="lg"
+                  fullWidth
+                  icon={<HeartIcon className="w-5 h-5" />}
+                >
+                  Donate via PayPal
+                </Button>
               </div>
-            </div>
-          </FadeIn>
-        </div>
+            </FadeIn>
+
+            <FadeIn delay={0.2}>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20 h-full">
+                <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
+                  By Mail
+                </h3>
+                <p className="text-white/80 mb-4">
+                  Make checks payable to:
+                </p>
+                <div className="bg-white/10 rounded-xl p-4 mb-4">
+                  <p className="text-white font-semibold">KingGen Ministries</p>
+                  <address className="text-white/80 not-italic text-sm leading-relaxed mt-2">
+                    {siteConfig.address.line2}<br />
+                    {siteConfig.address.line3}<br />
+                    {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
+                  </address>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
-      {/* Tax Deductible Info with cross */}
+      {/* Tax Deductible Info */}
       <Section variant="art-cream" padding="lg" watermark="cross-subtle">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
@@ -196,15 +193,15 @@ export default function DonatePage() {
         </FadeIn>
       </Section>
 
-      {/* Final CTA with KingGen background */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
-        {/* KingGen background */}
-        <OptimizedBackground
-          src="/bg_green_texture_1920x1080.png"
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/88 to-brand-secondary/90" />
-
+      {/* Final CTA */}
+      <section
+        className="relative py-16 md:py-24 overflow-hidden"
+        style={{
+          backgroundImage: "url('/brand/bg/dark-green-texture.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         {/* Art accent */}
         <OptimizedBackground
           src="/Untitled-1.png"
@@ -230,7 +227,6 @@ export default function DonatePage() {
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <FadeIn>
             <div className="max-w-2xl mx-auto text-center">
-              {/* Cross icon */}
               <div className="flex justify-center mb-4">
                 <CrossIcon className="w-8 h-8 text-white/50" strokeWidth={1.5} />
               </div>

@@ -11,7 +11,6 @@ import {
   FadeIn,
   StaggerContainer,
   StaggerItem,
-  PageHero,
   OptimizedBackground,
 } from "../components";
 
@@ -47,14 +46,12 @@ export default function ForReferrers() {
 
   return (
     <>
-      {/* Hero Section with cross-branded background */}
-      <PageHero
-        title="For Referrers"
-        description="Thank you for caring for women well. If you're supporting someone who needs counseling and cost is a barrier, we're grateful you're here. KingGen Ministries aims to be a trustworthy, compassionate referral partner."
-        background="cross-branded"
-        showStones={true}
-        stonesPosition="both"
-        showCross={true}
+      {/* Hero Section with inner-page header */}
+      <section
+        className="relative w-full min-h-[40vh] md:min-h-[50vh] bg-cover bg-center animate-fade-in-up"
+        style={{ backgroundImage: "url('/brand/headers/inner-header.png')" }}
+        role="banner"
+        aria-label="For Referrers"
       />
 
       {/* Who Can Refer with cross background */}
@@ -109,13 +106,7 @@ export default function ForReferrers() {
       </Section>
 
       {/* What to Expect - KingGen branded background */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
-        {/* KingGen branded background */}
-        <OptimizedBackground
-          src="/bg-green-alternate.png"
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/90 via-brand-secondary/85 to-brand-primary/92" />
+      <section className="relative py-16 md:py-24 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
 
         {/* Cross art accents */}
         <OptimizedBackground
@@ -235,13 +226,7 @@ export default function ForReferrers() {
       </Section>
 
       {/* Partner CTA - KingGen branded background */}
-      <section className="relative py-16 md:py-20 overflow-hidden">
-        {/* KingGen background */}
-        <OptimizedBackground
-          src="/bg_green_texture_1920x1080.png"
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/88 to-brand-secondary/90" />
+      <section className="relative py-16 md:py-20 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
 
         {/* Art accents */}
         <OptimizedBackground

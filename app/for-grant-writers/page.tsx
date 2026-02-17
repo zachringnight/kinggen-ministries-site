@@ -11,7 +11,6 @@ import {
   FadeIn,
   StaggerContainer,
   StaggerItem,
-  PageHero,
 } from "../components";
 
 export default function ForGrantWriters() {
@@ -41,13 +40,12 @@ export default function ForGrantWriters() {
 
   return (
     <>
-      {/* Hero Section with KingGen branded background */}
-      <PageHero
-        title="For Grant Writers & Foundations"
-        description="Thank you for considering KingGen Ministries. This page provides organizational information to support grant applications and funding inquiries."
-        background="kinggen-branded"
-        showStones={true}
-        stonesPosition="both"
+      {/* Hero Section with inner-page header */}
+      <section
+        className="relative w-full min-h-[40vh] md:min-h-[50vh] bg-cover bg-center animate-fade-in-up"
+        style={{ backgroundImage: "url('/brand/headers/inner-header.png')" }}
+        role="banner"
+        aria-label="For Grant Writers & Foundations"
       />
 
       {/* Organization Overview with art */}

@@ -23,10 +23,10 @@ export const siteConfig = {
 
 export const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
   { href: "/for-referrers", label: "For Referrers" },
   { href: "/for-grant-writers", label: "For Grant Writers" },
-  { href: "/donate", label: "Donate" },
-  { href: "/about", label: "About" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/contact", label: "Contact" },
 ];

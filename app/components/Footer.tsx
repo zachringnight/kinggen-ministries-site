@@ -1,15 +1,15 @@
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "../config/site";
 import { PhoneIcon, MailIcon, InstagramIcon, FacebookIcon, HeartIcon } from "./Icons";
-import { LogoIcon } from "./Logo";
 import Button from "./Button";
-import OptimizedBackground from "./OptimizedBackground";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const mainLinks = [
     { href: "/about", label: "About" },
+    { href: "/services", label: "Services" },
     { href: "/for-referrers", label: "For Referrers" },
     { href: "/for-grant-writers", label: "For Grant Writers" },
     { href: "/donate", label: "Donate" },
@@ -24,25 +24,26 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden">
-      {/* Main Footer with Green Texture Background */}
-      <div className="relative">
-        <OptimizedBackground
-          src="/bg-green.jpg"
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        />
-
+      <div
+        className="relative"
+        style={{
+          backgroundImage: "url('/brand/bg/dark-green-texture.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <div className="relative z-10 container mx-auto px-4 lg:px-8 py-10 md:py-12">
           {/* Top Row: Brand + Nav Links */}
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-8">
-            {/* Brand */}
+            {/* Brand — icon-only logo */}
             <div className="flex items-center gap-3">
               <Link href="/" className="flex items-center gap-3">
-                <LogoIcon className="w-10 h-10" />
+                <Image src="/brand/logo/icon-light-gray.png" alt="KingGen Ministries" width={40} height={40} className="rounded-lg" />
                 <span className="text-white font-heading font-bold text-xl">KingGen Ministries</span>
               </Link>
             </div>
 
-            {/* Navigation - horizontal */}
+            {/* Navigation */}
             <nav className="flex flex-wrap gap-x-6 gap-y-2">
               {mainLinks.map((item) => (
                 <Link
@@ -58,7 +59,6 @@ export default function Footer() {
 
           {/* Middle Row: Contact + Social + Donate */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pb-8 border-b border-white/10">
-            {/* Contact Info - horizontal */}
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/80">
               <a
                 href={`mailto:${siteConfig.email}`}
@@ -76,7 +76,6 @@ export default function Footer() {
               </a>
             </div>
 
-            {/* Social + Donate */}
             <div className="flex items-center gap-4">
               <div className="flex gap-2">
                 <a
@@ -113,7 +112,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-6 text-xs text-white/60">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
               <p>&copy; {currentYear} {siteConfig.name}</p>
-              <span className="hidden sm:inline text-white/30">·</span>
+              <span className="hidden sm:inline text-white/30">&middot;</span>
               <p>501(c)(3) EIN: {siteConfig.ein}</p>
             </div>
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1">

@@ -12,7 +12,6 @@ import {
   StaggerContainer,
   StaggerItem,
   TiltCard,
-  PageHero,
   OptimizedBackground,
 } from "../components";
 
@@ -37,13 +36,12 @@ export default function TestimonialsPage() {
 
   return (
     <>
-      {/* Hero Section with KingGen branded background */}
-      <PageHero
-        title="Testimonials"
-        description="These words reflect the experiences of those we've served. To protect privacy, we share first names and roles only."
-        background="kinggen-branded"
-        showStones={true}
-        stonesPosition="both"
+      {/* Hero Section with inner-page header */}
+      <section
+        className="relative w-full min-h-[40vh] md:min-h-[50vh] bg-cover bg-center animate-fade-in-up"
+        style={{ backgroundImage: "url('/brand/headers/inner-header.png')" }}
+        role="banner"
+        aria-label="Testimonials"
       />
 
       {/* Testimonials Section with art background */}
@@ -79,13 +77,7 @@ export default function TestimonialsPage() {
       </Section>
 
       {/* Scripture & Hope Section - Featuring Social Images */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
-        {/* KingGen branded background */}
-        <OptimizedBackground
-          src="/bg_green_texture_1920x1080.png"
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/90 via-brand-secondary/85 to-brand-primary/92" />
+      <section className="relative py-16 md:py-24 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
 
         {/* Cross watermark */}
         <OptimizedBackground
