@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: "/social-hero.png",
+        url: "/brand/social-hero.png",
         width: 1080,
         height: 1080,
         alt: "KingGen Ministries",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    images: ["/social-hero.png"],
+    images: ["/brand/social-hero.png"],
   },
   robots: {
     index: true,
