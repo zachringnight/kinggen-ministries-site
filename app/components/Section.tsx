@@ -42,6 +42,22 @@ const paddingStyles: Record<string, string> = {
   xl: "py-20 md:py-32",
 };
 
+const lightTextureOpacity: Partial<Record<SectionVariant, number>> = {
+  default: 0.18,
+  light: 0.14,
+  soft: 0.12,
+  "art-cream": 0.36,
+  "cross-light": 0.32,
+};
+
+const darkTextureOpacity: Partial<Record<SectionVariant, number>> = {
+  primary: 0.32,
+  dark: 0.36,
+  "art-green": 0.38,
+  "kinggen-branded": 0.42,
+  "cross-green": 0.34,
+};
+
 export default function Section({
   children,
   variant = "default",
@@ -73,6 +89,31 @@ export default function Section({
       id={id}
       className={`${variantStyles[variant]} ${paddingStyles[padding]} ${className} relative overflow-hidden`}
     >
+      {/* Branded texture base layers to keep visual identity cohesive */}
+      {isLightSection && (
+        <OptimizedBackground
+          src="/brand/bg/off-white-texture.webp"
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            opacity: lightTextureOpacity[variant] ?? 0.16,
+          }}
+        />
+      )}
+
+      {isGreenSection && (
+        <OptimizedBackground
+          src="/brand/bg/dark-green-texture.webp"
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            opacity: darkTextureOpacity[variant] ?? 0.34,
+          }}
+        />
+      )}
+
       {/* Stacked stones watermark for cream/light sections - signature branding */}
       {showStonesWatermark && (
         <OptimizedBackground
@@ -130,38 +171,12 @@ export default function Section({
       {/* KingGen branded full background */}
       {showKinggenBg && (
         <OptimizedBackground
-          src="/bg-green-alternate.png"
+          src="/brand/bg/dark-green-texture.webp"
           className="absolute inset-0 bg-no-repeat pointer-events-none"
           style={{
             backgroundPosition: "center",
             backgroundSize: "cover",
-            opacity: 0.15,
-          }}
-        />
-      )}
-
-      {/* KingGen branded background for art-cream variant */}
-      {variant === "art-cream" && (
-        <OptimizedBackground
-          src="/bg-green-alternate.png"
-          className="absolute inset-0 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-            opacity: 0.06,
-          }}
-        />
-      )}
-
-      {/* KingGen branded background for kinggen-branded and art-green variants */}
-      {(variant === "art-green" || variant === "kinggen-branded") && (
-        <OptimizedBackground
-          src="/bg-green-alternate.png"
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-            opacity: 0.35,
+            opacity: 0.24,
           }}
         />
       )}
@@ -180,26 +195,15 @@ export default function Section({
       )}
 
       {variant === "cross-green" && (
-        <>
-          <OptimizedBackground
-            src="/bg-green-alternate.png"
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-              opacity: 0.25,
-            }}
-          />
-          <OptimizedBackground
-            src="/bg_white_cross.png"
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backgroundPosition: "center",
-              backgroundSize: "350px auto",
-              opacity: 0.12,
-            }}
-          />
-        </>
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundPosition: "center",
+            backgroundSize: "350px auto",
+            opacity: 0.12,
+          }}
+        />
       )}
 
       {/* Cross watermark - centered */}

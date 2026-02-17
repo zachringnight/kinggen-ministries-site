@@ -25,20 +25,21 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden">
       <div
-        className="relative"
+        className="relative brand-surface-dark"
         style={{
-          backgroundImage: "url('/brand/bg/dark-green-texture.png')",
+          backgroundImage: "url('/brand/bg/dark-green-texture.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent z-10" />
         <div className="relative z-10 container mx-auto px-4 lg:px-8 py-10 md:py-12">
           {/* Top Row: Brand + Nav Links */}
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-8">
             {/* Brand — icon-only logo */}
             <div className="flex items-center gap-3">
               <Link href="/" className="flex items-center gap-3">
-                <Image src="/brand/logo/icon-light-gray.png" alt="KingGen Ministries" width={40} height={40} className="rounded-lg" />
+                <Image src="/brand/logo/icon-light-gray.webp" alt="KingGen Ministries" width={40} height={40} className="rounded-lg" />
                 <span className="text-white font-heading font-bold text-xl">KingGen Ministries</span>
               </Link>
             </div>

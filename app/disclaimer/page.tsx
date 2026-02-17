@@ -1,10 +1,15 @@
-"use client";
-
+import type { Metadata } from "next";
 import {
   Section,
   FadeIn,
   PageHero,
 } from "../components";
+
+export const metadata: Metadata = {
+  title: "Disclaimer",
+  description:
+    "Important emergency and informational disclaimers for KingGen Ministries website visitors.",
+};
 
 export default function DisclaimerPage() {
   return (

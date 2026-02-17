@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import {
   Section,
   Button,
@@ -12,7 +11,15 @@ import {
   FadeIn,
   StaggerContainer,
   StaggerItem,
+  OptimizedBackground,
+  InnerPageHero,
 } from "../components";
+
+export const metadata: Metadata = {
+  title: "Forms and Resources",
+  description:
+    "Download KingGen Ministries resources, including Scripture encouragement, prayer guides, and practical healing prompts.",
+};
 
 export default function ResourcesPage() {
   const resources = [
@@ -44,12 +51,11 @@ export default function ResourcesPage() {
 
   return (
     <>
-      {/* Hero Section with inner-page header */}
-      <section
-        className="relative w-full min-h-[40vh] md:min-h-[50vh] bg-cover bg-center animate-fade-in-up"
-        style={{ backgroundImage: "url('/brand/headers/inner-header.png')" }}
-        role="banner"
-        aria-label="Resources"
+      <InnerPageHero
+        title="Forms and Resources"
+        subtitle="Practical downloads and encouragement for this season."
+        background="inner"
+        ariaLabel="Forms and Resources"
       />
 
       {/* Opening Section with art */}
@@ -64,27 +70,51 @@ export default function ResourcesPage() {
       </Section>
 
       {/* Downloads Section with art */}
-      <Section variant="art-cream" padding="xl" watermark="stones-left">
+      <section
+        className="relative brand-surface-dark py-20 md:py-24 overflow-hidden"
+        style={{
+          backgroundImage: "url('/brand/bg/dark-green-texture.webp')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <OptimizedBackground
+          src="/bg_white_cross.png"
+          className="absolute inset-0 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "center",
+            backgroundSize: "170px auto",
+            opacity: 0.08,
+          }}
+        />
+        <div className="container mx-auto px-4 lg:px-8 max-w-4xl relative z-10">
         <FadeIn>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-3 text-center">
             Free Downloads
           </h2>
+          <p className="text-center text-white/85 mb-8">
+            Download and share these printable PDF guides.
+          </p>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.1} className="max-w-2xl mx-auto space-y-4">
+        <StaggerContainer staggerDelay={0.1} className="space-y-4">
           {resources.map((resource, i) => (
             <StaggerItem key={i}>
               <a
                 href={`/resources/${resource.filename}`}
-                className="flex items-center justify-between p-5 bg-white rounded-xl shadow-sm border border-brand-light hover:shadow-md hover:border-brand-primary/20 transition-all group"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-5 bg-white/95 backdrop-blur-sm rounded-xl shadow-sm border border-white/50 hover:shadow-md hover:border-white/90 transition-all group"
               >
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-brand-light text-brand-primary flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-colors">
                     <resource.icon className="w-6 h-6" />
                   </div>
                   <div>
-                    <p className="font-medium text-text-primary">{resource.name}</p>
+                    <p className="font-semibold text-text-primary">{resource.name}</p>
                     <p className="text-sm text-text-muted">{resource.description}</p>
+                    <p className="text-xs text-brand-primary mt-1">PDF Download</p>
                   </div>
                 </div>
                 <DownloadIcon className="w-5 h-5 text-text-muted group-hover:text-brand-primary transition-colors flex-shrink-0" />
@@ -94,16 +124,17 @@ export default function ResourcesPage() {
         </StaggerContainer>
 
         <FadeIn delay={0.3}>
-          <div className="max-w-2xl mx-auto mt-8 p-6 bg-brand-soft rounded-2xl text-center">
-            <p className="text-text-secondary">
+          <div className="mt-8 p-6 bg-white/10 border border-white/20 backdrop-blur-sm rounded-2xl text-center">
+            <p className="text-white/90">
               More resources coming soon. If there&apos;s something specific that would help you, let us know.
             </p>
           </div>
         </FadeIn>
-      </Section>
+        </div>
+      </section>
 
       {/* Contact CTA with art */}
-      <Section variant="art-cream" padding="lg" watermark="stones">
+      <Section variant="cross-light" padding="lg" watermark="none">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold font-heading text-text-primary mb-4">

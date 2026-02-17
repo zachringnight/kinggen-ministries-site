@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import {
   Section,
   Button,
@@ -12,7 +11,14 @@ import {
   StaggerContainer,
   StaggerItem,
   OptimizedBackground,
+  InnerPageHero,
 } from "../components";
+
+export const metadata: Metadata = {
+  title: "For Referrers",
+  description:
+    "Information for pastors, counselors, and partners who want to refer women to KingGen Ministries for Gospel-centered counseling support.",
+};
 
 export default function ForReferrers() {
   const whoCanRefer = [
@@ -46,12 +52,11 @@ export default function ForReferrers() {
 
   return (
     <>
-      {/* Hero Section with inner-page header */}
-      <section
-        className="relative w-full min-h-[40vh] md:min-h-[50vh] bg-cover bg-center animate-fade-in-up"
-        style={{ backgroundImage: "url('/brand/headers/inner-header.png')" }}
-        role="banner"
-        aria-label="For Referrers"
+      <InnerPageHero
+        title="For Referrers"
+        subtitle="A clear and compassionate referral pathway for women who need support."
+        background="inner"
+        ariaLabel="For Referrers"
       />
 
       {/* Who Can Refer with cross background */}
@@ -106,7 +111,7 @@ export default function ForReferrers() {
       </Section>
 
       {/* What to Expect - KingGen branded background */}
-      <section className="relative py-16 md:py-24 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="relative brand-surface-dark py-16 md:py-24 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
 
         {/* Cross art accents */}
         <OptimizedBackground
@@ -173,10 +178,10 @@ export default function ForReferrers() {
 
             <div className="bg-brand-light rounded-2xl p-6 md:p-8 mb-8">
               <p className="text-base sm:text-lg text-text-primary mb-4">
-                <strong>Preferred:</strong> Encourage her to reach out directly. This helps her remain in control of her story and timing.
+                <strong>A helpful approach:</strong> Submit the referral on her behalf with her awareness and consent.
               </p>
               <p className="text-text-secondary">
-                If needed, you may also contact us to initiate a referral on her behalf.
+                This helps us keep intake clear, confidential, and coordinated through trusted referral relationships.
               </p>
             </div>
 
@@ -200,7 +205,7 @@ export default function ForReferrers() {
         <FadeIn delay={0.4}>
           <div className="text-center mt-10">
             <Button href="/contact" variant="primary" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-              Contact to Refer
+              Start a Referral
             </Button>
           </div>
         </FadeIn>
@@ -226,7 +231,7 @@ export default function ForReferrers() {
       </Section>
 
       {/* Partner CTA - KingGen branded background */}
-      <section className="relative py-16 md:py-20 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="relative brand-surface-dark py-16 md:py-20 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
 
         {/* Art accents */}
         <OptimizedBackground

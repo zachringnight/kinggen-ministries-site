@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import Image from "next/image";
 import {
   Section,
@@ -13,7 +12,14 @@ import {
   StaggerItem,
   TiltCard,
   OptimizedBackground,
+  InnerPageHero,
 } from "../components";
+
+export const metadata: Metadata = {
+  title: "Testimonials",
+  description:
+    "Read stories and reflections from partners and clients about the care and support offered through KingGen Ministries.",
+};
 
 export default function TestimonialsPage() {
   const testimonials = [
@@ -36,12 +42,11 @@ export default function TestimonialsPage() {
 
   return (
     <>
-      {/* Hero Section with inner-page header */}
-      <section
-        className="relative w-full min-h-[40vh] md:min-h-[50vh] bg-cover bg-center animate-fade-in-up"
-        style={{ backgroundImage: "url('/brand/headers/inner-header.png')" }}
-        role="banner"
-        aria-label="Testimonials"
+      <InnerPageHero
+        title="Testimonials"
+        subtitle="Stories of hope, trust, and Gospel-centered care."
+        background="inner"
+        ariaLabel="Testimonials"
       />
 
       {/* Testimonials Section with art background */}
@@ -77,7 +82,7 @@ export default function TestimonialsPage() {
       </Section>
 
       {/* Scripture & Hope Section - Featuring Social Images */}
-      <section className="relative py-16 md:py-24 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="relative brand-surface-dark py-16 md:py-24 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
 
         {/* Cross watermark */}
         <OptimizedBackground

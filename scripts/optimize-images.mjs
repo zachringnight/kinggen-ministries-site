@@ -5,10 +5,13 @@
  */
 
 import sharp from 'sharp';
-import { readdir, stat, mkdir } from 'fs/promises';
+import { stat, mkdir } from 'fs/promises';
 import { join, parse } from 'path';
 
-const PUBLIC_DIR = './public';
+const SOURCE_DIRS = [
+  './assets/brand-source/original-png/root',
+  './public',
+];
 const OPTIMIZED_DIR = './public/optimized';
 
 // Images to optimize with their target settings
@@ -17,6 +20,7 @@ const imagesToOptimize = [
   { name: 'KingGen Background (1).png', maxWidth: 1920, quality: 80 },
   { name: 'bg_green_texture_1920x1080.png', maxWidth: 1920, quality: 75 },
   { name: 'bg-green-alternate.png', maxWidth: 1920, quality: 75 },
+  { name: 'bg-light-stones.png', maxWidth: 1920, quality: 78 },
   { name: 'logo_stack_cropped.png', maxWidth: 600, quality: 80 },
   { name: 'Untitled design.png', maxWidth: 600, quality: 80 },
   { name: 'Untitled-2.png', maxWidth: 800, quality: 80 },
@@ -71,6 +75,20 @@ async function optimizeImage(inputPath, outputBasePath, maxWidth, quality) {
   }
 }
 
+async function resolveSourcePath(imageName) {
+  for (const sourceDir of SOURCE_DIRS) {
+    const candidatePath = join(sourceDir, imageName);
+    try {
+      await stat(candidatePath);
+      return candidatePath;
+    } catch {
+      // Try next source directory
+    }
+  }
+
+  throw new Error(`Source image not found: ${imageName}`);
+}
+
 async function main() {
   console.log('🖼️  KingGen Image Optimization\n');
 
@@ -84,7 +102,15 @@ async function main() {
   let totalPng = 0;
 
   for (const img of imagesToOptimize) {
-    const inputPath = join(PUBLIC_DIR, img.name);
+    let inputPath;
+
+    try {
+      inputPath = await resolveSourcePath(img.name);
+    } catch (error) {
+      console.error(`✗ Skipping ${img.name}: ${error.message}`);
+      continue;
+    }
+
     const result = await optimizeImage(inputPath, OPTIMIZED_DIR, img.maxWidth, img.quality);
 
     if (result.success) {
@@ -96,8 +122,12 @@ async function main() {
 
   console.log('\n📊 Summary:');
   console.log(`  Original total: ${(totalOriginal / 1024 / 1024).toFixed(2)}MB`);
-  console.log(`  WebP total: ${(totalWebp / 1024 / 1024).toFixed(2)}MB (${((1 - totalWebp / totalOriginal) * 100).toFixed(0)}% smaller)`);
-  console.log(`  PNG total: ${(totalPng / 1024 / 1024).toFixed(2)}MB (${((1 - totalPng / totalOriginal) * 100).toFixed(0)}% smaller)`);
+  if (totalOriginal > 0) {
+    console.log(`  WebP total: ${(totalWebp / 1024 / 1024).toFixed(2)}MB (${((1 - totalWebp / totalOriginal) * 100).toFixed(0)}% smaller)`);
+    console.log(`  PNG total: ${(totalPng / 1024 / 1024).toFixed(2)}MB (${((1 - totalPng / totalOriginal) * 100).toFixed(0)}% smaller)`);
+  } else {
+    console.log('  No images were optimized.');
+  }
 }
 
 main().catch(console.error);

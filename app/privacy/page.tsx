@@ -1,10 +1,15 @@
-"use client";
-
+import type { Metadata } from "next";
 import {
   Section,
   FadeIn,
   PageHero,
 } from "../components";
+
+export const metadata: Metadata = {
+  title: "Privacy",
+  description:
+    "Read how KingGen Ministries handles privacy, confidentiality, and safety-related information.",
+};
 
 export default function PrivacyPage() {
   return (

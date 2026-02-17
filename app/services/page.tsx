@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import {
   Section,
   SectionHeader,
@@ -13,7 +12,14 @@ import {
   ShieldIcon,
   UsersIcon,
   CheckCircleIcon,
+  InnerPageHero,
 } from "../components";
+
+export const metadata: Metadata = {
+  title: "Services",
+  description:
+    "Explore KingGen Ministries counseling services, including Gospel-centered support for anxiety, grief, trauma, relationships, and spiritual growth.",
+};
 
 const services = [
   {
@@ -57,12 +63,11 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
-      {/* Header Banner */}
-      <section
-        className="relative w-full min-h-[40vh] md:min-h-[50vh] bg-cover bg-center animate-fade-in-up"
-        style={{ backgroundImage: "url('/brand/headers/inner-header.png')" }}
-        role="banner"
-        aria-label="Our Services"
+      <InnerPageHero
+        title="Our Services"
+        subtitle="Compassionate, Gospel-centered counseling at no cost to clients."
+        background="inner"
+        ariaLabel="Our Services"
       />
 
       {/* Services List */}
@@ -73,14 +78,14 @@ export default function ServicesPage() {
         return isEven ? (
           <section
             key={service.title}
-            className="py-16 md:py-24"
+            className="relative brand-surface-cream py-16 md:py-24"
             style={{
-              backgroundImage: "url('/brand/bg/off-white-texture.png')",
+              backgroundImage: "url('/brand/bg/off-white-texture.webp')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           >
-            <div className="container mx-auto px-4 sm:px-6">
+            <div className="relative z-10 container mx-auto px-4 sm:px-6">
               <FadeIn>
                 <div className="max-w-3xl mx-auto text-center">
                   <div className="flex justify-center mb-6">
@@ -101,9 +106,14 @@ export default function ServicesPage() {
         ) : (
           <section
             key={service.title}
-            className="py-16 md:py-24 bg-white"
+            className="relative brand-surface-cream py-16 md:py-24"
+            style={{
+              backgroundImage: "url('/brand/bg/off-white-texture.webp')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
           >
-            <div className="container mx-auto px-4 sm:px-6">
+            <div className="relative z-10 container mx-auto px-4 sm:px-6">
               <FadeIn>
                 <div className="max-w-3xl mx-auto text-center">
                   <div className="flex justify-center mb-6">
@@ -126,9 +136,9 @@ export default function ServicesPage() {
 
       {/* Contact CTA */}
       <section
-        className="relative py-16 md:py-24 overflow-hidden"
+        className="relative brand-surface-dark py-16 md:py-24 overflow-hidden"
         style={{
-          backgroundImage: "url('/brand/bg/dark-green-texture.png')",
+          backgroundImage: "url('/brand/bg/dark-green-texture.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -140,7 +150,7 @@ export default function ServicesPage() {
                 Ready to take the next step?
               </h2>
               <p className="text-base sm:text-lg text-white/90 mb-8">
-                Reach out to learn more or to begin the referral process. All services are offered at no cost.
+                Connect with us to discuss a referral or partnership path. All services are offered at no cost to clients.
               </p>
               <Button
                 href="/contact"
@@ -149,7 +159,7 @@ export default function ServicesPage() {
                 icon={<ArrowRightIcon className="w-5 h-5" />}
                 iconPosition="right"
               >
-                Contact Us
+                Start a Referral Conversation
               </Button>
             </div>
           </FadeIn>

@@ -1,5 +1,6 @@
 export const siteConfig = {
   name: "KingGen Ministries",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://kinggenministries.org",
   tagline: "Gospel-centered counseling for women in need.",
   description: "A 501(c)(3) nonprofit providing free clinical pastoral counseling for women. Partner with us through referrals, donations, or grants.",
   phone: "(817) 682-4341",
@@ -14,7 +15,7 @@ export const siteConfig = {
   },
   ein: "33-3032264",
   paypalUrl: "https://www.paypal.com/ncp/payment/7BTC79TNBLL8E",
-  formspreeEndpoint: "https://formspree.io/f/your-form-id", // Update with actual form ID
+  formspreeEndpoint: process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "https://formspree.io/f/your-form-id",
   social: {
     instagram: "https://www.instagram.com/kinggenministries/",
     facebook: "https://www.facebook.com/profile.php?id=61573569056063",

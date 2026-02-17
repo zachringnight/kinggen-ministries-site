@@ -1,5 +1,3 @@
-"use client";
-
 import { siteConfig } from "../config/site";
 import {
   Section,
@@ -12,6 +10,7 @@ import {
   StaggerContainer,
   StaggerItem,
   OptimizedBackground,
+  InnerPageHero,
 } from "../components";
 
 export default function DonatePage() {
@@ -24,28 +23,22 @@ export default function DonatePage() {
 
   return (
     <>
-      {/* Hero — inner-header banner, text baked in + donate CTA */}
-      <section
-        className="relative w-full min-h-[40vh] md:min-h-[50vh] bg-cover bg-center animate-fade-in-up flex items-end"
-        style={{ backgroundImage: "url('/brand/headers/inner-header.png')" }}
-        role="banner"
-        aria-label="Help Keep Counseling Free"
+      <InnerPageHero
+        title="Help Keep Counseling Free"
+        subtitle="Every gift helps remove cost barriers for women who need care."
+        background="inner"
+        ariaLabel="Help Keep Counseling Free"
       >
-        <div className="relative z-10 w-full pb-8 pt-16">
-          <div className="container mx-auto px-4 text-center">
-            <Button
-              href={siteConfig.paypalUrl}
-              variant="white"
-              size="lg"
-              icon={<HeartIcon className="w-5 h-5" />}
-              className="shadow-xl shadow-black/20"
-            >
-              Donate via PayPal
-            </Button>
-          </div>
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-      </section>
+        <Button
+          href={siteConfig.paypalUrl}
+          variant="white"
+          size="lg"
+          icon={<HeartIcon className="w-5 h-5" />}
+          className="shadow-xl shadow-black/20"
+        >
+          Donate via PayPal
+        </Button>
+      </InnerPageHero>
 
       {/* Impact Section */}
       <Section variant="cross-light" padding="xl" watermark="none">
@@ -75,9 +68,9 @@ export default function DonatePage() {
 
       {/* Ways to Give Section */}
       <section
-        className="relative py-20 md:py-32 overflow-hidden"
+        className="relative brand-surface-dark py-20 md:py-32 overflow-hidden"
         style={{
-          backgroundImage: "url('/brand/bg/dark-green-texture.png')",
+          backgroundImage: "url('/brand/bg/dark-green-texture.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -195,9 +188,9 @@ export default function DonatePage() {
 
       {/* Final CTA */}
       <section
-        className="relative py-16 md:py-24 overflow-hidden"
+        className="relative brand-surface-dark py-16 md:py-24 overflow-hidden"
         style={{
-          backgroundImage: "url('/brand/bg/dark-green-texture.png')",
+          backgroundImage: "url('/brand/bg/dark-green-texture.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

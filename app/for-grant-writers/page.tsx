@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import { siteConfig } from "../config/site";
 import {
   Section,
@@ -11,7 +10,14 @@ import {
   FadeIn,
   StaggerContainer,
   StaggerItem,
+  InnerPageHero,
 } from "../components";
+
+export const metadata: Metadata = {
+  title: "For Grant Writers",
+  description:
+    "Organizational information, funding priorities, and partnership context for grant writers and foundations supporting KingGen Ministries.",
+};
 
 export default function ForGrantWriters() {
   const organizationFacts = [
@@ -40,12 +46,11 @@ export default function ForGrantWriters() {
 
   return (
     <>
-      {/* Hero Section with inner-page header */}
-      <section
-        className="relative w-full min-h-[40vh] md:min-h-[50vh] bg-cover bg-center animate-fade-in-up"
-        style={{ backgroundImage: "url('/brand/headers/inner-header.png')" }}
-        role="banner"
-        aria-label="For Grant Writers & Foundations"
+      <InnerPageHero
+        title="For Grant Writers and Foundations"
+        subtitle="Organizational details and mission context to support partnership opportunities."
+        background="inner"
+        ariaLabel="For Grant Writers and Foundations"
       />
 
       {/* Organization Overview with art */}

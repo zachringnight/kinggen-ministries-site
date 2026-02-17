@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Section,
   Button,
@@ -10,6 +8,7 @@ import {
   StaggerContainer,
   StaggerItem,
   OptimizedBackground,
+  InnerPageHero,
 } from "../components";
 
 export default function AboutPage() {
@@ -22,12 +21,11 @@ export default function AboutPage() {
 
   return (
     <>
-      {/* Hero — about-header banner, text baked in */}
-      <section
-        className="relative w-full min-h-[40vh] md:min-h-[50vh] bg-cover bg-center animate-fade-in-up"
-        style={{ backgroundImage: "url('/brand/headers/about-header.png')" }}
-        role="banner"
-        aria-label="About KingGen Ministries"
+      <InnerPageHero
+        title="About KingGen Ministries"
+        subtitle="A Gospel-centered counseling ministry serving women in need."
+        background="about"
+        ariaLabel="About KingGen Ministries"
       />
 
       {/* Mission Section */}
@@ -41,7 +39,7 @@ export default function AboutPage() {
               Mission
             </h2>
             <p className="text-lg text-text-secondary leading-relaxed">
-              As a <strong>501(c)(3)</strong>, KingGen Ministries provides counseling at no cost. Donations allow us to continue offering care and expanding access for women in need.
+              At KingGen Ministries, we believe everyone should have access to counseling.  As a 501(C)3 we offer Gospel-Centered counseling for women in need by a licensed clincial pastoral counselor.
             </p>
           </div>
         </FadeIn>
@@ -49,9 +47,9 @@ export default function AboutPage() {
 
       {/* Heart and Approach Section */}
       <section
-        className="relative py-16 md:py-24 overflow-hidden"
+        className="relative brand-surface-dark py-16 md:py-24 overflow-hidden"
         style={{
-          backgroundImage: "url('/brand/bg/dark-green-texture.png')",
+          backgroundImage: "url('/brand/bg/dark-green-texture.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -138,9 +136,9 @@ export default function AboutPage() {
       {/* Speaking & Interview Requests */}
       <section
         id="speaking"
-        className="relative py-16 md:py-24 overflow-hidden"
+        className="relative brand-surface-dark py-16 md:py-24 overflow-hidden"
         style={{
-          backgroundImage: "url('/brand/bg/dark-green-texture.png')",
+          backgroundImage: "url('/brand/bg/dark-green-texture.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

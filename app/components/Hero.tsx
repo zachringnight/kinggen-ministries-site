@@ -150,15 +150,15 @@ interface PageHeroProps {
 
 const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay: string; hasCross?: boolean }> = {
   "kinggen-branded": {
-    primary: "/bg-green-alternate.png",
+    primary: "/brand/bg/dark-green-texture.webp",
     overlay: "bg-gradient-to-br from-brand-primary/70 via-brand-secondary/65 to-brand-primary/75",
   },
   "green-texture": {
-    primary: "/bg_green_texture_1920x1080.png",
+    primary: "/optimized/bg_green_texture_1920x1080.webp",
     overlay: "bg-gradient-to-b from-brand-primary/80 via-brand-primary/75 to-brand-primary/85",
   },
   "green-art": {
-    primary: "/bg-green-alternate.png",
+    primary: "/optimized/bg-green-alternate.webp",
     overlay: "bg-gradient-to-br from-brand-primary/60 to-brand-secondary/70",
   },
   "sage": {
@@ -166,16 +166,16 @@ const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay
     overlay: "bg-gradient-to-b from-brand-primary/75 to-brand-primary/80",
   },
   "cream": {
-    primary: "/bg-light-stones.png",
+    primary: "/optimized/bg-light-stones.webp",
     overlay: "bg-gradient-to-b from-brand-soft/60 to-brand-cream/70",
   },
   "cross-branded": {
-    primary: "/bg-green-alternate.png",
+    primary: "/brand/bg/dark-green-texture.webp",
     overlay: "bg-gradient-to-br from-brand-primary/75 via-brand-secondary/70 to-brand-primary/80",
     hasCross: true,
   },
   "cross-texture": {
-    primary: "/bg_green_texture_1920x1080.png",
+    primary: "/optimized/bg_green_texture_1920x1080.webp",
     overlay: "bg-gradient-to-br from-brand-primary/82 via-brand-secondary/78 to-brand-primary/85",
     hasCross: true,
   },
@@ -196,7 +196,7 @@ export function PageHero({
   const displayCross = showCross || bgConfig.hasCross;
 
   return (
-    <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden">
+    <section className="relative brand-hero-banner py-16 sm:py-20 md:py-28 overflow-hidden">
       {/* Main branded background image - optimized with lazy loading */}
       <OptimizedBackground
         src={bgConfig.primary}

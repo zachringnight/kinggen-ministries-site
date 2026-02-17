@@ -1,17 +1,15 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
+import type { CSSProperties } from "react";
 
 interface OptimizedBackgroundProps {
   src: string;
   className?: string;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   priority?: boolean;
 }
 
 /**
- * Maps original image paths to optimized versions
- * Supports WebP with PNG fallback
+ * Maps original image paths to optimized versions.
+ * Keeps existing source references stable across the codebase.
  */
 const optimizedImageMap: Record<string, { webp: string; png: string }> = {
   "/KingGen Background (1).png": {
@@ -63,26 +61,16 @@ const optimizedImageMap: Record<string, { webp: string; png: string }> = {
     png: "/optimized/Untitled-7.png",
   },
   "/bg-light-stones.png": {
-    webp: "/bg-light-stones.png",
-    png: "/bg-light-stones.png",
+    webp: "/optimized/bg-light-stones.webp",
+    png: "/optimized/bg-light-stones.png",
   },
 };
 
-/**
- * Get optimized image path, preferring WebP
- */
 export function getOptimizedImage(src: string): string {
   const optimized = optimizedImageMap[src];
-  if (optimized) {
-    // Check WebP support via CSS
-    return optimized.webp;
-  }
-  return src;
+  return optimized ? optimized.webp : src;
 }
 
-/**
- * Get optimized image with fallback
- */
 export function getOptimizedImageWithFallback(src: string): { webp: string; fallback: string } {
   const optimized = optimizedImageMap[src];
   if (optimized) {
@@ -92,59 +80,28 @@ export function getOptimizedImageWithFallback(src: string): { webp: string; fall
 }
 
 /**
- * Optimized background div with lazy loading and WebP support
+ * Lightweight decorative background layer.
+ * We intentionally avoid JS observers/state here to keep page rendering stable and fast.
  */
 export default function OptimizedBackground({
   src,
   className = "",
   style = {},
-  priority = false,
+  priority: _priority = false,
 }: OptimizedBackgroundProps) {
-  const [isLoaded, setIsLoaded] = useState(priority);
-  const [isInView, setIsInView] = useState(priority);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (priority || !ref.current) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "100px" }
-    );
-
-    observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [priority]);
-
-  useEffect(() => {
-    if (!isInView) return;
-
-    const { webp, fallback } = getOptimizedImageWithFallback(src);
-    const img = new Image();
-
-    // Try WebP first
-    img.src = webp;
-    img.onload = () => setIsLoaded(true);
-    img.onerror = () => {
-      // Fallback to PNG
-      img.src = fallback;
-    };
-  }, [isInView, src]);
-
-  const { webp } = getOptimizedImageWithFallback(src);
+  void _priority;
+  const { webp, fallback } = getOptimizedImageWithFallback(src);
+  const backgroundImage =
+    webp === fallback
+      ? `url('${webp}')`
+      : `image-set(url('${webp}') type('image/webp'), url('${fallback}') type('image/png'))`;
 
   return (
     <div
-      ref={ref}
-      className={`transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"} ${className}`}
+      className={className}
       style={{
         ...style,
-        backgroundImage: isInView ? `url('${webp}')` : undefined,
+        backgroundImage,
       }}
       aria-hidden="true"
     />

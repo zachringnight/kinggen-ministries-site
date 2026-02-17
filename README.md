@@ -42,8 +42,17 @@ npm run type-check
 # Run tests
 npm run test
 
+# Run tests once (CI-safe, passes if no tests exist yet)
+npm run test:run
+
 # Run tests with UI
 npm run test:ui
+
+# Rebuild optimized legacy background assets
+npm run optimize-images
+
+# Rebuild optimized brand WebP assets
+npm run optimize-brand-images
 ```
 
 ## Project Structure
@@ -77,6 +86,12 @@ Update `app/config/site.ts` with your organization's information:
 - Social media links
 - Formspree endpoint (for contact form)
 
+## Asset Notes
+
+- Runtime web assets live under `/public`.
+- Large source artwork files used for editing are stored under `/assets/brand-source` so static export does not ship them.
+- If source PNGs are updated, regenerate public WebP assets with `npm run optimize-brand-images`.
+
 ## CI/CD
 
 This project uses GitHub Actions for continuous integration:
@@ -88,9 +103,7 @@ This project uses GitHub Actions for continuous integration:
 
 See `.github/workflows/ci.yml` for the complete workflow.
 
-`
-
-### 3. Add Favicon
+### Add Favicon
 
 Replace `/public/favicon.ico` with your organization's favicon.
 

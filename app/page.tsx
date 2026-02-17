@@ -1,5 +1,3 @@
-"use client";
-
 import { siteConfig } from "./config/site";
 import {
   Section,
@@ -76,35 +74,34 @@ export default function Home() {
     <>
       {/* Hero Section — baked-in banner image, no text overlay */}
       <section
-        className="relative w-full min-h-[60vh] bg-cover bg-center animate-fade-in-up"
-        style={{ backgroundImage: "url('/brand/headers/homepage-hero.png')" }}
+        className="relative brand-hero-banner w-full min-h-[60vh] bg-cover bg-center animate-fade-in-up"
+        style={{ backgroundImage: "url('/brand/headers/homepage-hero.webp')" }}
         role="banner"
         aria-label="KingGen Ministries — Christian Counseling for Women"
-      />
+      >
+        <h1 className="sr-only">KingGen Ministries</h1>
+      </section>
 
       {/* Wave Divider */}
       <AnimatedDivider variant="wave" color="var(--brand-soft)" className="-mt-1" />
 
       {/* About the Ministry Section */}
       <section
-        className="relative py-16 md:py-24"
+        className="relative brand-surface-cream py-16 md:py-24"
         style={{
-          backgroundImage: "url('/brand/bg/off-white-texture.png')",
+          backgroundImage: "url('/brand/bg/off-white-texture.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
         <div className="relative z-10">
           <FadeIn>
-            <div className="max-w-3xl mx-auto text-center px-4 sm:px-6">
+            <div className="relative z-10 max-w-3xl mx-auto text-center px-4 sm:px-6">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 md:mb-6">
                 About our ministry
               </h2>
-              <p className="text-base sm:text-lg text-text-secondary leading-relaxed mb-4">
-                KingGen Ministries exists so women can access counseling even when cost is a barrier. We provide compassionate, Gospel-centered care for women facing anxiety, grief, trauma, relationship pain, and life transitions.
-              </p>
               <p className="text-base sm:text-lg text-text-secondary leading-relaxed mb-8">
-                Counseling is offered at no cost to clients. Donations and grants make it possible to continue serving women in need.
+                At KingGen Ministries, we believe everyone should have access to counseling.  As a 501(C)3 we offer Gospel-Centered counseling for women in need by a licensed clincial pastoral counselor.
               </p>
               <Button href="/about" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
                 Learn More
@@ -154,9 +151,9 @@ export default function Home() {
 
       {/* Impact Statistics Section */}
       <section
-        className="relative py-16 md:py-24 overflow-hidden"
+        className="relative brand-surface-dark py-16 md:py-24 overflow-hidden"
         style={{
-          backgroundImage: "url('/brand/bg/dark-green-texture.png')",
+          backgroundImage: "url('/brand/bg/dark-green-texture.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -284,9 +281,9 @@ export default function Home() {
 
       {/* Commitment Section */}
       <section
-        className="relative py-16 md:py-24 overflow-hidden"
+        className="relative brand-surface-dark py-16 md:py-24 overflow-hidden"
         style={{
-          backgroundImage: "url('/brand/bg/dark-green-texture.png')",
+          backgroundImage: "url('/brand/bg/dark-green-texture.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -341,9 +338,9 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <section
-        className="relative py-16 md:py-24"
+        className="relative brand-surface-cream py-16 md:py-24"
         style={{
-          backgroundImage: "url('/brand/bg/off-white-texture.png')",
+          backgroundImage: "url('/brand/bg/off-white-texture.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -420,9 +417,9 @@ export default function Home() {
 
       {/* Book LeeAnn Section */}
       <section
-        className="relative py-16 md:py-24 overflow-hidden"
+        className="relative brand-surface-dark py-16 md:py-24 overflow-hidden"
         style={{
-          backgroundImage: "url('/brand/bg/dark-green-texture.png')",
+          backgroundImage: "url('/brand/bg/dark-green-texture.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -463,15 +460,15 @@ export default function Home() {
 
       {/* Final CTA Section */}
       <section
-        className="relative py-16 md:py-24"
+        className="relative brand-surface-cream py-16 md:py-24"
         style={{
-          backgroundImage: "url('/brand/bg/off-white-texture.png')",
+          backgroundImage: "url('/brand/bg/off-white-texture.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
         <FadeIn>
-          <div className="max-w-3xl mx-auto text-center px-4 sm:px-6">
+          <div className="relative z-10 max-w-3xl mx-auto text-center px-4 sm:px-6">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 md:mb-6">
               Ready to partner with us?
             </h2>

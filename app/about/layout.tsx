@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about KingGen Ministries, our mission to provide free gospel-centered clinical pastoral counseling for women, and meet Pastor LeeAnn.",
+    "Learn about KingGen Ministries and our mission to provide Gospel-centered counseling for women in need.",
 };
 
 export default function AboutLayout({

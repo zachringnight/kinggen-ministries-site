@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import Image from "next/image";
 import {
   Section,
@@ -12,7 +11,14 @@ import {
   StaggerContainer,
   StaggerItem,
   OptimizedBackground,
+  InnerPageHero,
 } from "../components";
+
+export const metadata: Metadata = {
+  title: "Client Information",
+  description:
+    "Guidance for women and trusted referrers on how to begin care with KingGen Ministries.",
+};
 
 export default function GetSupport() {
   const reasons = [
@@ -28,7 +34,7 @@ export default function GetSupport() {
     {
       number: "1",
       title: "Your referrer reaches out",
-      description: "The pastor, counselor, or trusted person who shared this page contacts us on your behalf, or encourages you to reach out directly.",
+      description: "The pastor, counselor, or trusted person who shared this page contacts us on your behalf with your permission.",
     },
     {
       number: "2",
@@ -44,12 +50,11 @@ export default function GetSupport() {
 
   return (
     <>
-      {/* Hero Section with inner-page header */}
-      <section
-        className="relative w-full min-h-[40vh] md:min-h-[50vh] bg-cover bg-center animate-fade-in-up"
-        style={{ backgroundImage: "url('/brand/headers/inner-header.png')" }}
-        role="banner"
-        aria-label="Information for Clients"
+      <InnerPageHero
+        title="Client Information"
+        subtitle="Helpful guidance for women and those supporting a referral."
+        background="inner"
+        ariaLabel="Information for Clients"
       />
 
       {/* Opening Section with art */}
@@ -57,14 +62,14 @@ export default function GetSupport() {
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center px-2">
             <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
-              KingGen Ministries offers Gospel-centered counseling for women in need. Counseling is offered at no cost through referrals from pastors, counselors, and trusted community partners.
+              At KingGen Ministries, we believe everyone should have access to counseling.  As a 501(C)3 we offer Gospel-Centered counseling for women in need by a licensed clincial pastoral counselor.
             </p>
           </div>
         </FadeIn>
       </Section>
 
       {/* What to Expect Section with KingGen background */}
-      <section className="relative py-20 md:py-32 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="relative brand-surface-dark py-20 md:py-32 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
 
         {/* Cross art accents */}
         <OptimizedBackground
@@ -126,7 +131,7 @@ export default function GetSupport() {
       </Section>
 
       {/* How to Begin Section with KingGen background */}
-      <section className="relative py-20 md:py-32 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="relative brand-surface-dark py-20 md:py-32 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
 
         {/* Cross art accents */}
         <OptimizedBackground
@@ -243,7 +248,7 @@ export default function GetSupport() {
       </Section>
 
       {/* For Referrers Note with KingGen background */}
-      <section className="relative py-16 md:py-24 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="relative brand-surface-dark py-16 md:py-24 overflow-hidden" style={{ backgroundImage: "url('/brand/bg/dark-green-texture.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
 
         {/* Art accent */}
         <OptimizedBackground
