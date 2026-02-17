@@ -69,35 +69,42 @@ const services = [
 export default function Home() {
   return (
     <>
-      {/* Hero Section — branded image with lightweight live message */}
+      {/* Hero Banner — full branded image with centered logo */}
       <section
-        className="relative brand-hero-banner w-full min-h-[60vh] bg-cover bg-center animate-fade-in-up"
-        style={{ backgroundImage: "url('/brand/headers/homepage-hero.webp')" }}
+        className="relative brand-hero-banner w-full bg-cover bg-center animate-fade-in-up"
+        style={{
+          backgroundImage: "url('/brand/headers/homepage-hero.webp')",
+          aspectRatio: "2460 / 1080",
+        }}
         role="banner"
         aria-label="KingGen Ministries — Christian Counseling for Women"
       >
         <h1 className="sr-only">KingGen Ministries</h1>
-        <div className="absolute inset-x-0 bottom-8 md:bottom-12 z-10">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="max-w-xl rounded-2xl border border-white/70 bg-white/88 backdrop-blur-sm shadow-lg px-5 py-4 md:px-6 md:py-5">
-              <p className="text-lg md:text-xl font-heading font-bold text-brand-primary leading-tight">
+      </section>
+
+      {/* CTA Strip — mission statement and primary action */}
+      <section className="bg-brand-primary">
+        <div className="container mx-auto px-4 sm:px-6 py-6 md:py-8">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <p className="text-lg md:text-xl font-heading font-bold text-white leading-tight">
                 Free Gospel-centered counseling for women in need.
               </p>
-              <p className="text-sm md:text-base text-text-secondary mt-2">
+              <p className="text-sm md:text-base text-white/80 mt-1">
                 Compassionate care for referrals, donors, and ministry partners.
               </p>
-              <div className="mt-4">
-                <Button href="/contact" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-                  Start a Referral Conversation
-                </Button>
-              </div>
+            </div>
+            <div className="flex-shrink-0">
+              <Button href="/contact" variant="white" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                Start a Referral Conversation
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Wave Divider */}
-      <AnimatedDivider variant="wave" color="var(--brand-soft)" className="-mt-1" />
+      <AnimatedDivider variant="wave" color="var(--brand-soft)" />
 
       {/* About the Ministry Section */}
       <section
