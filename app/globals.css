@@ -384,46 +384,6 @@ blockquote {
   }
 }
 
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(123, 163, 144, 0.5),
-                0 0 10px rgba(123, 163, 144, 0.3),
-                0 0 15px rgba(123, 163, 144, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 10px rgba(123, 163, 144, 0.8),
-                0 0 20px rgba(123, 163, 144, 0.5),
-                0 0 30px rgba(123, 163, 144, 0.3);
-  }
-}
-
-@keyframes border-dance {
-  0%, 100% {
-    border-color: var(--brand-primary);
-  }
-  50% {
-    border-color: var(--brand-accent);
-  }
-}
-
-@keyframes cross-glow {
-  0%, 100% {
-    filter: drop-shadow(0 0 8px rgba(123, 163, 144, 0.3));
-  }
-  50% {
-    filter: drop-shadow(0 0 20px rgba(123, 163, 144, 0.6));
-  }
-}
-
-@keyframes cross-fade {
-  0%, 100% {
-    opacity: 0.08;
-  }
-  50% {
-    opacity: 0.12;
-  }
-}
-
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
@@ -442,22 +402,6 @@ blockquote {
 .animate-gradient-shift {
   background-size: 200% 200%;
   animation: gradient-shift 8s ease infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-.animate-border-dance {
-  animation: border-dance 3s ease-in-out infinite;
-}
-
-.animate-cross-glow {
-  animation: cross-glow 4s ease-in-out infinite;
-}
-
-.animate-cross-fade {
-  animation: cross-fade 5s ease-in-out infinite;
 }
 
 /* Glassmorphism utility */

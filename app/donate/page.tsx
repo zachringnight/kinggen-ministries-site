@@ -28,6 +28,7 @@ export default function DonatePage() {
         subtitle="Every gift helps remove cost barriers for women who need care."
         background="inner"
         ariaLabel="Help Keep Counseling Free"
+        showWatermarkCorners
       >
         <Button
           href={siteConfig.paypalUrl}

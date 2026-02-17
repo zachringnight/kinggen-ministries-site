@@ -47,14 +47,15 @@ export default function TestimonialsPage() {
         subtitle="Stories of hope, trust, and Gospel-centered care."
         background="inner"
         ariaLabel="Testimonials"
+        showWatermarkCorners
       />
 
       {/* Testimonials Section with art background */}
-      <Section variant="art-cream" padding="xl" watermark="stones-left">
+      <Section variant="art-cream" padding="xl" watermark="stones-left" ornamentLevel="featured">
         <StaggerContainer staggerDelay={0.15} className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, i) => (
             <StaggerItem key={i}>
-              <TiltCard className="h-full" tiltAmount={5}>
+              <TiltCard className="h-full" tiltAmount={3}>
                 <div className="bg-white rounded-2xl p-8 shadow-lg border border-brand-light h-full relative">
                   <QuoteIcon className="absolute top-6 right-6 w-10 h-10 text-brand-accent/20" />
                   <div className="mb-4">
@@ -111,7 +112,7 @@ export default function TestimonialsPage() {
           {/* Social Media Image Showcase */}
           <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <StaggerItem>
-              <TiltCard tiltAmount={5} className="h-full">
+              <TiltCard tiltAmount={3} className="h-full">
                 <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl border-2 border-white/20">
                   <Image
                     src="/social-scripture.png"
@@ -124,7 +125,7 @@ export default function TestimonialsPage() {
               </TiltCard>
             </StaggerItem>
             <StaggerItem>
-              <TiltCard tiltAmount={5} className="h-full">
+              <TiltCard tiltAmount={3} className="h-full">
                 <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl border-2 border-white/20">
                   <Image
                     src="/social-hero.png"
@@ -137,7 +138,7 @@ export default function TestimonialsPage() {
               </TiltCard>
             </StaggerItem>
             <StaggerItem>
-              <TiltCard tiltAmount={5} className="h-full">
+              <TiltCard tiltAmount={3} className="h-full">
                 <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl border-2 border-white/20">
                   <Image
                     src="/social-prayer.png"

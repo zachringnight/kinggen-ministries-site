@@ -55,6 +55,7 @@ export default function GetSupport() {
         subtitle="Helpful guidance for women and those supporting a referral."
         background="inner"
         ariaLabel="Information for Clients"
+        showWatermarkCorners
       />
 
       {/* Opening Section with art */}
@@ -106,7 +107,7 @@ export default function GetSupport() {
       </section>
 
       {/* Reasons Section with art */}
-      <Section variant="art-cream" padding="xl" watermark="stones-left">
+      <Section variant="art-cream" padding="xl" watermark="stones-left" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto px-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-3 md:mb-4 text-center">

@@ -8,7 +8,6 @@ import {
   MailIcon,
   MapPinIcon,
   FadeIn,
-  TiltCard,
   CheckCircleIcon,
   AlertIcon,
   InnerPageHero,
@@ -195,7 +194,6 @@ export default function ContactPage() {
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
           <FadeIn direction="left">
-            <TiltCard tiltAmount={3}>
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-brand-light">
                 <h2 className="text-2xl font-bold font-heading text-text-primary mb-6">
                   Referral &amp; Partner Contact
@@ -393,7 +391,6 @@ export default function ContactPage() {
                   )}
                 </form>
               </div>
-            </TiltCard>
           </FadeIn>
 
           {/* Direct Contact */}

@@ -26,6 +26,7 @@ export default function AboutPage() {
         subtitle="A Gospel-centered counseling ministry serving women in need."
         background="about"
         ariaLabel="About KingGen Ministries"
+        showWatermarkCorners
       />
 
       {/* Mission Section */}
