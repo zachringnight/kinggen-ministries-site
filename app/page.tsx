@@ -126,7 +126,7 @@ export default function Home() {
       </section>
 
       {/* Services Section — 3-column cards */}
-      <Section variant="default" padding="xl">
+      <Section variant="default" padding="xl" watermark="stones-right" ornamentLevel="featured">
         <FadeIn>
           <SectionHeader
             title="Our services"
@@ -187,7 +187,7 @@ export default function Home() {
       <AnimatedDivider variant="curve" color="var(--brand-soft)" flip className="-mb-1" />
 
       {/* What Sets Us Apart */}
-      <Section variant="light" padding="xl" watermark="stones-left">
+      <Section variant="light" padding="xl" watermark="stones-left" ornamentLevel="featured">
         <FadeIn>
           <SectionHeader
             title="What sets KingGen apart"
@@ -217,7 +217,7 @@ export default function Home() {
       </Section>
 
       {/* Partner With Us Section */}
-      <Section variant="soft" padding="xl" watermark="stones-left">
+      <Section variant="soft" padding="xl" watermark="stones-left" ornamentLevel="featured">
         <FadeIn>
           <SectionHeader title="Partner with us" />
         </FadeIn>

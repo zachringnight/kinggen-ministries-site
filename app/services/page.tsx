@@ -13,6 +13,7 @@ import {
   UsersIcon,
   CheckCircleIcon,
   InnerPageHero,
+  OptimizedBackground,
 } from "../components";
 
 export const metadata: Metadata = {
@@ -68,6 +69,7 @@ export default function ServicesPage() {
         subtitle="Compassionate, Gospel-centered counseling at no cost to clients."
         background="inner"
         ariaLabel="Our Services"
+        showWatermarkCorners
       />
 
       {/* Services List */}
@@ -143,6 +145,26 @@ export default function ServicesPage() {
           backgroundPosition: "center",
         }}
       >
+        {/* Logo art accents */}
+        <OptimizedBackground
+          src="/brand/logo/icon-white.webp"
+          className="absolute left-0 bottom-0 w-48 h-48 md:w-64 md:h-64 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "left bottom",
+            backgroundSize: "contain",
+            opacity: 0.15,
+          }}
+        />
+        <OptimizedBackground
+          src="/brand/logo/icon-white.webp"
+          className="absolute right-0 top-0 w-40 h-40 md:w-56 md:h-56 bg-no-repeat pointer-events-none"
+          style={{
+            backgroundPosition: "right top",
+            backgroundSize: "contain",
+            opacity: 0.12,
+          }}
+        />
+
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center">

@@ -57,6 +57,7 @@ export default function ForReferrers() {
         subtitle="A clear and compassionate referral pathway for women who need support."
         background="inner"
         ariaLabel="For Referrers"
+        showWatermarkCorners
       />
 
       {/* Who Can Refer with cross background */}
@@ -85,7 +86,7 @@ export default function ForReferrers() {
       </Section>
 
       {/* When Referral is Appropriate with art */}
-      <Section variant="art-cream" padding="xl" watermark="stones-left">
+      <Section variant="art-cream" padding="xl" watermark="stones-left" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 text-center">
@@ -169,7 +170,7 @@ export default function ForReferrers() {
       </section>
 
       {/* How to Refer Section with art */}
-      <Section variant="art-cream" padding="xl" watermark="stones-right">
+      <Section variant="art-cream" padding="xl" watermark="stones-right" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-8 text-center">
@@ -212,7 +213,7 @@ export default function ForReferrers() {
       </Section>
 
       {/* Confidentiality Section with art */}
-      <Section variant="art-cream" padding="lg" watermark="stones-left">
+      <Section variant="art-cream" padding="lg" watermark="stones-left" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-col sm:flex-row items-start gap-4 p-6 bg-brand-cream rounded-2xl border border-brand-light">

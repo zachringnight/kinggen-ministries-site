@@ -51,10 +51,11 @@ export default function ForGrantWriters() {
         subtitle="Organizational details and mission context to support partnership opportunities."
         background="inner"
         ariaLabel="For Grant Writers and Foundations"
+        showWatermarkCorners
       />
 
       {/* Organization Overview with art */}
-      <Section variant="art-cream" padding="xl" watermark="stones-right">
+      <Section variant="art-cream" padding="xl" watermark="stones-right" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 text-center">
@@ -79,7 +80,7 @@ export default function ForGrantWriters() {
       </Section>
 
       {/* Mission Statement with art */}
-      <Section variant="art-cream" padding="xl" watermark="stones-left">
+      <Section variant="art-cream" padding="xl" watermark="stones-left" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 text-center">
@@ -109,7 +110,7 @@ export default function ForGrantWriters() {
       </Section>
 
       {/* Funding Needs with art */}
-      <Section variant="art-cream" padding="xl" watermark="stones-right">
+      <Section variant="art-cream" padding="xl" watermark="stones-right" ornamentLevel="featured">
         <FadeIn>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-8 text-center">
             Funding Areas
@@ -149,7 +150,7 @@ export default function ForGrantWriters() {
       </Section>
 
       {/* Contact for Grant Inquiries with art */}
-      <Section variant="art-cream" padding="xl" watermark="stones-left">
+      <Section variant="art-cream" padding="xl" watermark="stones-left" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">

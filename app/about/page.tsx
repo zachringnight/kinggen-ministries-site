@@ -26,6 +26,7 @@ export default function AboutPage() {
         subtitle="A Gospel-centered counseling ministry serving women in need."
         background="about"
         ariaLabel="About KingGen Ministries"
+        showWatermarkCorners
       />
 
       {/* Mission Section */}
@@ -117,7 +118,7 @@ export default function AboutPage() {
       </section>
 
       {/* For Referrers CTA */}
-      <Section variant="art-cream" padding="lg" watermark="cross-right">
+      <Section variant="art-cream" padding="lg" watermark="cross-right" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold font-heading text-text-primary mb-4">

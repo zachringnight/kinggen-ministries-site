@@ -55,10 +55,11 @@ export default function GetSupport() {
         subtitle="Helpful guidance for women and those supporting a referral."
         background="inner"
         ariaLabel="Information for Clients"
+        showWatermarkCorners
       />
 
       {/* Opening Section with art */}
-      <Section variant="art-cream" padding="lg" watermark="stones-right">
+      <Section variant="art-cream" padding="lg" watermark="stones-right" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center px-2">
             <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
@@ -106,7 +107,7 @@ export default function GetSupport() {
       </section>
 
       {/* Reasons Section with art */}
-      <Section variant="art-cream" padding="xl" watermark="stones-left">
+      <Section variant="art-cream" padding="xl" watermark="stones-left" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto px-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-3 md:mb-4 text-center">
@@ -181,7 +182,7 @@ export default function GetSupport() {
       </section>
 
       {/* Privacy Section with art */}
-      <Section variant="art-cream" padding="lg" watermark="stones-right">
+      <Section variant="art-cream" padding="lg" watermark="stones-right" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-col sm:flex-row items-start gap-4 p-4 md:p-6 bg-brand-cream rounded-2xl border border-brand-light">

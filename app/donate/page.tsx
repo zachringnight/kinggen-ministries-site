@@ -28,6 +28,7 @@ export default function DonatePage() {
         subtitle="Every gift helps remove cost barriers for women who need care."
         background="inner"
         ariaLabel="Help Keep Counseling Free"
+        showWatermarkCorners
       >
         <Button
           href={siteConfig.paypalUrl}
@@ -160,7 +161,7 @@ export default function DonatePage() {
       </section>
 
       {/* Tax Deductible Info */}
-      <Section variant="art-cream" padding="lg" watermark="cross-subtle">
+      <Section variant="art-cream" padding="lg" watermark="cross-subtle" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <div className="bg-brand-cream rounded-2xl p-6 md:p-8 border border-brand-light">

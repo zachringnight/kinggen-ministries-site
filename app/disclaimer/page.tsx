@@ -23,7 +23,7 @@ export default function DisclaimerPage() {
       />
 
       {/* Content Section with art */}
-      <Section variant="art-cream" padding="xl" watermark="stones-left">
+      <Section variant="art-cream" padding="xl" watermark="stones-left" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <p className="text-lg text-text-secondary leading-relaxed mb-6">
