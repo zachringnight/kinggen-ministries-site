@@ -2,6 +2,10 @@
 
 A professional nonprofit website for KingGen Ministries, a 501(c)(3) organization providing free gospel-centered clinical pastoral counseling services for women in need.
 
+## Repository
+
+- GitHub: https://github.com/zachringnight/kinggen-ministries-site
+
 ## Tech Stack
 
 - **Framework**: Next.js 16.1 with App Router
