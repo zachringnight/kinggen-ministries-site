@@ -17,7 +17,6 @@ interface HeaderLink {
 interface HeaderProps {
   primaryLinks?: HeaderLink[];
   secondaryLinks?: HeaderLink[];
-  showBrandText?: boolean;
 }
 
 const defaultPrimaryLinks: HeaderLink[] = primaryNavLinks;
@@ -26,7 +25,6 @@ const defaultSecondaryLinks: HeaderLink[] = secondaryNavLinks;
 export default function Header({
   primaryLinks = defaultPrimaryLinks,
   secondaryLinks = defaultSecondaryLinks,
-  showBrandText = true,
 }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
@@ -81,38 +79,50 @@ export default function Header({
       <header
         className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled || mobileMenuOpen
-            ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-brand-light/70"
+            ? "bg-white/92 backdrop-blur-md shadow-sm border-b border-brand-light/70"
             : "bg-white/70 backdrop-blur-sm"
         }`}
+        style={
+          scrolled || mobileMenuOpen
+            ? {
+                backgroundImage: "url('/brand/bg/off-white-texture.webp')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }
+            : undefined
+        }
       >
         <nav className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center h-14 md:h-16 gap-4">
             {/* Brand lockup */}
             <Link
               href="/"
-              className="flex items-center gap-3 flex-shrink-0"
+              className="flex items-center gap-2.5 flex-shrink-0"
               aria-label="KingGen Ministries Home"
               onClick={closeResourcesMenu}
             >
               <Image
                 src="/brand/logo/icon-dark-green.webp"
                 alt="KingGen Ministries"
-                width={44}
-                height={44}
-                className="rounded-lg"
+                width={40}
+                height={40}
+                className="rounded-lg md:w-11 md:h-11"
                 priority
               />
-              {showBrandText && (
-                <span className="hidden xl:flex flex-col whitespace-nowrap leading-none">
-                  <span className="text-brand-primary text-lg tracking-tight">
-                    <span className="font-extrabold">KingGen</span>{" "}
-                    <span className="font-light">Ministries</span>
-                  </span>
-                  <span className="mt-1 text-[10px] uppercase tracking-[0.16em] text-brand-primary/75 font-semibold">
-                    Christian Counseling for Women
-                  </span>
+              {/* Mobile/tablet: compact name */}
+              <span className="lg:hidden text-brand-primary font-bold text-base tracking-tight">
+                KingGen
+              </span>
+              {/* Desktop lg+: full brand text */}
+              <span className="hidden lg:flex flex-col whitespace-nowrap leading-none">
+                <span className="text-brand-primary text-lg tracking-tight">
+                  <span className="font-extrabold">KingGen</span>{" "}
+                  <span className="font-light">Ministries</span>
                 </span>
-              )}
+                <span className="mt-1 text-[10px] uppercase tracking-[0.16em] text-brand-primary/75 font-semibold">
+                  Christian Counseling for Women
+                </span>
+              </span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -219,9 +229,39 @@ export default function Header({
             aria-label="Close mobile menu"
           />
           <div
-            className="lg:hidden fixed top-14 md:top-16 left-0 right-0 bottom-0 z-[9999] overflow-y-auto bg-white"
+            className="lg:hidden fixed top-14 md:top-16 left-0 right-0 bottom-0 z-[9999] overflow-y-auto"
+            style={{
+              backgroundImage: "url('/brand/social/content-section-bg.webp')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
           >
-            <div className="container mx-auto px-4 py-6">
+            {/* White overlay for readability */}
+            <div className="absolute inset-0 bg-white/88" />
+
+            {/* Decorative watermark */}
+            <div className="absolute bottom-4 right-4 w-40 h-40 opacity-[0.04] pointer-events-none" aria-hidden="true">
+              <Image
+                src="/brand/logo/icon-light-gray.webp"
+                alt=""
+                width={160}
+                height={160}
+                className="object-contain"
+              />
+            </div>
+
+            <div className="relative z-10 container mx-auto px-4 py-6">
+              {/* Brand lockup at top of mobile menu */}
+              <div className="flex justify-center mb-6 pb-6 border-b border-brand-light">
+                <Image
+                  src="/logo_stacked_250w.png"
+                  alt="KingGen Ministries - Christian Counseling for Women"
+                  width={140}
+                  height={198}
+                  className="h-24 w-auto object-contain"
+                />
+              </div>
+
               <div className="space-y-1 mb-6">
                 {primaryLinks.map((item) => {
                   const active = isActiveLink(item.href);
