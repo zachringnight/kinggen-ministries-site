@@ -69,28 +69,21 @@ const services = [
 export default function Home() {
   return (
     <>
-      {/* Hero Section — branded image with lightweight live message */}
+      {/* Hero Section — Full logo header background */}
       <section
-        className="relative brand-hero-banner home-hero-bg w-full min-h-[42vh] sm:min-h-[52vh] md:min-h-[60vh] bg-cover bg-center bg-no-repeat animate-fade-in-up"
-        style={{ backgroundImage: "url('/brand/headers/homepage-hero.webp')" }}
+        className="relative brand-hero-banner w-full min-h-[42vh] sm:min-h-[52vh] md:min-h-[60vh] bg-cover bg-center bg-no-repeat animate-fade-in-up flex items-end"
+        style={{ backgroundImage: "url('/brand/headers/inner-header.webp')" }}
         role="banner"
         aria-label="KingGen Ministries — Christian Counseling for Women"
       >
-        <h1 className="sr-only">KingGen Ministries</h1>
-        <div className="absolute inset-x-0 bottom-8 md:bottom-12 z-10">
+        <h1 className="sr-only">KingGen Ministries — Free Gospel-centered counseling for women in need</h1>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/24 via-brand-soft/40 to-brand-light/60" />
+        <div className="relative z-10 w-full pb-10 pt-24 md:pb-14 md:pt-28">
           <div className="container mx-auto px-4 sm:px-6">
-            <div className="max-w-xl rounded-2xl border border-white/70 bg-white/88 backdrop-blur-sm shadow-lg px-5 py-4 md:px-6 md:py-5">
-              <p className="text-lg md:text-xl font-heading font-bold text-brand-primary leading-tight">
-                Free Gospel-centered counseling for women in need.
+            <div className="max-w-3xl mx-auto text-center">
+              <p className="text-base sm:text-lg md:text-xl text-text-secondary leading-relaxed">
+                Free Gospel-centered counseling for women in need. Compassionate care for referrals, donors, and ministry partners.
               </p>
-              <p className="text-sm md:text-base text-text-secondary mt-2">
-                Compassionate care for referrals, donors, and ministry partners.
-              </p>
-              <div className="mt-4">
-                <Button href="/contact" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-                  Start a Referral Conversation
-                </Button>
-              </div>
             </div>
           </div>
         </div>
