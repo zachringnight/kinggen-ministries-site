@@ -81,8 +81,11 @@ export default function Home() {
         <div className="relative z-10 w-full pb-10 pt-24 md:pb-14 md:pt-28">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-3xl mx-auto text-center">
-              <p className="text-base sm:text-lg md:text-xl text-text-secondary leading-relaxed">
-                Free Gospel-centered counseling for women in need. Compassionate care for referrals, donors, and ministry partners.
+              <p className="text-lg sm:text-xl md:text-2xl font-semibold text-text-primary leading-tight mb-2">
+                Free Gospel-centered counseling for women in need.
+              </p>
+              <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
+                Compassionate care for referrals, donors, and ministry partners.
               </p>
             </div>
           </div>
