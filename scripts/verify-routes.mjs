@@ -116,6 +116,7 @@ async function main() {
 
   let child = null;
   let childLogs = "";
+  let childExited = false;
 
   if (!isExternal) {
     const npmCmd = process.platform === "win32" ? "npm.cmd" : "npm";
@@ -131,6 +132,9 @@ async function main() {
     child.stderr.on("data", (chunk) => {
       childLogs += chunk.toString();
     });
+    child.on("exit", () => {
+      childExited = true;
+    });
 
     await waitForServer(baseUrl, START_TIMEOUT_MS, () => childLogs);
   }
@@ -140,14 +144,18 @@ async function main() {
     await verifyAll(baseUrl);
     console.log("Route smoke verification passed.");
   } finally {
-    if (child && !child.killed) {
+    if (child && !childExited) {
       child.kill("SIGTERM");
       await Promise.race([
         new Promise((resolve) => child.once("exit", resolve)),
         sleep(3_000),
       ]);
-      if (!child.killed) {
+      if (!childExited) {
         child.kill("SIGKILL");
+        await Promise.race([
+          new Promise((resolve) => child.once("exit", resolve)),
+          sleep(3_000),
+        ]);
       }
     }
   }
