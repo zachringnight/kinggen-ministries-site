@@ -1,0 +1,12 @@
+.git
+.github
+.next
+.playwright-cli
+.vercel
+node_modules
+assets
+out
+output
+coverage
+*.log
+.DS_Store
