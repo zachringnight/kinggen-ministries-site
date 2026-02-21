@@ -5,17 +5,16 @@ This repository has two Vercel projects connected today. During stabilization, t
 ## Canonical Target
 
 - Canonical project: `kinggen-ministries-site-mwqc`
-- Canonical public URL: `https://kinggenministries.org`
-- Canonical project URL (should redirect): `https://kinggen-ministries-site-mwqc.vercel.app`
+- Canonical URL: `https://kinggen-ministries-site-mwqc.vercel.app`
 - Production branch: `Claude/main`
 
 ## Legacy Project
 
 - Legacy project: `kinggen-ministries-site`
 - Legacy URL: `https://kinggen-ministries-site.vercel.app`
-- Expected final behavior: permanent redirect all paths to canonical public URL.
+- Expected final behavior: permanent redirect all paths to canonical URL.
 - Repo-level support exists in both:
-  - `vercel.json` host-scoped redirects for both Vercel project hosts.
+  - `vercel.json` host-scoped redirect from legacy host to canonical host.
   - `proxy.ts` canonical host redirect protection at runtime.
 
 ## Required Vercel Settings
@@ -34,7 +33,7 @@ Use this fallback and keep it temporary:
 
 1. Sync the legacy project to the same branch and build config as canonical.
 1. Remove legacy project links from team docs and handoffs.
-1. Treat only `https://kinggenministries.org` as production-of-record.
+1. Treat only `https://kinggen-ministries-site-mwqc.vercel.app` as production-of-record.
 
 ## Verification Checklist
 
@@ -47,10 +46,9 @@ Run after every production push:
 
 Then verify live URLs:
 
-1. `GET https://kinggenministries.org/` returns `200`.
-1. `GET https://kinggenministries.org/services` returns `200`.
-1. `GET https://kinggen-ministries-site-mwqc.vercel.app/services` returns permanent redirect to `https://kinggenministries.org/services`.
-1. `GET https://kinggen-ministries-site.vercel.app/services` returns permanent redirect to `https://kinggenministries.org/services`.
+1. `GET https://kinggen-ministries-site-mwqc.vercel.app/` returns `200`.
+1. `GET https://kinggen-ministries-site-mwqc.vercel.app/services` returns `200`.
+1. `GET https://kinggen-ministries-site.vercel.app/services` returns permanent redirect to `https://kinggen-ministries-site-mwqc.vercel.app/services` (or documented fallback behavior).
 
 ## GitHub Status Contexts
 

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const DEFAULT_CANONICAL_URL = "https://kinggenministries.org";
+const DEFAULT_CANONICAL_URL = "https://kinggen-ministries-site-mwqc.vercel.app";
 
 function normalizeSiteUrl(rawUrl: string | undefined): URL {
   const trimmed = rawUrl?.trim();
