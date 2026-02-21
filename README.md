@@ -122,10 +122,11 @@ This repository is configured for Vercel deployment only.
 ### Vercel
 
 1. Canonical project: `kinggen-ministries-site-mwqc`
-2. Production branch: `Claude/main`
-3. Add required environment variables in Vercel Project Settings
-4. Deploy from canonical project only
-5. `vercel.json` contains a host-scoped redirect rule for legacy `kinggen-ministries-site.vercel.app` -> canonical URL when legacy project is deployed from this branch
+2. Canonical public URL: `https://kinggenministries.org`
+3. Production branch: `Claude/main`
+4. Add required environment variables in Vercel Project Settings
+5. Deploy from canonical project only
+6. `vercel.json` + `proxy.ts` enforce redirects from both Vercel project URLs to the canonical public URL
 
 Do not set up parallel deployments on other hosting platforms for this repo.
 

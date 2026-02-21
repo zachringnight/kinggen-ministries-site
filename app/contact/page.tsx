@@ -416,7 +416,7 @@ export default function ContactPage() {
                 </a>
 
                 <a
-                  href={`tel:${siteConfig.phone}`}
+                  href={`tel:${siteConfig.phoneHref}`}
                   className="flex items-start gap-4 p-5 bg-white rounded-xl shadow-sm border border-brand-light hover:shadow-md hover:border-brand-primary/20 transition-all group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-brand-light text-brand-primary flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-colors">

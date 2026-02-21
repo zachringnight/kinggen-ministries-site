@@ -10,7 +10,7 @@ const organizationJsonLd = {
   name: siteConfig.name,
   url: siteUrl,
   email: siteConfig.email,
-  telephone: siteConfig.phone,
+  telephone: siteConfig.phoneHref,
   taxID: siteConfig.ein,
   sameAs: [siteConfig.social.instagram, siteConfig.social.facebook],
   address: {

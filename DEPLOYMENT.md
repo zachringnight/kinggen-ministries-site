@@ -5,17 +5,18 @@ This repository has two Vercel projects connected today. During stabilization, t
 ## Canonical Target
 
 - Canonical project: `kinggen-ministries-site-mwqc`
-- Canonical URL: `https://kinggen-ministries-site-mwqc.vercel.app`
+- Canonical public URL: `https://kinggenministries.org`
+- Canonical project URL (should redirect): `https://kinggen-ministries-site-mwqc.vercel.app`
 - Production branch: `Claude/main`
 
 ## Legacy Project
 
 - Legacy project: `kinggen-ministries-site`
 - Legacy URL: `https://kinggen-ministries-site.vercel.app`
-- Expected final behavior: `301` redirect all paths to canonical URL.
-- Repo-level support exists in `vercel.json` via host-scoped redirect rule:
-  - host `kinggen-ministries-site.vercel.app` + `/:path*` -> `https://kinggen-ministries-site-mwqc.vercel.app/:path*`
-  - This takes effect once the legacy project is deployed from this codebase.
+- Expected final behavior: permanent redirect all paths to canonical public URL.
+- Repo-level support exists in both:
+  - `vercel.json` host-scoped redirects for both Vercel project hosts.
+  - `proxy.ts` canonical host redirect protection at runtime.
 
 ## Required Vercel Settings
 
@@ -25,8 +26,7 @@ Apply these in Vercel project settings (or CLI/API if authenticated):
 1. Set **Production Branch** to `Claude/main`.
 1. Keep auto-deploy enabled for the production branch.
 1. Legacy project (`kinggen-ministries-site`)
-1. Add redirects:
-   - `/:path*` -> `https://kinggen-ministries-site-mwqc.vercel.app/:path*` (Permanent / 301)
+1. Keep this project deployed from this repository until redirect behavior is confirmed, then disable its production deployments.
 
 ## If Host-Level Redirect Is Blocked
 
@@ -34,7 +34,7 @@ Use this fallback and keep it temporary:
 
 1. Sync the legacy project to the same branch and build config as canonical.
 1. Remove legacy project links from team docs and handoffs.
-1. Treat only `kinggen-ministries-site-mwqc` as production-of-record.
+1. Treat only `https://kinggenministries.org` as production-of-record.
 
 ## Verification Checklist
 
@@ -47,9 +47,10 @@ Run after every production push:
 
 Then verify live URLs:
 
-1. `GET https://kinggen-ministries-site-mwqc.vercel.app/` returns `200`.
-1. `GET https://kinggen-ministries-site-mwqc.vercel.app/services` returns `200`.
-1. `GET https://kinggen-ministries-site.vercel.app/services` returns `301` to canonical (or documented fallback behavior).
+1. `GET https://kinggenministries.org/` returns `200`.
+1. `GET https://kinggenministries.org/services` returns `200`.
+1. `GET https://kinggen-ministries-site-mwqc.vercel.app/services` returns permanent redirect to `https://kinggenministries.org/services`.
+1. `GET https://kinggen-ministries-site.vercel.app/services` returns permanent redirect to `https://kinggenministries.org/services`.
 
 ## GitHub Status Contexts
 

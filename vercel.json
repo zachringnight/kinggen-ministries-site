@@ -8,7 +8,18 @@
           "value": "kinggen-ministries-site.vercel.app"
         }
       ],
-      "destination": "https://kinggen-ministries-site-mwqc.vercel.app/:path*",
+      "destination": "https://kinggenministries.org/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "kinggen-ministries-site-mwqc.vercel.app"
+        }
+      ],
+      "destination": "https://kinggenministries.org/:path*",
       "permanent": true
     }
   ]

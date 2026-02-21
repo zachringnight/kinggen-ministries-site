@@ -1,9 +1,50 @@
+const DEFAULT_SITE_URL = "https://kinggenministries.org";
+const DEFAULT_PHONE = "(817) 682-4341";
+
+export function normalizeSiteUrl(rawUrl: string | undefined): string {
+  const trimmed = rawUrl?.trim();
+  if (!trimmed) return DEFAULT_SITE_URL;
+
+  const withProtocol = /^[a-zA-Z][a-zA-Z\d+\-.]*:\/\//.test(trimmed)
+    ? trimmed
+    : `https://${trimmed}`;
+
+  try {
+    const parsed = new URL(withProtocol);
+    if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
+      return DEFAULT_SITE_URL;
+    }
+
+    return parsed.origin;
+  } catch {
+    return DEFAULT_SITE_URL;
+  }
+}
+
+export function toPhoneHref(rawPhone: string): string {
+  const trimmed = rawPhone.trim();
+  const digitsOnly = trimmed.replace(/\D/g, "");
+
+  if (!digitsOnly) return "";
+
+  if (trimmed.startsWith("+")) {
+    return `+${digitsOnly}`;
+  }
+
+  if (digitsOnly.length === 10) {
+    return `+1${digitsOnly}`;
+  }
+
+  return `+${digitsOnly}`;
+}
+
 export const siteConfig = {
   name: "KingGen Ministries",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://kinggenministries.org",
+  url: normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL),
   tagline: "Gospel-centered counseling for women in need.",
   description: "A 501(c)(3) nonprofit providing free clinical pastoral counseling for women. Partner with us through referrals, donations, or grants.",
-  phone: "(817) 682-4341",
+  phone: DEFAULT_PHONE,
+  phoneHref: toPhoneHref(DEFAULT_PHONE),
   email: "kinggencounseling@gmail.com",
   address: {
     line1: "KingGen Ministries",

@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import {
-  Section,
-  SectionHeader,
   Button,
   FadeIn,
-  StaggerContainer,
-  StaggerItem,
   ArrowRightIcon,
   HeartIcon,
   CrossIcon,
@@ -73,39 +69,10 @@ export default function ServicesPage() {
       />
 
       {/* Services List */}
-      {services.map((service, index) => {
+      {services.map((service) => {
         const Icon = service.icon;
-        const isEven = index % 2 === 1;
 
-        return isEven ? (
-          <section
-            key={service.title}
-            className="relative brand-surface-cream py-16 md:py-24"
-            style={{
-              backgroundImage: "url('/brand/social/content-section-bg.webp')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            <div className="relative z-10 container mx-auto px-4 sm:px-6">
-              <FadeIn>
-                <div className="max-w-3xl mx-auto text-center">
-                  <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 rounded-full bg-brand-primary/10 flex items-center justify-center">
-                      <Icon className="w-8 h-8 text-brand-primary" />
-                    </div>
-                  </div>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
-                    {service.title}
-                  </h2>
-                  <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
-              </FadeIn>
-            </div>
-          </section>
-        ) : (
+        return (
           <section
             key={service.title}
             className="relative brand-surface-cream py-16 md:py-24"

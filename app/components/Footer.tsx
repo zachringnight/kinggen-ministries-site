@@ -72,7 +72,7 @@ export default function Footer() {
                 <span>{siteConfig.email}</span>
               </a>
               <a
-                href={`tel:${siteConfig.phone}`}
+                href={`tel:${siteConfig.phoneHref}`}
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
                 <PhoneIcon className="w-4 h-4" />
