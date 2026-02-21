@@ -15,7 +15,7 @@ A professional nonprofit website for KingGen Ministries, a 501(c)(3) organizatio
 
 ### Prerequisites
 
-- Node.js 20.18.2 or higher (see `.nvmrc`)
+- Node.js 20.19.0 or higher (see `.nvmrc`)
 - npm 10.0.0 or higher
 
 ### Installation
