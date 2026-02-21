@@ -38,7 +38,7 @@ const backgroundMap: Record<
     showEyebrow: true,
   },
   about: {
-    texture: "/brand/headers/about-header.webp",
+    texture: "/brand/social/content-section-bg.webp",
     overlayClassName:
       "bg-gradient-to-b from-white/25 via-brand-soft/45 to-brand-light/62",
     titleClassName: "text-brand-primary",
@@ -49,7 +49,7 @@ const backgroundMap: Record<
     showEyebrow: false,
   },
   "inner-logo": {
-    texture: "/brand/headers/inner-header.webp",
+    texture: "/brand/social/content-section-bg.webp",
     overlayClassName:
       "bg-gradient-to-b from-white/24 via-brand-soft/40 to-brand-light/60",
     titleClassName: "text-brand-primary",
