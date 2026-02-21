@@ -71,19 +71,20 @@ export default function Home() {
     <>
       {/* Hero Section — branded image with lightweight live message */}
       <section
-        className="relative brand-hero-banner home-hero-bg w-full min-h-[42vh] sm:min-h-[52vh] md:min-h-[60vh] bg-cover bg-center bg-no-repeat animate-fade-in-up"
+        className="relative brand-hero-banner home-hero-bg w-full bg-cover bg-center bg-no-repeat animate-fade-in-up"
         style={{ backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')" }}
         role="banner"
         aria-label="KingGen Ministries — Christian Counseling for Women"
       >
         <h1 className="sr-only">KingGen Ministries</h1>
-        <div className="absolute inset-x-0 bottom-8 md:bottom-12 z-10">
+        {/* Use flex layout instead of absolute positioning to prevent text overlap */}
+        <div className="relative z-10 flex flex-col justify-end min-h-[42vh] sm:min-h-[52vh] md:min-h-[60vh] pb-8 md:pb-12 pt-20">
           <div className="container mx-auto px-4 sm:px-6">
-            <div className="max-w-xl rounded-2xl border border-white/70 bg-white/88 backdrop-blur-sm shadow-lg px-5 py-4 md:px-6 md:py-5">
+            <div className="max-w-xl rounded-2xl border border-white/70 bg-white/92 backdrop-blur-md shadow-xl px-5 py-5 md:px-7 md:py-6">
               <p className="text-lg md:text-xl font-heading font-bold text-brand-primary leading-tight">
                 Free Gospel-centered counseling for women in need.
               </p>
-              <p className="text-sm md:text-base text-text-secondary mt-2">
+              <p className="text-sm md:text-base text-text-secondary mt-2 leading-relaxed">
                 Compassionate care for referrals, donors, and ministry partners.
               </p>
               <div className="mt-4">
@@ -101,7 +102,7 @@ export default function Home() {
 
       {/* About the Ministry Section */}
       <section
-        className="relative brand-surface-cream py-16 md:py-24"
+        className="relative brand-surface-cream py-20 md:py-28"
         style={{
           backgroundImage: "url('/brand/social/content-section-bg.webp')",
           backgroundSize: "cover",
@@ -110,7 +111,10 @@ export default function Home() {
       >
         <div className="relative z-10">
           <FadeIn>
-            <div className="relative z-10 max-w-3xl mx-auto text-center px-4 sm:px-6">
+            <div className="max-w-3xl mx-auto text-center px-4 sm:px-6">
+              <div className="flex justify-center mb-4">
+                <CrossIcon className="w-6 h-6 text-brand-primary/40" strokeWidth={1.5} />
+              </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 md:mb-6">
                 About our ministry
               </h2>

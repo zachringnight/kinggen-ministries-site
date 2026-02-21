@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import {
   Button,
+  Section,
   FadeIn,
+  StaggerContainer,
+  StaggerItem,
   ArrowRightIcon,
   HeartIcon,
   CrossIcon,
@@ -68,40 +71,57 @@ export default function ServicesPage() {
         showWatermarkCorners
       />
 
-      {/* Services List */}
-      {services.map((service) => {
-        const Icon = service.icon;
+      {/* Services Grid */}
+      <Section variant="art-cream" padding="xl" watermark="cross-subtle" ornamentLevel="featured">
+        <FadeIn>
+          <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+            <div className="flex justify-center mb-4">
+              <CrossIcon className="w-6 h-6 text-brand-primary/50" strokeWidth={1.5} />
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
+              How we can help
+            </h2>
+            <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
+              Every woman&apos;s story is different. Our services are tailored to meet you where you are with compassion, confidentiality, and Gospel-centered care.
+            </p>
+          </div>
+        </FadeIn>
 
-        return (
-          <section
-            key={service.title}
-            className="relative brand-surface-cream py-16 md:py-24"
-            style={{
-              backgroundImage: "url('/brand/social/content-section-bg.webp')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            <div className="relative z-10 container mx-auto px-4 sm:px-6">
-              <FadeIn>
-                <div className="max-w-3xl mx-auto text-center">
-                  <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 rounded-full bg-brand-primary/10 flex items-center justify-center">
-                      <Icon className="w-8 h-8 text-brand-primary" />
-                    </div>
+        <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+          {services.map((service, i) => {
+            const Icon = service.icon;
+            return (
+              <StaggerItem key={i}>
+                <div className="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-brand-light h-full flex flex-col group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-brand-primary flex items-center justify-center mb-5 shadow-lg group-hover:bg-brand-accent transition-colors duration-300">
+                    <Icon className="w-7 h-7 text-white" />
                   </div>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
+                  <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-3">
                     {service.title}
-                  </h2>
-                  <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
+                  </h3>
+                  <p className="text-sm md:text-base text-text-secondary leading-relaxed flex-grow">
                     {service.description}
                   </p>
                 </div>
-              </FadeIn>
-            </div>
-          </section>
-        );
-      })}
+              </StaggerItem>
+            );
+          })}
+        </StaggerContainer>
+      </Section>
+
+      {/* Approach Note */}
+      <Section variant="cross-light" padding="lg" watermark="none">
+        <FadeIn>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold font-heading text-text-primary mb-4">
+              Our approach
+            </h2>
+            <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
+              Sessions are led by a licensed clinical pastoral counselor and grounded in Scripture. We meet women with kindness, at their own pace, and walk alongside them toward healing and hope.
+            </p>
+          </div>
+        </FadeIn>
+      </Section>
 
       {/* Contact CTA */}
       <section

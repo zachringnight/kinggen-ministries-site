@@ -97,10 +97,16 @@ html {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
   background:
     radial-gradient(120% 120% at 50% 0%, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 55%),
     linear-gradient(180deg, rgba(23, 35, 24, 0.12) 0%, rgba(23, 35, 24, 0.22) 100%);
+}
+
+/* Hero banner content stays above overlays */
+.brand-hero-banner > * {
+  position: relative;
+  z-index: 2;
 }
 
 .brand-surface-cream {
@@ -114,10 +120,17 @@ html {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.76) 0%, rgba(240, 237, 232, 0.7) 100%),
     radial-gradient(100% 90% at 50% 0%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 60%);
+}
+
+/* Ensure content inside branded surfaces always sits above overlays */
+.brand-surface-cream > *,
+.brand-surface-dark > * {
+  position: relative;
+  z-index: 2;
 }
 
 .brand-surface-dark {
@@ -131,7 +144,7 @@ html {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
   background:
     linear-gradient(140deg, rgba(31, 53, 34, 0.8) 0%, rgba(45, 74, 44, 0.7) 55%, rgba(59, 94, 58, 0.74) 100%),
     radial-gradient(120% 120% at 50% 0%, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0) 58%);
@@ -164,8 +177,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-/* Paragraph spacing */
-p + p {
+/* Paragraph spacing - only in prose containers, avoid overlapping stacked elements */
+.prose p + p,
+article p + p {
   margin-top: 1.25em;
 }
 
