@@ -82,7 +82,22 @@ html {
 }
 
 .home-hero-bg {
-  background-position: center;
+  background-position: 50% 35%;
+  background-size: cover;
+}
+
+.home-hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(59, 94, 58, 0.55) 0%,
+    rgba(59, 94, 58, 0.45) 40%,
+    rgba(59, 94, 58, 0.60) 100%
+  );
 }
 
 @media (max-width: 639px) {
