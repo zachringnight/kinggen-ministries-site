@@ -151,32 +151,32 @@ interface PageHeroProps {
 const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay: string; hasCross?: boolean }> = {
   "kinggen-branded": {
     primary: "/brand/headers/homepage-hero.webp",
-    overlay: "bg-gradient-to-b from-brand-primary/68 via-brand-primary/75 to-brand-primary/85",
+    overlay: "bg-gradient-to-b from-brand-primary/52 via-brand-primary/58 to-brand-primary/68",
   },
   "green-texture": {
     primary: "/brand/headers/homepage-hero.webp",
-    overlay: "bg-gradient-to-b from-brand-primary/72 via-brand-primary/78 to-brand-primary/85",
+    overlay: "bg-gradient-to-b from-brand-primary/55 via-brand-primary/62 to-brand-primary/70",
   },
   "green-art": {
     primary: "/brand/headers/homepage-hero.webp",
-    overlay: "bg-gradient-to-br from-brand-primary/65 via-brand-secondary/70 to-brand-primary/80",
+    overlay: "bg-gradient-to-br from-brand-primary/50 via-brand-secondary/55 to-brand-primary/65",
   },
   "sage": {
     primary: "/brand/headers/about-header.webp",
-    overlay: "bg-gradient-to-b from-brand-soft/50 via-brand-soft/60 to-brand-light/72",
+    overlay: "bg-gradient-to-b from-brand-soft/38 via-brand-soft/46 to-brand-light/56",
   },
   "cream": {
     primary: "/brand/headers/about-header.webp",
-    overlay: "bg-gradient-to-b from-brand-soft/55 via-brand-cream/65 to-brand-cream/72",
+    overlay: "bg-gradient-to-b from-brand-soft/40 via-brand-cream/48 to-brand-cream/56",
   },
   "cross-branded": {
     primary: "/brand/headers/homepage-hero.webp",
-    overlay: "bg-gradient-to-br from-brand-primary/70 via-brand-secondary/74 to-brand-primary/82",
+    overlay: "bg-gradient-to-br from-brand-primary/54 via-brand-secondary/58 to-brand-primary/66",
     hasCross: true,
   },
   "cross-texture": {
     primary: "/brand/headers/inner-header.webp",
-    overlay: "bg-gradient-to-br from-brand-primary/72 via-brand-secondary/76 to-brand-primary/84",
+    overlay: "bg-gradient-to-br from-brand-primary/56 via-brand-secondary/60 to-brand-primary/68",
     hasCross: true,
   },
 };

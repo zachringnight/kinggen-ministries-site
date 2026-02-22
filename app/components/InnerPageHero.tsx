@@ -29,7 +29,7 @@ const backgroundMap: Record<
   inner: {
     texture: "/brand/headers/inner-header.webp",
     overlayClassName:
-      "bg-gradient-to-b from-brand-primary/70 via-brand-primary/78 to-brand-primary/88",
+      "bg-gradient-to-b from-brand-primary/55 via-brand-primary/62 to-brand-primary/72",
     titleClassName: "text-white",
     subtitleClassName: "text-white/90",
     eyebrowClassName: "border-white/30 bg-white/10 text-white/85",
@@ -40,7 +40,7 @@ const backgroundMap: Record<
   about: {
     texture: "/brand/headers/about-header.webp",
     overlayClassName:
-      "bg-gradient-to-b from-white/50 via-brand-soft/60 to-brand-light/72",
+      "bg-gradient-to-b from-white/40 via-brand-soft/48 to-brand-light/58",
     titleClassName: "text-brand-primary",
     subtitleClassName: "text-text-secondary",
     eyebrowClassName: "border-brand-primary/20 bg-white/70 text-brand-primary",
@@ -51,7 +51,7 @@ const backgroundMap: Record<
   "inner-logo": {
     texture: "/brand/headers/inner-header.webp",
     overlayClassName:
-      "bg-gradient-to-b from-white/48 via-brand-soft/58 to-brand-light/70",
+      "bg-gradient-to-b from-white/38 via-brand-soft/46 to-brand-light/56",
     titleClassName: "text-brand-primary",
     subtitleClassName: "text-text-secondary",
     eyebrowClassName: "border-brand-primary/20 bg-white/70 text-brand-primary",
