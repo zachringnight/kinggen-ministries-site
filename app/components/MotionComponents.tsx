@@ -150,7 +150,7 @@ export function FadeIn({
   once = true,
 }: FadeInProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once, margin: "-50px" });
+  const isInView = useInView(ref, { once, margin: "100px" });
   const controls = useAnimation();
 
   const directions = {
@@ -211,7 +211,7 @@ export function StaggerContainer({
   className = "",
 }: StaggerContainerProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: "100px" });
 
   return (
     <motion.div
