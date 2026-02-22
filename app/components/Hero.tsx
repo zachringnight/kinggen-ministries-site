@@ -162,12 +162,12 @@ const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay
     overlay: "bg-gradient-to-br from-brand-primary/50 via-brand-secondary/55 to-brand-primary/65",
   },
   "sage": {
-    primary: "/brand/headers/about-header.webp",
-    overlay: "bg-gradient-to-b from-brand-soft/38 via-brand-soft/46 to-brand-light/56",
+    primary: "/brand/headers/homepage-hero.webp",
+    overlay: "bg-gradient-to-b from-brand-primary/48 via-brand-primary/54 to-brand-primary/62",
   },
   "cream": {
-    primary: "/brand/headers/about-header.webp",
-    overlay: "bg-gradient-to-b from-brand-soft/40 via-brand-cream/48 to-brand-cream/56",
+    primary: "/brand/headers/homepage-hero.webp",
+    overlay: "bg-gradient-to-b from-brand-primary/44 via-brand-primary/50 to-brand-primary/58",
   },
   "cross-branded": {
     primary: "/brand/headers/homepage-hero.webp",
@@ -175,8 +175,8 @@ const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay
     hasCross: true,
   },
   "cross-texture": {
-    primary: "/brand/headers/inner-header.webp",
-    overlay: "bg-gradient-to-br from-brand-primary/56 via-brand-secondary/60 to-brand-primary/68",
+    primary: "/brand/headers/homepage-hero.webp",
+    overlay: "bg-gradient-to-br from-brand-primary/50 via-brand-secondary/55 to-brand-primary/62",
     hasCross: true,
   },
 };
@@ -192,7 +192,7 @@ export function PageHero({
   children,
 }: PageHeroProps) {
   const bgConfig = pageHeroBackgrounds[background];
-  const isLight = background === "cream";
+  const isLight = false; // all variants now use dark branded hero
   const displayCross = showCross || bgConfig.hasCross;
 
   return (

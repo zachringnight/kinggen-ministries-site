@@ -27,9 +27,9 @@ const backgroundMap: Record<
   }
 > = {
   inner: {
-    texture: "/brand/headers/inner-header.webp",
+    texture: "/brand/headers/homepage-hero.webp",
     overlayClassName:
-      "bg-gradient-to-b from-brand-primary/55 via-brand-primary/62 to-brand-primary/72",
+      "bg-gradient-to-b from-brand-primary/50 via-brand-primary/55 to-brand-primary/65",
     titleClassName: "text-white",
     subtitleClassName: "text-white/90",
     eyebrowClassName: "border-white/30 bg-white/10 text-white/85",
@@ -38,25 +38,25 @@ const backgroundMap: Record<
     showEyebrow: true,
   },
   about: {
-    texture: "/brand/headers/about-header.webp",
+    texture: "/brand/headers/homepage-hero.webp",
     overlayClassName:
-      "bg-gradient-to-b from-white/40 via-brand-soft/48 to-brand-light/58",
-    titleClassName: "text-brand-primary",
-    subtitleClassName: "text-text-secondary",
-    eyebrowClassName: "border-brand-primary/20 bg-white/70 text-brand-primary",
-    watermarkSrc: "/brand/logo/icon-dark-green.webp",
+      "bg-gradient-to-b from-brand-primary/45 via-brand-primary/52 to-brand-primary/62",
+    titleClassName: "text-white",
+    subtitleClassName: "text-white/85",
+    eyebrowClassName: "border-white/25 bg-white/10 text-white/80",
+    watermarkSrc: "/brand/logo/icon-white.webp",
     watermarkOpacity: 0.06,
     showEyebrow: false,
   },
   "inner-logo": {
-    texture: "/brand/headers/inner-header.webp",
+    texture: "/brand/headers/homepage-hero.webp",
     overlayClassName:
-      "bg-gradient-to-b from-white/38 via-brand-soft/46 to-brand-light/56",
-    titleClassName: "text-brand-primary",
-    subtitleClassName: "text-text-secondary",
-    eyebrowClassName: "border-brand-primary/20 bg-white/70 text-brand-primary",
-    watermarkSrc: "/brand/logo/icon-dark-green.webp",
-    watermarkOpacity: 0.04,
+      "bg-gradient-to-b from-brand-primary/48 via-brand-primary/54 to-brand-primary/64",
+    titleClassName: "text-white",
+    subtitleClassName: "text-white/85",
+    eyebrowClassName: "border-white/25 bg-white/10 text-white/80",
+    watermarkSrc: "/brand/logo/icon-white.webp",
+    watermarkOpacity: 0.06,
     showEyebrow: false,
   },
 };
