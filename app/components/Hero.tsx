@@ -150,33 +150,33 @@ interface PageHeroProps {
 
 const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay: string; hasCross?: boolean }> = {
   "kinggen-branded": {
-    primary: "/brand/social/cta-testimonial-section-bg.webp",
-    overlay: "bg-gradient-to-b from-brand-primary/78 via-brand-primary/82 to-brand-primary/90",
+    primary: "/brand/headers/homepage-hero.webp",
+    overlay: "bg-gradient-to-b from-brand-primary/35 via-brand-primary/45 to-brand-primary/60",
   },
   "green-texture": {
-    primary: "/brand/social/cta-testimonial-section-bg.webp",
-    overlay: "bg-gradient-to-b from-brand-primary/80 via-brand-primary/84 to-brand-primary/88",
+    primary: "/brand/headers/homepage-hero.webp",
+    overlay: "bg-gradient-to-b from-brand-primary/40 via-brand-primary/50 to-brand-primary/60",
   },
   "green-art": {
-    primary: "/brand/social/cta-testimonial-section-bg.webp",
-    overlay: "bg-gradient-to-br from-brand-primary/70 via-brand-secondary/74 to-brand-primary/82",
+    primary: "/brand/headers/homepage-hero.webp",
+    overlay: "bg-gradient-to-br from-brand-primary/30 via-brand-secondary/40 to-brand-primary/55",
   },
   "sage": {
-    primary: "/brand/social/content-section-bg.webp",
-    overlay: "bg-gradient-to-b from-brand-soft/45 via-brand-soft/60 to-brand-light/76",
+    primary: "/brand/headers/about-header.webp",
+    overlay: "bg-gradient-to-b from-brand-soft/25 via-brand-soft/35 to-brand-light/50",
   },
   "cream": {
-    primary: "/brand/social/content-section-bg.webp",
-    overlay: "bg-gradient-to-b from-brand-soft/60 via-brand-cream/68 to-brand-cream/75",
+    primary: "/brand/headers/about-header.webp",
+    overlay: "bg-gradient-to-b from-brand-soft/30 via-brand-cream/40 to-brand-cream/50",
   },
   "cross-branded": {
-    primary: "/brand/social/cta-testimonial-section-bg.webp",
-    overlay: "bg-gradient-to-br from-brand-primary/78 via-brand-secondary/76 to-brand-primary/86",
+    primary: "/brand/headers/homepage-hero.webp",
+    overlay: "bg-gradient-to-br from-brand-primary/38 via-brand-secondary/42 to-brand-primary/55",
     hasCross: true,
   },
   "cross-texture": {
-    primary: "/brand/social/cta-testimonial-section-bg.webp",
-    overlay: "bg-gradient-to-br from-brand-primary/82 via-brand-secondary/80 to-brand-primary/88",
+    primary: "/brand/headers/inner-header.webp",
+    overlay: "bg-gradient-to-br from-brand-primary/42 via-brand-secondary/46 to-brand-primary/58",
     hasCross: true,
   },
 };

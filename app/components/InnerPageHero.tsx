@@ -27,36 +27,36 @@ const backgroundMap: Record<
   }
 > = {
   inner: {
-    texture: "/brand/social/cta-testimonial-section-bg.webp",
+    texture: "/brand/headers/inner-header.webp",
     overlayClassName:
-      "bg-gradient-to-b from-brand-primary/72 via-brand-primary/80 to-brand-primary/90",
+      "bg-gradient-to-b from-brand-primary/40 via-brand-primary/50 to-brand-primary/65",
     titleClassName: "text-white",
     subtitleClassName: "text-white/90",
     eyebrowClassName: "border-white/30 bg-white/10 text-white/85",
     watermarkSrc: "/brand/logo/icon-white.webp",
-    watermarkOpacity: 0.12,
+    watermarkOpacity: 0.08,
     showEyebrow: true,
   },
   about: {
-    texture: "/brand/social/content-section-bg.webp",
+    texture: "/brand/headers/about-header.webp",
     overlayClassName:
-      "bg-gradient-to-b from-white/25 via-brand-soft/45 to-brand-light/62",
-    titleClassName: "text-brand-primary",
-    subtitleClassName: "text-text-secondary",
-    eyebrowClassName: "border-brand-primary/20 bg-white/70 text-brand-primary",
-    watermarkSrc: "/brand/logo/icon-dark-green.webp",
-    watermarkOpacity: 0.08,
-    showEyebrow: false,
-  },
-  "inner-logo": {
-    texture: "/brand/social/content-section-bg.webp",
-    overlayClassName:
-      "bg-gradient-to-b from-white/24 via-brand-soft/40 to-brand-light/60",
+      "bg-gradient-to-b from-white/15 via-brand-soft/25 to-brand-light/40",
     titleClassName: "text-brand-primary",
     subtitleClassName: "text-text-secondary",
     eyebrowClassName: "border-brand-primary/20 bg-white/70 text-brand-primary",
     watermarkSrc: "/brand/logo/icon-dark-green.webp",
     watermarkOpacity: 0.06,
+    showEyebrow: false,
+  },
+  "inner-logo": {
+    texture: "/brand/headers/inner-header.webp",
+    overlayClassName:
+      "bg-gradient-to-b from-white/14 via-brand-soft/22 to-brand-light/38",
+    titleClassName: "text-brand-primary",
+    subtitleClassName: "text-text-secondary",
+    eyebrowClassName: "border-brand-primary/20 bg-white/70 text-brand-primary",
+    watermarkSrc: "/brand/logo/icon-dark-green.webp",
+    watermarkOpacity: 0.04,
     showEyebrow: false,
   },
 };
