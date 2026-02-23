@@ -11,7 +11,6 @@ import {
   FadeIn,
   StaggerContainer,
   StaggerItem,
-  OptimizedBackground,
   InnerPageHero,
 } from "../components";
 
@@ -59,7 +58,6 @@ export default function ResourcesPage() {
         showWatermarkCorners
       />
 
-      {/* Opening Section with art */}
       <Section variant="art-cream" padding="lg" watermark="stones-right" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
@@ -70,25 +68,7 @@ export default function ResourcesPage() {
         </FadeIn>
       </Section>
 
-      {/* Downloads Section with art */}
-      <section
-        className="relative brand-surface-dark py-20 md:py-24 overflow-hidden"
-        style={{
-          backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute inset-0 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "center",
-            backgroundSize: "170px auto",
-            opacity: 0.08,
-          }}
-        />
-        <div className="container mx-auto px-4 lg:px-8 max-w-4xl relative z-10">
+      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
         <FadeIn>
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-3 text-center">
             Free Downloads
@@ -98,7 +78,7 @@ export default function ResourcesPage() {
           </p>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.1} className="space-y-4">
+        <StaggerContainer staggerDelay={0.1} className="space-y-4 max-w-4xl mx-auto">
           {resources.map((resource, i) => (
             <StaggerItem key={i}>
               <a
@@ -106,7 +86,7 @@ export default function ResourcesPage() {
                 download
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-5 bg-white/95 backdrop-blur-sm rounded-xl shadow-sm border border-white/50 hover:shadow-md hover:border-white/90 transition-all group"
+                className="flex items-center justify-between p-5 brand-panel rounded-xl hover:shadow-xl transition-all group"
               >
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-brand-light text-brand-primary flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-colors">
@@ -125,16 +105,14 @@ export default function ResourcesPage() {
         </StaggerContainer>
 
         <FadeIn delay={0.3}>
-          <div className="mt-8 p-6 bg-white/10 border border-white/20 backdrop-blur-sm rounded-2xl text-center">
+          <div className="mt-8 p-6 brand-panel-dark rounded-2xl text-center max-w-4xl mx-auto">
             <p className="text-white/90">
               More resources coming soon. If there&apos;s something specific that would help you, let us know.
             </p>
           </div>
         </FadeIn>
-        </div>
-      </section>
+      </Section>
 
-      {/* Contact CTA with art */}
       <Section variant="cross-light" padding="lg" watermark="none">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">

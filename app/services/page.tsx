@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import {
-  Button,
   Section,
+  Button,
   FadeIn,
-  StaggerContainer,
-  StaggerItem,
   ArrowRightIcon,
   HeartIcon,
   CrossIcon,
@@ -12,7 +10,8 @@ import {
   UsersIcon,
   CheckCircleIcon,
   InnerPageHero,
-  OptimizedBackground,
+  StaggerContainer,
+  StaggerItem,
 } from "../components";
 
 export const metadata: Metadata = {
@@ -71,35 +70,32 @@ export default function ServicesPage() {
         showWatermarkCorners
       />
 
-      {/* Services Grid */}
-      <Section variant="art-cream" padding="xl" watermark="cross-subtle" ornamentLevel="featured">
+      <Section variant="art-cream" padding="xl" watermark="stones-right" ornamentLevel="featured">
         <FadeIn>
-          <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
-            <div className="flex justify-center mb-4">
-              <CrossIcon className="w-6 h-6 text-brand-primary/50" strokeWidth={1.5} />
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
-              How we can help
+          <div className="max-w-3xl mx-auto text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
+              Counseling support rooted in hope
             </h2>
-            <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
-              Every woman&apos;s story is different. Our services are tailored to meet you where you are with compassion, confidentiality, and Gospel-centered care.
+            <p className="text-base sm:text-lg text-text-secondary">
+              Each area of care is offered through confidential, Gospel-centered clinical pastoral counseling.
             </p>
           </div>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+        <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {services.map((service, i) => {
             const Icon = service.icon;
+
             return (
-              <StaggerItem key={i}>
-                <div className="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-brand-light h-full flex flex-col group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                  <div className="w-14 h-14 rounded-2xl bg-brand-primary flex items-center justify-center mb-5 shadow-lg group-hover:bg-brand-accent transition-colors duration-300">
-                    <Icon className="w-7 h-7 text-white" />
+              <StaggerItem key={service.title}>
+                <div className="brand-panel p-6 h-full card-hover">
+                  <div className="w-14 h-14 rounded-2xl bg-brand-primary/12 flex items-center justify-center mb-5">
+                    <Icon className="w-7 h-7 text-brand-primary" />
                   </div>
-                  <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-3">
+                  <h3 className="text-xl font-bold font-heading text-text-primary mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-sm md:text-base text-text-secondary leading-relaxed flex-grow">
+                  <p className="text-text-secondary leading-relaxed">
                     {service.description}
                   </p>
                 </div>
@@ -109,71 +105,27 @@ export default function ServicesPage() {
         </StaggerContainer>
       </Section>
 
-      {/* Approach Note */}
-      <Section variant="cross-light" padding="lg" watermark="none">
+      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
         <FadeIn>
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold font-heading text-text-primary mb-4">
-              Our approach
+          <div className="max-w-3xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4">
+              Ready to take the next step?
             </h2>
-            <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
-              Sessions are led by a licensed clinical pastoral counselor and grounded in Scripture. We meet women with kindness, at their own pace, and walk alongside them toward healing and hope.
+            <p className="text-base sm:text-lg text-white/90 mb-8">
+              Connect with us to discuss a referral or partnership path. All services are offered at no cost to clients.
             </p>
+            <Button
+              href="/contact"
+              variant="white"
+              size="lg"
+              icon={<ArrowRightIcon className="w-5 h-5" />}
+              iconPosition="right"
+            >
+              Start a Referral Conversation
+            </Button>
           </div>
         </FadeIn>
       </Section>
-
-      {/* Contact CTA */}
-      <section
-        className="relative brand-surface-dark py-16 md:py-24 overflow-hidden"
-        style={{
-          backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        {/* Logo art accents */}
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute left-0 bottom-0 w-48 h-48 md:w-64 md:h-64 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "left bottom",
-            backgroundSize: "contain",
-            opacity: 0.15,
-          }}
-        />
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute right-0 top-0 w-40 h-40 md:w-56 md:h-56 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "right top",
-            backgroundSize: "contain",
-            opacity: 0.12,
-          }}
-        />
-
-        <div className="relative z-10 container mx-auto px-4 sm:px-6">
-          <FadeIn>
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4">
-                Ready to take the next step?
-              </h2>
-              <p className="text-base sm:text-lg text-white/90 mb-8">
-                Connect with us to discuss a referral or partnership path. All services are offered at no cost to clients.
-              </p>
-              <Button
-                href="/contact"
-                variant="white"
-                size="lg"
-                icon={<ArrowRightIcon className="w-5 h-5" />}
-                iconPosition="right"
-              >
-                Start a Referral Conversation
-              </Button>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
     </>
   );
 }

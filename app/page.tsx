@@ -52,7 +52,7 @@ const services = [
   {
     icon: HeartIcon,
     title: "Individual Pastoral Counseling",
-    description: "Gospel-centered support for anxiety, stress, grief, and life transitions — offered at no cost to clients.",
+    description: "Gospel-centered support for anxiety, stress, grief, and life transitions - offered at no cost to clients.",
   },
   {
     icon: ShieldIcon,
@@ -62,74 +62,108 @@ const services = [
   {
     icon: CrossIcon,
     title: "Spiritual & Emotional Growth",
-    description: "Help with boundaries, identity, confidence, and spiritual discouragement — rooted in Scripture and hope.",
+    description: "Help with boundaries, identity, confidence, and spiritual discouragement - rooted in Scripture and hope.",
+  },
+];
+
+const audienceCards = [
+  {
+    icon: UsersIcon,
+    title: "Referrers",
+    description:
+      "For pastors, churches, social workers, and trusted professionals looking for a compassionate referral option for women in need.",
+    href: "/for-referrers",
+    cta: "For Referrers",
+    iconColor: "bg-brand-primary",
+  },
+  {
+    icon: HeartIcon,
+    title: "Donors",
+    description:
+      "Your tax-deductible gift helps remove cost barriers and ensures women receive the care they need.",
+    href: "/donate",
+    cta: "Donate",
+    iconColor: "bg-brand-accent",
+  },
+  {
+    icon: GiftIcon,
+    title: "Grant Writers & Foundations",
+    description:
+      "Access organizational information, impact data, and resources to support grant applications.",
+    href: "/for-grant-writers",
+    cta: "For Grant Writers",
+    iconColor: "bg-brand-warm",
   },
 ];
 
 export default function Home() {
   return (
     <>
-      {/* Hero Section — branded image with lightweight live message */}
       <section
-        className="relative brand-hero-banner home-hero-bg w-full bg-cover bg-center bg-no-repeat animate-fade-in-up"
-        style={{ backgroundImage: "url('/brand/headers/homepage-hero.webp')" }}
+        className="relative brand-hero-banner home-hero-bg w-full min-h-[56vh] md:min-h-[68vh] bg-cover bg-center bg-no-repeat animate-fade-in-up isolate"
         role="banner"
-        aria-label="KingGen Ministries — Christian Counseling for Women"
+        aria-label="KingGen Ministries - Christian Counseling for Women"
       >
+        <OptimizedBackground
+          src="/brand/social/cta-testimonial-section-bg.webp"
+          className="absolute inset-0 bg-cover bg-center pointer-events-none"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/70 via-brand-primary/80 to-brand-primary/90" />
+
         <h1 className="sr-only">KingGen Ministries</h1>
-        {/* Use flex layout instead of absolute positioning to prevent text overlap */}
-        <div className="relative z-10 flex flex-col justify-end min-h-[42vh] sm:min-h-[52vh] md:min-h-[60vh] pb-8 md:pb-12 pt-20">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="max-w-xl rounded-2xl border border-white/70 bg-white/92 backdrop-blur-md shadow-xl px-5 py-5 md:px-7 md:py-6">
-              <p className="text-lg md:text-xl font-heading font-bold text-brand-primary leading-tight">
+
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-24 pb-10 md:pt-32 md:pb-14">
+          <div className="grid lg:grid-cols-[minmax(0,1fr)_300px] gap-6 lg:gap-10 items-end">
+            <div className="brand-panel brand-panel-premium p-6 md:p-8 max-w-3xl">
+              <span className="brand-kicker">Christian Counseling Nonprofit</span>
+              <p className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-brand-primary leading-[1.05] mt-4">
                 Free Gospel-centered counseling for women in need.
               </p>
-              <p className="text-sm md:text-base text-text-secondary mt-2 leading-relaxed">
-                Compassionate care for referrals, donors, and ministry partners.
+              <p className="text-base md:text-lg text-text-secondary mt-4 max-w-2xl">
+                Compassionate care for referrals, donors, and ministry partners with clear communication and confidential support.
               </p>
-              <div className="mt-4">
+              <div className="mt-6 flex flex-col sm:flex-row gap-3">
                 <Button href="/contact" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
                   Start a Referral Conversation
                 </Button>
+                <Button href="/donate" variant="outline" icon={<HeartIcon className="w-5 h-5" />}>
+                  Support the Mission
+                </Button>
               </div>
+            </div>
+
+            <div className="hidden lg:grid gap-3">
+              {[
+                "501(c)(3) nonprofit",
+                "No-cost client services",
+                "Clinical pastoral care",
+              ].map((item) => (
+                <div key={item} className="brand-panel-dark rounded-xl px-4 py-3 text-white/90 text-sm font-medium">
+                  {item}
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Wave Divider */}
       <AnimatedDivider variant="wave" color="var(--brand-soft)" className="-mt-1" />
 
-      {/* About the Ministry Section */}
-      <section
-        className="relative brand-surface-cream py-20 md:py-28"
-        style={{
-          backgroundImage: "url('/brand/social/content-section-bg.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="relative z-10">
-          <FadeIn>
-            <div className="max-w-3xl mx-auto text-center px-4 sm:px-6">
-              <div className="flex justify-center mb-4">
-                <CrossIcon className="w-6 h-6 text-brand-primary/40" strokeWidth={1.5} />
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 md:mb-6">
-                About our ministry
-              </h2>
-              <p className="text-base sm:text-lg text-text-secondary leading-relaxed mb-8">
-                At KingGen Ministries, we believe everyone should have access to counseling. As a 501(c)(3), we offer Gospel-centered counseling for women in need by a licensed clinical pastoral counselor.
-              </p>
-              <Button href="/about" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-                Learn More
-              </Button>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <Section variant="art-cream" padding="xl" watermark="cross-subtle" ornamentLevel="featured">
+        <FadeIn>
+          <div className="relative z-10 max-w-3xl mx-auto text-center">
+            <SectionHeader
+              title="About our ministry"
+              subtitle="At KingGen Ministries, we believe everyone should have access to counseling. As a 501(c)(3), we offer Gospel-centered counseling for women in need by a licensed clinical pastoral counselor."
+              className="mb-8"
+            />
+            <Button href="/about" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+              Learn More
+            </Button>
+          </div>
+        </FadeIn>
+      </Section>
 
-      {/* Services Section — 3-column cards */}
       <Section variant="default" padding="xl" watermark="stones-right" ornamentLevel="featured">
         <FadeIn>
           <SectionHeader
@@ -141,7 +175,7 @@ export default function Home() {
         <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
           {services.map((service, i) => (
             <StaggerItem key={i}>
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-brand-light h-full flex flex-col">
+              <div className="brand-panel p-6 md:p-8 h-full flex flex-col card-hover">
                 <div className="w-14 h-14 rounded-2xl bg-brand-primary flex items-center justify-center mb-5 shadow-lg">
                   <service.icon className="w-7 h-7 text-white" />
                 </div>
@@ -165,32 +199,20 @@ export default function Home() {
         </FadeIn>
       </Section>
 
-      {/* Impact Statistics Section */}
-      <section
-        className="relative brand-surface-dark py-16 md:py-24 overflow-hidden"
-        style={{
-          backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="relative z-10 container mx-auto px-4 sm:px-6">
-          <FadeIn>
-            <SectionHeader
-              title="Our impact"
-              subtitle="Making a difference in women's lives through Gospel-centered care"
-              light
-            />
-          </FadeIn>
+      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+        <FadeIn>
+          <SectionHeader
+            title="Our impact"
+            subtitle="Making a difference in women's lives through Gospel-centered care"
+            light
+          />
+        </FadeIn>
 
-          <ImpactCounterSection stats={impactStats} className="max-w-4xl mx-auto" />
-        </div>
-      </section>
+        <ImpactCounterSection stats={impactStats} className="max-w-4xl mx-auto" />
+      </Section>
 
-      {/* Curve Divider */}
       <AnimatedDivider variant="curve" color="var(--brand-soft)" flip className="-mb-1" />
 
-      {/* What Sets Us Apart */}
       <Section variant="light" padding="xl" watermark="stones-left" ornamentLevel="featured">
         <FadeIn>
           <SectionHeader
@@ -207,7 +229,7 @@ export default function Home() {
             { icon: CheckCircleIcon, text: "501(c)(3) nonprofit accountability" },
           ].map((item, i) => (
             <StaggerItem key={i}>
-              <div className="bg-white rounded-2xl border border-brand-light shadow-sm p-4 h-full">
+              <div className="brand-panel p-4 h-full card-hover">
                 <div className="flex flex-col items-center text-center p-2">
                   <div className="w-12 h-12 rounded-xl bg-brand-primary flex items-center justify-center mb-4 shadow-lg">
                     <item.icon className="w-6 h-6 text-white" />
@@ -220,255 +242,167 @@ export default function Home() {
         </StaggerContainer>
       </Section>
 
-      {/* Partner With Us Section */}
       <Section variant="soft" padding="xl" watermark="stones-left" ornamentLevel="featured">
         <FadeIn>
           <SectionHeader title="Partner with us" />
         </FadeIn>
 
         <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          <StaggerItem>
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full flex flex-col relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-brand-primary flex items-center justify-center mb-4 shadow-lg">
-                  <UsersIcon className="w-7 h-7 text-white" />
+          {audienceCards.map((card) => (
+            <StaggerItem key={card.title}>
+              <div className="brand-panel p-6 md:p-8 h-full flex flex-col relative overflow-hidden group card-shine">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/6 via-transparent to-brand-accent/6 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10">
+                  <div className={`w-14 h-14 rounded-2xl ${card.iconColor} flex items-center justify-center mb-4 shadow-lg`}>
+                    <card.icon className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
+                    {card.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-text-secondary mb-4 md:mb-6 flex-grow">
+                    {card.description}
+                  </p>
+                  <Button href={card.href} variant="primary" fullWidth>
+                    {card.cta}
+                  </Button>
                 </div>
-                <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
-                  Referrers
-                </h3>
-                <p className="text-sm md:text-base text-text-secondary mb-4 md:mb-6 flex-grow">
-                  For pastors, churches, social workers, and trusted professionals looking for a compassionate referral option for women in need.
-                </p>
-                <Button href="/for-referrers" variant="primary" fullWidth>
-                  For Referrers
-                </Button>
               </div>
-            </div>
-          </StaggerItem>
-
-          <StaggerItem>
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full flex flex-col relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/5 to-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-brand-accent flex items-center justify-center mb-4 shadow-lg">
-                  <HeartIcon className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
-                  Donors
-                </h3>
-                <p className="text-sm md:text-base text-text-secondary mb-4 md:mb-6 flex-grow">
-                  Your tax-deductible gift helps remove cost barriers and ensures women receive the care they need.
-                </p>
-                <Button href="/donate" variant="primary" fullWidth>
-                  Donate
-                </Button>
-              </div>
-            </div>
-          </StaggerItem>
-
-          <StaggerItem>
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-brand-light h-full flex flex-col relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-warm/5 to-brand-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-brand-warm flex items-center justify-center mb-4 shadow-lg">
-                  <GiftIcon className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
-                  Grant Writers &amp; Foundations
-                </h3>
-                <p className="text-sm md:text-base text-text-secondary mb-4 md:mb-6 flex-grow">
-                  Access organizational information, impact data, and resources to support grant applications.
-                </p>
-                <Button href="/for-grant-writers" variant="primary" fullWidth>
-                  For Grant Writers
-                </Button>
-              </div>
-            </div>
-          </StaggerItem>
+            </StaggerItem>
+          ))}
         </StaggerContainer>
       </Section>
 
-      {/* Commitment Section */}
-      <section
-        className="relative brand-surface-dark py-16 md:py-24 overflow-hidden"
-        style={{
-          backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute inset-0 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "center",
-            backgroundSize: "200px auto",
-            opacity: 0.06,
-          }}
-        />
-
-        <div className="relative z-10 container mx-auto px-4 sm:px-6">
-          <FadeIn>
-            <div className="max-w-3xl mx-auto text-center">
-              <div className="flex justify-center mb-4">
-                <CrossIcon className="w-8 h-8 text-white/60" strokeWidth={1.5} />
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 md:mb-6">
-                Our commitment
-              </h2>
-              <p className="text-base sm:text-lg text-white/90 mb-3 md:mb-4 leading-relaxed">
-                As a <strong>501(c)(3)</strong> nonprofit, KingGen Ministries is committed to stewardship, transparency, and accountability. Every donation directly supports our mission to provide free counseling for women in need.
-              </p>
-              <p className="text-base sm:text-lg text-white/90 mb-2 leading-relaxed">
-                We partner with churches, community organizations, and foundations who share our vision.
-              </p>
-              <p className="text-white/80 mb-6 md:mb-8">
-                <strong>EIN:</strong> {siteConfig.ein}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button href="/donate" variant="white" size="lg" icon={<HeartIcon className="w-5 h-5" />} className="shadow-xl shadow-black/20">
-                  Donate Now
-                </Button>
-                <Button href="/for-grant-writers" variant="outline" size="lg" className="border-white/40 text-white hover:bg-white/10 backdrop-blur-sm">
-                  Grant Information
-                </Button>
-              </div>
+      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+        <FadeIn>
+          <div className="max-w-3xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
+            <div className="flex justify-center mb-4">
+              <CrossIcon className="w-8 h-8 text-white/60" strokeWidth={1.5} />
             </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Wave Divider */}
-      <AnimatedDivider variant="wave" color="var(--brand-soft)" className="-mt-1" />
-
-      {/* Testimonials Section */}
-      <section
-        className="relative brand-surface-cream py-16 md:py-24"
-        style={{
-          backgroundImage: "url('/brand/social/content-section-bg.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="relative z-10 container mx-auto px-4 sm:px-6">
-          <FadeIn>
-            <SectionHeader
-              title="What partners say"
-              subtitle="Hear from pastors, referrers, and community partners who trust KingGen Ministries."
-            />
-          </FadeIn>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="hidden md:block">
-              <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                {testimonialData.slice(0, 2).map((testimonial, index) => (
-                  <StaggerItem key={index}>
-                    <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg h-full relative border border-brand-light group">
-                      <QuoteIcon className="absolute top-4 right-4 md:top-6 md:right-6 w-6 h-6 md:w-8 md:h-8 text-brand-primary/20 group-hover:text-brand-accent/30 transition-colors" />
-                      <p className="text-sm md:text-base text-text-secondary italic mb-4 md:mb-6 leading-relaxed pr-8">
-                        &ldquo;{testimonial.quote}&rdquo;
-                      </p>
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white font-bold text-lg shadow-lg">
-                          {testimonial.initial}
-                        </div>
-                        <div>
-                          <p className="font-bold text-text-primary text-sm md:text-base">{testimonial.author}</p>
-                          <p className="text-xs md:text-sm text-text-muted">{testimonial.role}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </StaggerItem>
-                ))}
-              </StaggerContainer>
-            </div>
-
-            <div className="md:hidden">
-              <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-brand-light">
-                {testimonialData.map((testimonial, index) => (
-                  <FadeIn key={index} delay={0.1 * index}>
-                    <div className="p-6 border-b border-brand-light last:border-b-0">
-                      <QuoteIcon className="w-6 h-6 text-brand-primary/20 mb-3" />
-                      <p className="text-sm text-text-secondary italic mb-4 leading-relaxed">
-                        &ldquo;{testimonial.quote}&rdquo;
-                      </p>
-                      <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white font-bold text-sm">
-                          {testimonial.initial}
-                        </div>
-                        <div>
-                          <p className="font-bold text-text-primary text-sm">{testimonial.author}</p>
-                          <p className="text-xs text-text-muted">{testimonial.role}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </FadeIn>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <FadeIn delay={0.3}>
-            <div className="text-center mt-8 md:mt-10">
-              <Button href="/testimonials" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-                Read All Testimonials
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 md:mb-6">
+              Our commitment
+            </h2>
+            <p className="text-base sm:text-lg text-white/90 mb-3 md:mb-4 leading-relaxed">
+              As a <strong>501(c)(3)</strong> nonprofit, KingGen Ministries is committed to stewardship, transparency, and accountability. Every donation directly supports our mission to provide free counseling for women in need.
+            </p>
+            <p className="text-base sm:text-lg text-white/90 mb-2 leading-relaxed">
+              We partner with churches, community organizations, and foundations who share our vision.
+            </p>
+            <p className="text-white/80 mb-6 md:mb-8">
+              <strong>EIN:</strong> {siteConfig.ein}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button href="/donate" variant="white" size="lg" icon={<HeartIcon className="w-5 h-5" />} className="shadow-xl shadow-black/20">
+                Donate Now
+              </Button>
+              <Button href="/for-grant-writers" variant="outline" size="lg" className="border-white/40 text-white hover:bg-white/10 backdrop-blur-sm">
+                Grant Information
               </Button>
             </div>
-          </FadeIn>
-        </div>
-      </section>
+          </div>
+        </FadeIn>
+      </Section>
 
-      {/* Book LeeAnn Section */}
-      <section
-        className="relative brand-surface-dark py-16 md:py-24 overflow-hidden"
-        style={{
-          backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="relative z-10 container mx-auto px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto">
-            <GlassCard className="p-8 md:p-12">
-              <div className="text-center">
-                <FadeIn>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4">
-                    Invite LeeAnn to speak
-                  </h2>
-                </FadeIn>
-                <FadeIn delay={0.1}>
-                  <p className="text-base sm:text-lg text-white/90 mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
-                    LeeAnn is available for speaking engagements, podcast interviews, and ministry events. Her heart is to encourage women and share the hope of the Gospel.
-                  </p>
-                </FadeIn>
-                <FadeIn delay={0.2}>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button href="/about#speaking" variant="white" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-                      Learn More
-                    </Button>
-                    <Button href="/contact" variant="outline" size="lg" className="border-white/40 text-white hover:bg-white/10">
-                      Request a Booking
-                    </Button>
+      <AnimatedDivider variant="wave" color="var(--brand-soft)" className="-mt-1" />
+
+      <Section variant="art-cream" padding="xl" watermark="stones-right" ornamentLevel="featured">
+        <FadeIn>
+          <SectionHeader
+            title="What partners say"
+            subtitle="Hear from pastors, referrers, and community partners who trust KingGen Ministries."
+          />
+        </FadeIn>
+
+        <div className="max-w-4xl mx-auto">
+          <div className="hidden md:block">
+            <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              {testimonialData.slice(0, 2).map((testimonial, index) => (
+                <StaggerItem key={index}>
+                  <div className="brand-panel p-6 md:p-8 h-full relative group">
+                    <QuoteIcon className="absolute top-4 right-4 md:top-6 md:right-6 w-6 h-6 md:w-8 md:h-8 text-brand-primary/20 group-hover:text-brand-accent/30 transition-colors" />
+                    <p className="text-sm md:text-base text-text-secondary italic mb-4 md:mb-6 leading-relaxed pr-8">
+                      &ldquo;{testimonial.quote}&rdquo;
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                        {testimonial.initial}
+                      </div>
+                      <div>
+                        <p className="font-bold text-text-primary text-sm md:text-base">{testimonial.author}</p>
+                        <p className="text-xs md:text-sm text-text-muted">{testimonial.role}</p>
+                      </div>
+                    </div>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+
+          <div className="md:hidden">
+            <div className="brand-panel rounded-2xl overflow-hidden border border-brand-light">
+              {testimonialData.map((testimonial, index) => (
+                <FadeIn key={index} delay={0.1 * index}>
+                  <div className="p-6 border-b border-brand-light last:border-b-0">
+                    <QuoteIcon className="w-6 h-6 text-brand-primary/20 mb-3" />
+                    <p className="text-sm text-text-secondary italic mb-4 leading-relaxed">
+                      &ldquo;{testimonial.quote}&rdquo;
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white font-bold text-sm">
+                        {testimonial.initial}
+                      </div>
+                      <div>
+                        <p className="font-bold text-text-primary text-sm">{testimonial.author}</p>
+                        <p className="text-xs text-text-muted">{testimonial.role}</p>
+                      </div>
+                    </div>
                   </div>
                 </FadeIn>
-              </div>
-            </GlassCard>
+              ))}
+            </div>
           </div>
         </div>
-      </section>
 
-      {/* Final CTA Section */}
-      <section
-        className="relative brand-surface-cream py-16 md:py-24"
-        style={{
-          backgroundImage: "url('/brand/social/content-section-bg.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+        <FadeIn delay={0.3}>
+          <div className="text-center mt-8 md:mt-10">
+            <Button href="/testimonials" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+              Read All Testimonials
+            </Button>
+          </div>
+        </FadeIn>
+      </Section>
+
+      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+        <div className="max-w-4xl mx-auto">
+          <GlassCard className="p-8 md:p-12">
+            <div className="text-center">
+              <FadeIn>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4">
+                  Invite LeeAnn to speak
+                </h2>
+              </FadeIn>
+              <FadeIn delay={0.1}>
+                <p className="text-base sm:text-lg text-white/90 mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
+                  LeeAnn is available for speaking engagements, podcast interviews, and ministry events. Her heart is to encourage women and share the hope of the Gospel.
+                </p>
+              </FadeIn>
+              <FadeIn delay={0.2}>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button href="/about#speaking" variant="white" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                    Learn More
+                  </Button>
+                  <Button href="/contact" variant="outline" size="lg" className="border-white/40 text-white hover:bg-white/10">
+                    Request a Booking
+                  </Button>
+                </div>
+              </FadeIn>
+            </div>
+          </GlassCard>
+        </div>
+      </Section>
+
+      <Section variant="art-cream" padding="xl" watermark="cross-subtle" ornamentLevel="featured">
         <FadeIn>
-          <div className="relative z-10 max-w-3xl mx-auto text-center px-4 sm:px-6">
+          <div className="max-w-3xl mx-auto text-center px-4 sm:px-6">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 md:mb-6">
               Ready to partner with us?
             </h2>
@@ -485,7 +419,7 @@ export default function Home() {
             </div>
           </div>
         </FadeIn>
-      </section>
+      </Section>
     </>
   );
 }

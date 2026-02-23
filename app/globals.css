@@ -23,6 +23,16 @@
   --text-primary: #3B5E3A;         /* Brand green for headings on light bg */
   --text-secondary: #355335;       /* Body text on light backgrounds */
   --text-muted: #577557;           /* Muted supporting text */
+
+  /* Premium surface + shadow system */
+  --surface-white: rgba(255, 255, 255, 0.92);
+  --surface-soft: rgba(255, 255, 255, 0.78);
+  --surface-dark: rgba(27, 45, 29, 0.62);
+  --surface-border-light: rgba(232, 228, 223, 0.85);
+  --surface-border-dark: rgba(255, 255, 255, 0.2);
+  --shadow-soft: 0 16px 42px -20px rgba(38, 61, 39, 0.32);
+  --shadow-premium: 0 28px 64px -28px rgba(28, 45, 28, 0.46);
+  --shadow-dark: 0 22px 48px -28px rgba(0, 0, 0, 0.55);
 }
 
 @theme inline {
@@ -41,7 +51,7 @@
   --color-text-muted: var(--text-muted);
 
   /* Font families - Google Fonts */
-  --font-heading: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-heading: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   --font-sans: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
 }
 
@@ -51,7 +61,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   font-size: 17px;
-  line-height: 1.75;
+  line-height: 1.72;
   letter-spacing: 0.01em;
 }
 
@@ -82,22 +92,7 @@ html {
 }
 
 .home-hero-bg {
-  background-position: 50% 35%;
-  background-size: cover;
-}
-
-.home-hero-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  background: linear-gradient(
-    180deg,
-    rgba(59, 94, 58, 0.38) 0%,
-    rgba(59, 94, 58, 0.30) 40%,
-    rgba(59, 94, 58, 0.42) 100%
-  );
+  background-position: center;
 }
 
 @media (max-width: 639px) {
@@ -112,16 +107,10 @@ html {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
   background:
     radial-gradient(120% 120% at 50% 0%, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 55%),
     linear-gradient(180deg, rgba(23, 35, 24, 0.12) 0%, rgba(23, 35, 24, 0.22) 100%);
-}
-
-/* Hero banner content stays above overlays */
-.brand-hero-banner > * {
-  position: relative;
-  z-index: 2;
 }
 
 .brand-surface-cream {
@@ -135,17 +124,10 @@ html {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.76) 0%, rgba(240, 237, 232, 0.7) 100%),
     radial-gradient(100% 90% at 50% 0%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 60%);
-}
-
-/* Ensure content inside branded surfaces always sits above overlays */
-.brand-surface-cream > *,
-.brand-surface-dark > * {
-  position: relative;
-  z-index: 2;
 }
 
 .brand-surface-dark {
@@ -159,10 +141,82 @@ html {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
   background:
     linear-gradient(140deg, rgba(31, 53, 34, 0.8) 0%, rgba(45, 74, 44, 0.7) 55%, rgba(59, 94, 58, 0.74) 100%),
     radial-gradient(120% 120% at 50% 0%, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0) 58%);
+}
+
+.brand-surface-light-overlay {
+  background:
+    radial-gradient(120% 105% at 52% 0%, rgba(255, 255, 255, 0.54) 0%, rgba(255, 255, 255, 0) 58%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(240, 237, 232, 0.22) 100%);
+}
+
+.brand-surface-dark-overlay {
+  background:
+    radial-gradient(115% 105% at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 60%),
+    linear-gradient(162deg, rgba(31, 50, 33, 0.38) 0%, rgba(45, 74, 44, 0.5) 100%);
+}
+
+.brand-panel {
+  background: linear-gradient(170deg, var(--surface-white) 0%, var(--surface-soft) 100%);
+  border: 1px solid var(--surface-border-light);
+  box-shadow: var(--shadow-soft);
+  border-radius: 1.25rem;
+}
+
+.brand-panel-premium {
+  box-shadow: var(--shadow-premium);
+}
+
+.brand-panel-dark {
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.14) 0%, var(--surface-dark) 100%);
+  border: 1px solid var(--surface-border-dark);
+  box-shadow: var(--shadow-dark);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.brand-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(59, 94, 58, 0.2);
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--brand-primary);
+  padding: 0.45rem 0.9rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.brand-kicker::before {
+  content: "";
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, var(--brand-accent) 0%, var(--brand-primary) 100%);
+  box-shadow: 0 0 0 4px rgba(123, 163, 144, 0.18);
+}
+
+.brand-nav-shell {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.brand-nav-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.64) 100%),
+    radial-gradient(90% 160% at 96% 50%, rgba(123, 163, 144, 0.16) 0%, rgba(123, 163, 144, 0) 65%);
 }
 
 /* Keyboard skip link */
@@ -187,12 +241,17 @@ html {
 /* Typography enhancements */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
   font-weight: 700;
 }
 
-/* Paragraph spacing - only in prose containers, avoid overlapping stacked elements */
+h2,
+h3 {
+  font-weight: 600;
+}
+
+/* Paragraph spacing - only in prose-style content areas */
 .prose p + p,
 article p + p {
   margin-top: 1.25em;
@@ -554,7 +613,5 @@ blockquote {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-    opacity: 1 !important;
-    transform: none !important;
   }
 }

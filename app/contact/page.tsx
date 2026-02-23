@@ -195,7 +195,7 @@ export default function ContactPage() {
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
           <FadeIn direction="left">
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-brand-light">
+              <div className="brand-panel p-8">
                 <h2 className="text-2xl font-bold font-heading text-text-primary mb-6">
                   Referral &amp; Partner Contact
                 </h2>
@@ -404,7 +404,7 @@ export default function ContactPage() {
               <div className="space-y-6">
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="flex items-start gap-4 p-5 bg-white rounded-xl shadow-sm border border-brand-light hover:shadow-md hover:border-brand-primary/20 transition-all group"
+                  className="brand-panel flex items-start gap-4 p-5 hover:shadow-md hover:border-brand-primary/20 transition-all group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-brand-light text-brand-primary flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-colors">
                     <MailIcon className="w-6 h-6" />
@@ -417,7 +417,7 @@ export default function ContactPage() {
 
                 <a
                   href={`tel:${siteConfig.phoneHref}`}
-                  className="flex items-start gap-4 p-5 bg-white rounded-xl shadow-sm border border-brand-light hover:shadow-md hover:border-brand-primary/20 transition-all group"
+                  className="brand-panel flex items-start gap-4 p-5 hover:shadow-md hover:border-brand-primary/20 transition-all group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-brand-light text-brand-primary flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-colors">
                     <PhoneIcon className="w-6 h-6" />
@@ -428,7 +428,7 @@ export default function ContactPage() {
                   </div>
                 </a>
 
-                <div className="flex items-start gap-4 p-5 bg-white rounded-xl shadow-sm border border-brand-light">
+                <div className="brand-panel flex items-start gap-4 p-5">
                   <div className="w-12 h-12 rounded-xl bg-brand-light text-brand-primary flex items-center justify-center">
                     <MapPinIcon className="w-6 h-6" />
                   </div>
@@ -444,7 +444,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="mt-8 rounded-2xl bg-white/85 border border-brand-light p-6 shadow-sm">
+              <div className="mt-8 brand-panel p-6">
                 <h3 className="font-bold font-heading text-xl text-text-primary mb-3">What Happens Next</h3>
                 <ul className="space-y-2 text-sm text-text-secondary">
                   <li>1. We review your message and pray over your request.</li>

@@ -54,7 +54,6 @@ export default function ForGrantWriters() {
         showWatermarkCorners
       />
 
-      {/* Organization Overview with art */}
       <Section variant="art-cream" padding="xl" watermark="stones-right" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-4xl mx-auto">
@@ -70,7 +69,7 @@ export default function ForGrantWriters() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
           {organizationFacts.map((fact, i) => (
             <FadeIn key={i} delay={i * 0.1}>
-              <div className="bg-white rounded-xl p-4 md:p-6 shadow-sm border border-brand-light text-center">
+              <div className="brand-panel p-4 md:p-6 text-center h-full">
                 <p className="text-xs sm:text-sm text-text-muted mb-1">{fact.label}</p>
                 <p className="font-bold text-text-primary text-sm sm:text-base">{fact.value}</p>
               </div>
@@ -79,14 +78,13 @@ export default function ForGrantWriters() {
         </div>
       </Section>
 
-      {/* Mission Statement with art */}
       <Section variant="art-cream" padding="xl" watermark="stones-left" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 text-center">
               Mission Statement
             </h2>
-            <div className="bg-brand-light rounded-2xl p-6 md:p-8 mb-8">
+            <div className="brand-panel p-6 md:p-8 mb-8">
               <p className="text-base sm:text-lg text-text-primary leading-relaxed text-center italic">
                 &ldquo;KingGen Ministries exists so women can access counseling even when cost is a barrier. We provide Gospel-centered, compassionate care for women facing anxiety, grief, trauma, relationship pain, and life transitions.&rdquo;
               </p>
@@ -100,7 +98,7 @@ export default function ForGrantWriters() {
           </h3>
           {missionPoints.map((point, i) => (
             <StaggerItem key={i}>
-              <div className="flex items-start gap-3 p-3 md:p-4 mb-2 bg-white rounded-xl shadow-sm">
+              <div className="brand-panel flex items-start gap-3 p-3 md:p-4 mb-2">
                 <CheckCircleIcon className="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" />
                 <p className="text-sm md:text-base text-text-secondary">{point}</p>
               </div>
@@ -109,7 +107,6 @@ export default function ForGrantWriters() {
         </StaggerContainer>
       </Section>
 
-      {/* Funding Needs with art */}
       <Section variant="art-cream" padding="xl" watermark="stones-right" ornamentLevel="featured">
         <FadeIn>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-8 text-center">
@@ -120,7 +117,7 @@ export default function ForGrantWriters() {
         <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
           {fundingNeeds.map((need, i) => (
             <StaggerItem key={i}>
-              <div className="bg-white rounded-xl p-5 md:p-6 shadow-sm h-full">
+              <div className="brand-panel p-5 md:p-6 h-full">
                 <h3 className="font-bold text-text-primary mb-2">{need.area}</h3>
                 <p className="text-sm md:text-base text-text-secondary">{need.description}</p>
               </div>
@@ -129,10 +126,9 @@ export default function ForGrantWriters() {
         </StaggerContainer>
       </Section>
 
-      {/* Tax Information with art */}
       <Section variant="art-cream" padding="lg" watermark="stones">
         <FadeIn>
-          <div className="max-w-3xl mx-auto bg-brand-light rounded-2xl p-6 md:p-8">
+          <div className="max-w-3xl mx-auto brand-panel p-6 md:p-8">
             <h2 className="text-xl md:text-2xl font-bold font-heading text-text-primary mb-4 text-center">
               Tax-Exempt Status
             </h2>
@@ -140,7 +136,7 @@ export default function ForGrantWriters() {
               <p className="text-text-secondary mb-4">
                 KingGen Ministries is recognized by the IRS as a <strong>501(c)(3)</strong> tax-exempt organization. Donations are tax-deductible to the extent allowed by law.
               </p>
-              <div className="inline-block bg-white rounded-xl px-6 py-4 shadow-sm">
+              <div className="inline-block bg-white rounded-xl px-6 py-4 shadow-sm border border-brand-light">
                 <p className="text-sm text-text-muted mb-1">Employer Identification Number (EIN)</p>
                 <p className="text-2xl font-bold text-brand-primary">{siteConfig.ein}</p>
               </div>
@@ -149,7 +145,6 @@ export default function ForGrantWriters() {
         </FadeIn>
       </Section>
 
-      {/* Contact for Grant Inquiries with art */}
       <Section variant="art-cream" padding="xl" watermark="stones-left" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
@@ -160,7 +155,7 @@ export default function ForGrantWriters() {
               For additional documentation, financial statements, or questions about partnership opportunities, please contact us directly.
             </p>
 
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg inline-block mb-8">
+            <div className="brand-panel p-6 md:p-8 inline-block mb-8">
               <a
                 href={`mailto:${siteConfig.email}`}
                 className="flex items-center gap-3 text-brand-primary hover:text-brand-secondary transition-colors"
@@ -182,7 +177,6 @@ export default function ForGrantWriters() {
         </FadeIn>
       </Section>
 
-      {/* Additional Resources Note with art */}
       <Section variant="art-cream" padding="lg" watermark="stones-right">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">

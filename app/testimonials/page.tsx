@@ -11,7 +11,6 @@ import {
   StaggerContainer,
   StaggerItem,
   TiltCard,
-  OptimizedBackground,
   InnerPageHero,
 } from "../components";
 
@@ -50,13 +49,12 @@ export default function TestimonialsPage() {
         showWatermarkCorners
       />
 
-      {/* Testimonials Section with art background */}
       <Section variant="art-cream" padding="xl" watermark="stones-left" ornamentLevel="featured">
         <StaggerContainer staggerDelay={0.15} className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, i) => (
             <StaggerItem key={i}>
               <TiltCard className="h-full" tiltAmount={3}>
-                <div className="bg-white rounded-2xl p-8 shadow-lg border border-brand-light h-full relative">
+                <div className="brand-panel p-8 h-full relative">
                   <QuoteIcon className="absolute top-6 right-6 w-10 h-10 text-brand-accent/20" />
                   <div className="mb-4">
                     <span className="inline-block px-3 py-1 bg-brand-light text-brand-primary text-sm font-medium rounded-full">
@@ -82,88 +80,71 @@ export default function TestimonialsPage() {
         </StaggerContainer>
       </Section>
 
-      {/* Scripture & Hope Section - Featuring Social Images */}
-      <section className="relative brand-surface-dark py-16 md:py-24 overflow-hidden" style={{ backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+        <FadeIn>
+          <div className="flex justify-center mb-4">
+            <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 text-center">
+            Hope in Every Season
+          </h2>
+          <p className="text-base sm:text-lg text-white/90 mb-10 text-center max-w-2xl mx-auto">
+            We share encouragement through Scripture and prayer, reminding women of the hope found in Christ.
+          </p>
+        </FadeIn>
 
-        {/* Cross watermark */}
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute inset-0 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "center",
-            backgroundSize: "180px auto",
-            opacity: 0.06,
-          }}
-        />
+        <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <StaggerItem>
+            <TiltCard tiltAmount={3} className="h-full">
+              <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl border-2 border-white/20">
+                <Image
+                  src="/social-scripture.png"
+                  alt="Scripture encouragement - Luke 19:36-38"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+            </TiltCard>
+          </StaggerItem>
+          <StaggerItem>
+            <TiltCard tiltAmount={3} className="h-full">
+              <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl border-2 border-white/20">
+                <Image
+                  src="/social-hero.png"
+                  alt="National Day of Prayer for Mental Illness - KingGen Ministries"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+            </TiltCard>
+          </StaggerItem>
+          <StaggerItem>
+            <TiltCard tiltAmount={3} className="h-full">
+              <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl border-2 border-white/20">
+                <Image
+                  src="/social-prayer.png"
+                  alt="National Day of Prayer - If you are in crisis, call 988"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+            </TiltCard>
+          </StaggerItem>
+        </StaggerContainer>
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6">
-          <FadeIn>
-            <div className="flex justify-center mb-4">
-              <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 text-center">
-              Hope in Every Season
-            </h2>
-            <p className="text-base sm:text-lg text-white/90 mb-10 text-center max-w-2xl mx-auto">
-              We share encouragement through Scripture and prayer, reminding women of the hope found in Christ.
-            </p>
-          </FadeIn>
+        <FadeIn delay={0.5}>
+          <p className="text-center text-white/70 text-sm mt-8">
+            Follow us on social media for daily encouragement
+          </p>
+        </FadeIn>
+      </Section>
 
-          {/* Social Media Image Showcase */}
-          <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <StaggerItem>
-              <TiltCard tiltAmount={3} className="h-full">
-                <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl border-2 border-white/20">
-                  <Image
-                    src="/social-scripture.png"
-                    alt="Scripture encouragement - Luke 19:36-38"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </div>
-              </TiltCard>
-            </StaggerItem>
-            <StaggerItem>
-              <TiltCard tiltAmount={3} className="h-full">
-                <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl border-2 border-white/20">
-                  <Image
-                    src="/social-hero.png"
-                    alt="National Day of Prayer for Mental Illness - KingGen Ministries"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </div>
-              </TiltCard>
-            </StaggerItem>
-            <StaggerItem>
-              <TiltCard tiltAmount={3} className="h-full">
-                <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl border-2 border-white/20">
-                  <Image
-                    src="/social-prayer.png"
-                    alt="National Day of Prayer - If you are in crisis, call 988"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </div>
-              </TiltCard>
-            </StaggerItem>
-          </StaggerContainer>
-
-          <FadeIn delay={0.5}>
-            <p className="text-center text-white/70 text-sm mt-8">
-              Follow us on social media for daily encouragement
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* CTA Section with art */}
       <Section variant="art-cream" padding="xl" watermark="stones-right" ornamentLevel="featured">
         <FadeIn>
-          <div className="bg-gradient-to-br from-brand-light to-brand-soft rounded-3xl p-8 md:p-12 lg:p-16 text-center max-w-4xl mx-auto">
+          <div className="brand-panel rounded-3xl p-8 md:p-12 lg:p-16 text-center max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6">
               Ready to take the next step?
             </h2>

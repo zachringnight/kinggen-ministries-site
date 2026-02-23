@@ -43,6 +43,7 @@ export default function OptimizedBackground({
     <div
       className={className}
       style={{
+        backgroundRepeat: "no-repeat",
         ...style,
         backgroundImage,
       }}

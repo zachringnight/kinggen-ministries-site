@@ -10,7 +10,6 @@ import {
   FadeIn,
   StaggerContainer,
   StaggerItem,
-  OptimizedBackground,
   InnerPageHero,
 } from "../components";
 
@@ -60,7 +59,6 @@ export default function ForReferrers() {
         showWatermarkCorners
       />
 
-      {/* Who Can Refer with cross background */}
       <Section variant="cross-light" padding="xl" watermark="none">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
@@ -76,7 +74,7 @@ export default function ForReferrers() {
         <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
           {whoCanRefer.map((referrer, i) => (
             <StaggerItem key={i}>
-              <div className="flex items-center gap-3 p-4 bg-brand-cream rounded-xl border border-brand-light">
+              <div className="brand-panel flex items-center gap-3 p-4">
                 <CheckCircleIcon className="w-5 h-5 text-brand-primary flex-shrink-0" />
                 <p className="text-sm md:text-base text-text-secondary">{referrer}</p>
               </div>
@@ -85,7 +83,6 @@ export default function ForReferrers() {
         </StaggerContainer>
       </Section>
 
-      {/* When Referral is Appropriate with art */}
       <Section variant="art-cream" padding="xl" watermark="stones-left" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
@@ -101,75 +98,37 @@ export default function ForReferrers() {
         <StaggerContainer staggerDelay={0.1} className="max-w-2xl mx-auto">
           {referralReasons.map((reason, i) => (
             <StaggerItem key={i}>
-              <div className="flex items-start gap-4 p-4 mb-3 bg-brand-light rounded-xl">
+              <div className="brand-panel flex items-start gap-4 p-4 mb-3">
                 <CheckCircleIcon className="w-6 h-6 text-brand-primary flex-shrink-0" />
                 <p className="text-text-primary text-base sm:text-lg">{reason}</p>
               </div>
             </StaggerItem>
           ))}
         </StaggerContainer>
-
       </Section>
 
-      {/* What to Expect - KingGen branded background */}
-      <section className="relative brand-surface-dark py-16 md:py-24 overflow-hidden" style={{ backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+        <FadeIn>
+          <div className="flex justify-center mb-4">
+            <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-8 text-center">
+            What referrers can expect
+          </h2>
+        </FadeIn>
 
-        {/* Cross art accents */}
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute left-0 bottom-0 w-48 h-48 md:w-64 md:h-64 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "left bottom",
-            backgroundSize: "contain",
-            opacity: 0.20,
-          }}
-        />
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute right-0 top-0 w-40 h-40 md:w-56 md:h-56 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "right top",
-            backgroundSize: "contain",
-            opacity: 0.15,
-          }}
-        />
+        <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
+          {whatToExpect.map((item, i) => (
+            <StaggerItem key={i}>
+              <div className="brand-panel-dark rounded-xl p-5 md:p-6 h-full">
+                <h3 className="font-bold text-white mb-2">{item.title}</h3>
+                <p className="text-sm md:text-base text-white/80">{item.description}</p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </Section>
 
-        {/* Cross watermark */}
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute inset-0 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "center 30%",
-            backgroundSize: "160px auto",
-            opacity: 0.08,
-          }}
-        />
-
-        <div className="relative z-10 container mx-auto px-4 sm:px-6">
-          <FadeIn>
-            {/* Cross icon */}
-            <div className="flex justify-center mb-4">
-              <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-8 text-center">
-              What referrers can expect
-            </h2>
-          </FadeIn>
-
-          <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
-            {whatToExpect.map((item, i) => (
-              <StaggerItem key={i}>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-white/20 h-full">
-                  <h3 className="font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-sm md:text-base text-white/80">{item.description}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* How to Refer Section with art */}
       <Section variant="art-cream" padding="xl" watermark="stones-right" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
@@ -177,7 +136,7 @@ export default function ForReferrers() {
               How to refer someone
             </h2>
 
-            <div className="bg-brand-light rounded-2xl p-6 md:p-8 mb-8">
+            <div className="brand-panel p-6 md:p-8 mb-8">
               <p className="text-base sm:text-lg text-text-primary mb-4">
                 <strong>A helpful approach:</strong> Submit the referral on her behalf with her awareness and consent.
               </p>
@@ -195,7 +154,7 @@ export default function ForReferrers() {
         <StaggerContainer staggerDelay={0.1} className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
           {helpfulInfo.map((info, i) => (
             <StaggerItem key={i}>
-              <div className="flex items-center gap-3 p-4 bg-brand-cream rounded-xl border border-brand-light">
+              <div className="brand-panel flex items-center gap-3 p-4">
                 <CheckCircleIcon className="w-5 h-5 text-brand-primary flex-shrink-0" />
                 <p className="text-text-secondary text-sm md:text-base">{info}</p>
               </div>
@@ -212,11 +171,10 @@ export default function ForReferrers() {
         </FadeIn>
       </Section>
 
-      {/* Confidentiality Section with art */}
       <Section variant="art-cream" padding="lg" watermark="stones-left" ornamentLevel="featured">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
-            <div className="flex flex-col sm:flex-row items-start gap-4 p-6 bg-brand-cream rounded-2xl border border-brand-light">
+            <div className="brand-panel flex flex-col sm:flex-row items-start gap-4 p-6">
               <ShieldIcon className="w-8 h-8 text-brand-primary flex-shrink-0" />
               <div>
                 <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2">
@@ -231,65 +189,29 @@ export default function ForReferrers() {
         </FadeIn>
       </Section>
 
-      {/* Partner CTA - KingGen branded background */}
-      <section className="relative brand-surface-dark py-16 md:py-20 overflow-hidden" style={{ backgroundImage: "url('/brand/social/cta-testimonial-section-bg.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
-
-        {/* Art accents */}
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute left-0 top-0 w-44 h-44 md:w-56 md:h-56 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "left top",
-            backgroundSize: "contain",
-            opacity: 0.15,
-          }}
-        />
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute right-0 bottom-0 w-48 h-48 md:w-64 md:h-64 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "right bottom",
-            backgroundSize: "contain",
-            opacity: 0.20,
-          }}
-        />
-
-        {/* Cross watermark */}
-        <OptimizedBackground
-          src="/brand/logo/icon-white.webp"
-          className="absolute inset-0 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "center",
-            backgroundSize: "140px auto",
-            opacity: 0.06,
-          }}
-        />
-
-        <div className="relative z-10 container mx-auto px-4 sm:px-6">
-          <FadeIn>
-            <div className="max-w-3xl mx-auto text-center">
-              {/* Cross icon */}
-              <div className="flex justify-center mb-4">
-                <CrossIcon className="w-8 h-8 text-white/50" strokeWidth={1.5} />
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4">
-                Partner with us
-              </h2>
-              <p className="text-base sm:text-lg text-white/90 mb-8">
-                If you&apos;d like to establish an ongoing referral relationship or learn more about how KingGen can serve your community, we&apos;d love to connect.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button href="/contact" variant="white" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-                  Contact Us
-                </Button>
-                <Button href="/donate" variant="outline" size="lg" icon={<HeartIcon className="w-5 h-5" />} className="border-white/40 text-white hover:bg-white/10">
-                  Support the Mission
-                </Button>
-              </div>
+      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+        <FadeIn>
+          <div className="max-w-3xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
+            <div className="flex justify-center mb-4">
+              <CrossIcon className="w-8 h-8 text-white/50" strokeWidth={1.5} />
             </div>
-          </FadeIn>
-        </div>
-      </section>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4">
+              Partner with us
+            </h2>
+            <p className="text-base sm:text-lg text-white/90 mb-8">
+              If you&apos;d like to establish an ongoing referral relationship or learn more about how KingGen can serve your community, we&apos;d love to connect.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button href="/contact" variant="white" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                Contact Us
+              </Button>
+              <Button href="/donate" variant="outline" size="lg" icon={<HeartIcon className="w-5 h-5" />} className="border-white/40 text-white hover:bg-white/10">
+                Support the Mission
+              </Button>
+            </div>
+          </div>
+        </FadeIn>
+      </Section>
     </>
   );
 }

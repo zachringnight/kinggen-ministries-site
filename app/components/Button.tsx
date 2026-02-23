@@ -21,17 +21,17 @@ interface ButtonProps {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-brand-primary text-white hover:bg-brand-secondary shadow-lg shadow-brand-primary/25",
+    "bg-gradient-to-br from-brand-primary to-brand-secondary text-white hover:from-brand-primary-dark hover:to-brand-primary shadow-lg shadow-brand-primary/30 border border-brand-primary/30",
   secondary:
-    "bg-brand-secondary text-white hover:bg-brand-primary shadow-lg shadow-brand-secondary/25",
+    "bg-brand-secondary text-white hover:bg-brand-primary shadow-lg shadow-brand-secondary/25 border border-brand-secondary/30",
   accent:
-    "bg-brand-accent text-brand-primary hover:bg-brand-accent/80 shadow-lg shadow-brand-accent/25",
+    "bg-brand-accent text-brand-primary hover:bg-brand-accent/85 shadow-lg shadow-brand-accent/25 border border-brand-accent/30",
   outline:
-    "border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white",
+    "border border-brand-primary/65 text-brand-primary hover:bg-brand-primary hover:text-white",
   ghost:
     "text-brand-primary hover:bg-brand-light",
   white:
-    "bg-white text-brand-primary hover:bg-brand-soft shadow-lg",
+    "bg-white text-brand-primary hover:bg-brand-soft shadow-lg border border-white/60",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -56,7 +56,7 @@ export default function Button({
 }: ButtonProps) {
   const baseStyles = `
     inline-flex items-center justify-center gap-2
-    font-semibold rounded-xl
+    font-semibold rounded-xl tracking-[0.01em]
     transition-all duration-300 ease-out
     btn-hover-lift
     focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2

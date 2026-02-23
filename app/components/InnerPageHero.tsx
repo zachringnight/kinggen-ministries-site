@@ -23,40 +23,44 @@ const backgroundMap: Record<
     eyebrowClassName: string;
     watermarkSrc: string;
     watermarkOpacity: number;
+    centerWatermarkOpacity: number;
     showEyebrow: boolean;
   }
 > = {
   inner: {
-    texture: "/brand/headers/homepage-hero.webp",
+    texture: "/brand/social/cta-testimonial-section-bg.webp",
     overlayClassName:
-      "bg-gradient-to-b from-brand-primary/50 via-brand-primary/55 to-brand-primary/65",
+      "bg-gradient-to-b from-brand-primary/72 via-brand-primary/82 to-brand-primary/92",
     titleClassName: "text-white",
     subtitleClassName: "text-white/90",
     eyebrowClassName: "border-white/30 bg-white/10 text-white/85",
     watermarkSrc: "/brand/logo/icon-white.webp",
-    watermarkOpacity: 0.08,
+    watermarkOpacity: 0.06,
+    centerWatermarkOpacity: 0.03,
     showEyebrow: true,
   },
   about: {
-    texture: "/brand/headers/homepage-hero.webp",
+    texture: "/brand/social/content-section-bg.webp",
     overlayClassName:
-      "bg-gradient-to-b from-brand-primary/45 via-brand-primary/52 to-brand-primary/62",
-    titleClassName: "text-white",
-    subtitleClassName: "text-white/85",
-    eyebrowClassName: "border-white/25 bg-white/10 text-white/80",
-    watermarkSrc: "/brand/logo/icon-white.webp",
-    watermarkOpacity: 0.06,
+      "bg-gradient-to-b from-white/24 via-brand-soft/48 to-brand-light/66",
+    titleClassName: "text-brand-primary",
+    subtitleClassName: "text-text-secondary",
+    eyebrowClassName: "border-brand-primary/20 bg-white/72 text-brand-primary",
+    watermarkSrc: "/brand/logo/icon-dark-green.webp",
+    watermarkOpacity: 0.045,
+    centerWatermarkOpacity: 0.02,
     showEyebrow: false,
   },
   "inner-logo": {
-    texture: "/brand/headers/homepage-hero.webp",
+    texture: "/brand/social/content-section-bg.webp",
     overlayClassName:
-      "bg-gradient-to-b from-brand-primary/48 via-brand-primary/54 to-brand-primary/64",
-    titleClassName: "text-white",
-    subtitleClassName: "text-white/85",
-    eyebrowClassName: "border-white/25 bg-white/10 text-white/80",
-    watermarkSrc: "/brand/logo/icon-white.webp",
-    watermarkOpacity: 0.06,
+      "bg-gradient-to-b from-white/26 via-brand-soft/42 to-brand-light/58",
+    titleClassName: "text-brand-primary",
+    subtitleClassName: "text-text-secondary",
+    eyebrowClassName: "border-brand-primary/20 bg-white/74 text-brand-primary",
+    watermarkSrc: "/brand/logo/icon-dark-green.webp",
+    watermarkOpacity: 0.04,
+    centerWatermarkOpacity: 0.018,
     showEyebrow: false,
   },
 };
@@ -74,16 +78,30 @@ export default function InnerPageHero({
 
   return (
     <section
-      className={`relative brand-hero-banner w-full ${minHeightClassName} bg-cover bg-center animate-fade-in-up flex items-end`}
-      style={{ backgroundImage: `url('${backgroundConfig.texture}')` }}
+      className={`relative brand-hero-banner w-full ${minHeightClassName} animate-fade-in-up flex items-end isolate`}
       role="banner"
       aria-label={ariaLabel ?? title}
     >
+      <OptimizedBackground
+        src={backgroundConfig.texture}
+        className="absolute inset-0 bg-cover bg-center pointer-events-none"
+      />
+
+      <OptimizedBackground
+        src={backgroundConfig.watermarkSrc}
+        className="absolute inset-0 bg-no-repeat pointer-events-none"
+        style={{
+          backgroundPosition: "center 42%",
+          backgroundSize: background === "inner" ? "220px auto" : "200px auto",
+          opacity: backgroundConfig.centerWatermarkOpacity,
+        }}
+      />
+
       {showWatermarkCorners && (
         <>
           <OptimizedBackground
             src={backgroundConfig.watermarkSrc}
-            className="absolute left-0 top-0 w-40 md:w-56 h-40 md:h-56 bg-no-repeat pointer-events-none"
+            className="absolute left-0 top-0 w-40 md:w-56 h-40 md:h-56 bg-no-repeat pointer-events-none hidden md:block"
             style={{
               backgroundPosition: "left top",
               backgroundSize: "contain",
@@ -92,7 +110,7 @@ export default function InnerPageHero({
           />
           <OptimizedBackground
             src={backgroundConfig.watermarkSrc}
-            className="absolute right-0 bottom-0 w-44 md:w-60 h-44 md:h-60 bg-no-repeat pointer-events-none"
+            className="absolute right-0 bottom-0 w-44 md:w-60 h-44 md:h-60 bg-no-repeat pointer-events-none hidden md:block"
             style={{
               backgroundPosition: "right bottom",
               backgroundSize: "contain",
@@ -101,7 +119,9 @@ export default function InnerPageHero({
           />
         </>
       )}
+
       <div className={`absolute inset-0 ${backgroundConfig.overlayClassName}`} />
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
 
       <div className="relative z-10 w-full pb-10 pt-24 md:pb-14 md:pt-28">
         <div className="container mx-auto px-4 sm:px-6">

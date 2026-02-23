@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { MenuIcon, XIcon, HeartIcon, ChevronDownIcon } from "./Icons";
 import Button from "./Button";
+import OptimizedBackground from "./OptimizedBackground";
 import { primaryNavLinks, secondaryNavLinks } from "../config/site";
 
 interface HeaderLink {
@@ -77,24 +78,19 @@ export default function Header({
   return (
     <>
       <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${
+        className={`sticky top-0 z-50 brand-nav-shell transition-all duration-300 ${
           scrolled || mobileMenuOpen
-            ? "bg-white/92 backdrop-blur-md shadow-sm border-b border-brand-light/70"
-            : "bg-white/70 backdrop-blur-sm"
+            ? "bg-white/92 backdrop-blur-md shadow-md border-b border-brand-light/70"
+            : "bg-white/78 backdrop-blur-sm border-b border-white/60"
         }`}
-        style={
-          scrolled || mobileMenuOpen
-            ? {
-                backgroundImage: "url('/brand/bg/off-white-texture.webp')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }
-            : undefined
-        }
+        style={{
+          backgroundImage: "url('/brand/bg/off-white-texture.webp')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
-        <nav className="container mx-auto px-4 lg:px-8">
+        <nav className="relative z-10 container mx-auto px-4 lg:px-8">
           <div className="flex items-center h-14 md:h-16 gap-4">
-            {/* Brand lockup */}
             <Link
               href="/"
               className="flex items-center gap-2.5 flex-shrink-0"
@@ -106,14 +102,12 @@ export default function Header({
                 alt="KingGen Ministries"
                 width={40}
                 height={40}
-                className="rounded-lg md:w-11 md:h-11"
+                className="rounded-lg md:w-11 md:h-11 ring-1 ring-brand-primary/12"
                 priority
               />
-              {/* Mobile/tablet: compact name */}
               <span className="lg:hidden text-brand-primary font-bold text-base tracking-tight">
                 KingGen
               </span>
-              {/* Desktop lg+: full brand text */}
               <span className="hidden lg:flex flex-col whitespace-nowrap leading-none">
                 <span className="text-brand-primary text-lg tracking-tight">
                   <span className="font-extrabold">KingGen</span>{" "}
@@ -125,7 +119,6 @@ export default function Header({
               </span>
             </Link>
 
-            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1 flex-1 min-w-0">
               {primaryLinks.map((item) => {
                 const active = isActiveLink(item.href);
@@ -136,8 +129,8 @@ export default function Header({
                     aria-current={active ? "page" : undefined}
                     className={`px-3 py-2 font-medium transition-colors text-sm whitespace-nowrap rounded-lg ${
                       active
-                        ? "text-brand-primary bg-brand-soft shadow-inner"
-                        : "text-brand-primary/85 hover:text-brand-primary hover:bg-brand-soft/70"
+                        ? "text-brand-primary bg-white/90 shadow-sm border border-brand-light"
+                        : "text-brand-primary/85 hover:text-brand-primary hover:bg-white/80"
                     }`}
                     onClick={closeResourcesMenu}
                   >
@@ -156,48 +149,55 @@ export default function Header({
                 <summary
                   className={`list-none px-3 py-2 font-medium transition-colors text-sm whitespace-nowrap rounded-lg cursor-pointer flex items-center gap-1 ${
                     secondaryActive
-                      ? "text-brand-primary bg-brand-soft shadow-inner"
-                      : "text-brand-primary/85 hover:text-brand-primary hover:bg-brand-soft/70"
+                      ? "text-brand-primary bg-white/90 shadow-sm border border-brand-light"
+                      : "text-brand-primary/85 hover:text-brand-primary hover:bg-white/80"
                   }`}
                   aria-expanded={resourcesOpen}
                 >
                   Resources
                   <ChevronDownIcon className={`w-4 h-4 transition-transform ${resourcesOpen ? "rotate-180" : ""}`} />
                 </summary>
-                <div className="absolute left-0 top-full mt-2 w-72 rounded-2xl border border-brand-light bg-white shadow-xl p-2 z-[60]">
-                  {secondaryLinks.map((item) => {
-                    const active = isActiveLink(item.href);
-                    return (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        aria-current={active ? "page" : undefined}
-                        className={`block rounded-xl px-3 py-2 transition-colors ${
-                          active
-                            ? "bg-brand-soft text-brand-primary"
-                            : "text-brand-primary/85 hover:bg-brand-soft/70 hover:text-brand-primary"
-                        }`}
-                        onClick={closeResourcesMenu}
-                      >
-                        <span className="block text-sm font-medium">{item.label}</span>
-                        {item.description && (
-                          <span className="block text-xs text-text-muted mt-0.5">{item.description}</span>
-                        )}
-                      </Link>
-                    );
-                  })}
+                <div
+                  className="absolute left-0 top-full mt-2 w-72 rounded-2xl border border-brand-light bg-white shadow-xl p-2 z-[60]"
+                  style={{
+                    backgroundImage: "url('/brand/social/content-section-bg.webp')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  <div className="rounded-xl bg-white/90 backdrop-blur-sm p-1">
+                    {secondaryLinks.map((item) => {
+                      const active = isActiveLink(item.href);
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          aria-current={active ? "page" : undefined}
+                          className={`block rounded-xl px-3 py-2 transition-colors ${
+                            active
+                              ? "bg-brand-soft text-brand-primary"
+                              : "text-brand-primary/85 hover:bg-brand-soft/70 hover:text-brand-primary"
+                          }`}
+                          onClick={closeResourcesMenu}
+                        >
+                          <span className="block text-sm font-medium">{item.label}</span>
+                          {item.description && (
+                            <span className="block text-xs text-text-muted mt-0.5">{item.description}</span>
+                          )}
+                        </Link>
+                      );
+                    })}
+                  </div>
                 </div>
               </details>
             </div>
 
-            {/* CTA Button - right */}
             <div className="hidden lg:block flex-shrink-0">
               <Button href="/donate" variant="primary" size="sm" icon={<HeartIcon className="w-4 h-4" />}>
                 Donate
               </Button>
             </div>
 
-            {/* Mobile: Donate button + Menu */}
             <div className="flex items-center gap-2 lg:hidden ml-auto">
               <Button href="/donate" variant="primary" size="sm" className="text-xs px-3 py-1.5">
                 Donate
@@ -219,7 +219,6 @@ export default function Header({
         </nav>
       </header>
 
-      {/* Mobile Navigation */}
       {mobileMenuOpen && (
         <>
           <button
@@ -236,23 +235,10 @@ export default function Header({
               backgroundPosition: "center",
             }}
           >
-            {/* White overlay for readability */}
-            <div className="absolute inset-0 bg-white/88" />
-
-            {/* Decorative watermark */}
-            <div className="absolute bottom-4 right-4 w-40 h-40 opacity-[0.04] pointer-events-none" aria-hidden="true">
-              <Image
-                src="/brand/logo/icon-light-gray.webp"
-                alt=""
-                width={160}
-                height={160}
-                className="object-contain"
-              />
-            </div>
+            <div className="absolute inset-0 bg-white/90" />
 
             <div className="relative z-10 container mx-auto px-4 py-6">
-              {/* Brand lockup at top of mobile menu */}
-              <div className="flex justify-center mb-6 pb-6 border-b border-brand-light">
+              <div className="brand-panel max-w-[220px] mx-auto flex justify-center mb-6 pb-4 pt-4 border-b border-brand-light">
                 <Image
                   src="/logo_stacked_250w.png"
                   alt="KingGen Ministries - Christian Counseling for Women"
@@ -283,7 +269,6 @@ export default function Header({
                 })}
               </div>
 
-              {/* Resources Section */}
               <div className="border-t border-brand-light pt-6">
                 <p className="px-4 text-xs font-semibold text-brand-primary/65 uppercase tracking-wider mb-3">
                   Resources
@@ -305,7 +290,6 @@ export default function Header({
                 </div>
               </div>
 
-              {/* Large Donate CTA */}
               <div className="mt-8 px-4">
                 <Button
                   href="/donate"
