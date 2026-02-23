@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { MenuIcon, XIcon, HeartIcon, ChevronDownIcon } from "./Icons";
@@ -93,23 +92,15 @@ export default function Header({
           <div className="flex items-center h-14 md:h-16 gap-4">
             <Link
               href="/"
-              className="flex items-center gap-2.5 flex-shrink-0"
+              className="flex items-center flex-shrink-0"
               aria-label="KingGen Ministries Home"
               onClick={closeResourcesMenu}
             >
-              <Image
-                src="/brand/logo/icon-dark-green.webp"
-                alt="KingGen Ministries"
-                width={40}
-                height={40}
-                className="rounded-lg md:w-11 md:h-11 ring-1 ring-brand-primary/12"
-                priority
-              />
-              <span className="lg:hidden text-brand-primary font-bold text-base tracking-tight">
-                KingGen
+              <span className="lg:hidden text-brand-primary font-extrabold text-base tracking-tight">
+                KingGen Ministries
               </span>
               <span className="hidden lg:flex flex-col whitespace-nowrap leading-none">
-                <span className="text-brand-primary text-lg tracking-tight">
+                <span className="text-brand-primary text-[1.45rem] tracking-tight">
                   <span className="font-extrabold">KingGen</span>{" "}
                   <span className="font-light">Ministries</span>
                 </span>
@@ -238,14 +229,14 @@ export default function Header({
             <div className="absolute inset-0 bg-white/90" />
 
             <div className="relative z-10 container mx-auto px-4 py-6">
-              <div className="brand-panel max-w-[220px] mx-auto flex justify-center mb-6 pb-4 pt-4 border-b border-brand-light">
-                <Image
-                  src="/logo_stacked_250w.png"
-                  alt="KingGen Ministries - Christian Counseling for Women"
-                  width={140}
-                  height={198}
-                  className="h-24 w-auto object-contain"
-                />
+              <div className="brand-panel max-w-[260px] mx-auto text-center mb-6 px-4 py-4 border-b border-brand-light">
+                <p className="text-brand-primary text-xl tracking-tight leading-none">
+                  <span className="font-extrabold">KingGen</span>{" "}
+                  <span className="font-light">Ministries</span>
+                </p>
+                <p className="mt-1 text-[10px] uppercase tracking-[0.14em] font-semibold text-brand-primary/70">
+                  Christian Counseling for Women
+                </p>
               </div>
 
               <div className="space-y-1 mb-6">

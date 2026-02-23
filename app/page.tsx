@@ -113,16 +113,16 @@ export default function Home() {
         <h1 className="sr-only">KingGen Ministries</h1>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-24 pb-10 md:pt-32 md:pb-14">
-          <div className="grid lg:grid-cols-[minmax(0,1fr)_300px] gap-6 lg:gap-10 items-end">
-            <div className="brand-panel brand-panel-premium p-6 md:p-8 max-w-3xl">
-              <span className="brand-kicker">Christian Counseling Nonprofit</span>
-              <p className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-brand-primary leading-[1.05] mt-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="brand-panel brand-panel-premium p-6 md:p-10 text-center">
+              <span className="brand-kicker mx-auto">Christian Counseling Nonprofit</span>
+              <p className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-brand-primary leading-[1.05] mt-4 text-balance">
                 Free Gospel-centered counseling for women in need.
               </p>
-              <p className="text-base md:text-lg text-text-secondary mt-4 max-w-2xl">
+              <p className="text-base md:text-lg text-text-secondary mt-4 max-w-3xl mx-auto text-balance">
                 Compassionate care for referrals, donors, and ministry partners with clear communication and confidential support.
               </p>
-              <div className="mt-6 flex flex-col sm:flex-row gap-3">
+              <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
                 <Button href="/contact" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
                   Start a Referral Conversation
                 </Button>
@@ -130,18 +130,17 @@ export default function Home() {
                   Support the Mission
                 </Button>
               </div>
-            </div>
-
-            <div className="hidden lg:grid gap-3">
-              {[
-                "501(c)(3) nonprofit",
-                "No-cost client services",
-                "Clinical pastoral care",
-              ].map((item) => (
-                <div key={item} className="brand-panel-dark rounded-xl px-4 py-3 text-white/90 text-sm font-medium">
-                  {item}
-                </div>
-              ))}
+              <div className="mt-7 grid gap-3 sm:grid-cols-3 max-w-3xl mx-auto">
+                {[
+                  "501(c)(3) nonprofit",
+                  "No-cost client services",
+                  "Clinical pastoral care",
+                ].map((item) => (
+                  <div key={item} className="rounded-xl border border-brand-primary/20 bg-brand-primary/[0.07] px-4 py-3 text-brand-primary text-sm font-semibold">
+                    {item}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
