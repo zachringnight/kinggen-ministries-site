@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { siteConfig } from "../config/site";
 import { PhoneIcon, MailIcon, InstagramIcon, FacebookIcon, HeartIcon } from "./Icons";
 import Button from "./Button";
@@ -37,14 +36,7 @@ export default function Footer() {
         <div className="relative z-10 container mx-auto px-4 lg:px-8 py-12 md:py-14">
           <div className="grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] gap-10 mb-10">
             <div>
-              <Link href="/" className="inline-flex items-center gap-3">
-                <Image
-                  src="/brand/logo/icon-white.webp"
-                  alt="KingGen Ministries"
-                  width={44}
-                  height={44}
-                  className="rounded-lg"
-                />
+              <Link href="/" className="inline-flex items-center">
                 <span className="text-white text-xl tracking-tight">
                   <span className="font-extrabold">KingGen</span>{" "}
                   <span className="font-light">Ministries</span>

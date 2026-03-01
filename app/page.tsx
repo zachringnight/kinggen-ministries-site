@@ -177,7 +177,6 @@ export default function Home() {
           {services.map((service, i) => (
             <StaggerItem key={i}>
               <div className="brand-panel p-6 md:p-8 h-full flex flex-col card-hover relative overflow-hidden group">
-                <div className="absolute -right-6 -bottom-6 w-28 h-28 opacity-[0.04] group-hover:opacity-[0.07] transition-opacity pointer-events-none" style={{backgroundImage: "url('/brand/logo/icon-light-gray.webp')", backgroundSize: "contain", backgroundRepeat: "no-repeat"}} aria-hidden="true" />
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center mb-5 shadow-lg">
                   <service.icon className="w-7 h-7 text-white" />
                 </div>
@@ -232,7 +231,6 @@ export default function Home() {
           ].map((item, i) => (
             <StaggerItem key={i}>
               <div className="brand-panel p-4 h-full card-hover relative overflow-hidden group">
-                <div className="absolute -right-4 -bottom-4 w-20 h-20 opacity-[0.035] group-hover:opacity-[0.06] transition-opacity pointer-events-none" style={{backgroundImage: "url('/brand/logo/icon-light-gray.webp')", backgroundSize: "contain", backgroundRepeat: "no-repeat"}} aria-hidden="true" />
                 <div className="flex flex-col items-center text-center p-2 relative z-10">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center mb-4 shadow-lg">
                     <item.icon className="w-6 h-6 text-white" />
