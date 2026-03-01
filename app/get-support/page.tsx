@@ -157,7 +157,7 @@ export default function GetSupport() {
             <div className="brand-panel flex flex-col md:flex-row items-center gap-6 md:gap-10 p-6 md:p-8">
               <div className="relative w-full md:w-64 aspect-square md:aspect-auto md:h-64 flex-shrink-0 rounded-xl overflow-hidden shadow-md">
                 <Image
-                  src="/social-prayer.png"
+                  src="/brand/social/social-prayer.png"
                   alt="National Day of Prayer for Mental Illness - If you are in crisis, call 988"
                   fill
                   className="object-cover"

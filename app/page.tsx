@@ -100,47 +100,49 @@ export default function Home() {
   return (
     <>
       <section
-        className="relative brand-hero-banner home-hero-bg w-full min-h-[56vh] md:min-h-[68vh] bg-cover bg-center bg-no-repeat animate-fade-in-up isolate"
+        className="relative w-full min-h-[62vh] md:min-h-[78vh] flex items-center animate-fade-in-up isolate overflow-hidden"
         role="banner"
         aria-label="KingGen Ministries - Christian Counseling for Women"
       >
         <OptimizedBackground
-          src="/brand/social/cta-testimonial-section-bg.webp"
+          src="/brand/headers/homepage-hero.webp"
           className="absolute inset-0 bg-cover bg-center pointer-events-none"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/70 via-brand-primary/80 to-brand-primary/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/60 via-brand-primary/75 to-brand-primary/92" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(123,163,144,0.18)_0%,transparent_60%)] pointer-events-none" />
 
         <h1 className="sr-only">KingGen Ministries</h1>
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-24 pb-10 md:pt-32 md:pb-14">
-          <div className="max-w-4xl mx-auto">
-            <div className="brand-panel brand-panel-premium p-6 md:p-10 text-center">
-              <span className="brand-kicker mx-auto">Christian Counseling Nonprofit</span>
-              <p className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-brand-primary leading-[1.05] mt-4 text-balance">
-                Free Gospel-centered counseling for women in need.
-              </p>
-              <p className="text-base md:text-lg text-text-secondary mt-4 max-w-3xl mx-auto text-balance">
-                Compassionate care for referrals, donors, and ministry partners with clear communication and confidential support.
-              </p>
-              <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-                <Button href="/contact" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-                  Start a Referral Conversation
-                </Button>
-                <Button href="/donate" variant="outline" icon={<HeartIcon className="w-5 h-5" />}>
-                  Support the Mission
-                </Button>
-              </div>
-              <div className="mt-7 grid gap-3 sm:grid-cols-3 max-w-3xl mx-auto">
-                {[
-                  "501(c)(3) nonprofit",
-                  "No-cost client services",
-                  "Clinical pastoral care",
-                ].map((item) => (
-                  <div key={item} className="rounded-xl border border-brand-primary/20 bg-brand-primary/[0.07] px-4 py-3 text-brand-primary text-sm font-semibold">
-                    {item}
-                  </div>
-                ))}
-              </div>
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-28 pb-16 md:pt-36 md:pb-24">
+          <div className="max-w-3xl">
+            <span className="inline-block px-4 py-1.5 bg-white/12 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-medium rounded-full mb-6 tracking-wide">
+              501(c)(3) Christian Counseling Nonprofit
+            </span>
+            <p className="text-4xl sm:text-5xl md:text-6xl font-bold font-heading text-white leading-[1.05] text-balance">
+              Free Gospel-centered counseling for women in need.
+            </p>
+            <p className="text-base md:text-lg text-white/85 mt-5 max-w-2xl leading-relaxed">
+              Compassionate, confidential pastoral care offered at no cost. For referrals, donors, and ministry partners.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <Button href="/contact" variant="gold" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                Start a Referral Conversation
+              </Button>
+              <Button href="/donate" variant="outline-white" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
+                Support the Mission
+              </Button>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              {[
+                "No-cost client services",
+                "15+ years clinical experience",
+                "Confidential & private",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-2 text-white/80 text-sm">
+                  <CheckCircleIcon className="w-4 h-4 text-brand-gold-light flex-shrink-0" />
+                  <span>{item}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -293,7 +295,7 @@ export default function Home() {
               <Button href="/donate" variant="white" size="lg" icon={<HeartIcon className="w-5 h-5" />} className="shadow-xl shadow-black/20">
                 Donate Now
               </Button>
-              <Button href="/for-grant-writers" variant="outline" size="lg" className="border-white/40 text-white hover:bg-white/10 backdrop-blur-sm">
+              <Button href="/for-grant-writers" variant="outline-white" size="lg">
                 Grant Information
               </Button>
             </div>
@@ -389,7 +391,7 @@ export default function Home() {
                   <Button href="/about#speaking" variant="white" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
                     Learn More
                   </Button>
-                  <Button href="/contact" variant="outline" size="lg" className="border-white/40 text-white hover:bg-white/10">
+                  <Button href="/contact" variant="outline-white" size="lg">
                     Request a Booking
                   </Button>
                 </div>
@@ -412,7 +414,7 @@ export default function Home() {
               <Button href="/contact" variant="primary" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
                 Contact Us
               </Button>
-              <Button href="/donate" variant="outline" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
+              <Button href="/donate" variant="gold" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
                 Support Our Mission
               </Button>
             </div>

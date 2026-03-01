@@ -98,7 +98,7 @@ export default function TestimonialsPage() {
             <TiltCard tiltAmount={3} className="h-full">
               <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl border-2 border-white/20">
                 <Image
-                  src="/social-scripture.png"
+                  src="/brand/social/social-scripture.png"
                   alt="Scripture encouragement - Luke 19:36-38"
                   fill
                   className="object-cover"
@@ -111,7 +111,7 @@ export default function TestimonialsPage() {
             <TiltCard tiltAmount={3} className="h-full">
               <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl border-2 border-white/20">
                 <Image
-                  src="/social-hero.png"
+                  src="/brand/social/social-hero.png"
                   alt="National Day of Prayer for Mental Illness - KingGen Ministries"
                   fill
                   className="object-cover"
@@ -124,7 +124,7 @@ export default function TestimonialsPage() {
             <TiltCard tiltAmount={3} className="h-full">
               <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl border-2 border-white/20">
                 <Image
-                  src="/social-prayer.png"
+                  src="/brand/social/social-prayer.png"
                   alt="National Day of Prayer - If you are in crisis, call 988"
                   fill
                   className="object-cover"
