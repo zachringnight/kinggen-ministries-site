@@ -176,8 +176,9 @@ export default function Home() {
         <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
           {services.map((service, i) => (
             <StaggerItem key={i}>
-              <div className="brand-panel p-6 md:p-8 h-full flex flex-col card-hover">
-                <div className="w-14 h-14 rounded-2xl bg-brand-primary flex items-center justify-center mb-5 shadow-lg">
+              <div className="brand-panel p-6 md:p-8 h-full flex flex-col card-hover relative overflow-hidden group">
+                <div className="absolute -right-6 -bottom-6 w-28 h-28 opacity-[0.04] group-hover:opacity-[0.07] transition-opacity pointer-events-none" style={{backgroundImage: "url('/brand/logo/icon-light-gray.webp')", backgroundSize: "contain", backgroundRepeat: "no-repeat"}} aria-hidden="true" />
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center mb-5 shadow-lg">
                   <service.icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-3">
@@ -230,9 +231,10 @@ export default function Home() {
             { icon: CheckCircleIcon, text: "501(c)(3) nonprofit accountability" },
           ].map((item, i) => (
             <StaggerItem key={i}>
-              <div className="brand-panel p-4 h-full card-hover">
-                <div className="flex flex-col items-center text-center p-2">
-                  <div className="w-12 h-12 rounded-xl bg-brand-primary flex items-center justify-center mb-4 shadow-lg">
+              <div className="brand-panel p-4 h-full card-hover relative overflow-hidden group">
+                <div className="absolute -right-4 -bottom-4 w-20 h-20 opacity-[0.035] group-hover:opacity-[0.06] transition-opacity pointer-events-none" style={{backgroundImage: "url('/brand/logo/icon-light-gray.webp')", backgroundSize: "contain", backgroundRepeat: "no-repeat"}} aria-hidden="true" />
+                <div className="flex flex-col items-center text-center p-2 relative z-10">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center mb-4 shadow-lg">
                     <item.icon className="w-6 h-6 text-white" />
                   </div>
                   <p className="text-sm md:text-base text-text-primary font-medium">{item.text}</p>

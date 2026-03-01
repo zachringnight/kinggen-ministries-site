@@ -28,7 +28,7 @@ const backgroundMap: Record<
   }
 > = {
   inner: {
-    texture: "/brand/social/cta-testimonial-section-bg.webp",
+    texture: "/brand/headers/inner-header.webp",
     overlayClassName:
       "bg-gradient-to-b from-brand-primary/72 via-brand-primary/82 to-brand-primary/92",
     titleClassName: "text-white",
@@ -40,7 +40,7 @@ const backgroundMap: Record<
     showEyebrow: true,
   },
   about: {
-    texture: "/brand/social/content-section-bg.webp",
+    texture: "/brand/headers/about-header.webp",
     overlayClassName:
       "bg-gradient-to-b from-white/24 via-brand-soft/48 to-brand-light/66",
     titleClassName: "text-brand-primary",
@@ -52,7 +52,7 @@ const backgroundMap: Record<
     showEyebrow: false,
   },
   "inner-logo": {
-    texture: "/brand/social/content-section-bg.webp",
+    texture: "/brand/headers/inner-header.webp",
     overlayClassName:
       "bg-gradient-to-b from-white/26 via-brand-soft/42 to-brand-light/58",
     titleClassName: "text-brand-primary",

@@ -102,8 +102,8 @@ const darkTextureOpacity: Partial<Record<SectionVariant, number>> = {
 };
 
 const curatedTexture = {
-  light: "/brand/social/content-section-bg.webp",
-  dark: "/brand/social/cta-testimonial-section-bg.webp",
+  light: "/brand/bg/cream-cross-texture.webp",
+  dark: "/brand/bg/dark-green-texture.webp",
 } as const;
 
 const curatedWatermarks = {

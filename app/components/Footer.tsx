@@ -27,7 +27,7 @@ export default function Footer() {
     <footer className="relative overflow-hidden">
       <div className="relative brand-surface-dark text-white isolate">
         <OptimizedBackground
-          src="/brand/social/cta-testimonial-section-bg.webp"
+          src="/brand/bg/dark-green-texture.webp"
           className="absolute inset-0 bg-cover bg-center pointer-events-none"
           style={{ opacity: 0.8 }}
         />
