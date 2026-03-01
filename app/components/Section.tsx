@@ -62,19 +62,19 @@ const paddingStyles: Record<SectionPadding, string> = {
 };
 
 const lightTextureOpacity: Partial<Record<SectionVariant, number>> = {
-  default: 0.12,
-  light: 0.1,
-  soft: 0.1,
-  "art-cream": 0.14,
-  "cross-light": 0.12,
+  default: 0.22,
+  light: 0.2,
+  soft: 0.18,
+  "art-cream": 0.25,
+  "cross-light": 0.22,
 };
 
 const darkTextureOpacity: Partial<Record<SectionVariant, number>> = {
-  primary: 0.2,
-  dark: 0.22,
-  "art-green": 0.22,
-  "kinggen-branded": 0.24,
-  "cross-green": 0.2,
+  primary: 0.55,
+  dark: 0.6,
+  "art-green": 0.6,
+  "kinggen-branded": 0.65,
+  "cross-green": 0.55,
 };
 
 const curatedTexture = {
@@ -104,20 +104,20 @@ export default function Section({
           backgroundPosition: "center",
           backgroundSize: "cover",
           opacity: isLightSection
-            ? (lightTextureOpacity[variant] ?? 0.12)
-            : (darkTextureOpacity[variant] ?? 0.2),
+            ? (lightTextureOpacity[variant] ?? 0.22)
+            : (darkTextureOpacity[variant] ?? 0.55),
         }}
       />
       <div
-        className={`absolute inset-0 pointer-events-none ${
-          isLightSection ? "brand-surface-light-overlay" : "brand-surface-dark-overlay"
-        }`}
+        className={`absolute inset-0 pointer-events-none ${isLightSection ? "brand-surface-light-overlay" : "brand-surface-dark-overlay"}`}
         aria-hidden="true"
       />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/70 to-transparent pointer-events-none" />
       <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-black/10 to-transparent pointer-events-none" />
 
-      <div className={`container mx-auto px-4 lg:px-8 ${containerSizes[containerSize]} relative z-10`}>
+      <div
+        className={`container mx-auto px-4 lg:px-8 ${containerSizes[containerSize]} relative z-10`}
+      >
         {children}
       </div>
     </section>
@@ -143,17 +143,13 @@ export function SectionHeader({
     <div className={`mb-12 md:mb-16 ${centered ? "text-center" : ""} ${className}`}>
       <div className={`decorative-line ${centered ? "mx-auto" : ""} mb-6`} />
       <h2
-        className={`text-3xl md:text-4xl lg:text-5xl font-bold font-heading mb-4 ${
-          light ? "text-white" : "text-text-primary"
-        }`}
+        className={`text-3xl md:text-4xl lg:text-5xl font-bold font-heading mb-4 ${light ? "text-white" : "text-text-primary"}`}
       >
         {title}
       </h2>
       {subtitle && (
         <p
-          className={`text-lg md:text-xl max-w-3xl ${centered ? "mx-auto" : ""} ${
-            light ? "text-white/90" : "text-text-secondary"
-          }`}
+          className={`text-lg md:text-xl max-w-3xl ${centered ? "mx-auto" : ""} ${light ? "text-white/90" : "text-text-secondary"}`}
         >
           {subtitle}
         </p>
