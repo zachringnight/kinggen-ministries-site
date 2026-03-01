@@ -141,14 +141,10 @@ interface PageHeroProps {
   title: string;
   description?: string;
   background?: PageHeroBackground;
-  showStones?: boolean;
-  stonesPosition?: "left" | "right" | "both";
-  showCross?: boolean;
-  crossPosition?: "center" | "left" | "right";
   children?: ReactNode;
 }
 
-const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay: string; hasCross?: boolean }> = {
+const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay: string }> = {
   "kinggen-branded": {
     primary: "/brand/headers/homepage-hero.webp",
     overlay: "bg-gradient-to-b from-brand-primary/52 via-brand-primary/58 to-brand-primary/68",
@@ -172,12 +168,10 @@ const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay
   "cross-branded": {
     primary: "/brand/headers/homepage-hero.webp",
     overlay: "bg-gradient-to-br from-brand-primary/54 via-brand-secondary/58 to-brand-primary/66",
-    hasCross: true,
   },
   "cross-texture": {
     primary: "/brand/headers/homepage-hero.webp",
     overlay: "bg-gradient-to-br from-brand-primary/50 via-brand-secondary/55 to-brand-primary/62",
-    hasCross: true,
   },
 };
 
@@ -185,15 +179,10 @@ export function PageHero({
   title,
   description,
   background = "kinggen-branded",
-  showStones = true,
-  stonesPosition = "right",
-  showCross = false,
-  crossPosition = "center",
   children,
 }: PageHeroProps) {
   const bgConfig = pageHeroBackgrounds[background];
   const isLight = false; // all variants now use dark branded hero
-  const displayCross = showCross || bgConfig.hasCross;
 
   return (
     <section className="relative brand-hero-banner py-16 sm:py-20 md:py-28 overflow-hidden">
@@ -206,72 +195,6 @@ export function PageHero({
 
       {/* Gradient overlay for text readability */}
       <div className={`absolute inset-0 ${bgConfig.overlay}`} aria-hidden="true" />
-
-      {/* Cross branding element - Gospel-centered ministry */}
-      {displayCross && crossPosition === "center" && (
-        <OptimizedBackground
-          src={isLight ? "/brand/logo/icon-dark-green.webp" : "/brand/logo/icon-white.webp"}
-          className="absolute inset-0 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "center 40%",
-            backgroundSize: "220px auto",
-            opacity: 0.08,
-          }}
-        />
-      )}
-
-      {displayCross && crossPosition === "left" && (
-        <OptimizedBackground
-          src={isLight ? "/brand/logo/icon-dark-green.webp" : "/brand/logo/icon-white.webp"}
-          className="absolute left-4 md:left-12 top-1/2 -translate-y-1/2 w-32 md:w-48 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "left center",
-            backgroundSize: "contain",
-            opacity: 0.10,
-            height: "200px",
-          }}
-        />
-      )}
-
-      {displayCross && crossPosition === "right" && (
-        <OptimizedBackground
-          src={isLight ? "/brand/logo/icon-dark-green.webp" : "/brand/logo/icon-white.webp"}
-          className="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 w-32 md:w-48 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "right center",
-            backgroundSize: "contain",
-            opacity: 0.10,
-            height: "200px",
-          }}
-        />
-      )}
-
-      {/* Stone cairn art - signature KingGen branding */}
-      {showStones && (stonesPosition === "left" || stonesPosition === "both") && (
-        <OptimizedBackground
-          src={isLight ? "/brand/logo/icon-light-gray.webp" : "/brand/logo/icon-white.webp"}
-          className="absolute left-0 bottom-0 w-48 sm:w-56 md:w-72 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "left bottom",
-            backgroundSize: "contain",
-            opacity: 0.15,
-            height: "320px",
-          }}
-        />
-      )}
-
-      {showStones && (stonesPosition === "right" || stonesPosition === "both") && (
-        <OptimizedBackground
-          src={isLight ? "/brand/logo/icon-light-gray.webp" : "/brand/logo/icon-white.webp"}
-          className="absolute right-0 bottom-0 w-48 sm:w-56 md:w-72 bg-no-repeat pointer-events-none"
-          style={{
-            backgroundPosition: "right bottom",
-            backgroundSize: "contain",
-            opacity: 0.15,
-            height: "320px",
-          }}
-        />
-      )}
 
       {/* Subtle decorative glow */}
       <div className="absolute inset-0 opacity-15 pointer-events-none" aria-hidden="true">

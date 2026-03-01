@@ -18,7 +18,6 @@ export default function DisclaimerPage() {
       <PageHero
         title="Disclaimer"
         background="kinggen-branded"
-        showStones={false}
       />
 
       {/* Content Section with art */}

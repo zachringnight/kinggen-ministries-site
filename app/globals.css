@@ -344,29 +344,6 @@ a:not([class]):hover {
   color: var(--brand-primary);
 }
 
-/* Cross pattern overlay */
-.cross-pattern {
-  background-image: url('/brand/logo/icon-light-gray.webp');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 200px auto;
-  opacity: 0.05;
-}
-
-/* Subtle cross accent for cards */
-.card-cross-accent::after {
-  content: '';
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  width: 16px;
-  height: 24px;
-  background-image: url('/brand/logo/icon-light-gray.webp');
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.08;
-}
-
 /* Background patterns */
 .pattern-dots {
   background-image: radial-gradient(circle, var(--brand-primary) 1px, transparent 1px);

@@ -18,7 +18,6 @@ export default function PrivacyPage() {
       <PageHero
         title="Privacy and Confidentiality"
         background="kinggen-branded"
-        showStones={false}
       />
 
       {/* Content Section with art */}
