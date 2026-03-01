@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { MenuIcon, XIcon, HeartIcon, ChevronDownIcon } from "./Icons";
 import Button from "./Button";
+import Image from "next/image";
 import OptimizedBackground from "./OptimizedBackground";
 import { primaryNavLinks, secondaryNavLinks } from "../config/site";
 
@@ -96,6 +97,13 @@ export default function Header({
               aria-label="KingGen Ministries Home"
               onClick={closeResourcesMenu}
             >
+              <Image
+                src="/brand/logo/icon-dark-green.webp"
+                alt=""
+                width={28}
+                height={28}
+                className="opacity-85"
+              />
               <span className="lg:hidden text-brand-primary font-extrabold text-base tracking-tight">
                 KingGen Ministries
               </span>
