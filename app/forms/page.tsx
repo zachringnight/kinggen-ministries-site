@@ -55,10 +55,10 @@ export default function ResourcesPage() {
         subtitle="Practical downloads and encouragement for this season."
         background="inner"
         ariaLabel="Forms and Resources"
-        showWatermarkCorners
+       
       />
 
-      <Section variant="art-cream" padding="lg" watermark="stones-right" ornamentLevel="featured">
+      <Section variant="art-cream" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-lg text-text-secondary leading-relaxed">
@@ -68,7 +68,7 @@ export default function ResourcesPage() {
         </FadeIn>
       </Section>
 
-      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+      <Section variant="cross-green" padding="xl">
         <FadeIn>
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-3 text-center">
             Free Downloads
@@ -113,7 +113,7 @@ export default function ResourcesPage() {
         </FadeIn>
       </Section>
 
-      <Section variant="cross-light" padding="lg" watermark="none">
+      <Section variant="cross-light" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold font-heading text-text-primary mb-4">

@@ -150,7 +150,7 @@ export default function Home() {
 
       <AnimatedDivider variant="wave" color="var(--brand-soft)" className="-mt-1" />
 
-      <Section variant="art-cream" padding="xl" watermark="cross-subtle" ornamentLevel="featured">
+      <Section variant="art-cream" padding="xl">
         <FadeIn>
           <div className="relative z-10 max-w-3xl mx-auto text-center">
             <SectionHeader
@@ -165,7 +165,7 @@ export default function Home() {
         </FadeIn>
       </Section>
 
-      <Section variant="default" padding="xl" watermark="stones-right" ornamentLevel="featured">
+      <Section variant="default" padding="xl">
         <FadeIn>
           <SectionHeader
             title="Our services"
@@ -201,7 +201,7 @@ export default function Home() {
         </FadeIn>
       </Section>
 
-      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+      <Section variant="cross-green" padding="xl">
         <FadeIn>
           <SectionHeader
             title="Our impact"
@@ -215,7 +215,7 @@ export default function Home() {
 
       <AnimatedDivider variant="curve" color="var(--brand-soft)" flip className="-mb-1" />
 
-      <Section variant="light" padding="xl" watermark="stones-left" ornamentLevel="featured">
+      <Section variant="light" padding="xl">
         <FadeIn>
           <SectionHeader
             title="What sets KingGen apart"
@@ -245,7 +245,7 @@ export default function Home() {
         </StaggerContainer>
       </Section>
 
-      <Section variant="soft" padding="xl" watermark="stones-left" ornamentLevel="featured">
+      <Section variant="soft" padding="xl">
         <FadeIn>
           <SectionHeader title="Partner with us" />
         </FadeIn>
@@ -275,7 +275,7 @@ export default function Home() {
         </StaggerContainer>
       </Section>
 
-      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+      <Section variant="cross-green" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
             <div className="flex justify-center mb-4">
@@ -307,7 +307,7 @@ export default function Home() {
 
       <AnimatedDivider variant="wave" color="var(--brand-soft)" className="-mt-1" />
 
-      <Section variant="art-cream" padding="xl" watermark="stones-right" ornamentLevel="featured">
+      <Section variant="art-cream" padding="xl">
         <FadeIn>
           <SectionHeader
             title="What partners say"
@@ -374,7 +374,7 @@ export default function Home() {
         </FadeIn>
       </Section>
 
-      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+      <Section variant="cross-green" padding="xl">
         <div className="max-w-4xl mx-auto">
           <GlassCard className="p-8 md:p-12">
             <div className="text-center">
@@ -403,7 +403,7 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section variant="art-cream" padding="xl" watermark="cross-subtle" ornamentLevel="featured">
+      <Section variant="art-cream" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center px-4 sm:px-6">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 md:mb-6">

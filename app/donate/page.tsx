@@ -27,7 +27,7 @@ export default function DonatePage() {
         subtitle="Every gift helps remove cost barriers for women who need care."
         background="inner"
         ariaLabel="Help Keep Counseling Free"
-        showWatermarkCorners
+       
       >
         <Button
           href={siteConfig.paypalUrl}
@@ -40,7 +40,7 @@ export default function DonatePage() {
         </Button>
       </InnerPageHero>
 
-      <Section variant="cross-light" padding="xl" watermark="none">
+      <Section variant="cross-light" padding="xl">
         <FadeIn>
           <div className="flex justify-center mb-4">
             <CrossIcon className="w-6 h-6 text-brand-primary/50" strokeWidth={1.5} />
@@ -65,7 +65,7 @@ export default function DonatePage() {
         </StaggerContainer>
       </Section>
 
-      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+      <Section variant="cross-green" padding="xl">
         <FadeIn>
           <div className="flex justify-center mb-4">
             <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
@@ -117,7 +117,7 @@ export default function DonatePage() {
         </div>
       </Section>
 
-      <Section variant="art-cream" padding="lg" watermark="cross-subtle" ornamentLevel="featured">
+      <Section variant="art-cream" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <div className="brand-panel p-6 md:p-8">
@@ -143,7 +143,7 @@ export default function DonatePage() {
         </FadeIn>
       </Section>
 
-      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+      <Section variant="cross-green" padding="xl">
         <FadeIn>
           <div className="max-w-2xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
             <div className="flex justify-center mb-4">

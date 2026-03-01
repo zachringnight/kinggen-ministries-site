@@ -56,10 +56,10 @@ export default function ForReferrers() {
         subtitle="A clear and compassionate referral pathway for women who need support."
         background="inner"
         ariaLabel="For Referrers"
-        showWatermarkCorners
+       
       />
 
-      <Section variant="cross-light" padding="xl" watermark="none">
+      <Section variant="cross-light" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 text-center">
@@ -83,7 +83,7 @@ export default function ForReferrers() {
         </StaggerContainer>
       </Section>
 
-      <Section variant="art-cream" padding="xl" watermark="stones-left" ornamentLevel="featured">
+      <Section variant="art-cream" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 text-center">
@@ -107,7 +107,7 @@ export default function ForReferrers() {
         </StaggerContainer>
       </Section>
 
-      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+      <Section variant="cross-green" padding="xl">
         <FadeIn>
           <div className="flex justify-center mb-4">
             <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
@@ -129,7 +129,7 @@ export default function ForReferrers() {
         </StaggerContainer>
       </Section>
 
-      <Section variant="art-cream" padding="xl" watermark="stones-right" ornamentLevel="featured">
+      <Section variant="art-cream" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-8 text-center">
@@ -171,7 +171,7 @@ export default function ForReferrers() {
         </FadeIn>
       </Section>
 
-      <Section variant="art-cream" padding="lg" watermark="stones-left" ornamentLevel="featured">
+      <Section variant="art-cream" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <div className="brand-panel flex flex-col sm:flex-row items-start gap-4 p-6">
@@ -189,7 +189,7 @@ export default function ForReferrers() {
         </FadeIn>
       </Section>
 
-      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+      <Section variant="cross-green" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
             <div className="flex justify-center mb-4">

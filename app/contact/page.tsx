@@ -176,11 +176,11 @@ export default function ContactPage() {
         subtitle="Referral and partner inquiries are welcome."
         background="inner"
         ariaLabel="Contact KingGen Ministries"
-        showWatermarkCorners
+       
       />
 
       {/* Note */}
-      <Section variant="cross-light" padding="lg" watermark="none">
+      <Section variant="cross-light" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-lg text-text-secondary leading-relaxed">
@@ -191,7 +191,7 @@ export default function ContactPage() {
       </Section>
 
       {/* Contact Form and Info */}
-      <Section variant="art-cream" padding="xl" watermark="cross-subtle" ornamentLevel="featured">
+      <Section variant="art-cream" padding="xl">
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
           <FadeIn direction="left">

@@ -11,7 +11,7 @@ export default function NotFound() {
         minHeightClassName="min-h-[32vh] md:min-h-[40vh]"
       />
 
-      <Section variant="cross-light" padding="xl" watermark="none">
+      <Section variant="cross-light" padding="xl">
         <div className="max-w-2xl mx-auto text-center">
           <div className="flex justify-center mb-4">
             <CrossIcon className="w-6 h-6 text-brand-primary/50" />

@@ -54,10 +54,10 @@ export default function GetSupport() {
         subtitle="Helpful guidance for women and those supporting a referral."
         background="inner"
         ariaLabel="Information for Clients"
-        showWatermarkCorners
+       
       />
 
-      <Section variant="art-cream" padding="lg" watermark="stones-right" ornamentLevel="featured">
+      <Section variant="art-cream" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center px-2">
             <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
@@ -67,7 +67,7 @@ export default function GetSupport() {
         </FadeIn>
       </Section>
 
-      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+      <Section variant="cross-green" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto px-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 md:mb-6 text-center">
@@ -80,7 +80,7 @@ export default function GetSupport() {
         </FadeIn>
       </Section>
 
-      <Section variant="art-cream" padding="xl" watermark="stones-left" ornamentLevel="featured">
+      <Section variant="art-cream" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto px-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-3 md:mb-4 text-center">
@@ -104,7 +104,7 @@ export default function GetSupport() {
         </StaggerContainer>
       </Section>
 
-      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+      <Section variant="cross-green" padding="xl">
         <FadeIn>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-8 md:mb-12 text-center">
             How it works
@@ -130,7 +130,7 @@ export default function GetSupport() {
         </StaggerContainer>
       </Section>
 
-      <Section variant="art-cream" padding="lg" watermark="stones-right" ornamentLevel="featured">
+      <Section variant="art-cream" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <div className="brand-panel flex flex-col sm:flex-row items-start gap-4 p-4 md:p-6">
@@ -151,7 +151,7 @@ export default function GetSupport() {
         </FadeIn>
       </Section>
 
-      <Section variant="cross-light" padding="lg" watermark="none">
+      <Section variant="cross-light" padding="lg">
         <FadeIn>
           <div className="max-w-4xl mx-auto">
             <div className="brand-panel flex flex-col md:flex-row items-center gap-6 md:gap-10 p-6 md:p-8">
@@ -193,7 +193,7 @@ export default function GetSupport() {
         </FadeIn>
       </Section>
 
-      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+      <Section variant="cross-green" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
             <h3 className="text-lg md:text-xl font-bold font-heading text-white mb-3">

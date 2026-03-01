@@ -46,10 +46,10 @@ export default function TestimonialsPage() {
         subtitle="Stories of hope, trust, and Gospel-centered care."
         background="inner"
         ariaLabel="Testimonials"
-        showWatermarkCorners
+       
       />
 
-      <Section variant="art-cream" padding="xl" watermark="stones-left" ornamentLevel="featured">
+      <Section variant="art-cream" padding="xl">
         <StaggerContainer staggerDelay={0.15} className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, i) => (
             <StaggerItem key={i}>
@@ -80,7 +80,7 @@ export default function TestimonialsPage() {
         </StaggerContainer>
       </Section>
 
-      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+      <Section variant="cross-green" padding="xl">
         <FadeIn>
           <div className="flex justify-center mb-4">
             <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
@@ -142,7 +142,7 @@ export default function TestimonialsPage() {
         </FadeIn>
       </Section>
 
-      <Section variant="art-cream" padding="xl" watermark="stones-right" ornamentLevel="featured">
+      <Section variant="art-cream" padding="xl">
         <FadeIn>
           <div className="brand-panel rounded-3xl p-8 md:p-12 lg:p-16 text-center max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6">

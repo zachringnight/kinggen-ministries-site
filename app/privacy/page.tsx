@@ -22,7 +22,7 @@ export default function PrivacyPage() {
       />
 
       {/* Content Section with art */}
-      <Section variant="art-cream" padding="xl" watermark="stones-right" ornamentLevel="featured">
+      <Section variant="art-cream" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto prose prose-lg">
             <p className="text-lg text-text-secondary leading-relaxed mb-6">

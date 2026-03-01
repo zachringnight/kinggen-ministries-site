@@ -25,10 +25,10 @@ export default function AboutPage() {
         subtitle="A Gospel-centered counseling ministry serving women in need."
         background="about"
         ariaLabel="About KingGen Ministries"
-        showWatermarkCorners
+       
       />
 
-      <Section variant="cross-light" padding="xl" watermark="none">
+      <Section variant="cross-light" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <div className="flex justify-center mb-6">
@@ -44,7 +44,7 @@ export default function AboutPage() {
         </FadeIn>
       </Section>
 
-      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+      <Section variant="cross-green" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <div className="flex justify-center mb-4">
@@ -74,7 +74,7 @@ export default function AboutPage() {
         </StaggerContainer>
       </Section>
 
-      <Section variant="art-cream" padding="lg" watermark="cross-right" ornamentLevel="featured">
+      <Section variant="art-cream" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold font-heading text-text-primary mb-4">
@@ -90,7 +90,7 @@ export default function AboutPage() {
         </FadeIn>
       </Section>
 
-      <Section id="speaking" variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+      <Section id="speaking" variant="cross-green" padding="xl">
         <FadeIn>
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 text-center">

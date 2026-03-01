@@ -67,10 +67,10 @@ export default function ServicesPage() {
         subtitle="Compassionate, Gospel-centered counseling at no cost to clients."
         background="inner-logo"
         ariaLabel="Our Services"
-        showWatermarkCorners
+       
       />
 
-      <Section variant="art-cream" padding="xl" watermark="stones-right" ornamentLevel="featured">
+      <Section variant="art-cream" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
@@ -105,7 +105,7 @@ export default function ServicesPage() {
         </StaggerContainer>
       </Section>
 
-      <Section variant="cross-green" padding="xl" watermark="cross" ornamentLevel="featured">
+      <Section variant="cross-green" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4">

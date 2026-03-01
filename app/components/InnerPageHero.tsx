@@ -10,7 +10,6 @@ interface InnerPageHeroProps {
   ariaLabel?: string;
   children?: ReactNode;
   minHeightClassName?: string;
-  showWatermarkCorners?: boolean;
 }
 
 const backgroundMap: Record<
@@ -21,9 +20,6 @@ const backgroundMap: Record<
     titleClassName: string;
     subtitleClassName: string;
     eyebrowClassName: string;
-    watermarkSrc: string;
-    watermarkOpacity: number;
-    centerWatermarkOpacity: number;
     showEyebrow: boolean;
   }
 > = {
@@ -34,9 +30,6 @@ const backgroundMap: Record<
     titleClassName: "text-white",
     subtitleClassName: "text-white/90",
     eyebrowClassName: "border-white/30 bg-white/10 text-white/85",
-    watermarkSrc: "/brand/logo/icon-white.webp",
-    watermarkOpacity: 0.06,
-    centerWatermarkOpacity: 0.03,
     showEyebrow: true,
   },
   about: {
@@ -46,9 +39,6 @@ const backgroundMap: Record<
     titleClassName: "text-brand-primary",
     subtitleClassName: "text-text-secondary",
     eyebrowClassName: "border-brand-primary/20 bg-white/72 text-brand-primary",
-    watermarkSrc: "/brand/logo/icon-dark-green.webp",
-    watermarkOpacity: 0.045,
-    centerWatermarkOpacity: 0.02,
     showEyebrow: false,
   },
   "inner-logo": {
@@ -58,9 +48,6 @@ const backgroundMap: Record<
     titleClassName: "text-brand-primary",
     subtitleClassName: "text-text-secondary",
     eyebrowClassName: "border-brand-primary/20 bg-white/74 text-brand-primary",
-    watermarkSrc: "/brand/logo/icon-dark-green.webp",
-    watermarkOpacity: 0.04,
-    centerWatermarkOpacity: 0.018,
     showEyebrow: false,
   },
 };
@@ -72,7 +59,6 @@ export default function InnerPageHero({
   ariaLabel,
   children,
   minHeightClassName = "min-h-[34vh] md:min-h-[44vh]",
-  showWatermarkCorners = false,
 }: InnerPageHeroProps) {
   const backgroundConfig = backgroundMap[background];
 
@@ -86,39 +72,6 @@ export default function InnerPageHero({
         src={backgroundConfig.texture}
         className="absolute inset-0 bg-cover bg-center pointer-events-none"
       />
-
-      <OptimizedBackground
-        src={backgroundConfig.watermarkSrc}
-        className="absolute inset-0 bg-no-repeat pointer-events-none"
-        style={{
-          backgroundPosition: "center 42%",
-          backgroundSize: background === "inner" ? "220px auto" : "200px auto",
-          opacity: backgroundConfig.centerWatermarkOpacity,
-        }}
-      />
-
-      {showWatermarkCorners && (
-        <>
-          <OptimizedBackground
-            src={backgroundConfig.watermarkSrc}
-            className="absolute left-0 top-0 w-40 md:w-56 h-40 md:h-56 bg-no-repeat pointer-events-none hidden md:block"
-            style={{
-              backgroundPosition: "left top",
-              backgroundSize: "contain",
-              opacity: backgroundConfig.watermarkOpacity,
-            }}
-          />
-          <OptimizedBackground
-            src={backgroundConfig.watermarkSrc}
-            className="absolute right-0 bottom-0 w-44 md:w-60 h-44 md:h-60 bg-no-repeat pointer-events-none hidden md:block"
-            style={{
-              backgroundPosition: "right bottom",
-              backgroundSize: "contain",
-              opacity: backgroundConfig.watermarkOpacity * 0.95,
-            }}
-          />
-        </>
-      )}
 
       <div className={`absolute inset-0 ${backgroundConfig.overlayClassName}`} />
       <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />

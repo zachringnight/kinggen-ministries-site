@@ -51,10 +51,10 @@ export default function ForGrantWriters() {
         subtitle="Organizational details and mission context to support partnership opportunities."
         background="inner"
         ariaLabel="For Grant Writers and Foundations"
-        showWatermarkCorners
+       
       />
 
-      <Section variant="art-cream" padding="xl" watermark="stones-right" ornamentLevel="featured">
+      <Section variant="art-cream" padding="xl">
         <FadeIn>
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 text-center">
@@ -78,7 +78,7 @@ export default function ForGrantWriters() {
         </div>
       </Section>
 
-      <Section variant="art-cream" padding="xl" watermark="stones-left" ornamentLevel="featured">
+      <Section variant="art-cream" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6 text-center">
@@ -107,7 +107,7 @@ export default function ForGrantWriters() {
         </StaggerContainer>
       </Section>
 
-      <Section variant="art-cream" padding="xl" watermark="stones-right" ornamentLevel="featured">
+      <Section variant="art-cream" padding="xl">
         <FadeIn>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-8 text-center">
             Funding Areas
@@ -126,7 +126,7 @@ export default function ForGrantWriters() {
         </StaggerContainer>
       </Section>
 
-      <Section variant="art-cream" padding="lg" watermark="stones">
+      <Section variant="art-cream" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto brand-panel p-6 md:p-8">
             <h2 className="text-xl md:text-2xl font-bold font-heading text-text-primary mb-4 text-center">
@@ -145,7 +145,7 @@ export default function ForGrantWriters() {
         </FadeIn>
       </Section>
 
-      <Section variant="art-cream" padding="xl" watermark="stones-left" ornamentLevel="featured">
+      <Section variant="art-cream" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
@@ -177,7 +177,7 @@ export default function ForGrantWriters() {
         </FadeIn>
       </Section>
 
-      <Section variant="art-cream" padding="lg" watermark="stones-right">
+      <Section variant="art-cream" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-text-muted text-sm md:text-base">
