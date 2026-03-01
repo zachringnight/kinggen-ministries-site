@@ -47,16 +47,9 @@ export default function Hero({
     <section
       className={`${variantStyles[variant]} ${sizeStyles[size]} relative overflow-hidden`}
     >
-      {/* Decorative elements */}
+      {/* Decorative dot pattern */}
       {variant === "gradient" && (
-        <>
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-accent/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
-          </div>
-          {/* Subtle pattern overlay */}
-          <div className="absolute inset-0 pattern-dots" />
-        </>
+        <div className="absolute inset-0 pattern-dots" />
       )}
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
@@ -147,31 +140,31 @@ interface PageHeroProps {
 const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay: string }> = {
   "kinggen-branded": {
     primary: "/brand/headers/homepage-hero.webp",
-    overlay: "bg-gradient-to-b from-brand-primary/52 via-brand-primary/58 to-brand-primary/68",
+    overlay: "bg-gradient-to-b from-brand-primary/42 via-brand-primary/50 to-brand-primary/58",
   },
   "green-texture": {
     primary: "/brand/headers/homepage-hero.webp",
-    overlay: "bg-gradient-to-b from-brand-primary/55 via-brand-primary/62 to-brand-primary/70",
+    overlay: "bg-gradient-to-b from-brand-primary/44 via-brand-primary/52 to-brand-primary/60",
   },
   "green-art": {
     primary: "/brand/headers/homepage-hero.webp",
-    overlay: "bg-gradient-to-br from-brand-primary/50 via-brand-secondary/55 to-brand-primary/65",
+    overlay: "bg-gradient-to-br from-brand-primary/40 via-brand-primary/48 to-brand-primary/56",
   },
   "sage": {
     primary: "/brand/headers/homepage-hero.webp",
-    overlay: "bg-gradient-to-b from-brand-primary/48 via-brand-primary/54 to-brand-primary/62",
+    overlay: "bg-gradient-to-b from-brand-primary/38 via-brand-primary/46 to-brand-primary/54",
   },
   "cream": {
     primary: "/brand/headers/homepage-hero.webp",
-    overlay: "bg-gradient-to-b from-brand-primary/44 via-brand-primary/50 to-brand-primary/58",
+    overlay: "bg-gradient-to-b from-brand-primary/36 via-brand-primary/44 to-brand-primary/52",
   },
   "cross-branded": {
     primary: "/brand/headers/homepage-hero.webp",
-    overlay: "bg-gradient-to-br from-brand-primary/54 via-brand-secondary/58 to-brand-primary/66",
+    overlay: "bg-gradient-to-br from-brand-primary/42 via-brand-primary/50 to-brand-primary/58",
   },
   "cross-texture": {
     primary: "/brand/headers/homepage-hero.webp",
-    overlay: "bg-gradient-to-br from-brand-primary/50 via-brand-secondary/55 to-brand-primary/62",
+    overlay: "bg-gradient-to-br from-brand-primary/40 via-brand-primary/48 to-brand-primary/56",
   },
 };
 
@@ -196,12 +189,6 @@ export function PageHero({
       {/* Gradient overlay for text readability */}
       <div className={`absolute inset-0 ${bgConfig.overlay}`} aria-hidden="true" />
 
-      {/* Subtle decorative glow */}
-      <div className="absolute inset-0 opacity-15 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-0 right-1/4 w-64 h-64 bg-brand-accent/40 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-1/4 w-48 h-48 bg-white/20 rounded-full blur-2xl" />
-      </div>
-
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6">
         <div className={`max-w-3xl mx-auto text-center ${isLight ? "text-text-primary" : "text-white"}`}>
@@ -217,11 +204,6 @@ export function PageHero({
         </div>
       </div>
 
-      {/* Decorative bottom accent */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand-accent/50 to-transparent"
-        aria-hidden="true"
-      />
     </section>
   );
 }

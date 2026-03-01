@@ -26,7 +26,7 @@ const backgroundMap: Record<
   inner: {
     texture: "/brand/headers/inner-header.webp",
     overlayClassName:
-      "bg-gradient-to-b from-brand-primary/72 via-brand-primary/82 to-brand-primary/92",
+      "bg-gradient-to-b from-brand-primary/50 via-brand-primary/58 to-brand-primary/65",
     titleClassName: "text-white",
     subtitleClassName: "text-white/90",
     eyebrowClassName: "border-white/30 bg-white/10 text-white/85",
@@ -35,19 +35,19 @@ const backgroundMap: Record<
   about: {
     texture: "/brand/headers/about-header.webp",
     overlayClassName:
-      "bg-gradient-to-b from-white/24 via-brand-soft/48 to-brand-light/66",
-    titleClassName: "text-brand-primary",
-    subtitleClassName: "text-text-secondary",
-    eyebrowClassName: "border-brand-primary/20 bg-white/72 text-brand-primary",
+      "bg-gradient-to-b from-brand-primary/40 via-brand-primary/50 to-brand-primary/58",
+    titleClassName: "text-white",
+    subtitleClassName: "text-white/90",
+    eyebrowClassName: "border-white/30 bg-white/10 text-white/85",
     showEyebrow: false,
   },
   "inner-logo": {
     texture: "/brand/headers/inner-header.webp",
     overlayClassName:
-      "bg-gradient-to-b from-white/26 via-brand-soft/42 to-brand-light/58",
-    titleClassName: "text-brand-primary",
-    subtitleClassName: "text-text-secondary",
-    eyebrowClassName: "border-brand-primary/20 bg-white/74 text-brand-primary",
+      "bg-gradient-to-b from-brand-primary/45 via-brand-primary/52 to-brand-primary/60",
+    titleClassName: "text-white",
+    subtitleClassName: "text-white/90",
+    eyebrowClassName: "border-white/30 bg-white/10 text-white/85",
     showEyebrow: false,
   },
 };
@@ -74,7 +74,6 @@ export default function InnerPageHero({
       />
 
       <div className={`absolute inset-0 ${backgroundConfig.overlayClassName}`} />
-      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
 
       <div className="relative z-10 w-full pb-10 pt-24 md:pb-14 md:pt-28">
         <div className="container mx-auto px-4 sm:px-6">
