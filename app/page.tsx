@@ -105,10 +105,10 @@ export default function Home() {
         aria-label="KingGen Ministries - Christian Counseling for Women"
       >
         <OptimizedBackground
-          src="/brand/headers/homepage-hero.webp"
+          src="/brand/bg/dark-green-texture.webp"
           className="absolute inset-0 bg-cover bg-center pointer-events-none"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/60 via-brand-primary/75 to-brand-primary/92" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/65 via-brand-primary/72 to-brand-primary/88" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(123,163,144,0.18)_0%,transparent_60%)] pointer-events-none" />
 
         <h1 className="sr-only">KingGen Ministries</h1>
@@ -224,18 +224,20 @@ export default function Home() {
 
         <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
           {[
-            { icon: CrossIcon, text: "Gospel-centered, compassionate care" },
-            { icon: ShieldIcon, text: "Confidential and trauma-informed" },
-            { icon: UsersIcon, text: "No cost barrier for clients" },
-            { icon: CheckCircleIcon, text: "501(c)(3) nonprofit accountability" },
+            { icon: CrossIcon, text: "Gospel-centered, compassionate care", desc: "Rooted in Scripture and clinical training" },
+            { icon: ShieldIcon, text: "Confidential and trauma-informed", desc: "Private, safe, and respectful of each woman" },
+            { icon: UsersIcon, text: "No cost barrier for clients", desc: "Free services funded by donors and grants" },
+            { icon: CheckCircleIcon, text: "501(c)(3) nonprofit accountability", desc: "Transparent stewardship of every gift" },
           ].map((item, i) => (
             <StaggerItem key={i}>
-              <div className="brand-panel p-4 h-full card-hover relative overflow-hidden group">
+              <div className="brand-panel p-5 h-full card-hover relative overflow-hidden group">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-accent via-brand-primary to-brand-secondary rounded-t-[1.25rem]" />
                 <div className="flex flex-col items-center text-center p-2 relative z-10">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center mb-4 shadow-lg">
                     <item.icon className="w-6 h-6 text-white" />
                   </div>
-                  <p className="text-sm md:text-base text-text-primary font-medium">{item.text}</p>
+                  <p className="text-sm md:text-base text-text-primary font-semibold mb-1">{item.text}</p>
+                  <p className="text-xs text-text-muted">{item.desc}</p>
                 </div>
               </div>
             </StaggerItem>
@@ -315,8 +317,8 @@ export default function Home() {
 
         <div className="max-w-4xl mx-auto">
           <div className="hidden md:block">
-            <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              {testimonialData.slice(0, 2).map((testimonial, index) => (
+            <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+              {testimonialData.map((testimonial, index) => (
                 <StaggerItem key={index}>
                   <div className="brand-panel p-6 md:p-8 h-full relative group">
                     <QuoteIcon className="absolute top-4 right-4 md:top-6 md:right-6 w-6 h-6 md:w-8 md:h-8 text-brand-primary/20 group-hover:text-brand-accent/30 transition-colors" />
@@ -372,32 +374,29 @@ export default function Home() {
         </FadeIn>
       </Section>
 
-      <Section variant="cross-green" padding="xl">
+      <Section variant="soft" padding="xl">
         <div className="max-w-4xl mx-auto">
-          <GlassCard className="p-8 md:p-12">
-            <div className="text-center">
-              <FadeIn>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4">
-                  Invite LeeAnn to speak
-                </h2>
-              </FadeIn>
-              <FadeIn delay={0.1}>
-                <p className="text-base sm:text-lg text-white/90 mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
-                  LeeAnn is available for speaking engagements, podcast interviews, and ministry events. Her heart is to encourage women and share the hope of the Gospel.
-                </p>
-              </FadeIn>
-              <FadeIn delay={0.2}>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button href="/about#speaking" variant="white" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-                    Learn More
-                  </Button>
-                  <Button href="/contact" variant="outline-white" size="lg">
-                    Request a Booking
-                  </Button>
-                </div>
-              </FadeIn>
+          <FadeIn>
+            <div className="brand-panel p-8 md:p-12 text-center">
+              <div className="flex justify-center mb-4">
+                <CrossIcon className="w-8 h-8 text-brand-accent" strokeWidth={1.5} />
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
+                Invite LeeAnn to speak
+              </h2>
+              <p className="text-base sm:text-lg text-text-secondary mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
+                LeeAnn is available for speaking engagements, podcast interviews, and ministry events. Her heart is to encourage women and share the hope of the Gospel.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button href="/about#speaking" variant="primary" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                  Learn More
+                </Button>
+                <Button href="/contact" variant="outline" size="lg">
+                  Request a Booking
+                </Button>
+              </div>
             </div>
-          </GlassCard>
+          </FadeIn>
         </div>
       </Section>
 
