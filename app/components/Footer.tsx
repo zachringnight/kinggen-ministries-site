@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "../config/site";
 import { PhoneIcon, MailIcon, InstagramIcon, FacebookIcon, HeartIcon } from "./Icons";
 import Button from "./Button";
@@ -24,27 +25,35 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden">
-      <div className="relative brand-surface-dark text-white isolate">
+      <div className="relative text-white isolate">
         <OptimizedBackground
           src="/brand/bg/dark-green-texture.webp"
           className="absolute inset-0 bg-cover bg-center pointer-events-none"
-          style={{ opacity: 0.35 }}
+          style={{ opacity: 0.85 }}
         />
-        <div className="absolute inset-0 brand-surface-dark-overlay pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-brand-primary-dark/40 via-transparent to-brand-primary-dark/30" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/55 to-transparent z-10" />
 
         <div className="relative z-10 container mx-auto px-4 lg:px-8 py-12 md:py-14">
           <div className="grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] gap-10 mb-10">
             <div>
-              <Link href="/" className="inline-flex items-center">
+              <Link href="/" className="inline-flex items-center gap-3">
+                <Image
+                  src="/brand/logo/icon-white.webp"
+                  alt=""
+                  width={36}
+                  height={36}
+                  className="opacity-90"
+                />
                 <span className="text-white text-xl tracking-tight">
                   <span className="font-extrabold">KingGen</span>{" "}
                   <span className="font-light">Ministries</span>
                 </span>
               </Link>
+
               <p className="mt-4 text-sm text-white/82 max-w-xl leading-relaxed">
-                Free Gospel-centered counseling for women in need. We partner with churches,
-                referrers, and donors to remove cost barriers to care.
+                Free Gospel-centered counseling for women in need. We partner with
+                churches, referrers, and donors to remove cost barriers to care.
               </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/82">
@@ -119,6 +128,7 @@ export default function Footer() {
               <span className="hidden sm:inline text-white/35">&middot;</span>
               <p>501(c)(3) EIN: {siteConfig.ein}</p>
             </div>
+
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
               {resourceLinks.map((item) => (
                 <Link
