@@ -140,31 +140,31 @@ interface PageHeroProps {
 const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay: string }> = {
   "kinggen-branded": {
     primary: "/brand/headers/homepage-hero.webp",
-    overlay: "bg-gradient-to-b from-brand-primary/42 via-brand-primary/50 to-brand-primary/58",
+    overlay: "bg-gradient-to-b from-brand-primary/58 via-brand-primary/66 to-brand-primary/74",
   },
   "green-texture": {
     primary: "/brand/headers/homepage-hero.webp",
-    overlay: "bg-gradient-to-b from-brand-primary/44 via-brand-primary/52 to-brand-primary/60",
+    overlay: "bg-gradient-to-b from-brand-primary/60 via-brand-primary/68 to-brand-primary/76",
   },
   "green-art": {
     primary: "/brand/headers/homepage-hero.webp",
-    overlay: "bg-gradient-to-br from-brand-primary/40 via-brand-primary/48 to-brand-primary/56",
+    overlay: "bg-gradient-to-br from-brand-primary/56 via-brand-primary/64 to-brand-primary/72",
   },
   "sage": {
     primary: "/brand/headers/homepage-hero.webp",
-    overlay: "bg-gradient-to-b from-brand-primary/38 via-brand-primary/46 to-brand-primary/54",
+    overlay: "bg-gradient-to-b from-brand-primary/54 via-brand-primary/62 to-brand-primary/70",
   },
   "cream": {
     primary: "/brand/headers/homepage-hero.webp",
-    overlay: "bg-gradient-to-b from-brand-primary/36 via-brand-primary/44 to-brand-primary/52",
+    overlay: "bg-gradient-to-b from-brand-primary/52 via-brand-primary/60 to-brand-primary/68",
   },
   "cross-branded": {
     primary: "/brand/headers/homepage-hero.webp",
-    overlay: "bg-gradient-to-br from-brand-primary/42 via-brand-primary/50 to-brand-primary/58",
+    overlay: "bg-gradient-to-br from-brand-primary/58 via-brand-primary/66 to-brand-primary/74",
   },
   "cross-texture": {
     primary: "/brand/headers/homepage-hero.webp",
-    overlay: "bg-gradient-to-br from-brand-primary/40 via-brand-primary/48 to-brand-primary/56",
+    overlay: "bg-gradient-to-br from-brand-primary/56 via-brand-primary/64 to-brand-primary/72",
   },
 };
 

@@ -28,7 +28,7 @@ export default function Footer() {
         <OptimizedBackground
           src="/brand/bg/dark-green-texture.webp"
           className="absolute inset-0 bg-cover bg-center pointer-events-none"
-          style={{ opacity: 0.8 }}
+          style={{ opacity: 0.35 }}
         />
         <div className="absolute inset-0 brand-surface-dark-overlay pointer-events-none" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/55 to-transparent z-10" />
