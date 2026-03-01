@@ -12,10 +12,14 @@ interface InnerPageHeroProps {
   minHeightClassName?: string;
 }
 
+/* All inner-page heroes now use the dark-green brand texture for a
+   clean, consistent look.  The old abstract header images created
+   visible geometric artefacts through the overlay. */
+const heroTexture = "/brand/bg/dark-green-texture.webp";
+
 const backgroundMap: Record<
   HeroBackground,
   {
-    texture: string;
     overlayClassName: string;
     titleClassName: string;
     subtitleClassName: string;
@@ -24,27 +28,24 @@ const backgroundMap: Record<
   }
 > = {
   inner: {
-    texture: "/brand/headers/inner-header.webp",
     overlayClassName:
-      "bg-gradient-to-b from-brand-primary/50 via-brand-primary/58 to-brand-primary/65",
+      "bg-gradient-to-b from-brand-primary/70 via-brand-primary/78 to-brand-primary/85",
     titleClassName: "text-white",
     subtitleClassName: "text-white/90",
     eyebrowClassName: "border-white/30 bg-white/10 text-white/85",
     showEyebrow: true,
   },
   about: {
-    texture: "/brand/headers/about-header.webp",
     overlayClassName:
-      "bg-gradient-to-b from-brand-primary/40 via-brand-primary/50 to-brand-primary/58",
+      "bg-gradient-to-b from-brand-primary/65 via-brand-primary/72 to-brand-primary/80",
     titleClassName: "text-white",
     subtitleClassName: "text-white/90",
     eyebrowClassName: "border-white/30 bg-white/10 text-white/85",
     showEyebrow: false,
   },
   "inner-logo": {
-    texture: "/brand/headers/inner-header.webp",
     overlayClassName:
-      "bg-gradient-to-b from-brand-primary/45 via-brand-primary/52 to-brand-primary/60",
+      "bg-gradient-to-b from-brand-primary/68 via-brand-primary/75 to-brand-primary/82",
     titleClassName: "text-white",
     subtitleClassName: "text-white/90",
     eyebrowClassName: "border-white/30 bg-white/10 text-white/85",
@@ -69,11 +70,16 @@ export default function InnerPageHero({
       aria-label={ariaLabel ?? title}
     >
       <OptimizedBackground
-        src={backgroundConfig.texture}
+        src={heroTexture}
         className="absolute inset-0 bg-cover bg-center pointer-events-none"
       />
 
-      <div className={`absolute inset-0 ${backgroundConfig.overlayClassName}`} />
+      <div
+        className={`absolute inset-0 ${backgroundConfig.overlayClassName}`}
+      />
+
+      {/* Subtle radial highlight for depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(123,163,144,0.12)_0%,transparent_60%)] pointer-events-none" />
 
       <div className="relative z-10 w-full pb-10 pt-24 md:pb-14 md:pt-28">
         <div className="container mx-auto px-4 sm:px-6">
@@ -85,11 +91,13 @@ export default function InnerPageHero({
                 KingGen Ministries
               </p>
             )}
+
             <h1
               className={`${backgroundConfig.showEyebrow ? "mt-5" : "mt-0"} text-4xl sm:text-5xl lg:text-6xl font-bold font-heading leading-tight ${backgroundConfig.titleClassName}`}
             >
               {title}
             </h1>
+
             {subtitle && (
               <p
                 className={`mt-4 text-base md:text-lg max-w-2xl mx-auto leading-relaxed ${backgroundConfig.subtitleClassName}`}
@@ -97,6 +105,7 @@ export default function InnerPageHero({
                 {subtitle}
               </p>
             )}
+
             {children && <div className="mt-8">{children}</div>}
           </div>
         </div>
