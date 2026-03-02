@@ -5,8 +5,8 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { MenuIcon, XIcon, HeartIcon, ChevronDownIcon } from "./Icons";
 import Button from "./Button";
-import Image from "next/image";
 import OptimizedBackground from "./OptimizedBackground";
+import { BrandMark } from "./Logo";
 import { primaryNavLinks, secondaryNavLinks } from "../config/site";
 
 interface HeaderLink {
@@ -93,17 +93,11 @@ export default function Header({
           <div className="flex items-center h-14 md:h-16 gap-4">
             <Link
               href="/"
-              className="flex items-center flex-shrink-0"
+              className="flex items-center flex-shrink-0 gap-2.5 pr-1"
               aria-label="KingGen Ministries Home"
               onClick={closeResourcesMenu}
             >
-              <Image
-                src="/brand/logo/icon-dark-green.webp"
-                alt=""
-                width={28}
-                height={28}
-                className="opacity-85"
-              />
+              <BrandMark theme="light" size={28} />
               <span className="lg:hidden text-brand-primary font-extrabold text-base tracking-tight">
                 KingGen Ministries
               </span>
@@ -238,6 +232,9 @@ export default function Header({
 
             <div className="relative z-10 container mx-auto px-4 py-6">
               <div className="brand-panel max-w-[260px] mx-auto text-center mb-6 px-4 py-4 border-b border-brand-light">
+                <div className="flex justify-center mb-3">
+                  <BrandMark theme="light" size={34} />
+                </div>
                 <p className="text-brand-primary text-xl tracking-tight leading-none">
                   <span className="font-extrabold">KingGen</span>{" "}
                   <span className="font-light">Ministries</span>

@@ -1,9 +1,9 @@
 import Link from "next/link";
-import Image from "next/image";
 import { siteConfig } from "../config/site";
 import { PhoneIcon, MailIcon, InstagramIcon, FacebookIcon, HeartIcon } from "./Icons";
 import Button from "./Button";
 import OptimizedBackground from "./OptimizedBackground";
+import { BrandMark } from "./Logo";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -38,13 +38,7 @@ export default function Footer() {
           <div className="grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] gap-10 mb-10">
             <div>
               <Link href="/" className="inline-flex items-center gap-3">
-                <Image
-                  src="/brand/logo/icon-white.webp"
-                  alt=""
-                  width={36}
-                  height={36}
-                  className="opacity-90"
-                />
+                <BrandMark theme="dark" size={36} />
                 <span className="text-white text-xl tracking-tight">
                   <span className="font-extrabold">KingGen</span>{" "}
                   <span className="font-light">Ministries</span>

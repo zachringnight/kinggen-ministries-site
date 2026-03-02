@@ -13,7 +13,7 @@
     "test:run": "vitest run --passWithNoTests",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
-    "type-check": "tsc --noEmit",
+    "type-check": "tsc --noEmit --incremental false",
     "verify:routes": "node scripts/verify-routes.mjs",
     "verify:deploy-context": "node scripts/verify-deploy-context.mjs",
     "optimize-images": "node scripts/optimize-images.mjs",

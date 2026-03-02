@@ -5,7 +5,7 @@ export { default as Footer } from "./Footer";
 export { default as Hero, PageHero } from "./Hero";
 export { default as InnerPageHero } from "./InnerPageHero";
 export { default as Section, SectionHeader } from "./Section";
-export { default as Logo, LogoIcon } from "./Logo";
+export { default as Logo, LogoIcon, BrandMark } from "./Logo";
 export { default as OptimizedBackground, getOptimizedImage, getOptimizedImageWithFallback } from "./OptimizedBackground";
 export * from "./Icons";
 export * from "./MotionComponents";

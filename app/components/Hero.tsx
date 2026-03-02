@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import Button from "./Button";
 import OptimizedBackground from "./OptimizedBackground";
+import { BrandMark } from "./Logo";
 
 interface HeroProps {
   title: string | ReactNode;
@@ -139,31 +140,31 @@ interface PageHeroProps {
 
 const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay: string }> = {
   "kinggen-branded": {
-    primary: "/brand/headers/homepage-hero.webp",
+    primary: "/brand/bg/dark-green-texture.webp",
     overlay: "bg-gradient-to-b from-brand-primary/58 via-brand-primary/66 to-brand-primary/74",
   },
   "green-texture": {
-    primary: "/brand/headers/homepage-hero.webp",
+    primary: "/brand/bg/dark-green-texture.webp",
     overlay: "bg-gradient-to-b from-brand-primary/60 via-brand-primary/68 to-brand-primary/76",
   },
   "green-art": {
-    primary: "/brand/headers/homepage-hero.webp",
+    primary: "/brand/bg/dark-green-texture.webp",
     overlay: "bg-gradient-to-br from-brand-primary/56 via-brand-primary/64 to-brand-primary/72",
   },
   "sage": {
-    primary: "/brand/headers/homepage-hero.webp",
+    primary: "/brand/bg/dark-green-texture.webp",
     overlay: "bg-gradient-to-b from-brand-primary/54 via-brand-primary/62 to-brand-primary/70",
   },
   "cream": {
-    primary: "/brand/headers/homepage-hero.webp",
+    primary: "/brand/bg/dark-green-texture.webp",
     overlay: "bg-gradient-to-b from-brand-primary/52 via-brand-primary/60 to-brand-primary/68",
   },
   "cross-branded": {
-    primary: "/brand/headers/homepage-hero.webp",
+    primary: "/brand/bg/dark-green-texture.webp",
     overlay: "bg-gradient-to-br from-brand-primary/58 via-brand-primary/66 to-brand-primary/74",
   },
   "cross-texture": {
-    primary: "/brand/headers/homepage-hero.webp",
+    primary: "/brand/bg/dark-green-texture.webp",
     overlay: "bg-gradient-to-br from-brand-primary/56 via-brand-primary/64 to-brand-primary/72",
   },
 };
@@ -188,11 +189,19 @@ export function PageHero({
 
       {/* Gradient overlay for text readability */}
       <div className={`absolute inset-0 ${bgConfig.overlay}`} aria-hidden="true" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(123,163,144,0.15)_0%,transparent_62%)] pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6">
         <div className={`max-w-3xl mx-auto text-center ${isLight ? "text-text-primary" : "text-white"}`}>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-[10px] sm:text-xs font-semibold tracking-[0.12em] uppercase backdrop-blur-sm text-white/92">
+            <BrandMark theme="dark" size={18} />
+            <span>KingGen Ministries</span>
+          </div>
+          <p className="mt-2 text-xs sm:text-sm text-white/80">
+            Christian Counseling for Women
+          </p>
+          <h1 className="mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
             {title}
           </h1>
           {description && (

@@ -17,7 +17,7 @@ import {
   StaggerItem,
   ImpactCounterSection,
   AnimatedDivider,
-  GlassCard,
+  BrandMark,
 } from "./components";
 
 const impactStats = [
@@ -114,41 +114,154 @@ export default function Home() {
         <h1 className="sr-only">KingGen Ministries</h1>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-28 pb-16 md:pt-36 md:pb-24">
-          <div className="max-w-3xl">
-            <span className="inline-block px-4 py-1.5 bg-white/12 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-medium rounded-full mb-6 tracking-wide">
-              501(c)(3) Christian Counseling Nonprofit
-            </span>
-            <p className="text-4xl sm:text-5xl md:text-6xl font-bold font-heading text-white leading-[1.05] text-balance">
-              Free Gospel-centered counseling for women in need.
-            </p>
-            <p className="text-base md:text-lg text-white/85 mt-5 max-w-2xl leading-relaxed">
-              Compassionate, confidential pastoral care offered at no cost. For referrals, donors, and ministry partners.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Button href="/contact" variant="gold" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-                Start a Referral Conversation
-              </Button>
-              <Button href="/donate" variant="outline-white" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
-                Support the Mission
-              </Button>
-            </div>
-            <div className="mt-8 flex flex-wrap gap-3">
-              {[
-                "No-cost client services",
-                "15+ years clinical experience",
-                "Confidential & private",
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-2 text-white/80 text-sm">
-                  <CheckCircleIcon className="w-4 h-4 text-brand-gold-light flex-shrink-0" />
-                  <span>{item}</span>
+          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
+            <div className="max-w-3xl">
+              <div className="inline-flex items-center gap-3 mb-5">
+                <BrandMark theme="light" size={40} />
+                <div className="leading-none">
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-white/75 font-semibold">
+                    KingGen Ministries
+                  </p>
+                  <p className="mt-1 text-sm text-white/92 font-medium">
+                    Christian Counseling for Women
+                  </p>
                 </div>
-              ))}
+              </div>
+
+              <span className="inline-block px-4 py-1.5 bg-white/12 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-medium rounded-full mb-6 tracking-wide">
+                501(c)(3) Christian Counseling Nonprofit
+              </span>
+              <p className="text-4xl sm:text-5xl md:text-6xl font-bold font-heading text-white leading-[1.05] text-balance">
+                Free Gospel-centered counseling for women in need.
+              </p>
+              <p className="text-base md:text-lg text-white/85 mt-5 max-w-2xl leading-relaxed">
+                Compassionate, confidential pastoral care offered at no cost. For referrals, donors, and ministry partners.
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <Button href="/contact" variant="gold" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                  Start a Referral Conversation
+                </Button>
+                <Button href="/donate" variant="outline-white" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
+                  Support the Mission
+                </Button>
+              </div>
+              <div className="mt-8 flex flex-wrap gap-3">
+                {[
+                  "No-cost client services",
+                  "15+ years clinical experience",
+                  "Confidential & private",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2 text-white/80 text-sm">
+                    <CheckCircleIcon className="w-4 h-4 text-brand-gold-light flex-shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
+              <div className="absolute -inset-5 pointer-events-none bg-[radial-gradient(circle,rgba(123,163,144,0.42)_0%,transparent_68%)] blur-2xl" />
+              <div className="relative overflow-hidden rounded-[2rem] border border-white/22 bg-white/10 shadow-[0_28px_75px_-30px_rgba(0,0,0,0.65)]">
+                <OptimizedBackground
+                  src="/brand/social/cta-testimonial-section-bg.webp"
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ opacity: 0.42 }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-primary-dark/15 via-brand-primary/55 to-brand-primary-dark/78" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_18%,rgba(255,255,255,0.22)_0%,transparent_56%)]" />
+
+                <div className="relative z-10 p-5 sm:p-6">
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/25 bg-white/10 text-xs font-semibold tracking-[0.08em] uppercase text-white/90">
+                      Signature Care
+                    </span>
+                    <BrandMark theme="dark" size={42} />
+                  </div>
+
+                  <p className="mt-4 text-sm sm:text-base text-white/90 leading-relaxed max-w-md">
+                    Clinical pastoral counseling rooted in Scripture and offered with compassion, privacy, and no-cost access.
+                  </p>
+
+                  <div className="grid grid-cols-3 gap-2.5 mt-5">
+                    {[
+                      { value: "15+", label: "Years" },
+                      { value: "100%", label: "Free Care" },
+                      { value: "501(c)(3)", label: "Nonprofit" },
+                    ].map((metric) => (
+                      <div
+                        key={metric.label}
+                        className="rounded-xl border border-white/20 bg-white/12 px-3 py-2 text-center"
+                      >
+                        <p className="text-white font-semibold text-sm">{metric.value}</p>
+                        <p className="text-[10px] text-white/72 uppercase tracking-[0.1em]">{metric.label}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-3 grid grid-cols-2 gap-3">
+                    <div className="rounded-xl border border-white/20 bg-white/10 p-3">
+                      <BrandMark theme="soft" size={20} />
+                      <p className="mt-2 text-xs font-semibold tracking-wide text-white/92">
+                        Prayer-centered support
+                      </p>
+                    </div>
+                    <div className="rounded-xl border border-white/20 bg-white/10 p-3">
+                      <BrandMark theme="dark" size={20} />
+                      <p className="mt-2 text-xs font-semibold tracking-wide text-white/92">
+                        Scripture-rooted care
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <AnimatedDivider variant="wave" color="var(--brand-soft)" className="-mt-1" />
+
+      <section className="relative overflow-hidden isolate bg-brand-soft py-6 md:py-8">
+        <OptimizedBackground
+          src="/brand/bg/off-white-texture.webp"
+          className="absolute inset-0 bg-cover bg-center pointer-events-none"
+          style={{ opacity: 0.52 }}
+        />
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/70 to-brand-soft/55" />
+
+        <div className="relative z-10 container mx-auto px-4 lg:px-8">
+          <div className="brand-panel brand-panel-premium px-5 py-4 md:px-7 md:py-5 flex flex-col lg:flex-row lg:items-center gap-4 md:gap-5">
+            <div className="flex items-center gap-3 md:gap-4 min-w-0">
+              <BrandMark theme="light" size={34} />
+              <div className="min-w-0">
+                <p className="text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase text-brand-primary/70">
+                  KingGen Brand Promise
+                </p>
+                <p className="text-sm md:text-base text-brand-primary font-semibold">
+                  Gospel-centered care, clinical excellence, and no-cost access for women in need.
+                </p>
+              </div>
+            </div>
+
+            <div className="lg:ml-auto flex flex-wrap gap-2">
+              {[
+                "501(c)(3) Nonprofit",
+                "Trusted Referral Partner",
+                "Confidential Care",
+                "No-Cost Counseling",
+              ].map((item) => (
+                <span
+                  key={item}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-brand-light bg-white/85 px-3 py-1 text-xs font-medium text-brand-primary"
+                >
+                  <CheckCircleIcon className="w-3.5 h-3.5 text-brand-accent" />
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       <Section variant="art-cream" padding="xl">
         <FadeIn>

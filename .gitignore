@@ -32,6 +32,7 @@ yarn-error.log*
 .playwright-cli/
 output/playwright/
 output/review-*/
+output/homepage-upgrade-*.png
 
 # env files (can opt-in for committing if needed)
 .env*

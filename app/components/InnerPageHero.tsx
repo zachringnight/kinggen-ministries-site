@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import OptimizedBackground from "./OptimizedBackground";
+import { BrandMark } from "./Logo";
 
 type HeroBackground = "inner" | "about" | "inner-logo";
 
@@ -23,8 +24,7 @@ const backgroundMap: Record<
     overlayClassName: string;
     titleClassName: string;
     subtitleClassName: string;
-    eyebrowClassName: string;
-    showEyebrow: boolean;
+    lockupClassName: string;
   }
 > = {
   inner: {
@@ -32,24 +32,21 @@ const backgroundMap: Record<
       "bg-gradient-to-b from-brand-primary/70 via-brand-primary/78 to-brand-primary/85",
     titleClassName: "text-white",
     subtitleClassName: "text-white/90",
-    eyebrowClassName: "border-white/30 bg-white/10 text-white/85",
-    showEyebrow: true,
+    lockupClassName: "border-white/30 bg-white/10 text-white/92",
   },
   about: {
     overlayClassName:
       "bg-gradient-to-b from-brand-primary/65 via-brand-primary/72 to-brand-primary/80",
     titleClassName: "text-white",
     subtitleClassName: "text-white/90",
-    eyebrowClassName: "border-white/30 bg-white/10 text-white/85",
-    showEyebrow: false,
+    lockupClassName: "border-white/30 bg-white/10 text-white/92",
   },
   "inner-logo": {
     overlayClassName:
       "bg-gradient-to-b from-brand-primary/68 via-brand-primary/75 to-brand-primary/82",
     titleClassName: "text-white",
     subtitleClassName: "text-white/90",
-    eyebrowClassName: "border-white/30 bg-white/10 text-white/85",
-    showEyebrow: false,
+    lockupClassName: "border-white/30 bg-white/10 text-white/92",
   },
 };
 
@@ -84,16 +81,18 @@ export default function InnerPageHero({
       <div className="relative z-10 w-full pb-10 pt-24 md:pb-14 md:pt-28">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
-            {backgroundConfig.showEyebrow && (
-              <p
-                className={`inline-flex items-center rounded-full border px-4 py-2 text-xs sm:text-sm font-semibold tracking-[0.08em] uppercase backdrop-blur-sm ${backgroundConfig.eyebrowClassName}`}
-              >
-                KingGen Ministries
-              </p>
-            )}
+            <div
+              className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[10px] sm:text-xs font-semibold tracking-[0.12em] uppercase backdrop-blur-sm ${backgroundConfig.lockupClassName}`}
+            >
+              <BrandMark theme="dark" size={18} />
+              <span>KingGen Ministries</span>
+            </div>
+            <p className="mt-2 text-xs sm:text-sm text-white/80">
+              Christian Counseling for Women
+            </p>
 
             <h1
-              className={`${backgroundConfig.showEyebrow ? "mt-5" : "mt-0"} text-4xl sm:text-5xl lg:text-6xl font-bold font-heading leading-tight ${backgroundConfig.titleClassName}`}
+              className={`mt-5 text-4xl sm:text-5xl lg:text-6xl font-bold font-heading leading-tight ${backgroundConfig.titleClassName}`}
             >
               {title}
             </h1>
