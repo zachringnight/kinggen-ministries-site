@@ -16,38 +16,32 @@ const iconSizes: Record<NonNullable<LogoProps["size"]>, number> = {
   lg: 52,
 };
 
-const textSizes: Record<NonNullable<LogoProps["size"]>, string> = {
-  sm: "text-base",
-  md: "text-xl",
-  lg: "text-2xl",
-};
-
-const subtitleSizes: Record<NonNullable<LogoProps["size"]>, string> = {
-  sm: "text-[10px]",
-  md: "text-xs",
-  lg: "text-sm",
-};
-
 const brandMarkSrc: Record<BrandMarkTheme, string> = {
-  light: "/brand/logo/icon-dark-green.webp",
-  dark: "/brand/logo/icon-white.webp",
-  soft: "/brand/logo/icon-light-gray.webp",
+  light: "/brand/curated/logo/mark-light-bg.png",
+  dark: "/brand/curated/logo/mark-dark-bg.png",
+  soft: "/brand/curated/logo/mark-white-bg.png",
 };
 
-const brandMarkStyles: Record<BrandMarkTheme, { frameClassName: string; imageClassName: string }> = {
-  light: {
-    frameClassName:
-      "bg-gradient-to-br from-white to-brand-light border border-brand-light/85 shadow-[0_10px_30px_-20px_rgba(45,74,44,0.85)]",
-    imageClassName: "ring-1 ring-black/5",
-  },
-  dark: {
-    frameClassName: "bg-white/16 border border-white/30 shadow-[0_16px_36px_-24px_rgba(0,0,0,0.75)]",
-    imageClassName: "",
-  },
-  soft: {
-    frameClassName: "bg-white/14 border border-white/28 shadow-[0_12px_28px_-22px_rgba(0,0,0,0.6)]",
-    imageClassName: "",
-  },
+const lockupSrc: Record<LogoTheme, string> = {
+  light: "/brand/curated/logo/lockup-light-horizontal.png",
+  dark: "/brand/curated/logo/lockup-transparent-white.png",
+};
+
+const lockupWidths: Record<NonNullable<LogoProps["size"]>, number> = {
+  sm: 150,
+  md: 210,
+  lg: 270,
+};
+
+const markShadowByTheme: Record<BrandMarkTheme, string> = {
+  light: "drop-shadow(0 8px 18px rgba(45,74,44,0.22))",
+  dark: "drop-shadow(0 10px 22px rgba(0,0,0,0.35))",
+  soft: "drop-shadow(0 8px 18px rgba(45,74,44,0.16))",
+};
+
+const lockupShadowByTheme: Record<LogoTheme, string> = {
+  light: "drop-shadow(0 10px 22px rgba(45,74,44,0.2))",
+  dark: "drop-shadow(0 12px 24px rgba(0,0,0,0.35))",
 };
 
 interface BrandMarkProps {
@@ -61,30 +55,59 @@ interface BrandMarkProps {
 export function BrandMark({
   theme = "light",
   size = 32,
-  alt = "",
+  alt = "KingGen Ministries logo mark",
   className = "",
   priority = false,
 }: BrandMarkProps) {
-  const visualStyle = brandMarkStyles[theme];
   const imageSrc = brandMarkSrc[theme];
-  const imageRadius = Math.max(8, Math.round(size * 0.25));
-  const frameRadius = imageRadius + 3;
+  const imageRadius = Math.max(8, Math.round(size * 0.16));
 
   return (
-    <span
-      className={`inline-flex items-center justify-center p-[2px] ${visualStyle.frameClassName} ${className}`}
-      style={{ borderRadius: frameRadius }}
-    >
+    <span className={`inline-flex items-center justify-center ${className}`}>
       <Image
         src={imageSrc}
         alt={alt}
         width={size}
         height={size}
-        className={`object-contain ${visualStyle.imageClassName}`}
-        style={{ borderRadius: imageRadius }}
+        className="object-contain"
+        style={{
+          borderRadius: imageRadius,
+          filter: markShadowByTheme[theme],
+        }}
         priority={priority}
       />
     </span>
+  );
+}
+
+interface BrandLockupProps {
+  theme?: LogoTheme;
+  size?: NonNullable<LogoProps["size"]>;
+  alt?: string;
+  className?: string;
+  priority?: boolean;
+}
+
+export function BrandLockup({
+  theme = "light",
+  size = "md",
+  alt = "KingGen Ministries",
+  className = "",
+  priority = false,
+}: BrandLockupProps) {
+  const width = lockupWidths[size];
+  const imageSrc = lockupSrc[theme];
+
+  return (
+    <Image
+      src={imageSrc}
+      alt={alt}
+      width={width}
+      height={Math.round(width * 0.44)}
+      className={`w-auto h-auto object-contain max-w-full ${className}`}
+      style={{ filter: lockupShadowByTheme[theme] }}
+      priority={priority}
+    />
   );
 }
 
@@ -95,51 +118,13 @@ export default function Logo({
   theme = "light",
 }: LogoProps) {
   const iconSize = iconSizes[size];
-  const textColor = theme === "dark" ? "text-white" : "text-brand-primary";
-  const subtitleColor = theme === "dark" ? "text-white/75" : "text-text-secondary";
   const markTheme: BrandMarkTheme = theme === "dark" ? "dark" : "light";
 
   if (variant === "icon") {
-    return (
-      <BrandMark
-        theme={markTheme}
-        size={iconSize}
-        alt="KingGen Ministries"
-        className={className}
-        priority
-      />
-    );
+    return <BrandMark theme={markTheme} size={iconSize} className={className} priority />;
   }
 
-  if (variant === "stacked") {
-    return (
-      <div className={`inline-flex flex-col items-center text-center ${className}`}>
-        <BrandMark theme={markTheme} size={iconSize} priority />
-        <span className={`mt-2 ${textColor} leading-none ${textSizes[size]}`}>
-          <span className="font-extrabold">KingGen</span>{" "}
-          <span className="font-light">Ministries</span>
-        </span>
-        <span className={`mt-1 ${subtitleColor} tracking-[0.08em] uppercase ${subtitleSizes[size]}`}>
-          Christian Counseling for Women
-        </span>
-      </div>
-    );
-  }
-
-  return (
-    <div className={`inline-flex items-center gap-3 ${className}`}>
-      <BrandMark theme={markTheme} size={iconSize} priority />
-      <div className="leading-none">
-        <span className={`block ${textColor} ${textSizes[size]}`}>
-          <span className="font-extrabold">KingGen</span>{" "}
-          <span className="font-light">Ministries</span>
-        </span>
-        <span className={`block mt-1 ${subtitleColor} tracking-[0.08em] uppercase ${subtitleSizes[size]}`}>
-          Christian Counseling for Women
-        </span>
-      </div>
-    </div>
-  );
+  return <BrandLockup theme={theme} size={size} className={className} priority />;
 }
 
 export function LogoIcon({
@@ -155,7 +140,7 @@ export function LogoIcon({
     <BrandMark
       theme={theme}
       size={size}
-      alt="KingGen Ministries"
+      alt="KingGen Ministries logo mark"
       className={className}
     />
   );

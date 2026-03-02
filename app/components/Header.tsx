@@ -5,8 +5,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { MenuIcon, XIcon, HeartIcon, ChevronDownIcon } from "./Icons";
 import Button from "./Button";
-import OptimizedBackground from "./OptimizedBackground";
-import { BrandMark } from "./Logo";
+import { BrandMark, BrandLockup } from "./Logo";
 import { primaryNavLinks, secondaryNavLinks } from "../config/site";
 
 interface HeaderLink {
@@ -84,9 +83,9 @@ export default function Header({
             : "bg-white/78 backdrop-blur-sm border-b border-white/60"
         }`}
         style={{
-          backgroundImage: "url('/brand/bg/off-white-texture.webp')",
+          backgroundImage: "url('/brand/curated/bg/light-watermark-right.png')",
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "center right",
         }}
       >
         <nav className="relative z-10 container mx-auto px-4 lg:px-8">
@@ -97,18 +96,11 @@ export default function Header({
               aria-label="KingGen Ministries Home"
               onClick={closeResourcesMenu}
             >
-              <BrandMark theme="light" size={28} />
-              <span className="lg:hidden text-brand-primary font-extrabold text-base tracking-tight">
-                KingGen Ministries
+              <span className="sm:hidden">
+                <BrandMark theme="light" size={34} />
               </span>
-              <span className="hidden lg:flex flex-col whitespace-nowrap leading-none">
-                <span className="text-brand-primary text-[1.45rem] tracking-tight">
-                  <span className="font-extrabold">KingGen</span>{" "}
-                  <span className="font-light">Ministries</span>
-                </span>
-                <span className="mt-1 text-[10px] uppercase tracking-[0.16em] text-brand-primary/75 font-semibold">
-                  Christian Counseling for Women
-                </span>
+              <span className="hidden sm:block">
+                <BrandLockup theme="light" size="sm" />
               </span>
             </Link>
 
@@ -153,9 +145,9 @@ export default function Header({
                 <div
                   className="absolute left-0 top-full mt-2 w-72 rounded-2xl border border-brand-light bg-white shadow-xl p-2 z-[60]"
                   style={{
-                    backgroundImage: "url('/brand/social/content-section-bg.webp')",
+                    backgroundImage: "url('/brand/curated/bg/light-watermark-wide.png')",
                     backgroundSize: "cover",
-                    backgroundPosition: "center",
+                    backgroundPosition: "center right",
                   }}
                 >
                   <div className="rounded-xl bg-white/90 backdrop-blur-sm p-1">
@@ -223,25 +215,21 @@ export default function Header({
           <div
             className="lg:hidden fixed top-14 md:top-16 left-0 right-0 bottom-0 z-[9999] overflow-y-auto"
             style={{
-              backgroundImage: "url('/brand/social/content-section-bg.webp')",
+              backgroundImage: "url('/brand/curated/bg/light-watermark-portrait.png')",
               backgroundSize: "cover",
-              backgroundPosition: "center",
+              backgroundPosition: "center right",
             }}
           >
             <div className="absolute inset-0 bg-white/90" />
 
             <div className="relative z-10 container mx-auto px-4 py-6">
-              <div className="brand-panel max-w-[260px] mx-auto text-center mb-6 px-4 py-4 border-b border-brand-light">
-                <div className="flex justify-center mb-3">
+              <div className="brand-panel max-w-[280px] mx-auto text-center mb-6 px-4 py-4 border-b border-brand-light">
+                <div className="flex justify-center">
                   <BrandMark theme="light" size={34} />
                 </div>
-                <p className="text-brand-primary text-xl tracking-tight leading-none">
-                  <span className="font-extrabold">KingGen</span>{" "}
-                  <span className="font-light">Ministries</span>
-                </p>
-                <p className="mt-1 text-[10px] uppercase tracking-[0.14em] font-semibold text-brand-primary/70">
-                  Christian Counseling for Women
-                </p>
+                <div className="mt-2 flex justify-center">
+                  <BrandLockup theme="light" size="sm" />
+                </div>
               </div>
 
               <div className="space-y-1 mb-6">

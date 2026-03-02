@@ -18,6 +18,7 @@ import {
   ImpactCounterSection,
   AnimatedDivider,
   BrandMark,
+  BrandLockup,
 } from "./components";
 
 const impactStats = [
@@ -105,10 +106,10 @@ export default function Home() {
         aria-label="KingGen Ministries - Christian Counseling for Women"
       >
         <OptimizedBackground
-          src="/brand/bg/dark-green-texture.webp"
+          src="/brand/curated/bg/green-watermark-tall.png"
           className="absolute inset-0 bg-cover bg-center pointer-events-none"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/65 via-brand-primary/72 to-brand-primary/88" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/60 via-brand-primary/72 to-brand-primary/88" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(123,163,144,0.18)_0%,transparent_60%)] pointer-events-none" />
 
         <h1 className="sr-only">KingGen Ministries</h1>
@@ -116,22 +117,14 @@ export default function Home() {
         <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-28 pb-16 md:pt-36 md:pb-24">
           <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-3 mb-5">
-                <BrandMark theme="light" size={40} />
-                <div className="leading-none">
-                  <p className="text-[11px] uppercase tracking-[0.18em] text-white/75 font-semibold">
-                    KingGen Ministries
-                  </p>
-                  <p className="mt-1 text-sm text-white/92 font-medium">
-                    Christian Counseling for Women
-                  </p>
-                </div>
+              <div className="mb-6">
+                <BrandLockup theme="dark" size="lg" />
               </div>
 
               <span className="inline-block px-4 py-1.5 bg-white/12 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-medium rounded-full mb-6 tracking-wide">
                 501(c)(3) Christian Counseling Nonprofit
               </span>
-              <p className="text-4xl sm:text-5xl md:text-6xl font-bold font-heading text-white leading-[1.05] text-balance">
+              <p className="text-[2.2rem] sm:text-5xl md:text-6xl font-bold font-heading text-white leading-[1.05] text-balance">
                 Free Gospel-centered counseling for women in need.
               </p>
               <p className="text-base md:text-lg text-white/85 mt-5 max-w-2xl leading-relaxed">
@@ -163,7 +156,7 @@ export default function Home() {
               <div className="absolute -inset-5 pointer-events-none bg-[radial-gradient(circle,rgba(123,163,144,0.42)_0%,transparent_68%)] blur-2xl" />
               <div className="relative overflow-hidden rounded-[2rem] border border-white/22 bg-white/10 shadow-[0_28px_75px_-30px_rgba(0,0,0,0.65)]">
                 <OptimizedBackground
-                  src="/brand/social/cta-testimonial-section-bg.webp"
+                  src="/brand/curated/bg/green-watermark-tall.png"
                   className="absolute inset-0 bg-cover bg-center"
                   style={{ opacity: 0.42 }}
                 />
@@ -175,7 +168,7 @@ export default function Home() {
                     <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/25 bg-white/10 text-xs font-semibold tracking-[0.08em] uppercase text-white/90">
                       Signature Care
                     </span>
-                    <BrandMark theme="dark" size={42} />
+                    <BrandMark theme="dark" size={44} />
                   </div>
 
                   <p className="mt-4 text-sm sm:text-base text-white/90 leading-relaxed max-w-md">
@@ -223,7 +216,7 @@ export default function Home() {
 
       <section className="relative overflow-hidden isolate bg-brand-soft py-6 md:py-8">
         <OptimizedBackground
-          src="/brand/bg/off-white-texture.webp"
+          src="/brand/curated/bg/light-watermark-wide.png"
           className="absolute inset-0 bg-cover bg-center pointer-events-none"
           style={{ opacity: 0.52 }}
         />

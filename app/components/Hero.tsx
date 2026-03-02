@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import Button from "./Button";
 import OptimizedBackground from "./OptimizedBackground";
-import { BrandMark } from "./Logo";
+import { BrandLockup } from "./Logo";
 
 interface HeroProps {
   title: string | ReactNode;
@@ -140,32 +140,32 @@ interface PageHeroProps {
 
 const pageHeroBackgrounds: Record<PageHeroBackground, { primary: string; overlay: string }> = {
   "kinggen-branded": {
-    primary: "/brand/bg/dark-green-texture.webp",
-    overlay: "bg-gradient-to-b from-brand-primary/58 via-brand-primary/66 to-brand-primary/74",
+    primary: "/brand/curated/bg/green-watermark-tall.png",
+    overlay: "bg-gradient-to-b from-brand-primary/52 via-brand-primary/62 to-brand-primary/74",
   },
   "green-texture": {
-    primary: "/brand/bg/dark-green-texture.webp",
-    overlay: "bg-gradient-to-b from-brand-primary/60 via-brand-primary/68 to-brand-primary/76",
+    primary: "/brand/curated/bg/green-watermark-tall.png",
+    overlay: "bg-gradient-to-b from-brand-primary/54 via-brand-primary/64 to-brand-primary/76",
   },
   "green-art": {
-    primary: "/brand/bg/dark-green-texture.webp",
-    overlay: "bg-gradient-to-br from-brand-primary/56 via-brand-primary/64 to-brand-primary/72",
+    primary: "/brand/curated/bg/green-watermark-tall.png",
+    overlay: "bg-gradient-to-br from-brand-primary/50 via-brand-primary/60 to-brand-primary/72",
   },
   "sage": {
-    primary: "/brand/bg/dark-green-texture.webp",
-    overlay: "bg-gradient-to-b from-brand-primary/54 via-brand-primary/62 to-brand-primary/70",
+    primary: "/brand/curated/bg/green-watermark-tall.png",
+    overlay: "bg-gradient-to-b from-brand-primary/50 via-brand-primary/58 to-brand-primary/70",
   },
   "cream": {
-    primary: "/brand/bg/dark-green-texture.webp",
-    overlay: "bg-gradient-to-b from-brand-primary/52 via-brand-primary/60 to-brand-primary/68",
+    primary: "/brand/curated/bg/green-watermark-tall.png",
+    overlay: "bg-gradient-to-b from-brand-primary/48 via-brand-primary/56 to-brand-primary/68",
   },
   "cross-branded": {
-    primary: "/brand/bg/dark-green-texture.webp",
-    overlay: "bg-gradient-to-br from-brand-primary/58 via-brand-primary/66 to-brand-primary/74",
+    primary: "/brand/curated/bg/green-watermark-tall.png",
+    overlay: "bg-gradient-to-br from-brand-primary/52 via-brand-primary/62 to-brand-primary/74",
   },
   "cross-texture": {
-    primary: "/brand/bg/dark-green-texture.webp",
-    overlay: "bg-gradient-to-br from-brand-primary/56 via-brand-primary/64 to-brand-primary/72",
+    primary: "/brand/curated/bg/green-watermark-tall.png",
+    overlay: "bg-gradient-to-br from-brand-primary/50 via-brand-primary/60 to-brand-primary/72",
   },
 };
 
@@ -194,13 +194,9 @@ export function PageHero({
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6">
         <div className={`max-w-3xl mx-auto text-center ${isLight ? "text-text-primary" : "text-white"}`}>
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-[10px] sm:text-xs font-semibold tracking-[0.12em] uppercase backdrop-blur-sm text-white/92">
-            <BrandMark theme="dark" size={18} />
-            <span>KingGen Ministries</span>
+          <div className="inline-flex items-center justify-center rounded-2xl border border-white/25 bg-white/10 px-4 py-2 backdrop-blur-sm">
+            <BrandLockup theme="dark" size="sm" />
           </div>
-          <p className="mt-2 text-xs sm:text-sm text-white/80">
-            Christian Counseling for Women
-          </p>
           <h1 className="mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
             {title}
           </h1>

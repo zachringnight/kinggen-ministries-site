@@ -56,9 +56,9 @@ const containerSizes: Record<ContainerSize, string> = {
 const paddingStyles: Record<SectionPadding, string> = {
   none: "py-0",
   sm: "py-8 md:py-12",
-  md: "py-12 md:py-16",
-  lg: "py-16 md:py-24",
-  xl: "py-20 md:py-32",
+  md: "py-10 md:py-16",
+  lg: "py-12 md:py-24",
+  xl: "py-14 md:py-32",
 };
 
 const lightTextureOpacity: Partial<Record<SectionVariant, number>> = {
@@ -78,8 +78,8 @@ const darkTextureOpacity: Partial<Record<SectionVariant, number>> = {
 };
 
 const curatedTexture = {
-  light: "/brand/bg/cream-cross-texture.webp",
-  dark: "/brand/bg/dark-green-texture.webp",
+  light: "/brand/curated/bg/light-watermark-right.png",
+  dark: "/brand/curated/bg/green-watermark-tall.png",
 } as const;
 
 export default function Section({
@@ -101,7 +101,7 @@ export default function Section({
         src={isLightSection ? curatedTexture.light : curatedTexture.dark}
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundPosition: "center",
+          backgroundPosition: isLightSection ? "center right" : "center",
           backgroundSize: "cover",
           opacity: isLightSection
             ? (lightTextureOpacity[variant] ?? 0.22)

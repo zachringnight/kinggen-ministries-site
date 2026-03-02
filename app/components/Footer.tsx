@@ -3,7 +3,7 @@ import { siteConfig } from "../config/site";
 import { PhoneIcon, MailIcon, InstagramIcon, FacebookIcon, HeartIcon } from "./Icons";
 import Button from "./Button";
 import OptimizedBackground from "./OptimizedBackground";
-import { BrandMark } from "./Logo";
+import { BrandLockup } from "./Logo";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -27,22 +27,18 @@ export default function Footer() {
     <footer className="relative overflow-hidden">
       <div className="relative text-white isolate">
         <OptimizedBackground
-          src="/brand/bg/dark-green-texture.webp"
+          src="/brand/curated/bg/green-watermark-tall.png"
           className="absolute inset-0 bg-cover bg-center pointer-events-none"
-          style={{ opacity: 0.85 }}
+          style={{ opacity: 0.92 }}
         />
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-brand-primary-dark/40 via-transparent to-brand-primary-dark/30" />
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-brand-primary-dark/44 via-brand-primary/42 to-brand-primary-dark/56" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/55 to-transparent z-10" />
 
         <div className="relative z-10 container mx-auto px-4 lg:px-8 py-12 md:py-14">
           <div className="grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] gap-10 mb-10">
             <div>
-              <Link href="/" className="inline-flex items-center gap-3">
-                <BrandMark theme="dark" size={36} />
-                <span className="text-white text-xl tracking-tight">
-                  <span className="font-extrabold">KingGen</span>{" "}
-                  <span className="font-light">Ministries</span>
-                </span>
+              <Link href="/" className="inline-flex items-center gap-3" aria-label="KingGen Ministries Home">
+                <BrandLockup theme="dark" size="md" />
               </Link>
 
               <p className="mt-4 text-sm text-white/82 max-w-xl leading-relaxed">

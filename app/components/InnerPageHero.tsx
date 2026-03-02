@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import OptimizedBackground from "./OptimizedBackground";
-import { BrandMark } from "./Logo";
+import { BrandLockup } from "./Logo";
 
 type HeroBackground = "inner" | "about" | "inner-logo";
 
@@ -13,10 +13,7 @@ interface InnerPageHeroProps {
   minHeightClassName?: string;
 }
 
-/* All inner-page heroes now use the dark-green brand texture for a
-   clean, consistent look.  The old abstract header images created
-   visible geometric artefacts through the overlay. */
-const heroTexture = "/brand/bg/dark-green-texture.webp";
+const heroTexture = "/brand/curated/bg/green-watermark-tall.png";
 
 const backgroundMap: Record<
   HeroBackground,
@@ -82,17 +79,13 @@ export default function InnerPageHero({
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <div
-              className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[10px] sm:text-xs font-semibold tracking-[0.12em] uppercase backdrop-blur-sm ${backgroundConfig.lockupClassName}`}
+              className={`inline-flex items-center justify-center rounded-2xl border px-4 py-2 backdrop-blur-sm ${backgroundConfig.lockupClassName}`}
             >
-              <BrandMark theme="dark" size={18} />
-              <span>KingGen Ministries</span>
+              <BrandLockup theme="dark" size="sm" />
             </div>
-            <p className="mt-2 text-xs sm:text-sm text-white/80">
-              Christian Counseling for Women
-            </p>
 
             <h1
-              className={`mt-5 text-4xl sm:text-5xl lg:text-6xl font-bold font-heading leading-tight ${backgroundConfig.titleClassName}`}
+              className={`mt-5 text-3xl sm:text-5xl lg:text-6xl font-bold font-heading leading-tight ${backgroundConfig.titleClassName}`}
             >
               {title}
             </h1>
