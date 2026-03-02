@@ -23,9 +23,9 @@
   --gradient-end: #7BA390;
 
   /* Text colors */
-  --text-primary: #3B5E3A;         /* Brand green for headings on light bg */
-  --text-secondary: #355335;       /* Body text on light backgrounds */
-  --text-muted: #577557;           /* Muted supporting text */
+  --text-primary: #294429;         /* Brand green for headings on light bg */
+  --text-secondary: #2f4a2f;       /* Body text on light backgrounds */
+  --text-muted: #4d694d;           /* Muted supporting text */
 
   /* Premium surface + shadow system */
   --surface-white: rgba(255, 255, 255, 0.92);

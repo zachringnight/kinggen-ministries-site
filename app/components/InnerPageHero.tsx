@@ -26,24 +26,24 @@ const backgroundMap: Record<
 > = {
   inner: {
     overlayClassName:
-      "bg-gradient-to-b from-brand-primary/70 via-brand-primary/78 to-brand-primary/85",
+      "bg-gradient-to-b from-brand-primary/74 via-brand-primary/82 to-brand-primary/90",
     titleClassName: "text-white",
-    subtitleClassName: "text-white/90",
-    lockupClassName: "border-white/30 bg-white/10 text-white/92",
+    subtitleClassName: "text-white/95",
+    lockupClassName: "border-white/35 bg-black/10 text-white",
   },
   about: {
     overlayClassName:
-      "bg-gradient-to-b from-brand-primary/65 via-brand-primary/72 to-brand-primary/80",
+      "bg-gradient-to-b from-brand-primary/72 via-brand-primary/80 to-brand-primary/88",
     titleClassName: "text-white",
-    subtitleClassName: "text-white/90",
-    lockupClassName: "border-white/30 bg-white/10 text-white/92",
+    subtitleClassName: "text-white/95",
+    lockupClassName: "border-white/35 bg-black/10 text-white",
   },
   "inner-logo": {
     overlayClassName:
-      "bg-gradient-to-b from-brand-primary/68 via-brand-primary/75 to-brand-primary/82",
+      "bg-gradient-to-b from-brand-primary/73 via-brand-primary/81 to-brand-primary/89",
     titleClassName: "text-white",
-    subtitleClassName: "text-white/90",
-    lockupClassName: "border-white/30 bg-white/10 text-white/92",
+    subtitleClassName: "text-white/95",
+    lockupClassName: "border-white/35 bg-black/10 text-white",
   },
 };
 
