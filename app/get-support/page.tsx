@@ -115,14 +115,14 @@ export default function GetSupport() {
         <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
           {steps.map((step, i) => (
             <StaggerItem key={i}>
-              <div className="text-center brand-panel-dark rounded-2xl p-6 h-full">
+              <div className="text-center brand-panel-dark rounded-2xl p-6 h-full flex flex-col">
                 <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/20 text-white text-xl md:text-2xl font-bold flex items-center justify-center mx-auto mb-3 md:mb-4 border border-white/30">
                   {step.number}
                 </div>
                 <h3 className="text-lg md:text-xl font-bold font-heading text-white mb-2">
                   {step.title}
                 </h3>
-                <p className="text-sm md:text-base text-white/95">
+                <p className="text-sm md:text-base text-white/95 flex-grow">
                   {step.description}
                 </p>
               </div>

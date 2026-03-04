@@ -90,7 +90,7 @@ export default function DonatePage() {
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <div className="brand-panel-dark rounded-2xl p-6 md:p-8 h-full">
+            <div className="brand-panel-dark rounded-2xl p-6 md:p-8 h-full flex flex-col">
               <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
                 By Mail
               </h3>
@@ -105,6 +105,15 @@ export default function DonatePage() {
                   {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
                 </address>
               </div>
+              <Button
+                href={`mailto:${siteConfig.email}`}
+                variant="outline-white"
+                size="lg"
+                fullWidth
+                icon={<MailIcon className="w-5 h-5" />}
+              >
+                Email for Mailing Help
+              </Button>
             </div>
           </FadeIn>
         </div>

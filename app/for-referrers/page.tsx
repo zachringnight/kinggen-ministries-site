@@ -116,9 +116,9 @@ export default function ForReferrers() {
         <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
           {whatToExpect.map((item, i) => (
             <StaggerItem key={i}>
-              <div className="brand-panel-dark rounded-xl p-5 md:p-6 h-full">
+              <div className="brand-panel-dark rounded-xl p-5 md:p-6 h-full flex flex-col">
                 <h3 className="font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-sm md:text-base text-white/95">{item.description}</p>
+                <p className="text-sm md:text-base text-white/95 flex-grow">{item.description}</p>
               </div>
             </StaggerItem>
           ))}

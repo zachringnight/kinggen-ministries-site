@@ -156,6 +156,25 @@ html {
   box-shadow: var(--shadow-premium);
 }
 
+.brand-panel-interactive {
+  transition: transform 0.26s ease, box-shadow 0.26s ease, border-color 0.26s ease;
+}
+
+.brand-panel-interactive:hover,
+.brand-panel-interactive:focus-within {
+  transform: translateY(-2px);
+  border-color: rgba(123, 163, 144, 0.5);
+  box-shadow: 0 20px 44px -28px rgba(33, 54, 34, 0.38);
+}
+
+.brand-hero-stat {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 0.9rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.07) 100%);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
 .brand-panel-dark {
   background: linear-gradient(165deg, rgba(255, 255, 255, 0.14) 0%, var(--surface-dark) 100%);
   border: 1px solid var(--surface-border-dark);
