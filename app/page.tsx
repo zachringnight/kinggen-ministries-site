@@ -22,10 +22,10 @@ import {
 } from "./components";
 
 const impactStats = [
-  { value: 100, suffix: "%", label: "Free Services", description: "No cost to clients" },
-  { value: 501, prefix: "", suffix: "(c)(3)", label: "Nonprofit Status", description: "Tax-deductible gifts" },
-  { value: 15, suffix: "+", label: "Years Experience", description: "Clinical pastoral care" },
-  { value: 24, suffix: "/7", label: "Confidential", description: "Private & secure" },
+  { value: 100, suffix: "%", animate: true, label: "Free Services", description: "No cost to clients" },
+  { value: 501, staticValue: "501(c)(3)", animate: false, label: "Nonprofit Status", description: "Tax-deductible gifts" },
+  { value: 15, suffix: "+", animate: true, label: "Years Experience", description: "Clinical pastoral care" },
+  { value: 24, staticValue: "24/7", animate: false, label: "Confidential", description: "Private & secure" },
 ];
 
 const testimonialData = [
@@ -113,20 +113,20 @@ export default function Home() {
 
         <h1 className="sr-only">KingGen Ministries</h1>
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-26 pb-14 md:pt-32 md:pb-20">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-24 pb-14 md:pt-24 md:pb-20">
           <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-10">
             <div className="max-w-3xl">
               <div className="mb-5">
                 <BrandLockup theme="dark" size="lg" />
               </div>
 
-              <span className="inline-block px-3.5 py-1.5 bg-white/10 backdrop-blur-sm border border-white/18 text-white/88 text-xs sm:text-sm font-medium rounded-full mb-5 tracking-wide">
+              <span className="inline-block px-3.5 py-1.5 bg-white/10 backdrop-blur-sm border border-white/18 text-white/95 text-xs sm:text-sm font-medium rounded-full mb-5 tracking-wide">
                 501(c)(3) Christian Counseling Nonprofit
               </span>
-              <p className="text-[2rem] sm:text-5xl md:text-[3.5rem] font-bold font-heading text-white leading-[1.08] text-balance">
+              <p className="text-[clamp(2rem,6vw,4rem)] font-bold font-heading text-white leading-[1.08] text-balance">
                 Free Gospel-centered counseling for women in need.
               </p>
-              <p className="text-base md:text-lg text-white/84 mt-4 max-w-2xl leading-relaxed">
+              <p className="text-base md:text-lg text-white/95 mt-4 max-w-2xl leading-relaxed">
                 Compassionate, confidential pastoral care offered at no cost. For referrals, donors, and ministry partners.
               </p>
               <div className="mt-7 flex flex-col sm:flex-row gap-3">
@@ -142,7 +142,7 @@ export default function Home() {
                   "No-cost client services",
                   "Confidential & private",
                 ].map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-white/78 text-sm">
+                  <div key={item} className="flex items-center gap-2 text-white/95 text-sm">
                     <CheckCircleIcon className="w-4 h-4 text-brand-gold-light flex-shrink-0" />
                     <span>{item}</span>
                   </div>
@@ -162,12 +162,12 @@ export default function Home() {
                 <div className="relative z-10 p-5 sm:p-6">
                   <div className="flex items-center gap-3">
                     <BrandMark theme="dark" size={44} />
-                    <span className="text-sm font-semibold tracking-[0.08em] uppercase text-white/88">
+                    <span className="text-sm font-semibold tracking-[0.08em] uppercase text-white/95">
                       Gospel-Centered Care
                     </span>
                   </div>
 
-                  <p className="mt-4 text-sm sm:text-base text-white/90 leading-relaxed max-w-md">
+                  <p className="mt-4 text-sm sm:text-base text-white/95 leading-relaxed max-w-md">
                     Clinical pastoral counseling rooted in Scripture and offered with compassion, privacy, and no-cost access.
                   </p>
 
@@ -181,7 +181,7 @@ export default function Home() {
                         className="rounded-xl border border-white/18 bg-white/10 px-3 py-2 text-center"
                       >
                         <p className="text-white font-semibold text-sm">{metric.value}</p>
-                        <p className="text-[10px] text-white/72 uppercase tracking-[0.1em]">{metric.label}</p>
+                        <p className="text-[10px] text-white/95 uppercase tracking-[0.1em]">{metric.label}</p>
                       </div>
                     ))}
                   </div>
@@ -319,19 +319,16 @@ export default function Home() {
       <Section variant="cross-green" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
-            <div className="flex justify-center mb-4">
-              <CrossIcon className="w-8 h-8 text-white/60" strokeWidth={1.5} />
-            </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 md:mb-6">
               Our commitment
             </h2>
-            <p className="text-base sm:text-lg text-white/90 mb-3 md:mb-4 leading-relaxed">
+            <p className="text-base sm:text-lg text-white/95 mb-3 md:mb-4 leading-relaxed">
               As a <strong>501(c)(3)</strong> nonprofit, KingGen Ministries is committed to stewardship, transparency, and accountability. Every donation directly supports our mission to provide free counseling for women in need.
             </p>
-            <p className="text-base sm:text-lg text-white/90 mb-2 leading-relaxed">
+            <p className="text-base sm:text-lg text-white/95 mb-2 leading-relaxed">
               We partner with churches, community organizations, and foundations who share our vision.
             </p>
-            <p className="text-white/80 mb-6 md:mb-8">
+            <p className="text-white/95 mb-6 md:mb-8">
               <strong>EIN:</strong> {siteConfig.ein}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -417,9 +414,6 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <FadeIn>
             <div className="brand-panel p-8 md:p-12 text-center">
-              <div className="flex justify-center mb-4">
-                <CrossIcon className="w-8 h-8 text-brand-accent" strokeWidth={1.5} />
-              </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
                 Invite LeeAnn to speak
               </h2>

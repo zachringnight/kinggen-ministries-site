@@ -41,9 +41,6 @@ export default function ContactPage() {
   const [formErrors, setFormErrors] = useState<ContactFormErrors>({});
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [statusMessage, setStatusMessage] = useState("");
-  const hasConfiguredFormEndpoint =
-    Boolean(siteConfig.formspreeEndpoint) &&
-    !siteConfig.formspreeEndpoint.includes("your-form-id");
 
   const validateForm = (data: ContactFormData): ContactFormErrors => {
     const errors: ContactFormErrors = {};
@@ -108,31 +105,12 @@ export default function ContactPage() {
       return;
     }
 
-    if (!hasConfiguredFormEndpoint) {
-      const subject = `KingGen Contact (${formData.reason})`;
-      const emailBody = [
-        `Name: ${formData.name.trim()}`,
-        `Email: ${formData.email.trim()}`,
-        `Phone: ${formData.phone.trim() || "Not provided"}`,
-        "",
-        "Message:",
-        formData.message.trim(),
-      ].join("\n");
-
-      window.location.href = `mailto:${siteConfig.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-      setSubmitState("success");
-      setStatusMessage("Your email app should open so you can send this message directly.");
-      setFormData(initialFormData);
-      setFormErrors({});
-      return;
-    }
-
     setSubmitState("submitting");
     setStatusMessage("");
     setFormErrors({});
 
     try {
-      const response = await fetch(siteConfig.formspreeEndpoint, {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -157,15 +135,17 @@ export default function ContactPage() {
       }
 
       setSubmitState("success");
-      setStatusMessage("Thank you for reaching out. We usually respond within 1-2 business days.");
+      setStatusMessage("Thank you! We typically respond within 1–2 business days.");
       setFormData(initialFormData);
     } catch (error) {
       setSubmitState("error");
       setFormErrors((prev) => ({
         ...prev,
-        form: error instanceof Error ? error.message : "Something went wrong while sending your message.",
+        form: error instanceof Error
+          ? error.message
+          : `Something went wrong while sending your message. Please try again or email ${siteConfig.email}.`,
       }));
-      setStatusMessage("Your message was not sent. Please try again in a moment.");
+      setStatusMessage(`Your message was not sent. Please try again or email ${siteConfig.email}.`);
     }
   };
 
@@ -385,11 +365,6 @@ export default function ContactPage() {
                   <p className="text-xs text-text-muted text-center">
                     Your information is safe with us. We typically reply within 1-2 business days.
                   </p>
-                  {!hasConfiguredFormEndpoint && (
-                    <p className="text-xs text-text-muted text-center">
-                      Online form routing is temporarily using your email app.
-                    </p>
-                  )}
                 </form>
               </div>
           </FadeIn>

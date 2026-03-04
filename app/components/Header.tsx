@@ -139,7 +139,7 @@ export default function Header({
                   <ChevronDownIcon className={`w-4 h-4 transition-transform ${resourcesOpen ? "rotate-180" : ""}`} />
                 </summary>
                 <div
-                  className="absolute left-0 top-full mt-2 w-72 rounded-2xl border border-brand-light/85 bg-white shadow-lg p-2 z-[60]"
+                  className="absolute left-0 top-full mt-2 w-72 rounded-2xl border border-brand-light/85 bg-white shadow-lg p-2 z-[9999]"
                   style={{
                     backgroundImage: "url('/brand/curated/bg/light-watermark-wide.png')",
                     backgroundSize: "cover",

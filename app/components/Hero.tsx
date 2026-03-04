@@ -33,9 +33,9 @@ export default function Hero({
   children,
 }: HeroProps) {
   const sizeStyles = {
-    small: "py-16 md:py-24",
-    default: "py-24 md:py-32 lg:py-40",
-    large: "py-32 md:py-40 lg:py-52",
+    small: "py-12 md:py-16",
+    default: "py-16 md:py-24 lg:py-24",
+    large: "py-20 md:py-24 lg:py-24",
   };
 
   const variantStyles = {
@@ -63,7 +63,7 @@ export default function Hero({
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${
                 variant === "simple"
                   ? "bg-brand-primary/10 text-brand-primary"
-                  : "bg-white/10 text-white/90"
+                  : "bg-white/10 text-white/95"
               } text-sm font-medium mb-6 animate-fade-in-up`}
             >
               <span className="w-2 h-2 rounded-full bg-brand-accent animate-pulse-soft" />
@@ -73,7 +73,7 @@ export default function Hero({
 
           {/* Title */}
           <h1
-            className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-heading mb-6 leading-tight animate-fade-in-up stagger-1 ${
+            className={`text-[clamp(2rem,6vw,4.5rem)] font-bold font-heading mb-6 leading-tight animate-fade-in-up stagger-1 ${
               variant === "simple" ? "text-text-primary" : ""
             }`}
           >
@@ -84,7 +84,7 @@ export default function Hero({
           {description && (
             <p
               className={`text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed animate-fade-in-up stagger-2 ${
-                variant === "simple" ? "text-text-secondary" : "text-white/90"
+                variant === "simple" ? "text-text-secondary" : "text-white/95"
               }`}
             >
               {description}
@@ -179,7 +179,7 @@ export function PageHero({
   const isLight = false; // all variants now use dark branded hero
 
   return (
-    <section className="relative brand-hero-banner py-12 sm:py-16 md:py-20 overflow-hidden">
+    <section className="relative brand-hero-banner py-16 md:py-24 overflow-hidden">
       {/* Main branded background image - optimized with lazy loading */}
       <OptimizedBackground
         src={bgConfig.primary}
@@ -197,11 +197,11 @@ export function PageHero({
           <div className="inline-flex items-center justify-center rounded-xl border border-white/30 bg-white/12 px-3 py-1.5 shadow-lg backdrop-blur-sm">
             <BrandLockup theme="dark" size="sm" />
           </div>
-          <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold font-heading mb-3 md:mb-4">
+          <h1 className="mt-4 text-[clamp(2rem,6vw,3.75rem)] font-bold font-heading mb-3 md:mb-4">
             {title}
           </h1>
           {description && (
-            <p className={`text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0 ${isLight ? "text-text-secondary" : "text-white/90"}`}>
+            <p className={`text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0 ${isLight ? "text-text-secondary" : "text-white/95"}`}>
               {description}
             </p>
           )}

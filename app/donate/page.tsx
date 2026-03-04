@@ -5,7 +5,6 @@ import {
   HeartIcon,
   MailIcon,
   CheckCircleIcon,
-  CrossIcon,
   FadeIn,
   StaggerContainer,
   StaggerItem,
@@ -42,9 +41,6 @@ export default function DonatePage() {
 
       <Section variant="cross-light" padding="xl">
         <FadeIn>
-          <div className="flex justify-center mb-4">
-            <CrossIcon className="w-6 h-6 text-brand-primary/50" strokeWidth={1.5} />
-          </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 text-center">
             Your gift makes a difference
           </h2>
@@ -67,9 +63,6 @@ export default function DonatePage() {
 
       <Section variant="cross-green" padding="xl">
         <FadeIn>
-          <div className="flex justify-center mb-4">
-            <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
-          </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-8 md:mb-12 text-center">
             Ways to give
           </h2>
@@ -81,7 +74,7 @@ export default function DonatePage() {
               <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
                 Online
               </h3>
-              <p className="text-white/80 mb-6 flex-grow">
+              <p className="text-white/95 mb-6 flex-grow">
                 Give securely through PayPal. One-time or recurring gifts welcome.
               </p>
               <Button
@@ -101,12 +94,12 @@ export default function DonatePage() {
               <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
                 By Mail
               </h3>
-              <p className="text-white/80 mb-4">
+              <p className="text-white/95 mb-4">
                 Make checks payable to:
               </p>
               <div className="bg-white/12 rounded-xl p-4 mb-4 border border-white/20">
                 <p className="text-white font-semibold">KingGen Ministries</p>
-                <address className="text-white/80 not-italic text-sm leading-relaxed mt-2">
+                <address className="text-white/95 not-italic text-sm leading-relaxed mt-2">
                   {siteConfig.address.line2}<br />
                   {siteConfig.address.line3}<br />
                   {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
@@ -146,13 +139,10 @@ export default function DonatePage() {
       <Section variant="cross-green" padding="xl">
         <FadeIn>
           <div className="max-w-2xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
-            <div className="flex justify-center mb-4">
-              <CrossIcon className="w-8 h-8 text-white/50" strokeWidth={1.5} />
-            </div>
             <h2 className="text-2xl md:text-3xl font-bold font-heading text-white mb-4">
               Ready to make a difference?
             </h2>
-            <p className="text-white/90 mb-8">
+            <p className="text-white/95 mb-8">
               Your support helps women access the care they need.
             </p>
             <Button

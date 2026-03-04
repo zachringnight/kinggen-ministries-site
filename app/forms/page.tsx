@@ -73,7 +73,7 @@ export default function ResourcesPage() {
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-3 text-center">
             Free Downloads
           </h2>
-          <p className="text-center text-white/85 mb-8">
+          <p className="text-center text-white/95 mb-8">
             Download and share these printable PDF guides.
           </p>
         </FadeIn>
@@ -106,7 +106,7 @@ export default function ResourcesPage() {
 
         <FadeIn delay={0.3}>
           <div className="mt-8 p-6 brand-panel-dark rounded-2xl text-center max-w-4xl mx-auto">
-            <p className="text-white/90">
+            <p className="text-white/95">
               More resources coming soon. If there&apos;s something specific that would help you, let us know.
             </p>
           </div>

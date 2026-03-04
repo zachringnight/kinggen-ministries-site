@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { siteConfig } from "./config/site";
-import { Header, Footer } from "./components";
+import { Header, Footer, BackToTopButton } from "./components";
 
 const siteUrl = siteConfig.url;
 const organizationJsonLd = {
@@ -101,6 +101,7 @@ export default function RootLayout({
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <Header />
         <main id="main-content" className="flex-grow">{children}</main>
+        <BackToTopButton />
         <Footer />
       </body>
     </html>

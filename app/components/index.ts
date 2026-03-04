@@ -7,5 +7,6 @@ export { default as InnerPageHero } from "./InnerPageHero";
 export { default as Section, SectionHeader } from "./Section";
 export { default as Logo, LogoIcon, BrandMark, BrandLockup } from "./Logo";
 export { default as OptimizedBackground, getOptimizedImage, getOptimizedImageWithFallback } from "./OptimizedBackground";
+export { default as BackToTopButton } from "./BackToTopButton";
 export * from "./Icons";
 export * from "./MotionComponents";

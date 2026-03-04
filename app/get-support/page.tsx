@@ -7,6 +7,7 @@ import {
   ShieldIcon,
   ArrowRightIcon,
   PhoneIcon,
+  CrossIcon,
   FadeIn,
   StaggerContainer,
   StaggerItem,
@@ -73,7 +74,7 @@ export default function GetSupport() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 md:mb-6 text-center">
               What to expect
             </h2>
-            <p className="text-base sm:text-lg text-white/90 leading-relaxed text-center">
+            <p className="text-base sm:text-lg text-white/95 leading-relaxed text-center">
               Counseling is a place to slow down, tell the truth about what you&apos;re carrying, and take steady steps forward with hope and wisdom. You will be met with compassion and respect, at a pace that feels manageable.
             </p>
           </div>
@@ -121,7 +122,7 @@ export default function GetSupport() {
                 <h3 className="text-lg md:text-xl font-bold font-heading text-white mb-2">
                   {step.title}
                 </h3>
-                <p className="text-sm md:text-base text-white/80">
+                <p className="text-sm md:text-base text-white/95">
                   {step.description}
                 </p>
               </div>
@@ -166,6 +167,9 @@ export default function GetSupport() {
               </div>
 
               <div className="flex-1 text-center md:text-left">
+                <div className="flex justify-center md:justify-start mb-3">
+                  <CrossIcon className="w-6 h-6 text-brand-primary/70" strokeWidth={1.5} />
+                </div>
                 <h3 className="text-xl md:text-2xl font-bold font-heading text-text-primary mb-3">
                   In Crisis?
                 </h3>
@@ -199,7 +203,7 @@ export default function GetSupport() {
             <h3 className="text-lg md:text-xl font-bold font-heading text-white mb-3">
               Are you a referrer?
             </h3>
-            <p className="text-white/90 mb-6">
+            <p className="text-white/95 mb-6">
               If you&apos;re a pastor, counselor, or community professional looking to refer someone, visit our referrer page for more information.
             </p>
             <Button href="/for-referrers" variant="white" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">

@@ -6,7 +6,6 @@ import {
   ShieldIcon,
   ArrowRightIcon,
   HeartIcon,
-  CrossIcon,
   FadeIn,
   StaggerContainer,
   StaggerItem,
@@ -109,9 +108,6 @@ export default function ForReferrers() {
 
       <Section variant="cross-green" padding="xl">
         <FadeIn>
-          <div className="flex justify-center mb-4">
-            <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
-          </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-8 text-center">
             What referrers can expect
           </h2>
@@ -122,7 +118,7 @@ export default function ForReferrers() {
             <StaggerItem key={i}>
               <div className="brand-panel-dark rounded-xl p-5 md:p-6 h-full">
                 <h3 className="font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-sm md:text-base text-white/80">{item.description}</p>
+                <p className="text-sm md:text-base text-white/95">{item.description}</p>
               </div>
             </StaggerItem>
           ))}
@@ -192,13 +188,10 @@ export default function ForReferrers() {
       <Section variant="cross-green" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
-            <div className="flex justify-center mb-4">
-              <CrossIcon className="w-8 h-8 text-white/50" strokeWidth={1.5} />
-            </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4">
               Partner with us
             </h2>
-            <p className="text-base sm:text-lg text-white/90 mb-8">
+            <p className="text-base sm:text-lg text-white/95 mb-8">
               If you&apos;d like to establish an ongoing referral relationship or learn more about how KingGen can serve your community, we&apos;d love to connect.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

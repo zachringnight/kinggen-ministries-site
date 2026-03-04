@@ -16,9 +16,6 @@ export default function Footer() {
     { href: "/donate", label: "Donate" },
     { href: "/testimonials", label: "Testimonials" },
     { href: "/contact", label: "Contact" },
-  ];
-
-  const resourceLinks = [
     { href: "/get-support", label: "Client Info" },
     { href: "/forms", label: "Forms" },
   ];
@@ -41,12 +38,12 @@ export default function Footer() {
                 <BrandLockup theme="dark" size="md" />
               </Link>
 
-              <p className="mt-4 text-sm text-white/82 max-w-xl leading-relaxed">
+              <p className="mt-4 text-sm text-white/95 max-w-xl leading-relaxed">
                 Free Gospel-centered counseling for women in need. We partner with
                 churches, referrers, and donors to remove cost barriers to care.
               </p>
 
-              <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/82">
+              <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/95">
                 <a
                   href={`mailto:${siteConfig.email}`}
                   className="inline-flex items-center gap-2 hover:text-white transition-colors"
@@ -65,7 +62,7 @@ export default function Footer() {
             </div>
 
             <div className="lg:justify-self-end">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/65 mb-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white mb-4">
                 Explore
               </p>
               <nav className="grid grid-cols-2 gap-x-8 gap-y-3 text-sm">
@@ -73,7 +70,7 @@ export default function Footer() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="text-white/82 hover:text-white transition-colors"
+                    className="text-white/95 hover:text-white transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -112,23 +109,14 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-6 border-t border-white/14 text-xs text-white/65">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-6 border-t border-white/20 text-xs text-white/95">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
               <p>&copy; {currentYear} {siteConfig.name}</p>
-              <span className="hidden sm:inline text-white/35">&middot;</span>
+              <span className="hidden sm:inline text-white/95">&middot;</span>
               <p>501(c)(3) EIN: {siteConfig.ein}</p>
             </div>
 
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-              {resourceLinks.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="hover:text-white transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
               <Link href="/privacy" className="hover:text-white transition-colors">
                 Privacy
               </Link>

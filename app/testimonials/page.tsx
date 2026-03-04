@@ -88,7 +88,7 @@ export default function TestimonialsPage() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 text-center">
             Hope in Every Season
           </h2>
-          <p className="text-base sm:text-lg text-white/90 mb-10 text-center max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-white/95 mb-10 text-center max-w-2xl mx-auto">
             We share encouragement through Scripture and prayer, reminding women of the hope found in Christ.
           </p>
         </FadeIn>
@@ -136,7 +136,7 @@ export default function TestimonialsPage() {
         </StaggerContainer>
 
         <FadeIn delay={0.5}>
-          <p className="text-center text-white/70 text-sm mt-8">
+          <p className="text-center text-white/95 text-sm mt-8">
             Follow us on social media for daily encouragement
           </p>
         </FadeIn>

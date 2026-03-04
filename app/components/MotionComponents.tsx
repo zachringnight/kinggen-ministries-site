@@ -150,7 +150,8 @@ export function FadeIn({
   once = true,
 }: FadeInProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once, margin: "100px" });
+  const shouldReduceMotion = useReducedMotion();
+  const isInView = useInView(ref, { once, margin: "100px", amount: 0.1 });
   const controls = useAnimation();
 
   const directions = {
@@ -167,14 +168,19 @@ export function FadeIn({
     }
   }, [isInView, controls]);
 
+  if (shouldReduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       ref={ref}
+      data-scroll-animate="true"
       initial="hidden"
       animate={controls}
       variants={{
         hidden: {
-          opacity: 0,
+          opacity: 0.3,
           ...directions[direction],
         },
         visible: {
@@ -188,7 +194,7 @@ export function FadeIn({
           },
         },
       }}
-      className={className}
+      className={`scroll-animated ${className}`}
     >
       {children}
     </motion.div>
@@ -211,22 +217,29 @@ export function StaggerContainer({
   className = "",
 }: StaggerContainerProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "100px" });
+  const shouldReduceMotion = useReducedMotion();
+  const isInView = useInView(ref, { once: true, margin: "100px", amount: 0.1 });
+  const effectiveStaggerDelay = Math.min(staggerDelay, 0.1);
+
+  if (shouldReduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div
       ref={ref}
+      data-scroll-animate="true"
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={{
         hidden: {},
         visible: {
           transition: {
-            staggerChildren: staggerDelay,
+            staggerChildren: effectiveStaggerDelay,
           },
         },
       }}
-      className={className}
+      className={`scroll-animated ${className}`}
     >
       {children}
     </motion.div>
@@ -240,10 +253,17 @@ export function StaggerItem({
   children: ReactNode;
   className?: string;
 }) {
+  const shouldReduceMotion = useReducedMotion();
+
+  if (shouldReduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
+      data-scroll-animate="true"
       variants={{
-        hidden: { opacity: 0, y: 30, scale: 0.95 },
+        hidden: { opacity: 0.3, y: 20, scale: 0.98 },
         visible: {
           opacity: 1,
           y: 0,
@@ -254,7 +274,7 @@ export function StaggerItem({
           },
         },
       }}
-      className={className}
+      className={`scroll-animated ${className}`}
     >
       {children}
     </motion.div>
@@ -281,13 +301,16 @@ export function AnimatedCounter({
   className = "",
 }: AnimatedCounterProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-100px", amount: 0.2 });
   const [displayValue, setDisplayValue] = useState(0);
 
   useEffect(() => {
     if (isInView) {
       let startTime: number;
       let animationFrame: number;
+      const fallbackTimeout = setTimeout(() => {
+        setDisplayValue(value);
+      }, 2000);
 
       const animate = (timestamp: number) => {
         if (!startTime) startTime = timestamp;
@@ -299,11 +322,17 @@ export function AnimatedCounter({
 
         if (progress < 1) {
           animationFrame = requestAnimationFrame(animate);
+          return;
         }
+
+        setDisplayValue(value);
       };
 
       animationFrame = requestAnimationFrame(animate);
-      return () => cancelAnimationFrame(animationFrame);
+      return () => {
+        clearTimeout(fallbackTimeout);
+        cancelAnimationFrame(animationFrame);
+      };
     }
   }, [isInView, value, duration]);
 
@@ -1115,6 +1144,8 @@ interface ImpactStat {
   value: number;
   suffix?: string;
   prefix?: string;
+  staticValue?: string;
+  animate?: boolean;
   label: string;
   description?: string;
 }
@@ -1126,29 +1157,41 @@ interface ImpactCounterSectionProps {
 
 export function ImpactCounterSection({ stats, className = "" }: ImpactCounterSectionProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-100px", amount: 0.2 });
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <div ref={ref} className={`grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 ${className}`}>
       {stats.map((stat, index) => (
         <motion.div
           key={index}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-          className="text-center"
+          data-scroll-animate="true"
+          initial={shouldReduceMotion ? false : { opacity: 0.3, y: 20 }}
+          animate={
+            shouldReduceMotion
+              ? { opacity: 1, y: 0 }
+              : isInView
+                ? { opacity: 1, y: 0 }
+                : { opacity: 0.3, y: 20 }
+          }
+          transition={{ duration: 0.45, delay: Math.min(index * 0.1, 0.3) }}
+          className="scroll-animated text-center"
         >
           <div className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-white mb-2">
-            <AnimatedCounter
-              value={stat.value}
-              prefix={stat.prefix}
-              suffix={stat.suffix}
-              duration={2}
-            />
+            {stat.animate === false ? (
+              <span>{stat.staticValue ?? `${stat.prefix ?? ""}${stat.value}${stat.suffix ?? ""}`}</span>
+            ) : (
+              <AnimatedCounter
+                value={stat.value}
+                prefix={stat.prefix}
+                suffix={stat.suffix}
+                duration={1.8}
+              />
+            )}
           </div>
-          <div className="text-lg md:text-xl font-medium text-white/90 mb-1">{stat.label}</div>
+          <div className="text-lg md:text-xl font-medium text-white mb-1">{stat.label}</div>
           {stat.description && (
-            <div className="text-sm text-white/70">{stat.description}</div>
+            <div className="text-sm text-white/95">{stat.description}</div>
           )}
         </motion.div>
       ))}
@@ -1224,7 +1267,7 @@ export function TestimonialCarousel({
           className="absolute inset-0"
         >
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20 h-full flex flex-col justify-center">
-            <p className="text-lg md:text-xl text-white/90 italic mb-6 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/95 italic mb-6 leading-relaxed">
               &ldquo;{testimonials[current].quote}&rdquo;
             </p>
             <div className="flex items-center gap-3">
@@ -1233,7 +1276,7 @@ export function TestimonialCarousel({
               </div>
               <div>
                 <p className="font-bold text-white">{testimonials[current].author}</p>
-                <p className="text-sm text-white/70">{testimonials[current].role}</p>
+                <p className="text-sm text-white/95">{testimonials[current].role}</p>
               </div>
             </div>
           </div>

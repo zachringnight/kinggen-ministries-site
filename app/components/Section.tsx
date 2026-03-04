@@ -33,6 +33,14 @@ const lightVariants = new Set<SectionVariant>([
   "cross-light",
 ]);
 
+const darkVariants = new Set<SectionVariant>([
+  "primary",
+  "dark",
+  "art-green",
+  "kinggen-branded",
+  "cross-green",
+]);
+
 const variantStyles: Record<SectionVariant, string> = {
   default: "bg-brand-soft text-text-primary",
   light: "bg-brand-light text-text-primary",
@@ -55,10 +63,10 @@ const containerSizes: Record<ContainerSize, string> = {
 
 const paddingStyles: Record<SectionPadding, string> = {
   none: "py-0",
-  sm: "py-8 md:py-12",
-  md: "py-10 md:py-16",
-  lg: "py-12 md:py-24",
-  xl: "py-12 md:py-28",
+  sm: "py-8 md:py-10",
+  md: "py-10 md:py-12",
+  lg: "py-12 md:py-16",
+  xl: "py-14 md:py-[4.5rem]",
 };
 
 const lightTextureOpacity: Partial<Record<SectionVariant, number>> = {
@@ -91,11 +99,12 @@ export default function Section({
   padding = "lg",
 }: SectionProps) {
   const isLightSection = lightVariants.has(variant);
+  const isDarkSection = darkVariants.has(variant);
 
   return (
     <section
       id={id}
-      className={`${variantStyles[variant]} ${paddingStyles[padding]} ${className} relative overflow-hidden isolate`}
+      className={`${variantStyles[variant]} ${paddingStyles[padding]} ${isDarkSection ? "section-dark" : "section-light"} ${className} relative overflow-hidden isolate`}
     >
       <OptimizedBackground
         src={isLightSection ? curatedTexture.light : curatedTexture.dark}
@@ -147,7 +156,7 @@ export function SectionHeader({
       </h2>
       {subtitle && (
         <p
-          className={`text-base md:text-lg leading-relaxed max-w-2xl ${centered ? "mx-auto" : ""} ${light ? "text-white/88" : "text-text-secondary"}`}
+          className={`text-base md:text-lg leading-relaxed max-w-2xl ${centered ? "mx-auto" : ""} ${light ? "text-white/95" : "text-text-secondary"}`}
         >
           {subtitle}
         </p>

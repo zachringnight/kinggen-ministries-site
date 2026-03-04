@@ -53,7 +53,7 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-6 text-center">
               Our heart and approach
             </h2>
-            <p className="text-lg text-white/90 mb-8 text-center leading-relaxed">
+            <p className="text-lg text-white/95 mb-8 text-center leading-relaxed">
               We believe the Gospel brings hope, truth, and healing. Counseling is a place to bring what feels heavy into the light, to be met with compassion, and to take wise steps forward.
             </p>
             <p className="text-lg text-white mb-6 text-center">
@@ -96,22 +96,22 @@ export default function AboutPage() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 text-center">
               Book LeeAnn as a speaker
             </h2>
-            <p className="text-base sm:text-lg text-white/90 mb-10 text-center max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-white/95 mb-10 text-center max-w-2xl mx-auto">
               LeeAnn is available for speaking engagements, podcast interviews, and ministry events. Her heart is to encourage women, equip churches, and share the hope of the Gospel.
             </p>
 
             <div className="grid md:grid-cols-3 gap-4 md:gap-6 mb-10">
               <div className="brand-panel-dark rounded-xl p-5 md:p-6 text-center h-full">
                 <h3 className="font-bold text-white mb-2">Churches & Retreats</h3>
-                <p className="text-sm text-white/80">Women&apos;s events, Sunday services, and weekend retreats</p>
+                <p className="text-sm text-white/95">Women&apos;s events, Sunday services, and weekend retreats</p>
               </div>
               <div className="brand-panel-dark rounded-xl p-5 md:p-6 text-center h-full">
                 <h3 className="font-bold text-white mb-2">Podcasts & Interviews</h3>
-                <p className="text-sm text-white/80">Faith, counseling, ministry, and mental health topics</p>
+                <p className="text-sm text-white/95">Faith, counseling, ministry, and mental health topics</p>
               </div>
               <div className="brand-panel-dark rounded-xl p-5 md:p-6 text-center h-full">
                 <h3 className="font-bold text-white mb-2">Conferences & Panels</h3>
-                <p className="text-sm text-white/80">Workshops on pastoral care and women&apos;s ministry</p>
+                <p className="text-sm text-white/95">Workshops on pastoral care and women&apos;s ministry</p>
               </div>
             </div>
 

@@ -75,7 +75,7 @@ export default function InnerPageHero({
       {/* Subtle radial highlight for depth */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(123,163,144,0.12)_0%,transparent_60%)] pointer-events-none" />
 
-      <div className="relative z-10 w-full pb-8 pt-20 md:pb-12 md:pt-24">
+      <div className="relative z-10 w-full pb-12 pt-24 md:pb-14 md:pt-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-5xl mx-auto text-center md:text-left">
             <div
@@ -85,7 +85,7 @@ export default function InnerPageHero({
             </div>
 
             <h1
-              className={`mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold font-heading leading-tight ${backgroundConfig.titleClassName}`}
+              className={`mt-4 text-[clamp(2rem,6vw,3.5rem)] font-bold font-heading leading-tight ${backgroundConfig.titleClassName}`}
             >
               {title}
             </h1>

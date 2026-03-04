@@ -88,7 +88,7 @@ export default function ServicesPage() {
 
             return (
               <StaggerItem key={service.title}>
-                <div className="brand-panel p-6 h-full card-hover">
+                <div className="brand-panel p-6 h-full service-card-interactive" tabIndex={0}>
                   <div className="w-14 h-14 rounded-2xl bg-brand-primary/12 flex items-center justify-center mb-5">
                     <Icon className="w-7 h-7 text-brand-primary" />
                   </div>
@@ -111,7 +111,7 @@ export default function ServicesPage() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4">
               Ready to take the next step?
             </h2>
-            <p className="text-base sm:text-lg text-white/90 mb-8">
+            <p className="text-base sm:text-lg text-white/95 mb-8">
               Connect with us to discuss a referral or partnership path. All services are offered at no cost to clients.
             </p>
             <Button
