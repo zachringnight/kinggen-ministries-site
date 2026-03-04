@@ -17,25 +17,11 @@
   --brand-light: #E8E4DF;        /* Light border / subtle bg */
   --brand-cream: #F0EDE8;        /* Off-white background */
 
-  /* Gradient colors */
-  --gradient-start: #3B5E3A;
-  --gradient-mid: #4a6b4a;
-  --gradient-end: #7BA390;
-
   /* Text colors */
   --text-primary: #294429;         /* Brand green for headings on light bg */
   --text-secondary: #2f4a2f;       /* Body text on light backgrounds */
   --text-muted: #4d694d;           /* Muted supporting text */
 
-  /* Premium surface + shadow system */
-  --surface-white: rgba(255, 255, 255, 0.92);
-  --surface-soft: rgba(255, 255, 255, 0.78);
-  --surface-dark: rgba(27, 45, 29, 0.85);
-  --surface-border-light: rgba(232, 228, 223, 0.85);
-  --surface-border-dark: rgba(255, 255, 255, 0.2);
-  --shadow-soft: 0 16px 42px -20px rgba(38, 61, 39, 0.32);
-  --shadow-premium: 0 28px 64px -28px rgba(28, 45, 28, 0.46);
-  --shadow-dark: 0 22px 48px -28px rgba(0, 0, 0, 0.55);
 }
 
 @theme inline {
@@ -130,22 +116,6 @@ html {
 
 /* brand-hero-banner::before removed — overlay handled in JSX */
 
-.brand-surface-cream {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-/* brand-surface-cream::before removed — overlay handled in JSX */
-
-.brand-surface-dark {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-/* brand-surface-dark::before removed — overlay handled in JSX */
-
 .brand-surface-light-overlay {
   background:
     radial-gradient(120% 105% at 52% 0%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 62%),
@@ -163,10 +133,6 @@ html {
   border: 1px solid rgba(226, 220, 211, 0.9);
   box-shadow: 0 14px 32px -22px rgba(38, 61, 39, 0.26);
   border-radius: 1.25rem;
-}
-
-.brand-panel-premium {
-  box-shadow: var(--shadow-premium);
 }
 
 .brand-panel-dark {
@@ -321,14 +287,6 @@ a:not([class]):hover {
   text-wrap: balance;
 }
 
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 /* Button hover effects */
 .btn-hover-lift {
   transition: all 0.3s ease;
@@ -356,38 +314,6 @@ a:not([class]):hover {
 .service-card-interactive:focus-visible {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-/* Decorative elements */
-.decorative-line {
-  width: 44px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--brand-accent) 0%, var(--brand-primary) 100%);
-  border-radius: 2px;
-}
-
-/* Cross decorative divider - Gospel-centered branding */
-.decorative-cross {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.decorative-cross::before,
-.decorative-cross::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--brand-accent), transparent);
-}
-
-.decorative-cross-icon {
-  width: 20px;
-  height: 20px;
-  opacity: 0.6;
-  color: var(--brand-primary);
 }
 
 /* Background patterns */
@@ -453,152 +379,12 @@ label {
   animation: pulse-soft 2s ease-in-out infinite;
 }
 
-/* Stagger animation delays */
-.stagger-1 { animation-delay: 0.1s; }
-.stagger-2 { animation-delay: 0.2s; }
-.stagger-3 { animation-delay: 0.3s; }
-.stagger-4 { animation-delay: 0.4s; }
-
-/* Hero gradient background */
-.hero-gradient {
-  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 50%, var(--brand-warm) 100%);
-}
-
-/* Section backgrounds - off-white tones for warm, inviting feel */
-.section-light {
-  background: var(--brand-soft);
-}
-
-.section-soft {
-  background: var(--brand-light);
-}
-
 /* Quote styling */
 blockquote {
   border-left: 4px solid var(--brand-accent);
   padding-left: 1.5rem;
   font-style: italic;
   color: var(--text-secondary);
-}
-
-/* Enhanced animations */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-.animate-shimmer {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    transparent 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 2s ease-in-out infinite;
-}
-
-.animate-gradient-shift {
-  background-size: 200% 200%;
-  animation: gradient-shift 8s ease infinite;
-}
-
-/* Glassmorphism utility */
-.glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.glass-dark {
-  background: rgba(59, 94, 58, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Improved text gradients */
-.text-gradient-primary {
-  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-gradient-light {
-  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Hover card shine effect */
-.card-shine {
-  position: relative;
-  overflow: hidden;
-}
-
-.card-shine::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
-  transition: left 0.5s ease;
-}
-
-.card-shine:hover::before {
-  left: 100%;
-}
-
-/* Smooth image zoom */
-.img-zoom {
-  overflow: hidden;
-}
-
-.img-zoom img {
-  transition: transform 0.5s ease;
-}
-
-.img-zoom:hover img {
-  transform: scale(1.05);
 }
 
 /* Custom scrollbar for webkit */
@@ -633,14 +419,3 @@ blockquote {
   border-radius: 4px;
 }
 
-/* Reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
