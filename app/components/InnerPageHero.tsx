@@ -29,21 +29,21 @@ const backgroundMap: Record<
       "bg-gradient-to-b from-brand-primary/74 via-brand-primary/82 to-brand-primary/90",
     titleClassName: "text-white",
     subtitleClassName: "text-white/95",
-    lockupClassName: "border-white/35 bg-black/10 text-white",
+    lockupClassName: "text-white",
   },
   about: {
     overlayClassName:
       "bg-gradient-to-b from-brand-primary/72 via-brand-primary/80 to-brand-primary/88",
     titleClassName: "text-white",
     subtitleClassName: "text-white/95",
-    lockupClassName: "border-white/35 bg-black/10 text-white",
+    lockupClassName: "text-white",
   },
   "inner-logo": {
     overlayClassName:
       "bg-gradient-to-b from-brand-primary/73 via-brand-primary/81 to-brand-primary/89",
     titleClassName: "text-white",
     subtitleClassName: "text-white/95",
-    lockupClassName: "border-white/35 bg-black/10 text-white",
+    lockupClassName: "text-white",
   },
 };
 
@@ -77,11 +77,9 @@ export default function InnerPageHero({
 
       <div className="relative z-10 w-full pb-12 pt-24 md:pb-14 md:pt-24">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-5xl mx-auto text-center md:text-left">
-            <div
-              className={`inline-flex items-center justify-center rounded-xl border px-3 py-1.5 shadow-lg backdrop-blur-sm ${backgroundConfig.lockupClassName}`}
-            >
-              <BrandLockup theme="dark" size="sm" />
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="flex justify-center">
+              <BrandLockup theme="dark" size="sm" className={backgroundConfig.lockupClassName} />
             </div>
 
             <h1
@@ -92,7 +90,7 @@ export default function InnerPageHero({
 
             {subtitle && (
               <p
-                className={`mt-3 text-base md:text-lg max-w-2xl mx-auto md:mx-0 leading-relaxed ${backgroundConfig.subtitleClassName}`}
+                className={`mt-3 text-base md:text-lg max-w-2xl mx-auto leading-relaxed ${backgroundConfig.subtitleClassName}`}
               >
                 {subtitle}
               </p>
