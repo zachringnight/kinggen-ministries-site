@@ -85,7 +85,7 @@ export default function ContactPage() {
     });
   };
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const errors = validateForm(formData);
 
@@ -105,48 +105,33 @@ export default function ContactPage() {
       return;
     }
 
-    setSubmitState("submitting");
-    setStatusMessage("");
-    setFormErrors({});
+    const reasonLabels: Record<string, string> = {
+      "referring-someone": "Referring someone",
+      "pastor-church-staff": "Pastor or church staff",
+      "professional-partner": "Professional partner",
+      "donor-partner": "Donor or partner",
+      other: "Other",
+    };
 
-    try {
-      const response = await fetch(siteConfig.formspreeEndpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          reason: formData.reason,
-          name: formData.name.trim(),
-          email: formData.email.trim(),
-          phone: formData.phone.trim(),
-          message: formData.message.trim(),
-          _subject: "New inquiry from KingGen website",
-        }),
-      });
+    const subject = encodeURIComponent("New inquiry from KingGen website");
+    const body = encodeURIComponent(
+      [
+        `Contact reason: ${reasonLabels[formData.reason] ?? formData.reason}`,
+        `Name: ${formData.name.trim()}`,
+        `Email: ${formData.email.trim()}`,
+        formData.phone.trim() ? `Phone: ${formData.phone.trim()}` : "",
+        "",
+        formData.message.trim(),
+      ]
+        .filter(Boolean)
+        .join("\n")
+    );
 
-      const payload = await response.json().catch(() => null);
+    window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
 
-      if (!response.ok) {
-        const messageFromApi =
-          payload?.errors?.[0]?.message || "We could not send your message right now. Please try again.";
-        throw new Error(messageFromApi);
-      }
-
-      setSubmitState("success");
-      setStatusMessage("Thank you! We typically respond within 1–2 business days.");
-      setFormData(initialFormData);
-    } catch (error) {
-      setSubmitState("error");
-      setFormErrors((prev) => ({
-        ...prev,
-        form: error instanceof Error
-          ? error.message
-          : `Something went wrong. Please try again or email us directly at ${siteConfig.email}.`,
-      }));
-      setStatusMessage(`Something went wrong. Please try again or email us directly at ${siteConfig.email}.`);
-    }
+    setSubmitState("success");
+    setStatusMessage("Your email client should open shortly. If it doesn\u2019t, email us directly.");
+    setFormData(initialFormData);
   };
 
   return (
