@@ -33,6 +33,21 @@ type PageKey =
   | "privacy"
   | "disclaimer";
 
+const PAGE_LABELS: Record<PageKey, string> = {
+  home: "Home",
+  about: "About",
+  services: "Services",
+  contact: "Contact",
+  donate: "Donate",
+  forReferrers: "For Referrers",
+  forGrantWriters: "Grant Writers",
+  getSupport: "Get Support",
+  testimonials: "Testimonials",
+  forms: "Forms",
+  privacy: "Privacy",
+  disclaimer: "Disclaimer",
+};
+
 const originalContent: Record<string, unknown> = {
   home: homeContent,
   about: aboutContent,
@@ -66,6 +81,43 @@ function deepSet(obj: unknown, path: string[], value: string): unknown {
   };
 }
 
+/** Walk two objects and collect string fields that differ. */
+function collectChanges(
+  current: unknown,
+  original: unknown,
+  path: string[],
+  pageName: string,
+  out: { page: string; field: string; oldValue: string; newValue: string }[]
+): void {
+  if (current == null || typeof current !== "object") return;
+
+  if (Array.isArray(current)) {
+    const origArr = Array.isArray(original) ? original : [];
+    current.forEach((item, i) => {
+      collectChanges(item, origArr[i], [...path, `[${i}]`], pageName, out);
+    });
+    return;
+  }
+
+  const orig = (original != null && typeof original === "object") ? original as Record<string, unknown> : {} as Record<string, unknown>;
+  for (const [key, value] of Object.entries(current as Record<string, unknown>)) {
+    const fieldPath = [...path, key];
+    if (typeof value === "string") {
+      const origValue = typeof orig[key] === "string" ? (orig[key] as string) : "";
+      if (value !== origValue) {
+        out.push({
+          page: pageName,
+          field: fieldPath.join(" > "),
+          oldValue: origValue,
+          newValue: value,
+        });
+      }
+    } else if (typeof value === "object" && value !== null) {
+      collectChanges(value, orig[key], fieldPath, pageName, out);
+    }
+  }
+}
+
 const STORAGE_KEY = "kinggen-editor-draft";
 
 export default function AdminEditorPage() {
@@ -73,6 +125,7 @@ export default function AdminEditorPage() {
   const [content, setContent] = useState<Record<string, unknown>>(() => deepClone(originalContent));
   const [hasChanges, setHasChanges] = useState(false);
   const [savedAt, setSavedAt] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
 
   // Load draft from localStorage on mount
   useEffect(() => {
@@ -132,10 +185,47 @@ export default function AdminEditorPage() {
         setSavedAt("Draft saved to server at " + new Date().toLocaleTimeString());
       } else {
         const data = await res.json().catch(() => null);
-        setSavedAt(data?.error || "Save failed — try Download JSON instead");
+        setSavedAt(data?.error || "Save failed — try Submit for Review instead");
       }
     } catch {
-      setSavedAt("Save failed — try Download JSON instead");
+      setSavedAt("Save failed — try Submit for Review instead");
+    }
+  };
+
+  const handleSubmitForReview = async () => {
+    // Collect all changes across all pages
+    const changes: { page: string; field: string; oldValue: string; newValue: string }[] = [];
+    for (const pageKey of Object.keys(originalContent)) {
+      const label = PAGE_LABELS[pageKey as PageKey] || pageKey;
+      collectChanges(content[pageKey], originalContent[pageKey], [], label, changes);
+    }
+
+    if (changes.length === 0) {
+      setSavedAt("No changes to submit.");
+      return;
+    }
+
+    if (!confirm(`Submit ${changes.length} change(s) for review? The developer will receive an email with your edits.`)) {
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/admin/submit-edits", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ changes, fullContent: content }),
+      });
+      if (res.ok) {
+        setSavedAt("Edits submitted for review! The developer has been notified.");
+      } else {
+        const data = await res.json().catch(() => null);
+        setSavedAt(data?.error || "Submit failed — please try again.");
+      }
+    } catch {
+      setSavedAt("Could not submit — please check your connection and try again.");
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -167,16 +257,24 @@ export default function AdminEditorPage() {
         </div>
         <div className="flex items-center gap-2">
           <button
+            onClick={handleSubmitForReview}
+            disabled={submitting}
+            className="px-3 py-1.5 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          >
+            {submitting ? "Sending…" : "Submit for Review"}
+          </button>
+          <button
             onClick={handleSaveDraft}
-            className="px-3 py-1.5 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 transition-colors"
+            className="px-3 py-1.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
           >
             Save Draft
           </button>
           <button
             onClick={handleDownload}
-            className="px-3 py-1.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            className="px-3 py-1.5 text-sm font-medium text-gray-500 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+            title="Download changes as JSON file"
           >
-            Download JSON
+            Export
           </button>
           <button
             onClick={handleReset}
