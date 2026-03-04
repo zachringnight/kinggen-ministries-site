@@ -58,23 +58,23 @@ const paddingStyles: Record<SectionPadding, string> = {
   sm: "py-8 md:py-12",
   md: "py-10 md:py-16",
   lg: "py-12 md:py-24",
-  xl: "py-14 md:py-32",
+  xl: "py-12 md:py-28",
 };
 
 const lightTextureOpacity: Partial<Record<SectionVariant, number>> = {
-  default: 0.22,
-  light: 0.2,
-  soft: 0.18,
-  "art-cream": 0.25,
-  "cross-light": 0.22,
+  default: 0.14,
+  light: 0.12,
+  soft: 0.1,
+  "art-cream": 0.16,
+  "cross-light": 0.14,
 };
 
 const darkTextureOpacity: Partial<Record<SectionVariant, number>> = {
-  primary: 0.55,
-  dark: 0.6,
-  "art-green": 0.6,
-  "kinggen-branded": 0.65,
-  "cross-green": 0.55,
+  primary: 0.42,
+  dark: 0.45,
+  "art-green": 0.45,
+  "kinggen-branded": 0.5,
+  "cross-green": 0.42,
 };
 
 const curatedTexture = {
@@ -112,8 +112,6 @@ export default function Section({
         className={`absolute inset-0 pointer-events-none ${isLightSection ? "brand-surface-light-overlay" : "brand-surface-dark-overlay"}`}
         aria-hidden="true"
       />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/70 to-transparent pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-black/10 to-transparent pointer-events-none" />
 
       <div
         className={`container mx-auto px-4 lg:px-8 ${containerSizes[containerSize]} relative z-10`}
@@ -140,16 +138,16 @@ export function SectionHeader({
   className = "",
 }: SectionHeaderProps) {
   return (
-    <div className={`mb-12 md:mb-16 ${centered ? "text-center" : ""} ${className}`}>
-      <div className={`decorative-line ${centered ? "mx-auto" : ""} mb-6`} />
+    <div className={`mb-10 md:mb-12 ${centered ? "text-center" : ""} ${className}`}>
+      <div className={`h-[2px] w-12 rounded-full bg-gradient-to-r from-brand-accent to-brand-primary/70 ${centered ? "mx-auto" : ""} mb-5 opacity-85`} />
       <h2
-        className={`text-3xl md:text-4xl lg:text-5xl font-bold font-heading mb-4 ${light ? "text-white" : "text-text-primary"}`}
+        className={`text-3xl md:text-4xl lg:text-[2.65rem] font-bold font-heading mb-3 ${light ? "text-white" : "text-text-primary"}`}
       >
         {title}
       </h2>
       {subtitle && (
         <p
-          className={`text-lg md:text-xl max-w-3xl ${centered ? "mx-auto" : ""} ${light ? "text-white/90" : "text-text-secondary"}`}
+          className={`text-base md:text-lg leading-relaxed max-w-2xl ${centered ? "mx-auto" : ""} ${light ? "text-white/88" : "text-text-secondary"}`}
         >
           {subtitle}
         </p>

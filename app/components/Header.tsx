@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { MenuIcon, XIcon, HeartIcon, ChevronDownIcon } from "./Icons";
 import Button from "./Button";
-import { BrandMark, BrandLockup } from "./Logo";
 import { primaryNavLinks, secondaryNavLinks } from "../config/site";
 
 interface HeaderLink {
@@ -79,8 +78,8 @@ export default function Header({
       <header
         className={`sticky top-0 z-50 brand-nav-shell transition-all duration-300 ${
           scrolled || mobileMenuOpen
-            ? "bg-white/92 backdrop-blur-md shadow-md border-b border-brand-light/70"
-            : "bg-white/78 backdrop-blur-sm border-b border-white/60"
+            ? "bg-white/94 backdrop-blur-md shadow-sm border-b border-brand-light/70"
+            : "bg-white/86 backdrop-blur-sm border-b border-brand-light/55"
         }`}
         style={{
           backgroundImage: "url('/brand/curated/bg/light-watermark-right.png')",
@@ -92,15 +91,12 @@ export default function Header({
           <div className="flex items-center h-14 md:h-16 gap-4">
             <Link
               href="/"
-              className="flex items-center flex-shrink-0 gap-2.5 pr-1"
+              className="flex items-center flex-shrink-0 pr-1"
               aria-label="KingGen Ministries Home"
               onClick={closeResourcesMenu}
             >
-              <span className="sm:hidden">
-                <BrandMark theme="light" size={34} />
-              </span>
-              <span className="hidden sm:block">
-                <BrandLockup theme="light" size="sm" />
+              <span className="text-brand-primary font-extrabold tracking-tight text-sm md:text-base whitespace-nowrap">
+                KingGen Ministries
               </span>
             </Link>
 
@@ -114,8 +110,8 @@ export default function Header({
                     aria-current={active ? "page" : undefined}
                     className={`px-3 py-2 font-medium transition-colors text-sm whitespace-nowrap rounded-lg ${
                       active
-                        ? "text-brand-primary bg-white/90 shadow-sm border border-brand-light"
-                        : "text-brand-primary/85 hover:text-brand-primary hover:bg-white/80"
+                        ? "text-brand-primary bg-white/92 border border-brand-light/85"
+                        : "text-brand-primary/85 hover:text-brand-primary hover:bg-white/70"
                     }`}
                     onClick={closeResourcesMenu}
                   >
@@ -134,8 +130,8 @@ export default function Header({
                 <summary
                   className={`list-none px-3 py-2 font-medium transition-colors text-sm whitespace-nowrap rounded-lg cursor-pointer flex items-center gap-1 ${
                     secondaryActive
-                      ? "text-brand-primary bg-white/90 shadow-sm border border-brand-light"
-                      : "text-brand-primary/85 hover:text-brand-primary hover:bg-white/80"
+                      ? "text-brand-primary bg-white/92 border border-brand-light/85"
+                      : "text-brand-primary/85 hover:text-brand-primary hover:bg-white/70"
                   }`}
                   aria-expanded={resourcesOpen}
                 >
@@ -143,7 +139,7 @@ export default function Header({
                   <ChevronDownIcon className={`w-4 h-4 transition-transform ${resourcesOpen ? "rotate-180" : ""}`} />
                 </summary>
                 <div
-                  className="absolute left-0 top-full mt-2 w-72 rounded-2xl border border-brand-light bg-white shadow-xl p-2 z-[60]"
+                  className="absolute left-0 top-full mt-2 w-72 rounded-2xl border border-brand-light/85 bg-white shadow-lg p-2 z-[60]"
                   style={{
                     backgroundImage: "url('/brand/curated/bg/light-watermark-wide.png')",
                     backgroundSize: "cover",
@@ -192,6 +188,8 @@ export default function Header({
                 className="p-2 rounded-lg bg-brand-light hover:bg-brand-primary hover:text-white text-brand-primary transition-colors"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-navigation-drawer"
               >
                 {mobileMenuOpen ? (
                   <XIcon className="w-6 h-6" />
@@ -208,12 +206,16 @@ export default function Header({
         <>
           <button
             type="button"
-            className="lg:hidden fixed inset-0 top-14 md:top-16 z-[9998] bg-black/30 backdrop-blur-[2px]"
+            className="lg:hidden fixed inset-0 top-14 md:top-16 z-[9998] bg-black/25 backdrop-blur-[2px]"
             onClick={() => setMobileMenuOpen(false)}
             aria-label="Close mobile menu"
           />
           <div
+            id="mobile-navigation-drawer"
             className="lg:hidden fixed top-14 md:top-16 left-0 right-0 bottom-0 z-[9999] overflow-y-auto"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation menu"
             style={{
               backgroundImage: "url('/brand/curated/bg/light-watermark-portrait.png')",
               backgroundSize: "cover",
@@ -223,15 +225,6 @@ export default function Header({
             <div className="absolute inset-0 bg-white/90" />
 
             <div className="relative z-10 container mx-auto px-4 py-6">
-              <div className="brand-panel max-w-[280px] mx-auto text-center mb-6 px-4 py-4 border-b border-brand-light">
-                <div className="flex justify-center">
-                  <BrandMark theme="light" size={34} />
-                </div>
-                <div className="mt-2 flex justify-center">
-                  <BrandLockup theme="light" size="sm" />
-                </div>
-              </div>
-
               <div className="space-y-1 mb-6">
                 {primaryLinks.map((item) => {
                   const active = isActiveLink(item.href);

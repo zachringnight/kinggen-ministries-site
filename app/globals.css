@@ -128,20 +128,20 @@ html {
 
 .brand-surface-light-overlay {
   background:
-    radial-gradient(120% 105% at 52% 0%, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 58%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(240, 237, 232, 0.12) 100%);
+    radial-gradient(120% 105% at 52% 0%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 62%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(240, 237, 232, 0.08) 100%);
 }
 
 .brand-surface-dark-overlay {
   background:
-    radial-gradient(120% 110% at 50% 0%, rgba(59, 94, 58, 0.08) 0%, rgba(59, 94, 58, 0) 55%),
-    linear-gradient(162deg, rgba(45, 74, 44, 0.1) 0%, rgba(27, 45, 29, 0.15) 100%);
+    radial-gradient(120% 110% at 50% 0%, rgba(59, 94, 58, 0.06) 0%, rgba(59, 94, 58, 0) 58%),
+    linear-gradient(162deg, rgba(45, 74, 44, 0.06) 0%, rgba(27, 45, 29, 0.1) 100%);
 }
 
 .brand-panel {
-  background: linear-gradient(170deg, var(--surface-white) 0%, var(--surface-soft) 100%);
-  border: 1px solid var(--surface-border-light);
-  box-shadow: var(--shadow-soft);
+  background: linear-gradient(170deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.84) 100%);
+  border: 1px solid rgba(226, 220, 211, 0.9);
+  box-shadow: 0 14px 32px -22px rgba(38, 61, 39, 0.26);
   border-radius: 1.25rem;
 }
 
@@ -152,9 +152,9 @@ html {
 .brand-panel-dark {
   background: linear-gradient(165deg, rgba(255, 255, 255, 0.14) 0%, var(--surface-dark) 100%);
   border: 1px solid var(--surface-border-dark);
-  box-shadow: var(--shadow-dark);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 18px 36px -24px rgba(0, 0, 0, 0.48);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .brand-kicker {
@@ -194,8 +194,8 @@ html {
   pointer-events: none;
   z-index: 0;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.64) 100%),
-    radial-gradient(90% 160% at 96% 50%, rgba(123, 163, 144, 0.16) 0%, rgba(123, 163, 144, 0) 65%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0.58) 100%),
+    radial-gradient(90% 160% at 96% 50%, rgba(123, 163, 144, 0.11) 0%, rgba(123, 163, 144, 0) 68%);
 }
 
 /* Keyboard skip link */
@@ -272,8 +272,8 @@ a:not([class]):hover {
   transition: all 0.3s ease;
 }
 .btn-hover-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(59, 94, 58, 0.2);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -8px rgba(59, 94, 58, 0.18);
 }
 
 /* Card hover effects */
@@ -281,14 +281,14 @@ a:not([class]):hover {
   transition: all 0.3s ease;
 }
 .card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -10px rgba(59, 94, 58, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -16px rgba(59, 94, 58, 0.14);
 }
 
 /* Decorative elements */
 .decorative-line {
-  width: 60px;
-  height: 4px;
+  width: 44px;
+  height: 2px;
   background: linear-gradient(90deg, var(--brand-accent) 0%, var(--brand-primary) 100%);
   border-radius: 2px;
 }

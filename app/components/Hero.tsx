@@ -179,7 +179,7 @@ export function PageHero({
   const isLight = false; // all variants now use dark branded hero
 
   return (
-    <section className="relative brand-hero-banner py-16 sm:py-20 md:py-28 overflow-hidden">
+    <section className="relative brand-hero-banner py-12 sm:py-16 md:py-20 overflow-hidden">
       {/* Main branded background image - optimized with lazy loading */}
       <OptimizedBackground
         src={bgConfig.primary}
@@ -193,19 +193,19 @@ export function PageHero({
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6">
-        <div className={`max-w-3xl mx-auto text-center ${isLight ? "text-text-primary" : "text-white"}`}>
-          <div className="inline-flex items-center justify-center rounded-2xl border border-white/25 bg-white/10 px-4 py-2 backdrop-blur-sm">
+        <div className={`max-w-5xl mx-auto text-center md:text-left ${isLight ? "text-text-primary" : "text-white"}`}>
+          <div className="inline-flex items-center justify-center rounded-xl border border-white/30 bg-white/12 px-3 py-1.5 shadow-lg backdrop-blur-sm">
             <BrandLockup theme="dark" size="sm" />
           </div>
-          <h1 className="mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-6">
+          <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold font-heading mb-3 md:mb-4">
             {title}
           </h1>
           {description && (
-            <p className={`text-base sm:text-lg md:text-xl leading-relaxed ${isLight ? "text-text-secondary" : "text-white/90"}`}>
+            <p className={`text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0 ${isLight ? "text-text-secondary" : "text-white/90"}`}>
               {description}
             </p>
           )}
-          {children && <div className="mt-8">{children}</div>}
+          {children && <div className="mt-6 md:mt-7">{children}</div>}
         </div>
       </div>
 

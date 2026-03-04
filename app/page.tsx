@@ -101,36 +101,35 @@ export default function Home() {
   return (
     <>
       <section
-        className="relative w-full min-h-[62vh] md:min-h-[78vh] flex items-center animate-fade-in-up isolate overflow-hidden"
-        role="banner"
+        className="relative w-full min-h-[60vh] md:min-h-[72vh] flex items-center animate-fade-in-up isolate overflow-hidden"
         aria-label="KingGen Ministries - Christian Counseling for Women"
       >
         <OptimizedBackground
           src="/brand/curated/bg/green-watermark-tall.png"
           className="absolute inset-0 bg-cover bg-center pointer-events-none"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/60 via-brand-primary/72 to-brand-primary/88" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(123,163,144,0.18)_0%,transparent_60%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/54 via-brand-primary/66 to-brand-primary/80" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(123,163,144,0.12)_0%,transparent_62%)] pointer-events-none" />
 
         <h1 className="sr-only">KingGen Ministries</h1>
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-28 pb-16 md:pt-36 md:pb-24">
-          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-26 pb-14 md:pt-32 md:pb-20">
+          <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-10">
             <div className="max-w-3xl">
-              <div className="mb-6">
+              <div className="mb-5">
                 <BrandLockup theme="dark" size="lg" />
               </div>
 
-              <span className="inline-block px-4 py-1.5 bg-white/12 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-medium rounded-full mb-6 tracking-wide">
+              <span className="inline-block px-3.5 py-1.5 bg-white/10 backdrop-blur-sm border border-white/18 text-white/88 text-xs sm:text-sm font-medium rounded-full mb-5 tracking-wide">
                 501(c)(3) Christian Counseling Nonprofit
               </span>
-              <p className="text-[2.2rem] sm:text-5xl md:text-6xl font-bold font-heading text-white leading-[1.05] text-balance">
+              <p className="text-[2rem] sm:text-5xl md:text-[3.5rem] font-bold font-heading text-white leading-[1.08] text-balance">
                 Free Gospel-centered counseling for women in need.
               </p>
-              <p className="text-base md:text-lg text-white/85 mt-5 max-w-2xl leading-relaxed">
+              <p className="text-base md:text-lg text-white/84 mt-4 max-w-2xl leading-relaxed">
                 Compassionate, confidential pastoral care offered at no cost. For referrals, donors, and ministry partners.
               </p>
-              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <div className="mt-7 flex flex-col sm:flex-row gap-3">
                 <Button href="/contact" variant="gold" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
                   Start a Referral Conversation
                 </Button>
@@ -138,13 +137,12 @@ export default function Home() {
                   Support the Mission
                 </Button>
               </div>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-wrap gap-3">
                 {[
                   "No-cost client services",
-                  "15+ years clinical experience",
                   "Confidential & private",
                 ].map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-white/80 text-sm">
+                  <div key={item} className="flex items-center gap-2 text-white/78 text-sm">
                     <CheckCircleIcon className="w-4 h-4 text-brand-gold-light flex-shrink-0" />
                     <span>{item}</span>
                   </div>
@@ -153,37 +151,34 @@ export default function Home() {
             </div>
 
             <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
-              <div className="absolute -inset-5 pointer-events-none bg-[radial-gradient(circle,rgba(123,163,144,0.42)_0%,transparent_68%)] blur-2xl" />
-              <div className="relative overflow-hidden rounded-[2rem] border border-white/22 bg-white/10 shadow-[0_28px_75px_-30px_rgba(0,0,0,0.65)]">
+              <div className="relative overflow-hidden rounded-[1.75rem] border border-white/18 bg-white/8 shadow-[0_24px_62px_-30px_rgba(0,0,0,0.58)]">
                 <OptimizedBackground
                   src="/brand/curated/bg/green-watermark-tall.png"
                   className="absolute inset-0 bg-cover bg-center"
-                  style={{ opacity: 0.42 }}
+                  style={{ opacity: 0.34 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-brand-primary-dark/15 via-brand-primary/55 to-brand-primary-dark/78" />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_18%,rgba(255,255,255,0.22)_0%,transparent_56%)]" />
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-primary-dark/12 via-brand-primary/48 to-brand-primary-dark/70" />
 
                 <div className="relative z-10 p-5 sm:p-6">
-                  <div className="flex items-center justify-between gap-4">
-                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/25 bg-white/10 text-xs font-semibold tracking-[0.08em] uppercase text-white/90">
-                      Signature Care
-                    </span>
+                  <div className="flex items-center gap-3">
                     <BrandMark theme="dark" size={44} />
+                    <span className="text-sm font-semibold tracking-[0.08em] uppercase text-white/88">
+                      Gospel-Centered Care
+                    </span>
                   </div>
 
                   <p className="mt-4 text-sm sm:text-base text-white/90 leading-relaxed max-w-md">
                     Clinical pastoral counseling rooted in Scripture and offered with compassion, privacy, and no-cost access.
                   </p>
 
-                  <div className="grid grid-cols-3 gap-2.5 mt-5">
+                  <div className="grid grid-cols-2 gap-2.5 mt-5">
                     {[
                       { value: "15+", label: "Years" },
                       { value: "100%", label: "Free Care" },
-                      { value: "501(c)(3)", label: "Nonprofit" },
                     ].map((metric) => (
                       <div
                         key={metric.label}
-                        className="rounded-xl border border-white/20 bg-white/12 px-3 py-2 text-center"
+                        className="rounded-xl border border-white/18 bg-white/10 px-3 py-2 text-center"
                       >
                         <p className="text-white font-semibold text-sm">{metric.value}</p>
                         <p className="text-[10px] text-white/72 uppercase tracking-[0.1em]">{metric.label}</p>
@@ -191,20 +186,6 @@ export default function Home() {
                     ))}
                   </div>
 
-                  <div className="mt-3 grid grid-cols-2 gap-3">
-                    <div className="rounded-xl border border-white/20 bg-white/10 p-3">
-                      <BrandMark theme="soft" size={20} />
-                      <p className="mt-2 text-xs font-semibold tracking-wide text-white/92">
-                        Prayer-centered support
-                      </p>
-                    </div>
-                    <div className="rounded-xl border border-white/20 bg-white/10 p-3">
-                      <BrandMark theme="dark" size={20} />
-                      <p className="mt-2 text-xs font-semibold tracking-wide text-white/92">
-                        Scripture-rooted care
-                      </p>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -213,48 +194,6 @@ export default function Home() {
       </section>
 
       <AnimatedDivider variant="wave" color="var(--brand-soft)" className="-mt-1" />
-
-      <section className="relative overflow-hidden isolate bg-brand-soft py-6 md:py-8">
-        <OptimizedBackground
-          src="/brand/curated/bg/light-watermark-wide.png"
-          className="absolute inset-0 bg-cover bg-center pointer-events-none"
-          style={{ opacity: 0.52 }}
-        />
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/70 to-brand-soft/55" />
-
-        <div className="relative z-10 container mx-auto px-4 lg:px-8">
-          <div className="brand-panel brand-panel-premium px-5 py-4 md:px-7 md:py-5 flex flex-col lg:flex-row lg:items-center gap-4 md:gap-5">
-            <div className="flex items-center gap-3 md:gap-4 min-w-0">
-              <BrandMark theme="light" size={34} />
-              <div className="min-w-0">
-                <p className="text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase text-brand-primary/70">
-                  KingGen Brand Promise
-                </p>
-                <p className="text-sm md:text-base text-brand-primary font-semibold">
-                  Gospel-centered care, clinical excellence, and no-cost access for women in need.
-                </p>
-              </div>
-            </div>
-
-            <div className="lg:ml-auto flex flex-wrap gap-2">
-              {[
-                "501(c)(3) Nonprofit",
-                "Trusted Referral Partner",
-                "Confidential Care",
-                "No-Cost Counseling",
-              ].map((item) => (
-                <span
-                  key={item}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-brand-light bg-white/85 px-3 py-1 text-xs font-medium text-brand-primary"
-                >
-                  <CheckCircleIcon className="w-3.5 h-3.5 text-brand-accent" />
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       <Section variant="art-cream" padding="xl">
         <FadeIn>
@@ -282,8 +221,8 @@ export default function Home() {
         <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
           {services.map((service, i) => (
             <StaggerItem key={i}>
-              <div className="brand-panel p-6 md:p-8 h-full flex flex-col card-hover relative overflow-hidden group">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center mb-5 shadow-lg">
+              <div className="brand-panel p-6 md:p-8 h-full flex flex-col card-hover">
+                <div className="w-14 h-14 rounded-2xl bg-brand-primary text-white flex items-center justify-center mb-5 shadow-md shadow-brand-primary/20">
                   <service.icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-3">
@@ -318,8 +257,6 @@ export default function Home() {
         <ImpactCounterSection stats={impactStats} className="max-w-4xl mx-auto" />
       </Section>
 
-      <AnimatedDivider variant="curve" color="var(--brand-soft)" flip className="-mb-1" />
-
       <Section variant="light" padding="xl">
         <FadeIn>
           <SectionHeader
@@ -336,10 +273,9 @@ export default function Home() {
             { icon: CheckCircleIcon, text: "501(c)(3) nonprofit accountability", desc: "Transparent stewardship of every gift" },
           ].map((item, i) => (
             <StaggerItem key={i}>
-              <div className="brand-panel p-5 h-full card-hover relative overflow-hidden group">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-accent via-brand-primary to-brand-secondary rounded-t-[1.25rem]" />
-                <div className="flex flex-col items-center text-center p-2 relative z-10">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center mb-4 shadow-lg">
+              <div className="brand-panel p-6 h-full card-hover">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-12 h-12 rounded-xl bg-brand-primary text-white flex items-center justify-center mb-4 shadow-sm shadow-brand-primary/20">
                     <item.icon className="w-6 h-6 text-white" />
                   </div>
                   <p className="text-sm md:text-base text-text-primary font-semibold mb-1">{item.text}</p>
@@ -359,9 +295,8 @@ export default function Home() {
         <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {audienceCards.map((card) => (
             <StaggerItem key={card.title}>
-              <div className="brand-panel p-6 md:p-8 h-full flex flex-col relative overflow-hidden group card-shine">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/6 via-transparent to-brand-accent/6 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10">
+              <div className="brand-panel p-6 md:p-8 h-full flex flex-col">
+                <div>
                   <div className={`w-14 h-14 rounded-2xl ${card.iconColor} flex items-center justify-center mb-4 shadow-lg`}>
                     <card.icon className="w-7 h-7 text-white" />
                   </div>
@@ -411,8 +346,6 @@ export default function Home() {
         </FadeIn>
       </Section>
 
-      <AnimatedDivider variant="wave" color="var(--brand-soft)" className="-mt-1" />
-
       <Section variant="art-cream" padding="xl">
         <FadeIn>
           <SectionHeader
@@ -426,9 +359,9 @@ export default function Home() {
             <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               {testimonialData.map((testimonial, index) => (
                 <StaggerItem key={index}>
-                  <div className="brand-panel p-6 md:p-8 h-full relative group">
-                    <QuoteIcon className="absolute top-4 right-4 md:top-6 md:right-6 w-6 h-6 md:w-8 md:h-8 text-brand-primary/20 group-hover:text-brand-accent/30 transition-colors" />
-                    <p className="text-sm md:text-base text-text-secondary italic mb-4 md:mb-6 leading-relaxed pr-8">
+                  <div className="brand-panel p-6 md:p-7 h-full">
+                    <QuoteIcon className="w-7 h-7 text-brand-primary/22 mb-4" />
+                    <p className="text-sm md:text-base text-text-secondary italic mb-4 md:mb-6 leading-relaxed">
                       &ldquo;{testimonial.quote}&rdquo;
                     </p>
                     <div className="flex items-center gap-3">
