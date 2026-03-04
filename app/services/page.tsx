@@ -65,7 +65,7 @@ export default function ServicesPage() {
       <InnerPageHero
         title="Our Services"
         subtitle="Compassionate, Gospel-centered counseling at no cost to clients."
-        background="inner-logo"
+        background="inner"
         ariaLabel="Our Services"
        
       />
@@ -82,7 +82,7 @@ export default function ServicesPage() {
           </div>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <StaggerContainer staggerDelay={0.05} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {services.map((service, i) => {
             const Icon = service.icon;
 

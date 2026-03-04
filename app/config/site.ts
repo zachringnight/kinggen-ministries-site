@@ -75,7 +75,6 @@ export const secondaryNavLinks = [
   { href: "/for-grant-writers", label: "For Grant Writers" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/get-support", label: "Client Information", description: "Guidance for referred clients" },
-  { href: "/forms", label: "Forms", description: "Intake and resources" },
 ];
 
 // Legacy export retained for compatibility.
@@ -83,7 +82,6 @@ export const navLinks = [...primaryNavLinks, ...secondaryNavLinks];
 
 export const footerLinks = [
   { href: "/get-support", label: "Client Information" },
-  { href: "/forms", label: "Forms & Resources" },
   { href: "/privacy", label: "Privacy" },
   { href: "/disclaimer", label: "Disclaimer" },
 ];

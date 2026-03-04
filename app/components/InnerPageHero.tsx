@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import OptimizedBackground from "./OptimizedBackground";
 
-type HeroBackground = "inner" | "about" | "inner-logo";
+type HeroBackground = "inner" | "about";
 
 interface InnerPageHeroProps {
   title: string;
@@ -31,12 +31,6 @@ const backgroundMap: Record<
   about: {
     overlayClassName:
       "bg-gradient-to-b from-brand-primary/72 via-brand-primary/80 to-brand-primary/88",
-    titleClassName: "text-white",
-    subtitleClassName: "text-white/95",
-  },
-  "inner-logo": {
-    overlayClassName:
-      "bg-gradient-to-b from-brand-primary/73 via-brand-primary/81 to-brand-primary/89",
     titleClassName: "text-white",
     subtitleClassName: "text-white/95",
   },

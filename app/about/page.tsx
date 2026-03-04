@@ -62,7 +62,7 @@ export default function AboutPage() {
           </div>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.1} className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+        <StaggerContainer staggerDelay={0.05} className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
           {expectations.map((item, i) => (
             <StaggerItem key={i}>
               <div className="brand-panel-dark rounded-xl flex items-center gap-3 p-4">

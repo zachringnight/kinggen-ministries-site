@@ -17,7 +17,6 @@ export default function Footer() {
     { href: "/testimonials", label: "Testimonials" },
     { href: "/contact", label: "Contact" },
     { href: "/get-support", label: "Client Info" },
-    { href: "/forms", label: "Forms" },
   ];
 
   return (

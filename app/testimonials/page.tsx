@@ -50,7 +50,7 @@ export default function TestimonialsPage() {
       />
 
       <Section variant="art-cream" padding="xl">
-        <StaggerContainer staggerDelay={0.15} className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <StaggerContainer staggerDelay={0.05} className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, i) => (
             <StaggerItem key={i}>
               <TiltCard className="h-full" tiltAmount={3}>
@@ -93,7 +93,7 @@ export default function TestimonialsPage() {
           </p>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <StaggerContainer staggerDelay={0.05} className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           <StaggerItem>
             <TiltCard tiltAmount={3} className="h-full">
               <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl border-2 border-white/20">
@@ -135,7 +135,7 @@ export default function TestimonialsPage() {
           </StaggerItem>
         </StaggerContainer>
 
-        <FadeIn delay={0.5}>
+        <FadeIn delay={0.1}>
           <p className="text-center text-white/95 text-sm mt-8">
             Follow us on social media for daily encouragement
           </p>

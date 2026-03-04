@@ -49,7 +49,7 @@ export default function DonatePage() {
           </p>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+        <StaggerContainer staggerDelay={0.05} className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
           {impactPoints.map((point, i) => (
             <StaggerItem key={i}>
               <div className="brand-panel flex items-start gap-3 p-4">
@@ -89,7 +89,7 @@ export default function DonatePage() {
             </div>
           </FadeIn>
 
-          <FadeIn delay={0.2}>
+          <FadeIn delay={0.1}>
             <div className="brand-panel-dark rounded-2xl p-6 md:p-8 h-full">
               <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
                 By Mail

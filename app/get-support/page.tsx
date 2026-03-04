@@ -93,7 +93,7 @@ export default function GetSupport() {
           </div>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
+        <StaggerContainer staggerDelay={0.05} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
           {reasons.map((reason, i) => (
             <StaggerItem key={i}>
               <div className="brand-panel flex items-start gap-3 p-3 md:p-4">
@@ -112,7 +112,7 @@ export default function GetSupport() {
           </h2>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+        <StaggerContainer staggerDelay={0.05} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
           {steps.map((step, i) => (
             <StaggerItem key={i}>
               <div className="text-center brand-panel-dark rounded-2xl p-6 h-full">

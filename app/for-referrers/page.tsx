@@ -70,7 +70,7 @@ export default function ForReferrers() {
           </div>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
+        <StaggerContainer staggerDelay={0.05} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
           {whoCanRefer.map((referrer, i) => (
             <StaggerItem key={i}>
               <div className="brand-panel flex items-center gap-3 p-4">
@@ -94,7 +94,7 @@ export default function ForReferrers() {
           </div>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.1} className="max-w-2xl mx-auto">
+        <StaggerContainer staggerDelay={0.05} className="max-w-2xl mx-auto">
           {referralReasons.map((reason, i) => (
             <StaggerItem key={i}>
               <div className="brand-panel flex items-start gap-4 p-4 mb-3">
@@ -113,7 +113,7 @@ export default function ForReferrers() {
           </h2>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
+        <StaggerContainer staggerDelay={0.05} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
           {whatToExpect.map((item, i) => (
             <StaggerItem key={i}>
               <div className="brand-panel-dark rounded-xl p-5 md:p-6 h-full">
@@ -147,7 +147,7 @@ export default function ForReferrers() {
           </div>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.1} className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+        <StaggerContainer staggerDelay={0.05} className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
           {helpfulInfo.map((info, i) => (
             <StaggerItem key={i}>
               <div className="brand-panel flex items-center gap-3 p-4">
@@ -158,7 +158,7 @@ export default function ForReferrers() {
           ))}
         </StaggerContainer>
 
-        <FadeIn delay={0.4}>
+        <FadeIn delay={0.1}>
           <div className="text-center mt-10">
             <Button href="/contact" variant="primary" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
               Start a Referral

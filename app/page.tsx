@@ -175,7 +175,7 @@ export default function Home() {
           />
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+        <StaggerContainer staggerDelay={0.05} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
           {services.map((service, i) => (
             <StaggerItem key={i}>
               <div className="brand-panel p-6 md:p-8 h-full flex flex-col card-hover">
@@ -193,7 +193,7 @@ export default function Home() {
           ))}
         </StaggerContainer>
 
-        <FadeIn delay={0.3}>
+        <FadeIn delay={0.1}>
           <div className="text-center mt-8 md:mt-10">
             <Button href="/services" variant="outline" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
               View All Services
@@ -222,7 +222,7 @@ export default function Home() {
           />
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+        <StaggerContainer staggerDelay={0.05} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
           {[
             { icon: CrossIcon, text: "Gospel-centered, compassionate care", desc: "Rooted in Scripture and clinical training" },
             { icon: ShieldIcon, text: "Confidential and trauma-informed", desc: "Private, safe, and respectful of each woman" },
@@ -249,7 +249,7 @@ export default function Home() {
           <SectionHeader title="Partner with us" />
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <StaggerContainer staggerDelay={0.05} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {audienceCards.map((card) => (
             <StaggerItem key={card.title}>
               <div className="brand-panel p-6 md:p-8 h-full flex flex-col">
@@ -310,7 +310,7 @@ export default function Home() {
 
         <div className="max-w-4xl mx-auto">
           <div className="hidden md:block">
-            <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <StaggerContainer staggerDelay={0.05} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               {testimonialData.map((testimonial, index) => (
                 <StaggerItem key={index}>
                   <div className="brand-panel p-6 md:p-7 h-full">
@@ -336,7 +336,7 @@ export default function Home() {
           <div className="md:hidden">
             <div className="brand-panel rounded-2xl overflow-hidden border border-brand-light">
               {testimonialData.map((testimonial, index) => (
-                <FadeIn key={index} delay={0.1 * index}>
+                <FadeIn key={index} delay={0.05 * index}>
                   <div className="p-6 border-b border-brand-light last:border-b-0">
                     <QuoteIcon className="w-6 h-6 text-brand-primary/20 mb-3" />
                     <p className="text-sm text-text-secondary italic mb-4 leading-relaxed">
@@ -358,7 +358,7 @@ export default function Home() {
           </div>
         </div>
 
-        <FadeIn delay={0.3}>
+        <FadeIn delay={0.1}>
           <div className="text-center mt-8 md:mt-10">
             <Button href="/testimonials" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
               Read All Testimonials

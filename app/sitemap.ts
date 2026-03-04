@@ -12,7 +12,6 @@ const routes = [
   "/for-grant-writers",
   "/testimonials",
   "/get-support",
-  "/forms",
   "/contact",
   "/donate",
   "/privacy",

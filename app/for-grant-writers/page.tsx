@@ -68,7 +68,7 @@ export default function ForGrantWriters() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
           {organizationFacts.map((fact, i) => (
-            <FadeIn key={i} delay={i * 0.1}>
+            <FadeIn key={i} delay={i * 0.05}>
               <div className="brand-panel p-4 md:p-6 text-center h-full">
                 <p className="text-xs sm:text-sm text-text-muted mb-1">{fact.label}</p>
                 <p className="font-bold text-text-primary text-sm sm:text-base">{fact.value}</p>
@@ -92,7 +92,7 @@ export default function ForGrantWriters() {
           </div>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.1} className="max-w-3xl mx-auto">
+        <StaggerContainer staggerDelay={0.05} className="max-w-3xl mx-auto">
           <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-4 text-center">
             Core Activities
           </h3>
@@ -114,7 +114,7 @@ export default function ForGrantWriters() {
           </h2>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
+        <StaggerContainer staggerDelay={0.05} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
           {fundingNeeds.map((need, i) => (
             <StaggerItem key={i}>
               <div className="brand-panel p-5 md:p-6 h-full">
