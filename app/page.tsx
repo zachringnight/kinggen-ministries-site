@@ -17,6 +17,8 @@ import {
   StaggerItem,
   ImpactCounterSection,
   AnimatedDivider,
+  AnimatedBorderCard,
+  Shimmer,
   BrandLockup,
 } from "./components";
 
@@ -275,7 +277,8 @@ export default function Home() {
 
       <Section variant="cross-green" padding="xl">
         <FadeIn>
-          <div className="max-w-3xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
+          <div className="relative overflow-hidden max-w-3xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
+            <Shimmer />
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 md:mb-6">
               Our commitment
             </h2>
@@ -370,22 +373,24 @@ export default function Home() {
       <Section variant="soft" padding="xl">
         <div className="max-w-4xl mx-auto">
           <FadeIn>
-            <div className="brand-panel p-8 md:p-12 text-center">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
-                Invite LeeAnn to speak
-              </h2>
-              <p className="text-base sm:text-lg text-text-secondary mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
-                LeeAnn is available for speaking engagements, podcast interviews, and ministry events. Her heart is to encourage women and share the hope of the Gospel.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button href="/about#speaking" variant="primary" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-                  Learn More
-                </Button>
-                <Button href="/contact" variant="outline" size="lg">
-                  Request a Booking
-                </Button>
+            <AnimatedBorderCard>
+              <div className="p-8 md:p-12 text-center">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
+                  Invite LeeAnn to speak
+                </h2>
+                <p className="text-base sm:text-lg text-text-secondary mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
+                  LeeAnn is available for speaking engagements, podcast interviews, and ministry events. Her heart is to encourage women and share the hope of the Gospel.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button href="/about#speaking" variant="primary" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                    Learn More
+                  </Button>
+                  <Button href="/contact" variant="outline" size="lg">
+                    Request a Booking
+                  </Button>
+                </div>
               </div>
-            </div>
+            </AnimatedBorderCard>
           </FadeIn>
         </div>
       </Section>

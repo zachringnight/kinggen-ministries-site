@@ -77,9 +77,6 @@ export const secondaryNavLinks = [
   { href: "/get-support", label: "Client Information", description: "Guidance for referred clients" },
 ];
 
-// Legacy export retained for compatibility.
-export const navLinks = [...primaryNavLinks, ...secondaryNavLinks];
-
 export const footerLinks = [
   { href: "/get-support", label: "Client Information" },
   { href: "/privacy", label: "Privacy" },

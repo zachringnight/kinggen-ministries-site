@@ -9,6 +9,9 @@ import {
   StaggerContainer,
   StaggerItem,
   InnerPageHero,
+  AnimatedBorderCard,
+  GlassCard,
+  Shimmer,
 } from "../components";
 
 export default function DonatePage() {
@@ -70,42 +73,46 @@ export default function DonatePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
           <FadeIn delay={0.1}>
-            <div className="brand-panel-dark rounded-2xl p-6 md:p-8 h-full flex flex-col">
-              <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
-                Online
-              </h3>
-              <p className="text-white/95 mb-6 flex-grow">
-                Give securely through PayPal. One-time or recurring gifts welcome.
-              </p>
-              <Button
-                href={siteConfig.paypalUrl}
-                variant="white"
-                size="lg"
-                fullWidth
-                icon={<HeartIcon className="w-5 h-5" />}
-              >
-                Donate via PayPal
-              </Button>
-            </div>
+            <GlassCard className="h-full">
+              <div className="p-6 md:p-8 flex flex-col h-full">
+                <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
+                  Online
+                </h3>
+                <p className="text-white/95 mb-6 flex-grow">
+                  Give securely through PayPal. One-time or recurring gifts welcome.
+                </p>
+                <Button
+                  href={siteConfig.paypalUrl}
+                  variant="white"
+                  size="lg"
+                  fullWidth
+                  icon={<HeartIcon className="w-5 h-5" />}
+                >
+                  Donate via PayPal
+                </Button>
+              </div>
+            </GlassCard>
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <div className="brand-panel-dark rounded-2xl p-6 md:p-8 h-full">
-              <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
-                By Mail
-              </h3>
-              <p className="text-white/95 mb-4">
-                Make checks payable to:
-              </p>
-              <div className="bg-white/12 rounded-xl p-4 mb-4 border border-white/20">
-                <p className="text-white font-semibold">KingGen Ministries</p>
-                <address className="text-white/95 not-italic text-sm leading-relaxed mt-2">
-                  {siteConfig.address.line2}<br />
-                  {siteConfig.address.line3}<br />
-                  {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
-                </address>
+            <GlassCard className="h-full">
+              <div className="p-6 md:p-8">
+                <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
+                  By Mail
+                </h3>
+                <p className="text-white/95 mb-4">
+                  Make checks payable to:
+                </p>
+                <div className="bg-white/12 rounded-xl p-4 mb-4 border border-white/20">
+                  <p className="text-white font-semibold">KingGen Ministries</p>
+                  <address className="text-white/95 not-italic text-sm leading-relaxed mt-2">
+                    {siteConfig.address.line2}<br />
+                    {siteConfig.address.line3}<br />
+                    {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
+                  </address>
+                </div>
               </div>
-            </div>
+            </GlassCard>
           </FadeIn>
         </div>
       </Section>
@@ -113,32 +120,35 @@ export default function DonatePage() {
       <Section variant="art-cream" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
-            <div className="brand-panel p-6 md:p-8">
-              <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-3">
-                Tax-deductible giving
-              </h3>
-              <p className="text-text-secondary mb-4">
-                KingGen Ministries is a <strong>501(c)(3)</strong> nonprofit organization.
-                Your donation is tax-deductible to the extent allowed by law.
-              </p>
-              <p className="text-lg font-semibold text-brand-primary mb-6">
-                EIN: {siteConfig.ein}
-              </p>
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="inline-flex items-center gap-2 text-brand-primary hover:text-brand-secondary transition-colors"
-              >
-                <MailIcon className="w-5 h-5" />
-                <span>Questions? {siteConfig.email}</span>
-              </a>
-            </div>
+            <AnimatedBorderCard>
+              <div className="p-6 md:p-8">
+                <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-3">
+                  Tax-deductible giving
+                </h3>
+                <p className="text-text-secondary mb-4">
+                  KingGen Ministries is a <strong>501(c)(3)</strong> nonprofit organization.
+                  Your donation is tax-deductible to the extent allowed by law.
+                </p>
+                <p className="text-lg font-semibold text-brand-primary mb-6">
+                  EIN: {siteConfig.ein}
+                </p>
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="inline-flex items-center gap-2 text-brand-primary hover:text-brand-secondary transition-colors"
+                >
+                  <MailIcon className="w-5 h-5" />
+                  <span>Questions? {siteConfig.email}</span>
+                </a>
+              </div>
+            </AnimatedBorderCard>
           </div>
         </FadeIn>
       </Section>
 
       <Section variant="cross-green" padding="xl">
         <FadeIn>
-          <div className="max-w-2xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
+          <div className="relative overflow-hidden max-w-2xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
+            <Shimmer />
             <h2 className="text-2xl md:text-3xl font-bold font-heading text-white mb-4">
               Ready to make a difference?
             </h2>
