@@ -13,6 +13,7 @@ import {
   StaggerItem,
   InnerPageHero,
 } from "../components";
+import { getPageContent } from "../lib/content";
 
 export const metadata: Metadata = {
   title: "Client Information",
@@ -20,39 +21,51 @@ export const metadata: Metadata = {
     "Guidance for women and trusted referrers on how to begin care with KingGen Ministries.",
 };
 
-export default function GetSupport() {
-  const reasons = [
-    "anxiety, stress, or burnout",
-    "grief and loss",
-    "relationship pain or family conflict",
-    "trauma and life transitions",
-    "spiritual discouragement",
-    "boundaries, identity, and rebuilding confidence",
-  ];
+const DEFAULT_HERO = {
+  title: "Client Information",
+  subtitle: "Helpful guidance for women and those supporting a referral.",
+};
 
-  const steps = [
-    {
-      number: "1",
-      title: "Your referrer reaches out",
-      description: "The pastor, counselor, or trusted person who shared this page contacts us on your behalf with your permission.",
-    },
-    {
-      number: "2",
-      title: "We follow up",
-      description: "We'll respond and help clarify next steps together.",
-    },
-    {
-      number: "3",
-      title: "Forms and scheduling",
-      description: "If it's a fit, we'll share any needed forms and coordinate an appointment.",
-    },
-  ];
+const DEFAULT_REASONS = [
+  "anxiety, stress, or burnout",
+  "grief and loss",
+  "relationship pain or family conflict",
+  "trauma and life transitions",
+  "spiritual discouragement",
+  "boundaries, identity, and rebuilding confidence",
+];
+
+const DEFAULT_STEPS = [
+  {
+    number: "1",
+    title: "Your referrer reaches out",
+    description: "The pastor, counselor, or trusted person who shared this page contacts us on your behalf with your permission.",
+  },
+  {
+    number: "2",
+    title: "We follow up",
+    description: "We'll respond and help clarify next steps together.",
+  },
+  {
+    number: "3",
+    title: "Forms and scheduling",
+    description: "If it's a fit, we'll share any needed forms and coordinate an appointment.",
+  },
+];
+
+export const revalidate = 60;
+
+export default async function GetSupport() {
+  const content = await getPageContent('get-support');
+  const hero = { ...DEFAULT_HERO, ...(content?.hero as Record<string, unknown>) };
+  const reasons = (content?.reasons as string[]) ?? DEFAULT_REASONS;
+  const steps = (content?.steps as typeof DEFAULT_STEPS) ?? DEFAULT_STEPS;
 
   return (
     <>
       <InnerPageHero
-        title="Client Information"
-        subtitle="Helpful guidance for women and those supporting a referral."
+        title={hero.title as string}
+        subtitle={hero.subtitle as string}
         background="inner"
         ariaLabel="Information for Clients"
        
@@ -115,14 +128,14 @@ export default function GetSupport() {
         <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
           {steps.map((step, i) => (
             <StaggerItem key={i}>
-              <div className="text-center brand-panel-dark rounded-2xl p-6 h-full">
+              <div className="text-center brand-panel-dark rounded-2xl p-6 h-full flex flex-col">
                 <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/20 text-white text-xl md:text-2xl font-bold flex items-center justify-center mx-auto mb-3 md:mb-4 border border-white/30">
                   {step.number}
                 </div>
                 <h3 className="text-lg md:text-xl font-bold font-heading text-white mb-2">
                   {step.title}
                 </h3>
-                <p className="text-sm md:text-base text-white/95">
+                <p className="text-sm md:text-base text-white/95 flex-grow">
                   {step.description}
                 </p>
               </div>

@@ -11,6 +11,7 @@ import {
   StaggerItem,
   InnerPageHero,
 } from "../components";
+import { getPageContent } from "../lib/content";
 
 export const metadata: Metadata = {
   title: "For Referrers",
@@ -18,41 +19,55 @@ export const metadata: Metadata = {
     "Information for pastors, counselors, and partners who want to refer women to KingGen Ministries for Gospel-centered counseling support.",
 };
 
-export default function ForReferrers() {
-  const whoCanRefer = [
-    "Pastors and church staff",
-    "Licensed counselors and therapists",
-    "Social workers and case managers",
-    "Healthcare professionals",
-    "Community organization leaders",
-    "Trusted family members or mentors",
-  ];
+const DEFAULT_HERO = {
+  title: "For Referrers",
+  subtitle: "A clear and compassionate referral pathway for women who need support.",
+};
 
-  const referralReasons = [
-    "is seeking counseling support and cost is a barrier",
-    "is open to Gospel-centered counseling",
-    "can participate by appointment (in-person or telehealth)",
-  ];
+const DEFAULT_WHO_CAN_REFER = [
+  "Pastors and church staff",
+  "Licensed counselors and therapists",
+  "Social workers and case managers",
+  "Healthcare professionals",
+  "Community organization leaders",
+  "Trusted family members or mentors",
+];
 
-  const whatToExpect = [
-    { title: "Confidential intake", description: "We protect the privacy of every woman referred to us" },
-    { title: "Clear communication", description: "We keep referrers informed as appropriate and permitted" },
-    { title: "Compassionate care", description: "Women receive Gospel-centered support at their own pace" },
-    { title: "Professional standards", description: "Licensed clinical pastoral counseling with ethical guidelines" },
-  ];
+const DEFAULT_REFERRAL_REASONS = [
+  "is seeking counseling support and cost is a barrier",
+  "is open to Gospel-centered counseling",
+  "can participate by appointment (in-person or telehealth)",
+];
 
-  const helpfulInfo = [
-    "First name of the person being referred",
-    "Best contact method (email or phone)",
-    "General reason for referral",
-    "Any immediate safety concerns",
-  ];
+const DEFAULT_WHAT_TO_EXPECT = [
+  { title: "Confidential intake", description: "We protect the privacy of every woman referred to us" },
+  { title: "Clear communication", description: "We keep referrers informed as appropriate and permitted" },
+  { title: "Compassionate care", description: "Women receive Gospel-centered support at their own pace" },
+  { title: "Professional standards", description: "Licensed clinical pastoral counseling with ethical guidelines" },
+];
+
+const DEFAULT_HELPFUL_INFO = [
+  "First name of the person being referred",
+  "Best contact method (email or phone)",
+  "General reason for referral",
+  "Any immediate safety concerns",
+];
+
+export const revalidate = 60;
+
+export default async function ForReferrers() {
+  const content = await getPageContent('for-referrers');
+  const hero = { ...DEFAULT_HERO, ...(content?.hero as Record<string, unknown>) };
+  const whoCanRefer = (content?.whoCanRefer as string[]) ?? DEFAULT_WHO_CAN_REFER;
+  const referralReasons = (content?.referralReasons as string[]) ?? DEFAULT_REFERRAL_REASONS;
+  const whatToExpect = (content?.whatToExpect as typeof DEFAULT_WHAT_TO_EXPECT) ?? DEFAULT_WHAT_TO_EXPECT;
+  const helpfulInfo = (content?.helpfulInfo as string[]) ?? DEFAULT_HELPFUL_INFO;
 
   return (
     <>
       <InnerPageHero
-        title="For Referrers"
-        subtitle="A clear and compassionate referral pathway for women who need support."
+        title={hero.title as string}
+        subtitle={hero.subtitle as string}
         background="inner"
         ariaLabel="For Referrers"
        
@@ -116,9 +131,9 @@ export default function ForReferrers() {
         <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
           {whatToExpect.map((item, i) => (
             <StaggerItem key={i}>
-              <div className="brand-panel-dark rounded-xl p-5 md:p-6 h-full">
+              <div className="brand-panel-dark rounded-xl p-5 md:p-6 h-full flex flex-col">
                 <h3 className="font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-sm md:text-base text-white/95">{item.description}</p>
+                <p className="text-sm md:text-base text-white/95 flex-grow">{item.description}</p>
               </div>
             </StaggerItem>
           ))}

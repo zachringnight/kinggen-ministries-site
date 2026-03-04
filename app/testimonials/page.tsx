@@ -13,6 +13,7 @@ import {
   TiltCard,
   InnerPageHero,
 } from "../components";
+import { getPageContent } from "../lib/content";
 
 export const metadata: Metadata = {
   title: "Testimonials",
@@ -20,30 +21,41 @@ export const metadata: Metadata = {
     "Read stories and reflections from partners and clients about the care and support offered through KingGen Ministries.",
 };
 
-export default function TestimonialsPage() {
-  const testimonials = [
-    {
-      quote: "KingGen is a trustworthy referral option. The care is compassionate, discreet, and Gospel-centered.",
-      name: "Mark",
-      role: "Pastor",
-    },
-    {
-      quote: "Communication has been clear and respectful. I'm grateful for a place to refer women who need support and privacy.",
-      name: "Jenna",
-      role: "Referrer",
-    },
-    {
-      quote: "I felt safe, understood, and guided with wisdom. KingGen helped me find hope again.",
-      name: "Sarah",
-      role: "Client",
-    },
-  ];
+const DEFAULT_HERO = {
+  title: "Testimonials",
+  subtitle: "Stories of hope, trust, and Gospel-centered care.",
+};
+
+const DEFAULT_TESTIMONIALS = [
+  {
+    quote: "KingGen is a trustworthy referral option. The care is compassionate, discreet, and Gospel-centered.",
+    name: "Mark",
+    role: "Pastor",
+  },
+  {
+    quote: "Communication has been clear and respectful. I'm grateful for a place to refer women who need support and privacy.",
+    name: "Jenna",
+    role: "Referrer",
+  },
+  {
+    quote: "I felt safe, understood, and guided with wisdom. KingGen helped me find hope again.",
+    name: "Sarah",
+    role: "Client",
+  },
+];
+
+export const revalidate = 60;
+
+export default async function TestimonialsPage() {
+  const content = await getPageContent('testimonials');
+  const hero = { ...DEFAULT_HERO, ...(content?.hero as Record<string, unknown>) };
+  const testimonials = (content?.testimonials as typeof DEFAULT_TESTIMONIALS) ?? DEFAULT_TESTIMONIALS;
 
   return (
     <>
       <InnerPageHero
-        title="Testimonials"
-        subtitle="Stories of hope, trust, and Gospel-centered care."
+        title={hero.title as string}
+        subtitle={hero.subtitle as string}
         background="inner"
         ariaLabel="Testimonials"
        
@@ -54,14 +66,14 @@ export default function TestimonialsPage() {
           {testimonials.map((testimonial, i) => (
             <StaggerItem key={i}>
               <TiltCard className="h-full" tiltAmount={3}>
-                <div className="brand-panel p-8 h-full relative">
+                <div className="brand-panel p-8 h-full relative flex flex-col">
                   <QuoteIcon className="absolute top-6 right-6 w-10 h-10 text-brand-accent/20" />
                   <div className="mb-4">
                     <span className="inline-block px-3 py-1 bg-brand-light text-brand-primary text-sm font-medium rounded-full">
                       {testimonial.role}
                     </span>
                   </div>
-                  <p className="text-text-secondary italic mb-6 leading-relaxed text-lg">
+                  <p className="text-text-secondary italic mb-6 leading-relaxed text-lg flex-grow">
                     &ldquo;{testimonial.quote}&rdquo;
                   </p>
                   <div className="flex items-center gap-3">

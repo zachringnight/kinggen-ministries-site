@@ -10,20 +10,32 @@ import {
   StaggerItem,
   InnerPageHero,
 } from "../components";
+import { getPageContent } from "../lib/content";
 
-export default function DonatePage() {
-  const impactPoints = [
-    "Provides free counseling sessions for women in need",
-    "Covers operational costs and outreach",
-    "Supports training and resources",
-    "Expands access to underserved communities",
-  ];
+const DEFAULT_HERO = {
+  title: "Help Keep Counseling Free",
+  subtitle: "Every gift helps remove cost barriers for women who need care.",
+};
+
+const DEFAULT_IMPACT_POINTS = [
+  "Provides free counseling sessions for women in need",
+  "Covers operational costs and outreach",
+  "Supports training and resources",
+  "Expands access to underserved communities",
+];
+
+export const revalidate = 60;
+
+export default async function DonatePage() {
+  const content = await getPageContent('donate');
+  const hero = { ...DEFAULT_HERO, ...(content?.hero as Record<string, unknown>) };
+  const impactPoints = (content?.impact as Record<string, unknown>)?.points as string[] ?? DEFAULT_IMPACT_POINTS;
 
   return (
     <>
       <InnerPageHero
-        title="Help Keep Counseling Free"
-        subtitle="Every gift helps remove cost barriers for women who need care."
+        title={hero.title as string}
+        subtitle={hero.subtitle as string}
         background="inner"
         ariaLabel="Help Keep Counseling Free"
        
@@ -90,7 +102,7 @@ export default function DonatePage() {
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <div className="brand-panel-dark rounded-2xl p-6 md:p-8 h-full">
+            <div className="brand-panel-dark rounded-2xl p-6 md:p-8 h-full flex flex-col">
               <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
                 By Mail
               </h3>
@@ -105,6 +117,15 @@ export default function DonatePage() {
                   {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
                 </address>
               </div>
+              <Button
+                href={`mailto:${siteConfig.email}`}
+                variant="outline-white"
+                size="lg"
+                fullWidth
+                icon={<MailIcon className="w-5 h-5" />}
+              >
+                Email for Mailing Help
+              </Button>
             </div>
           </FadeIn>
         </div>

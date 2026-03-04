@@ -22,6 +22,7 @@
     "generate-resources": "node scripts/generate-resource-pdfs.mjs"
   },
   "dependencies": {
+    "@vercel/blob": "^2.3.1",
     "framer-motion": "^12.26.2",
     "next": "^16.1.6",
     "react": "19.1.0",
@@ -36,11 +37,13 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^5.1.2",
+    "dotenv": "^17.3.1",
     "eslint": "^9",
     "eslint-config-next": "^16.1.6",
     "jsdom": "^27.4.0",
     "sharp": "^0.34.5",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5",
     "vitest": "^4.0.18"
   },

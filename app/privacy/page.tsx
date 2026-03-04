@@ -4,6 +4,7 @@ import {
   FadeIn,
   PageHero,
 } from "../components";
+import { getPageContent } from "../lib/content";
 
 export const metadata: Metadata = {
   title: "Privacy",
@@ -11,12 +12,17 @@ export const metadata: Metadata = {
     "Read how KingGen Ministries handles privacy, confidentiality, and safety-related information.",
 };
 
-export default function PrivacyPage() {
+export const revalidate = 60;
+
+export default async function PrivacyPage() {
+  const content = await getPageContent('privacy');
+  const heroTitle = (content?.hero as Record<string, unknown>)?.title as string ?? "Privacy and Confidentiality";
+
   return (
     <>
       {/* Hero Section with KingGen branded background */}
       <PageHero
-        title="Privacy and Confidentiality"
+        title={heroTitle}
         background="kinggen-branded"
       />
 

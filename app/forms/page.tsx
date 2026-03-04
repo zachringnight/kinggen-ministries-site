@@ -2,17 +2,15 @@ import type { Metadata } from "next";
 import {
   Section,
   Button,
-  DocumentIcon,
   DownloadIcon,
   ArrowRightIcon,
-  HeartIcon,
-  BookOpenIcon,
-  SunIcon,
   FadeIn,
   StaggerContainer,
   StaggerItem,
   InnerPageHero,
 } from "../components";
+import { getPageContent } from "../lib/content";
+import { resolveIcon } from "../lib/icon-map";
 
 export const metadata: Metadata = {
   title: "Forms and Resources",
@@ -20,39 +18,50 @@ export const metadata: Metadata = {
     "Download KingGen Ministries resources, including Scripture encouragement, prayer guides, and practical healing prompts.",
 };
 
-export default function ResourcesPage() {
-  const resources = [
-    {
-      name: "Scripture for Anxious Moments",
-      description: "A collection of verses to read when you feel overwhelmed",
-      filename: "scripture-for-anxiety.pdf",
-      icon: BookOpenIcon,
-    },
-    {
-      name: "Prayer Guide for Hard Days",
-      description: "Simple prayers for when words are hard to find",
-      filename: "prayer-guide.pdf",
-      icon: HeartIcon,
-    },
-    {
-      name: "Journaling Prompts for Healing",
-      description: "Reflective questions to help process your thoughts",
-      filename: "journaling-prompts.pdf",
-      icon: DocumentIcon,
-    },
-    {
-      name: "Daily Encouragement Cards",
-      description: "Printable cards with Scripture and affirmations",
-      filename: "encouragement-cards.pdf",
-      icon: SunIcon,
-    },
-  ];
+const DEFAULT_HERO = {
+  title: "Forms and Resources",
+  subtitle: "Practical downloads and encouragement for this season.",
+};
+
+const DEFAULT_RESOURCES = [
+  {
+    name: "Scripture for Anxious Moments",
+    description: "A collection of verses to read when you feel overwhelmed",
+    filename: "scripture-for-anxiety.pdf",
+    icon: "BookOpenIcon",
+  },
+  {
+    name: "Prayer Guide for Hard Days",
+    description: "Simple prayers for when words are hard to find",
+    filename: "prayer-guide.pdf",
+    icon: "HeartIcon",
+  },
+  {
+    name: "Journaling Prompts for Healing",
+    description: "Reflective questions to help process your thoughts",
+    filename: "journaling-prompts.pdf",
+    icon: "DocumentIcon",
+  },
+  {
+    name: "Daily Encouragement Cards",
+    description: "Printable cards with Scripture and affirmations",
+    filename: "encouragement-cards.pdf",
+    icon: "SunIcon",
+  },
+];
+
+export const revalidate = 60;
+
+export default async function ResourcesPage() {
+  const content = await getPageContent('forms');
+  const hero = { ...DEFAULT_HERO, ...(content?.hero as Record<string, unknown>) };
+  const resources = (content?.resources as typeof DEFAULT_RESOURCES) ?? DEFAULT_RESOURCES;
 
   return (
     <>
       <InnerPageHero
-        title="Forms and Resources"
-        subtitle="Practical downloads and encouragement for this season."
+        title={hero.title as string}
+        subtitle={hero.subtitle as string}
         background="inner"
         ariaLabel="Forms and Resources"
        
@@ -89,9 +98,11 @@ export default function ResourcesPage() {
                 className="flex items-center justify-between p-5 brand-panel rounded-xl hover:shadow-xl transition-all group"
               >
                 <div className="flex items-center gap-4">
+                  {(() => { const Icon = resolveIcon(resource.icon); return (
                   <div className="w-12 h-12 rounded-xl bg-brand-light text-brand-primary flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-colors">
-                    <resource.icon className="w-6 h-6" />
+                    <Icon className="w-6 h-6" />
                   </div>
+                  ); })()}
                   <div>
                     <p className="font-semibold text-text-primary">{resource.name}</p>
                     <p className="text-sm text-text-muted">{resource.description}</p>

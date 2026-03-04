@@ -12,6 +12,7 @@ import {
   StaggerItem,
   InnerPageHero,
 } from "../components";
+import { getPageContent } from "../lib/content";
 
 export const metadata: Metadata = {
   title: "For Grant Writers",
@@ -19,36 +20,49 @@ export const metadata: Metadata = {
     "Organizational information, funding priorities, and partnership context for grant writers and foundations supporting KingGen Ministries.",
 };
 
-export default function ForGrantWriters() {
-  const organizationFacts = [
-    { label: "Organization Name", value: "KingGen Ministries" },
-    { label: "Tax Status", value: "501(c)(3) Nonprofit" },
-    { label: "EIN", value: siteConfig.ein },
-    { label: "Location", value: "Keller, Texas" },
-    { label: "Service Area", value: "North Texas and surrounding regions" },
-    { label: "Founded", value: "2023" },
-  ];
+const DEFAULT_HERO = {
+  title: "For Grant Writers and Foundations",
+  subtitle: "Organizational details and mission context to support partnership opportunities.",
+};
 
-  const missionPoints = [
-    "Provide Gospel-centered clinical pastoral counseling for women",
-    "Remove cost barriers so women in need can access care",
-    "Serve women facing anxiety, grief, trauma, and life transitions",
-    "Partner with churches and community organizations for referrals",
-    "Maintain confidentiality, compassion, and professionalism",
-  ];
+const DEFAULT_ORG_FACTS = [
+  { label: "Organization Name", value: "KingGen Ministries" },
+  { label: "Tax Status", value: "501(c)(3) Nonprofit" },
+  { label: "EIN", value: siteConfig.ein },
+  { label: "Location", value: "Keller, Texas" },
+  { label: "Service Area", value: "North Texas and surrounding regions" },
+  { label: "Founded", value: "2023" },
+];
 
-  const fundingNeeds = [
-    { area: "Counseling Services", description: "Direct support for counseling sessions and client care" },
-    { area: "Operations", description: "Administrative costs, communications, and outreach" },
-    { area: "Training & Development", description: "Continuing education and professional development" },
-    { area: "Technology", description: "Secure platforms for scheduling and telehealth" },
-  ];
+const DEFAULT_MISSION_POINTS = [
+  "Provide Gospel-centered clinical pastoral counseling for women",
+  "Remove cost barriers so women in need can access care",
+  "Serve women facing anxiety, grief, trauma, and life transitions",
+  "Partner with churches and community organizations for referrals",
+  "Maintain confidentiality, compassion, and professionalism",
+];
+
+const DEFAULT_FUNDING_NEEDS = [
+  { area: "Counseling Services", description: "Direct support for counseling sessions and client care" },
+  { area: "Operations", description: "Administrative costs, communications, and outreach" },
+  { area: "Training & Development", description: "Continuing education and professional development" },
+  { area: "Technology", description: "Secure platforms for scheduling and telehealth" },
+];
+
+export const revalidate = 60;
+
+export default async function ForGrantWriters() {
+  const content = await getPageContent('for-grant-writers');
+  const hero = { ...DEFAULT_HERO, ...(content?.hero as Record<string, unknown>) };
+  const organizationFacts = (content?.organizationFacts as typeof DEFAULT_ORG_FACTS) ?? DEFAULT_ORG_FACTS;
+  const missionPoints = (content?.missionPoints as string[]) ?? DEFAULT_MISSION_POINTS;
+  const fundingNeeds = (content?.fundingNeeds as typeof DEFAULT_FUNDING_NEEDS) ?? DEFAULT_FUNDING_NEEDS;
 
   return (
     <>
       <InnerPageHero
-        title="For Grant Writers and Foundations"
-        subtitle="Organizational details and mission context to support partnership opportunities."
+        title={hero.title as string}
+        subtitle={hero.subtitle as string}
         background="inner"
         ariaLabel="For Grant Writers and Foundations"
        
@@ -117,9 +131,9 @@ export default function ForGrantWriters() {
         <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
           {fundingNeeds.map((need, i) => (
             <StaggerItem key={i}>
-              <div className="brand-panel p-5 md:p-6 h-full">
+              <div className="brand-panel p-5 md:p-6 h-full flex flex-col">
                 <h3 className="font-bold text-text-primary mb-2">{need.area}</h3>
-                <p className="text-sm md:text-base text-text-secondary">{need.description}</p>
+                <p className="text-sm md:text-base text-text-secondary flex-grow">{need.description}</p>
               </div>
             </StaggerItem>
           ))}

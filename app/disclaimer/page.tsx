@@ -4,6 +4,7 @@ import {
   FadeIn,
   PageHero,
 } from "../components";
+import { getPageContent } from "../lib/content";
 
 export const metadata: Metadata = {
   title: "Disclaimer",
@@ -11,12 +12,17 @@ export const metadata: Metadata = {
     "Important emergency and informational disclaimers for KingGen Ministries website visitors.",
 };
 
-export default function DisclaimerPage() {
+export const revalidate = 60;
+
+export default async function DisclaimerPage() {
+  const content = await getPageContent('disclaimer');
+  const heroTitle = (content?.hero as Record<string, unknown>)?.title as string ?? "Disclaimer";
+
   return (
     <>
       {/* Hero Section with KingGen branded background */}
       <PageHero
-        title="Disclaimer"
+        title={heroTitle}
         background="kinggen-branded"
       />
 

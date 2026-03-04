@@ -4,15 +4,12 @@ import {
   Button,
   FadeIn,
   ArrowRightIcon,
-  HeartIcon,
-  CrossIcon,
-  ShieldIcon,
-  UsersIcon,
-  CheckCircleIcon,
   InnerPageHero,
   StaggerContainer,
   StaggerItem,
 } from "../components";
+import { getPageContent } from "../lib/content";
+import { resolveIcon } from "../lib/icon-map";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -20,51 +17,31 @@ export const metadata: Metadata = {
     "Explore KingGen Ministries counseling services, including Gospel-centered support for anxiety, grief, trauma, relationships, and spiritual growth.",
 };
 
-const services = [
-  {
-    icon: HeartIcon,
-    title: "Individual Pastoral Counseling",
-    description:
-      "Gospel-centered support for anxiety, stress, grief, and life transitions. Offered at no cost.",
-  },
-  {
-    icon: CrossIcon,
-    title: "Grief & Loss Care",
-    description:
-      "Walking through grief, loss, and the seasons that follow with compassion and Scripture.",
-  },
-  {
-    icon: ShieldIcon,
-    title: "Trauma & Crisis Support",
-    description:
-      "Confidential, trauma-informed care for women in crisis or walking through deep pain.",
-  },
-  {
-    icon: UsersIcon,
-    title: "Relationship & Family Support",
-    description:
-      "Help navigating relationship pain, family conflict, and communication challenges.",
-  },
-  {
-    icon: CheckCircleIcon,
-    title: "Spiritual Care & Growth",
-    description:
-      "Support for spiritual discouragement, faith questions, and deepening your walk with God.",
-  },
-  {
-    icon: ArrowRightIcon,
-    title: "Boundaries, Identity & Confidence",
-    description:
-      "Practical guidance for setting healthy boundaries, reclaiming identity, and rebuilding confidence.",
-  },
+const DEFAULT_SERVICES = [
+  { icon: "HeartIcon", title: "Individual Pastoral Counseling", description: "Gospel-centered support for anxiety, stress, grief, and life transitions. Offered at no cost." },
+  { icon: "CrossIcon", title: "Grief & Loss Care", description: "Walking through grief, loss, and the seasons that follow with compassion and Scripture." },
+  { icon: "ShieldIcon", title: "Trauma & Crisis Support", description: "Confidential, trauma-informed care for women in crisis or walking through deep pain." },
+  { icon: "UsersIcon", title: "Relationship & Family Support", description: "Help navigating relationship pain, family conflict, and communication challenges." },
+  { icon: "CheckCircleIcon", title: "Spiritual Care & Growth", description: "Support for spiritual discouragement, faith questions, and deepening your walk with God." },
+  { icon: "ArrowRightIcon", title: "Boundaries, Identity & Confidence", description: "Practical guidance for setting healthy boundaries, reclaiming identity, and rebuilding confidence." },
 ];
 
-export default function ServicesPage() {
+const DEFAULT_HERO = {
+  title: "Our Services",
+  subtitle: "Compassionate, Gospel-centered counseling at no cost to clients.",
+};
+
+export const revalidate = 60;
+
+export default async function ServicesPage() {
+  const content = await getPageContent('services');
+  const hero = { ...DEFAULT_HERO, ...(content?.hero as Record<string, unknown>) };
+  const services = (content?.services as Record<string, unknown>)?.items as typeof DEFAULT_SERVICES ?? DEFAULT_SERVICES;
   return (
     <>
       <InnerPageHero
-        title="Our Services"
-        subtitle="Compassionate, Gospel-centered counseling at no cost to clients."
+        title={hero.title as string}
+        subtitle={hero.subtitle as string}
         background="inner-logo"
         ariaLabel="Our Services"
        
@@ -84,18 +61,17 @@ export default function ServicesPage() {
 
         <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {services.map((service, i) => {
-            const Icon = service.icon;
-
+            const Icon = resolveIcon(service.icon);
             return (
               <StaggerItem key={service.title}>
-                <div className="brand-panel p-6 h-full service-card-interactive" tabIndex={0}>
+                <div className="brand-panel p-6 h-full service-card-interactive flex flex-col" tabIndex={0}>
                   <div className="w-14 h-14 rounded-2xl bg-brand-primary/12 flex items-center justify-center mb-5">
                     <Icon className="w-7 h-7 text-brand-primary" />
                   </div>
                   <h3 className="text-xl font-bold font-heading text-text-primary mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-text-secondary leading-relaxed">
+                  <p className="text-text-secondary leading-relaxed flex-grow">
                     {service.description}
                   </p>
                 </div>
