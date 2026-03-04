@@ -13,6 +13,7 @@ import {
   InnerPageHero,
 } from "../components";
 import { siteConfig } from "../config/site";
+import { contactContent } from "../content";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
@@ -152,8 +153,8 @@ export default function ContactPage() {
   return (
     <>
       <InnerPageHero
-        title="Contact KingGen"
-        subtitle="Referral and partner inquiries are welcome."
+        title={contactContent.hero.title}
+        subtitle={contactContent.hero.subtitle}
         background="inner"
         ariaLabel="Contact KingGen Ministries"
        
@@ -164,7 +165,7 @@ export default function ContactPage() {
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-lg text-text-secondary leading-relaxed">
-              We often coordinate intake through referrers and ministry partners. If you are seeking support personally, we encourage you to ask a pastor, counselor, or trusted professional to submit a referral with you.
+              {contactContent.note}
             </p>
           </div>
         </FadeIn>
@@ -177,7 +178,7 @@ export default function ContactPage() {
           <FadeIn direction="left">
               <div className="brand-panel p-8">
                 <h2 className="text-2xl font-bold font-heading text-text-primary mb-6">
-                  Referral &amp; Partner Contact
+                  {contactContent.formTitle}
                 </h2>
                 <form
                   onSubmit={handleSubmit}
@@ -218,7 +219,7 @@ export default function ContactPage() {
                       <option value="other">Other</option>
                     </select>
                     <p className="mt-2 text-xs text-text-muted">
-                      For privacy and coordinated care, intake usually begins through a referrer.
+                      {contactContent.reasonNote}
                     </p>
                   </div>
 
@@ -363,7 +364,7 @@ export default function ContactPage() {
                   </Button>
 
                   <p className="text-xs text-text-muted text-center">
-                    Your information is safe with us. We typically reply within 1-2 business days.
+                    {contactContent.formNote}
                   </p>
                 </form>
               </div>
@@ -373,7 +374,7 @@ export default function ContactPage() {
           <FadeIn direction="right">
             <div>
               <h2 className="text-2xl font-bold font-heading text-text-primary mb-6">
-                Direct contact
+                {contactContent.directContactTitle}
               </h2>
 
               <div className="space-y-6">
@@ -420,11 +421,11 @@ export default function ContactPage() {
               </div>
 
               <div className="mt-8 brand-panel p-6">
-                <h3 className="font-bold font-heading text-xl text-text-primary mb-3">What Happens Next</h3>
+                <h3 className="font-bold font-heading text-xl text-text-primary mb-3">{contactContent.whatHappensNext.title}</h3>
                 <ul className="space-y-2 text-sm text-text-secondary">
-                  <li>1. We review your message and pray over your request.</li>
-                  <li>2. We respond with next-step guidance (usually within 1-2 business days).</li>
-                  <li>3. If needed, we help route you to the right support path.</li>
+                  {contactContent.whatHappensNext.steps.map((step, i) => (
+                    <li key={i}>{i + 1}. {step}</li>
+                  ))}
                 </ul>
               </div>
             </div>
