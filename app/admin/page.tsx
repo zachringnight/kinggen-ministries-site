@@ -125,6 +125,7 @@ export default function AdminEditorPage() {
   const [content, setContent] = useState<Record<string, unknown>>(() => deepClone(originalContent));
   const [hasChanges, setHasChanges] = useState(false);
   const [savedAt, setSavedAt] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
 
   // Load draft from localStorage on mount
   useEffect(() => {
@@ -191,7 +192,7 @@ export default function AdminEditorPage() {
     }
   };
 
-  const handleSubmitForReview = () => {
+  const handleSubmitForReview = async () => {
     // Collect all changes across all pages
     const changes: { page: string; field: string; oldValue: string; newValue: string }[] = [];
     for (const pageKey of Object.keys(originalContent)) {
@@ -204,50 +205,28 @@ export default function AdminEditorPage() {
       return;
     }
 
-    // Build a readable email body
-    const lines: string[] = [
-      `KingGen Website — Content Edit Request`,
-      `${changes.length} field(s) changed`,
-      `Submitted: ${new Date().toLocaleString()}`,
-      ``,
-      `---`,
-      ``,
-    ];
-
-    const byPage = new Map<string, typeof changes>();
-    for (const c of changes) {
-      const list = byPage.get(c.page) || [];
-      list.push(c);
-      byPage.set(c.page, list);
+    if (!confirm(`Submit ${changes.length} change(s) for review? The developer will be able to see your edits.`)) {
+      return;
     }
 
-    for (const [page, pageChanges] of byPage) {
-      lines.push(`PAGE: ${page}`);
-      lines.push(``);
-      for (const c of pageChanges) {
-        lines.push(`  Field: ${c.field}`);
-        lines.push(`  Was: "${c.oldValue.slice(0, 200)}"`);
-        lines.push(`  Change to: "${c.newValue.slice(0, 200)}"`);
-        lines.push(``);
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/admin/submit-edits", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ changes, fullContent: content }),
+      });
+      if (res.ok) {
+        setSavedAt("Edits submitted for review! The developer has been notified.");
+      } else {
+        const data = await res.json().catch(() => null);
+        setSavedAt(data?.error || "Submit failed — please try again.");
       }
-      lines.push(`---`);
-      lines.push(``);
+    } catch {
+      setSavedAt("Could not submit — please check your connection and try again.");
+    } finally {
+      setSubmitting(false);
     }
-
-    const subject = `KingGen Content Edits — ${changes.length} change(s)`;
-    const body = lines.join("\n");
-
-    // mailto has a ~2000 char URL limit in some browsers, but most modern
-    // browsers support much longer. If body is very large, truncate with a note.
-    const maxLen = 1800;
-    const truncatedBody =
-      body.length > maxLen
-        ? body.slice(0, maxLen) + "\n\n[Some changes truncated — please also click Export in the editor to send the full file]"
-        : body;
-
-    const mailto = `mailto:kinggencounseling@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(truncatedBody)}`;
-    window.open(mailto, "_blank");
-    setSavedAt("Email opened — please review and hit Send in your email app.");
   };
 
   const handleReset = () => {
@@ -279,9 +258,10 @@ export default function AdminEditorPage() {
         <div className="flex items-center gap-2">
           <button
             onClick={handleSubmitForReview}
-            className="px-3 py-1.5 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 transition-colors"
+            disabled={submitting}
+            className="px-3 py-1.5 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
-            Submit for Review
+            {submitting ? "Sending…" : "Submit for Review"}
           </button>
           <button
             onClick={handleSaveDraft}
