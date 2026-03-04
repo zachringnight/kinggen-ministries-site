@@ -4,6 +4,7 @@ import {
   FadeIn,
   PageHero,
 } from "../components";
+import { disclaimerContent } from "../content";
 
 export const metadata: Metadata = {
   title: "Disclaimer",
@@ -16,7 +17,7 @@ export default function DisclaimerPage() {
     <>
       {/* Hero Section with KingGen branded background */}
       <PageHero
-        title="Disclaimer"
+        title={disclaimerContent.hero.title}
         background="kinggen-branded"
       />
 
@@ -25,7 +26,7 @@ export default function DisclaimerPage() {
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <p className="text-lg text-text-secondary leading-relaxed mb-6">
-              This website is for informational purposes and is not an emergency service.
+              {disclaimerContent.intro}
             </p>
 
             <div className="bg-red-50 border border-red-200 rounded-2xl p-6">

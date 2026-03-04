@@ -13,6 +13,7 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "../components";
+import { servicesContent } from "../content";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -20,71 +21,34 @@ export const metadata: Metadata = {
     "Explore KingGen Ministries counseling services, including Gospel-centered support for anxiety, grief, trauma, relationships, and spiritual growth.",
 };
 
-const services = [
-  {
-    icon: HeartIcon,
-    title: "Individual Pastoral Counseling",
-    description:
-      "Gospel-centered support for anxiety, stress, grief, and life transitions. Offered at no cost.",
-  },
-  {
-    icon: CrossIcon,
-    title: "Grief & Loss Care",
-    description:
-      "Walking through grief, loss, and the seasons that follow with compassion and Scripture.",
-  },
-  {
-    icon: ShieldIcon,
-    title: "Trauma & Crisis Support",
-    description:
-      "Confidential, trauma-informed care for women in crisis or walking through deep pain.",
-  },
-  {
-    icon: UsersIcon,
-    title: "Relationship & Family Support",
-    description:
-      "Help navigating relationship pain, family conflict, and communication challenges.",
-  },
-  {
-    icon: CheckCircleIcon,
-    title: "Spiritual Care & Growth",
-    description:
-      "Support for spiritual discouragement, faith questions, and deepening your walk with God.",
-  },
-  {
-    icon: ArrowRightIcon,
-    title: "Boundaries, Identity & Confidence",
-    description:
-      "Practical guidance for setting healthy boundaries, reclaiming identity, and rebuilding confidence.",
-  },
-];
+const serviceIcons = [HeartIcon, CrossIcon, ShieldIcon, UsersIcon, CheckCircleIcon, ArrowRightIcon];
 
 export default function ServicesPage() {
   return (
     <>
       <InnerPageHero
-        title="Our Services"
-        subtitle="Compassionate, Gospel-centered counseling at no cost to clients."
+        title={servicesContent.hero.title}
+        subtitle={servicesContent.hero.subtitle}
         background="inner-logo"
         ariaLabel="Our Services"
-       
+
       />
 
       <Section variant="art-cream" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
-              Counseling support rooted in hope
+              {servicesContent.intro.title}
             </h2>
             <p className="text-base sm:text-lg text-text-secondary">
-              Each area of care is offered through confidential, Gospel-centered clinical pastoral counseling.
+              {servicesContent.intro.subtitle}
             </p>
           </div>
         </FadeIn>
 
         <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {services.map((service, i) => {
-            const Icon = service.icon;
+          {servicesContent.services.map((service, i) => {
+            const Icon = serviceIcons[i];
 
             return (
               <StaggerItem key={service.title}>
@@ -109,10 +73,10 @@ export default function ServicesPage() {
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4">
-              Ready to take the next step?
+              {servicesContent.cta.title}
             </h2>
             <p className="text-base sm:text-lg text-white/95 mb-8">
-              Connect with us to discuss a referral or partnership path. All services are offered at no cost to clients.
+              {servicesContent.cta.subtitle}
             </p>
             <Button
               href="/contact"
