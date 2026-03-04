@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import OptimizedBackground from "./OptimizedBackground";
-import { BrandLockup } from "./Logo";
 
 type HeroBackground = "inner" | "about" | "inner-logo";
 
@@ -21,7 +20,6 @@ const backgroundMap: Record<
     overlayClassName: string;
     titleClassName: string;
     subtitleClassName: string;
-    lockupClassName: string;
   }
 > = {
   inner: {
@@ -29,21 +27,18 @@ const backgroundMap: Record<
       "bg-gradient-to-b from-brand-primary/74 via-brand-primary/82 to-brand-primary/90",
     titleClassName: "text-white",
     subtitleClassName: "text-white/95",
-    lockupClassName: "border-white/35 bg-black/10 text-white",
   },
   about: {
     overlayClassName:
       "bg-gradient-to-b from-brand-primary/72 via-brand-primary/80 to-brand-primary/88",
     titleClassName: "text-white",
     subtitleClassName: "text-white/95",
-    lockupClassName: "border-white/35 bg-black/10 text-white",
   },
   "inner-logo": {
     overlayClassName:
       "bg-gradient-to-b from-brand-primary/73 via-brand-primary/81 to-brand-primary/89",
     titleClassName: "text-white",
     subtitleClassName: "text-white/95",
-    lockupClassName: "border-white/35 bg-black/10 text-white",
   },
 };
 
@@ -78,14 +73,8 @@ export default function InnerPageHero({
       <div className="relative z-10 w-full pb-12 pt-24 md:pb-14 md:pt-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-5xl mx-auto text-center md:text-left">
-            <div
-              className={`inline-flex items-center justify-center rounded-xl border px-3 py-1.5 shadow-lg backdrop-blur-sm ${backgroundConfig.lockupClassName}`}
-            >
-              <BrandLockup theme="dark" size="sm" />
-            </div>
-
             <h1
-              className={`mt-4 text-[clamp(2rem,6vw,3.5rem)] font-bold font-heading leading-tight ${backgroundConfig.titleClassName}`}
+              className={`text-[clamp(2rem,6vw,3.5rem)] font-bold font-heading leading-tight ${backgroundConfig.titleClassName}`}
             >
               {title}
             </h1>

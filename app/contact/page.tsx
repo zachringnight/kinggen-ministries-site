@@ -110,7 +110,7 @@ export default function ContactPage() {
     setFormErrors({});
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(siteConfig.formspreeEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -143,9 +143,9 @@ export default function ContactPage() {
         ...prev,
         form: error instanceof Error
           ? error.message
-          : `Something went wrong while sending your message. Please try again or email ${siteConfig.email}.`,
+          : `Something went wrong. Please try again or email us directly at ${siteConfig.email}.`,
       }));
-      setStatusMessage(`Your message was not sent. Please try again or email ${siteConfig.email}.`);
+      setStatusMessage(`Something went wrong. Please try again or email us directly at ${siteConfig.email}.`);
     }
   };
 

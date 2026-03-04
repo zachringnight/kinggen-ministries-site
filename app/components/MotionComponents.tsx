@@ -145,20 +145,20 @@ export function FadeIn({
   children,
   direction = "up",
   delay = 0,
-  duration = 0.6,
+  duration = 0.3,
   className = "",
   once = true,
 }: FadeInProps) {
   const ref = useRef(null);
   const shouldReduceMotion = useReducedMotion();
-  const isInView = useInView(ref, { once, margin: "100px", amount: 0.1 });
+  const isInView = useInView(ref, { once, margin: "0px 0px 100px 0px", amount: 0.05 });
   const controls = useAnimation();
 
   const directions = {
-    up: { y: 40, x: 0 },
-    down: { y: -40, x: 0 },
-    left: { x: 40, y: 0 },
-    right: { x: -40, y: 0 },
+    up: { y: 20, x: 0 },
+    down: { y: -20, x: 0 },
+    left: { x: 20, y: 0 },
+    right: { x: -20, y: 0 },
     none: { x: 0, y: 0 },
   };
 
@@ -180,16 +180,17 @@ export function FadeIn({
       animate={controls}
       variants={{
         hidden: {
-          opacity: 0.3,
+          opacity: 0.7,
           ...directions[direction],
         },
         visible: {
           opacity: 1,
           x: 0,
           y: 0,
+          transform: "none",
           transition: {
-            duration,
-            delay,
+            duration: Math.min(duration, 0.3),
+            delay: Math.min(delay, 0.15),
             ease: [0.25, 0.4, 0.25, 1],
           },
         },
@@ -213,13 +214,13 @@ interface StaggerContainerProps {
 
 export function StaggerContainer({
   children,
-  staggerDelay = 0.1,
+  staggerDelay = 0.05,
   className = "",
 }: StaggerContainerProps) {
   const ref = useRef(null);
   const shouldReduceMotion = useReducedMotion();
-  const isInView = useInView(ref, { once: true, margin: "100px", amount: 0.1 });
-  const effectiveStaggerDelay = Math.min(staggerDelay, 0.1);
+  const isInView = useInView(ref, { once: true, margin: "0px 0px 100px 0px", amount: 0.05 });
+  const effectiveStaggerDelay = Math.min(staggerDelay, 0.05);
 
   if (shouldReduceMotion) {
     return <div className={className}>{children}</div>;
@@ -263,13 +264,14 @@ export function StaggerItem({
     <motion.div
       data-scroll-animate="true"
       variants={{
-        hidden: { opacity: 0.3, y: 20, scale: 0.98 },
+        hidden: { opacity: 0.7, y: 12, scale: 0.99 },
         visible: {
           opacity: 1,
           y: 0,
           scale: 1,
+          transform: "none",
           transition: {
-            duration: 0.5,
+            duration: 0.3,
             ease: [0.25, 0.4, 0.25, 1],
           },
         },
@@ -1157,7 +1159,7 @@ interface ImpactCounterSectionProps {
 
 export function ImpactCounterSection({ stats, className = "" }: ImpactCounterSectionProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px", amount: 0.2 });
+  const isInView = useInView(ref, { once: true, margin: "0px 0px 100px 0px", amount: 0.05 });
   const shouldReduceMotion = useReducedMotion();
 
   return (
@@ -1166,15 +1168,15 @@ export function ImpactCounterSection({ stats, className = "" }: ImpactCounterSec
         <motion.div
           key={index}
           data-scroll-animate="true"
-          initial={shouldReduceMotion ? false : { opacity: 0.3, y: 20 }}
+          initial={shouldReduceMotion ? false : { opacity: 0.7, y: 12 }}
           animate={
             shouldReduceMotion
               ? { opacity: 1, y: 0 }
               : isInView
-                ? { opacity: 1, y: 0 }
-                : { opacity: 0.3, y: 20 }
+                ? { opacity: 1, y: 0, transform: "none" }
+                : { opacity: 0.7, y: 12 }
           }
-          transition={{ duration: 0.45, delay: Math.min(index * 0.1, 0.3) }}
+          transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.15) }}
           className="scroll-animated text-center"
         >
           <div className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-white mb-2">

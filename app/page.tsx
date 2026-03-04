@@ -17,7 +17,6 @@ import {
   StaggerItem,
   ImpactCounterSection,
   AnimatedDivider,
-  BrandMark,
   BrandLockup,
 } from "./components";
 
@@ -114,80 +113,38 @@ export default function Home() {
         <h1 className="sr-only">KingGen Ministries</h1>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-24 pb-14 md:pt-24 md:pb-20">
-          <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-10">
-            <div className="max-w-3xl">
-              <div className="mb-5">
-                <BrandLockup theme="dark" size="lg" />
-              </div>
-
-              <span className="inline-block px-3.5 py-1.5 bg-white/10 backdrop-blur-sm border border-white/18 text-white/95 text-xs sm:text-sm font-medium rounded-full mb-5 tracking-wide">
-                501(c)(3) Christian Counseling Nonprofit
-              </span>
-              <p className="text-[clamp(2rem,6vw,4rem)] font-bold font-heading text-white leading-[1.08] text-balance">
-                Free Gospel-centered counseling for women in need.
-              </p>
-              <p className="text-base md:text-lg text-white/95 mt-4 max-w-2xl leading-relaxed">
-                Compassionate, confidential pastoral care offered at no cost. For referrals, donors, and ministry partners.
-              </p>
-              <div className="mt-7 flex flex-col sm:flex-row gap-3">
-                <Button href="/contact" variant="gold" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
-                  Start a Referral Conversation
-                </Button>
-                <Button href="/donate" variant="outline-white" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
-                  Support the Mission
-                </Button>
-              </div>
-              <div className="mt-6 flex flex-wrap gap-3">
-                {[
-                  "No-cost client services",
-                  "Confidential & private",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-white/95 text-sm">
-                    <CheckCircleIcon className="w-4 h-4 text-brand-gold-light flex-shrink-0" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="mb-5 flex justify-center">
+              <BrandLockup theme="dark" size="lg" />
             </div>
 
-            <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
-              <div className="relative overflow-hidden rounded-[1.75rem] border border-white/18 bg-white/8 shadow-[0_24px_62px_-30px_rgba(0,0,0,0.58)]">
-                <OptimizedBackground
-                  src="/brand/curated/bg/green-watermark-tall.png"
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ opacity: 0.34 }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-brand-primary-dark/12 via-brand-primary/48 to-brand-primary-dark/70" />
-
-                <div className="relative z-10 p-5 sm:p-6">
-                  <div className="flex items-center gap-3">
-                    <BrandMark theme="dark" size={44} />
-                    <span className="text-sm font-semibold tracking-[0.08em] uppercase text-white/95">
-                      Gospel-Centered Care
-                    </span>
-                  </div>
-
-                  <p className="mt-4 text-sm sm:text-base text-white/95 leading-relaxed max-w-md">
-                    Clinical pastoral counseling rooted in Scripture and offered with compassion, privacy, and no-cost access.
-                  </p>
-
-                  <div className="grid grid-cols-2 gap-2.5 mt-5">
-                    {[
-                      { value: "15+", label: "Years" },
-                      { value: "100%", label: "Free Care" },
-                    ].map((metric) => (
-                      <div
-                        key={metric.label}
-                        className="rounded-xl border border-white/18 bg-white/10 px-3 py-2 text-center"
-                      >
-                        <p className="text-white font-semibold text-sm">{metric.value}</p>
-                        <p className="text-[10px] text-white/95 uppercase tracking-[0.1em]">{metric.label}</p>
-                      </div>
-                    ))}
-                  </div>
-
+            <span className="inline-block px-3.5 py-1.5 bg-white/10 backdrop-blur-sm border border-white/18 text-white/95 text-xs sm:text-sm font-medium rounded-full mb-5 tracking-wide">
+              501(c)(3) Christian Counseling Nonprofit
+            </span>
+            <p className="text-[clamp(2rem,6vw,4rem)] font-bold font-heading text-white leading-[1.08] text-balance">
+              Free Gospel-centered counseling for women in need.
+            </p>
+            <p className="text-base md:text-lg text-white/95 mt-4 max-w-2xl mx-auto leading-relaxed">
+              Compassionate, confidential pastoral care offered at no cost. For referrals, donors, and ministry partners.
+            </p>
+            <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
+              <Button href="/contact" variant="gold" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                Start a Referral Conversation
+              </Button>
+              <Button href="/donate" variant="outline-white" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
+                Support the Mission
+              </Button>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3 justify-center">
+              {[
+                "No-cost client services",
+                "Confidential & private",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-2 text-white/95 text-sm">
+                  <CheckCircleIcon className="w-4 h-4 text-brand-gold-light flex-shrink-0" />
+                  <span>{item}</span>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

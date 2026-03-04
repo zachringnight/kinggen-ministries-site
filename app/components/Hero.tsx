@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import Button from "./Button";
 import OptimizedBackground from "./OptimizedBackground";
-import { BrandLockup } from "./Logo";
 
 interface HeroProps {
   title: string | ReactNode;
@@ -194,10 +193,7 @@ export function PageHero({
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6">
         <div className={`max-w-5xl mx-auto text-center md:text-left ${isLight ? "text-text-primary" : "text-white"}`}>
-          <div className="inline-flex items-center justify-center rounded-xl border border-white/30 bg-white/12 px-3 py-1.5 shadow-lg backdrop-blur-sm">
-            <BrandLockup theme="dark" size="sm" />
-          </div>
-          <h1 className="mt-4 text-[clamp(2rem,6vw,3.75rem)] font-bold font-heading mb-3 md:mb-4">
+          <h1 className="text-[clamp(2rem,6vw,3.75rem)] font-bold font-heading mb-3 md:mb-4">
             {title}
           </h1>
           {description && (

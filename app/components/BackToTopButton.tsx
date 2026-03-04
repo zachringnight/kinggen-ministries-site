@@ -3,14 +3,13 @@
 import { useEffect, useState } from "react";
 import { ChevronUpIcon } from "./Icons";
 
-const SHOW_AFTER_PX = 500;
-
 export default function BackToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsVisible(window.scrollY > SHOW_AFTER_PX);
+      // Hide until user scrolls past the full hero/viewport height
+      setIsVisible(window.scrollY > window.innerHeight);
     };
 
     handleScroll();
