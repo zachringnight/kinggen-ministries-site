@@ -17,7 +17,6 @@ import {
   StaggerItem,
   ImpactCounterSection,
   AnimatedDivider,
-  BrandMark,
   BrandLockup,
 } from "./components";
 
@@ -101,7 +100,7 @@ export default function Home() {
   return (
     <>
       <section
-        className="relative w-full min-h-[60vh] md:min-h-[72vh] flex items-center animate-fade-in-up isolate overflow-hidden"
+        className="relative w-full min-h-[56vh] md:min-h-[66vh] flex items-center animate-fade-in-up isolate overflow-hidden"
         aria-label="KingGen Ministries - Christian Counseling for Women"
       >
         <OptimizedBackground
@@ -114,22 +113,25 @@ export default function Home() {
         <h1 className="sr-only">KingGen Ministries</h1>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-24 pb-14 md:pt-24 md:pb-20">
-          <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-10">
-            <div className="max-w-3xl">
-              <div className="mb-5">
-                <BrandLockup theme="dark" size="lg" />
+          <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
+            <div>
+              <div className="mb-5 flex justify-center">
+                <BrandLockup theme="dark" size="lg" className="mx-auto" />
               </div>
 
-              <span className="inline-block px-3.5 py-1.5 bg-white/10 backdrop-blur-sm border border-white/18 text-white/95 text-xs sm:text-sm font-medium rounded-full mb-5 tracking-wide">
+              <span className="inline-block px-3.5 py-1.5 bg-white/9 backdrop-blur-sm border border-white/18 text-white/95 text-xs sm:text-sm font-medium rounded-full mb-4 tracking-wide">
                 501(c)(3) Christian Counseling Nonprofit
               </span>
+              <p className="text-[11px] sm:text-xs uppercase tracking-[0.12em] text-brand-gold-light/95 font-semibold mb-3">
+                Clinical pastoral counseling ministry
+              </p>
               <p className="text-[clamp(2rem,6vw,4rem)] font-bold font-heading text-white leading-[1.08] text-balance">
                 Free Gospel-centered counseling for women in need.
               </p>
               <p className="text-base md:text-lg text-white/95 mt-4 max-w-2xl leading-relaxed">
                 Compassionate, confidential pastoral care offered at no cost. For referrals, donors, and ministry partners.
               </p>
-              <div className="mt-7 flex flex-col sm:flex-row gap-3">
+              <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
                 <Button href="/contact" variant="gold" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
                   Start a Referral Conversation
                 </Button>
@@ -137,57 +139,34 @@ export default function Home() {
                   Support the Mission
                 </Button>
               </div>
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-wrap gap-3 justify-center">
                 {[
                   "No-cost client services",
+                  "Licensed clinical pastoral counselor",
                   "Confidential & private",
                 ].map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-white/95 text-sm">
+                  <div key={item} className="flex items-center gap-2 text-white/95 text-[13px] sm:text-sm bg-white/10 border border-white/16 rounded-full px-3 py-1.5">
                     <CheckCircleIcon className="w-4 h-4 text-brand-gold-light flex-shrink-0" />
                     <span>{item}</span>
                   </div>
                 ))}
               </div>
-            </div>
-
-            <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
-              <div className="relative overflow-hidden rounded-[1.75rem] border border-white/18 bg-white/8 shadow-[0_24px_62px_-30px_rgba(0,0,0,0.58)]">
-                <OptimizedBackground
-                  src="/brand/curated/bg/green-watermark-tall.png"
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ opacity: 0.34 }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-brand-primary-dark/12 via-brand-primary/48 to-brand-primary-dark/70" />
-
-                <div className="relative z-10 p-5 sm:p-6">
-                  <div className="flex items-center gap-3">
-                    <BrandMark theme="dark" size={44} />
-                    <span className="text-sm font-semibold tracking-[0.08em] uppercase text-white/95">
-                      Gospel-Centered Care
-                    </span>
+              <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-2.5 max-w-3xl mx-auto">
+                {[
+                  { value: "15+", label: "Years of care" },
+                  { value: "100%", label: "No-cost sessions" },
+                  { value: "501(c)(3)", label: "Nonprofit stewardship" },
+                ].map((metric) => (
+                  <div key={metric.label} className="brand-hero-stat px-4 py-2.5 text-center">
+                    <p className="text-white font-semibold text-base">{metric.value}</p>
+                    <p className="text-[11px] text-white/95 uppercase tracking-[0.08em]">{metric.label}</p>
                   </div>
-
-                  <p className="mt-4 text-sm sm:text-base text-white/95 leading-relaxed max-w-md">
-                    Clinical pastoral counseling rooted in Scripture and offered with compassion, privacy, and no-cost access.
-                  </p>
-
-                  <div className="grid grid-cols-2 gap-2.5 mt-5">
-                    {[
-                      { value: "15+", label: "Years" },
-                      { value: "100%", label: "Free Care" },
-                    ].map((metric) => (
-                      <div
-                        key={metric.label}
-                        className="rounded-xl border border-white/18 bg-white/10 px-3 py-2 text-center"
-                      >
-                        <p className="text-white font-semibold text-sm">{metric.value}</p>
-                        <p className="text-[10px] text-white/95 uppercase tracking-[0.1em]">{metric.label}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                </div>
+                ))}
               </div>
+
+              <p className="mt-4 text-sm text-white/90 max-w-2xl mx-auto">
+                Trusted by pastors, church leaders, social workers, and community referrers.
+              </p>
             </div>
           </div>
         </div>
@@ -195,7 +174,7 @@ export default function Home() {
 
       <AnimatedDivider variant="wave" color="var(--brand-soft)" className="-mt-1" />
 
-      <Section variant="art-cream" padding="xl">
+      <Section variant="art-cream" padding="lg">
         <FadeIn>
           <div className="relative z-10 max-w-3xl mx-auto text-center">
             <SectionHeader
@@ -210,7 +189,7 @@ export default function Home() {
         </FadeIn>
       </Section>
 
-      <Section variant="default" padding="xl">
+      <Section variant="default" padding="lg">
         <FadeIn>
           <SectionHeader
             title="Our services"
@@ -218,10 +197,10 @@ export default function Home() {
           />
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+        <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 max-w-5xl mx-auto">
           {services.map((service, i) => (
             <StaggerItem key={i}>
-              <div className="brand-panel p-6 md:p-8 h-full flex flex-col card-hover">
+              <div className="brand-panel brand-panel-premium brand-panel-interactive p-6 md:p-8 h-full flex flex-col">
                 <div className="w-14 h-14 rounded-2xl bg-brand-primary text-white flex items-center justify-center mb-5 shadow-md shadow-brand-primary/20">
                   <service.icon className="w-7 h-7 text-white" />
                 </div>
@@ -245,7 +224,7 @@ export default function Home() {
         </FadeIn>
       </Section>
 
-      <Section variant="cross-green" padding="xl">
+      <Section variant="cross-green" padding="lg">
         <FadeIn>
           <SectionHeader
             title="Our impact"
@@ -257,7 +236,7 @@ export default function Home() {
         <ImpactCounterSection stats={impactStats} className="max-w-4xl mx-auto" />
       </Section>
 
-      <Section variant="light" padding="xl">
+      <Section variant="light" padding="lg">
         <FadeIn>
           <SectionHeader
             title="What sets KingGen apart"
@@ -273,7 +252,7 @@ export default function Home() {
             { icon: CheckCircleIcon, text: "501(c)(3) nonprofit accountability", desc: "Transparent stewardship of every gift" },
           ].map((item, i) => (
             <StaggerItem key={i}>
-              <div className="brand-panel p-6 h-full card-hover">
+              <div className="brand-panel brand-panel-premium brand-panel-interactive p-6 h-full">
                 <div className="flex flex-col items-center text-center">
                   <div className="w-12 h-12 rounded-xl bg-brand-primary text-white flex items-center justify-center mb-4 shadow-sm shadow-brand-primary/20">
                     <item.icon className="w-6 h-6 text-white" />
@@ -287,15 +266,15 @@ export default function Home() {
         </StaggerContainer>
       </Section>
 
-      <Section variant="soft" padding="xl">
+      <Section variant="soft" padding="lg">
         <FadeIn>
           <SectionHeader title="Partner with us" />
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {audienceCards.map((card) => (
             <StaggerItem key={card.title}>
-              <div className="brand-panel p-6 md:p-8 h-full flex flex-col">
+              <div className="brand-panel brand-panel-premium brand-panel-interactive p-6 md:p-8 h-full flex flex-col">
                 <div>
                   <div className={`w-14 h-14 rounded-2xl ${card.iconColor} flex items-center justify-center mb-4 shadow-lg`}>
                     <card.icon className="w-7 h-7 text-white" />
@@ -316,9 +295,9 @@ export default function Home() {
         </StaggerContainer>
       </Section>
 
-      <Section variant="cross-green" padding="xl">
+      <Section variant="cross-green" padding="lg">
         <FadeIn>
-          <div className="max-w-3xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
+          <div className="max-w-3xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10 shadow-[0_28px_64px_-28px_rgba(0,0,0,0.65)]">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 md:mb-6">
               Our commitment
             </h2>
@@ -343,7 +322,7 @@ export default function Home() {
         </FadeIn>
       </Section>
 
-      <Section variant="art-cream" padding="xl">
+      <Section variant="art-cream" padding="lg">
         <FadeIn>
           <SectionHeader
             title="What partners say"
@@ -353,10 +332,10 @@ export default function Home() {
 
         <div className="max-w-4xl mx-auto">
           <div className="hidden md:block">
-            <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
               {testimonialData.map((testimonial, index) => (
                 <StaggerItem key={index}>
-                  <div className="brand-panel p-6 md:p-7 h-full">
+                  <div className="brand-panel brand-panel-premium brand-panel-interactive p-6 md:p-7 h-full">
                     <QuoteIcon className="w-7 h-7 text-brand-primary/22 mb-4" />
                     <p className="text-sm md:text-base text-text-secondary italic mb-4 md:mb-6 leading-relaxed">
                       &ldquo;{testimonial.quote}&rdquo;
@@ -377,7 +356,7 @@ export default function Home() {
           </div>
 
           <div className="md:hidden">
-            <div className="brand-panel rounded-2xl overflow-hidden border border-brand-light">
+            <div className="brand-panel brand-panel-premium rounded-2xl overflow-hidden border border-brand-light">
               {testimonialData.map((testimonial, index) => (
                 <FadeIn key={index} delay={0.1 * index}>
                   <div className="p-6 border-b border-brand-light last:border-b-0">
@@ -410,10 +389,10 @@ export default function Home() {
         </FadeIn>
       </Section>
 
-      <Section variant="soft" padding="xl">
+      <Section variant="soft" padding="lg">
         <div className="max-w-4xl mx-auto">
           <FadeIn>
-            <div className="brand-panel p-8 md:p-12 text-center">
+            <div className="brand-panel brand-panel-premium p-8 md:p-12 text-center">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
                 Invite LeeAnn to speak
               </h2>
@@ -433,7 +412,7 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section variant="art-cream" padding="xl">
+      <Section variant="art-cream" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center px-4 sm:px-6">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4 md:mb-6">
