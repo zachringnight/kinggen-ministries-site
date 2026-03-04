@@ -88,14 +88,14 @@ export default function ServicesPage() {
 
             return (
               <StaggerItem key={service.title}>
-                <div className="brand-panel p-6 h-full service-card-interactive" tabIndex={0}>
+                <div className="brand-panel p-6 h-full service-card-interactive flex flex-col" tabIndex={0}>
                   <div className="w-14 h-14 rounded-2xl bg-brand-primary/12 flex items-center justify-center mb-5">
                     <Icon className="w-7 h-7 text-brand-primary" />
                   </div>
                   <h3 className="text-xl font-bold font-heading text-text-primary mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-text-secondary leading-relaxed">
+                  <p className="text-text-secondary leading-relaxed flex-grow">
                     {service.description}
                   </p>
                 </div>

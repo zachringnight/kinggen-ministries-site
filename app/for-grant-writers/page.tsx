@@ -117,9 +117,9 @@ export default function ForGrantWriters() {
         <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
           {fundingNeeds.map((need, i) => (
             <StaggerItem key={i}>
-              <div className="brand-panel p-5 md:p-6 h-full">
+              <div className="brand-panel p-5 md:p-6 h-full flex flex-col">
                 <h3 className="font-bold text-text-primary mb-2">{need.area}</h3>
-                <p className="text-sm md:text-base text-text-secondary">{need.description}</p>
+                <p className="text-sm md:text-base text-text-secondary flex-grow">{need.description}</p>
               </div>
             </StaggerItem>
           ))}

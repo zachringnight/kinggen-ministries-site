@@ -41,7 +41,7 @@ const markShadowByTheme: Record<BrandMarkTheme, string> = {
 
 const lockupShadowByTheme: Record<LogoTheme, string> = {
   light: "drop-shadow(0 10px 22px rgba(45,74,44,0.2))",
-  dark: "drop-shadow(0 12px 24px rgba(0,0,0,0.35))",
+  dark: "none",
 };
 
 interface BrandMarkProps {

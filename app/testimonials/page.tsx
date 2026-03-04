@@ -54,14 +54,14 @@ export default function TestimonialsPage() {
           {testimonials.map((testimonial, i) => (
             <StaggerItem key={i}>
               <TiltCard className="h-full" tiltAmount={3}>
-                <div className="brand-panel p-8 h-full relative">
+                <div className="brand-panel p-8 h-full relative flex flex-col">
                   <QuoteIcon className="absolute top-6 right-6 w-10 h-10 text-brand-accent/20" />
                   <div className="mb-4">
                     <span className="inline-block px-3 py-1 bg-brand-light text-brand-primary text-sm font-medium rounded-full">
                       {testimonial.role}
                     </span>
                   </div>
-                  <p className="text-text-secondary italic mb-6 leading-relaxed text-lg">
+                  <p className="text-text-secondary italic mb-6 leading-relaxed text-lg flex-grow">
                     &ldquo;{testimonial.quote}&rdquo;
                   </p>
                   <div className="flex items-center gap-3">

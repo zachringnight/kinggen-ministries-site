@@ -254,9 +254,14 @@ export function StaggerItem({
   className?: string;
 }) {
   const shouldReduceMotion = useReducedMotion();
+  const itemClassName = `h-full ${className}`.trim();
 
   if (shouldReduceMotion) {
-    return <div className={className}>{children}</div>;
+    return (
+      <div className={itemClassName}>
+        <div className="h-full [&>*]:h-full">{children}</div>
+      </div>
+    );
   }
 
   return (
@@ -274,9 +279,9 @@ export function StaggerItem({
           },
         },
       }}
-      className={`scroll-animated ${className}`}
+      className={`scroll-animated ${itemClassName}`}
     >
-      {children}
+      <div className="h-full [&>*]:h-full">{children}</div>
     </motion.div>
   );
 }
