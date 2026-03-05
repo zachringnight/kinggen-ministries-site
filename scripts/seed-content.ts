@@ -29,6 +29,8 @@ async function savePageContent(page: string, content: Record<string, unknown>) {
     {
       access: 'public',
       addRandomSuffix: false,
+      allowOverwrite: true,
+      cacheControlMaxAge: 60,
       contentType: 'application/json',
     }
   );
@@ -154,7 +156,7 @@ const homeContent = {
     cards: [
       {
         icon: 'UsersIcon',
-        iconColor: 'brand-primary',
+        iconColor: 'bg-brand-primary',
         title: 'Referrers',
         description:
           'Pastors, counselors, and community leaders who connect women with care.',
@@ -163,7 +165,7 @@ const homeContent = {
       },
       {
         icon: 'HeartIcon',
-        iconColor: 'brand-accent',
+        iconColor: 'bg-brand-secondary',
         title: 'Donors',
         description:
           'Generous supporters who make free counseling possible.',
@@ -172,7 +174,7 @@ const homeContent = {
       },
       {
         icon: 'GiftIcon',
-        iconColor: 'brand-secondary',
+        iconColor: 'bg-brand-warm',
         title: 'Grant Writers',
         description:
           'Professionals seeking organization and program information.',

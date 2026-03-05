@@ -59,7 +59,7 @@ npm run lint     # Run ESLint
 
 ## External Services
 
-- **Formspree**: Contact form handling
+- **Vercel Blob**: Content storage and contact submission storage
 - **Calendly**: Appointment scheduling
 - **Donorbox**: Donation processing
 

@@ -21,29 +21,25 @@ const backgroundMap: Record<
     overlayClassName: string;
     titleClassName: string;
     subtitleClassName: string;
-    lockupClassName: string;
   }
 > = {
   inner: {
     overlayClassName:
-      "bg-gradient-to-b from-brand-primary/74 via-brand-primary/82 to-brand-primary/90",
+      "bg-gradient-to-b from-brand-primary-dark/82 via-brand-primary/88 to-brand-primary-dark/94",
     titleClassName: "text-white",
     subtitleClassName: "text-white/95",
-    lockupClassName: "border-white/35 bg-black/10 text-white",
   },
   about: {
     overlayClassName:
-      "bg-gradient-to-b from-brand-primary/72 via-brand-primary/80 to-brand-primary/88",
+      "bg-gradient-to-b from-brand-primary-dark/80 via-brand-primary/86 to-brand-primary-dark/92",
     titleClassName: "text-white",
     subtitleClassName: "text-white/95",
-    lockupClassName: "border-white/35 bg-black/10 text-white",
   },
   "inner-logo": {
     overlayClassName:
-      "bg-gradient-to-b from-brand-primary/73 via-brand-primary/81 to-brand-primary/89",
+      "bg-gradient-to-b from-brand-primary-dark/81 via-brand-primary/87 to-brand-primary-dark/93",
     titleClassName: "text-white",
     subtitleClassName: "text-white/95",
-    lockupClassName: "border-white/35 bg-black/10 text-white",
   },
 };
 
@@ -59,7 +55,7 @@ export default function InnerPageHero({
 
   return (
     <section
-      className={`relative brand-hero-banner w-full ${minHeightClassName} animate-fade-in-up flex items-end isolate`}
+      className={`relative brand-hero-banner w-full ${minHeightClassName} animate-fade-in-up flex items-end isolate bg-brand-primary-dark`}
       role="banner"
       aria-label={ariaLabel ?? title}
     >
@@ -73,26 +69,35 @@ export default function InnerPageHero({
       />
 
       {/* Subtle radial highlight for depth */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(123,163,144,0.12)_0%,transparent_60%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_28%_18%,rgba(123,163,144,0.12)_0%,transparent_54%)] pointer-events-none" />
 
       <div className="relative z-10 w-full pb-12 pt-24 md:pb-14 md:pt-24">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-5xl mx-auto text-center md:text-left">
-            <div
-              className={`inline-flex items-center justify-center rounded-xl border px-3 py-1.5 shadow-lg backdrop-blur-sm ${backgroundConfig.lockupClassName}`}
-            >
-              <BrandLockup theme="dark" size="sm" />
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="flex justify-center">
+              <BrandLockup
+                theme="dark"
+                size="sm"
+                className="w-[176px] md:w-[214px] h-auto"
+                priority
+              />
+            </div>
+
+            <div className="mt-3 flex justify-center">
+              <span className="inline-flex items-center rounded-full border border-white/16 bg-white/10 px-3.5 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white/95 backdrop-blur-sm">
+                Gospel-centered counseling ministry
+              </span>
             </div>
 
             <h1
-              className={`mt-4 text-[clamp(2rem,6vw,3.5rem)] font-bold font-heading leading-tight ${backgroundConfig.titleClassName}`}
+              className={`mt-5 text-[clamp(2rem,6vw,3.5rem)] font-bold font-heading leading-tight ${backgroundConfig.titleClassName}`}
             >
               {title}
             </h1>
 
             {subtitle && (
               <p
-                className={`mt-3 text-base md:text-lg max-w-2xl mx-auto md:mx-0 leading-relaxed ${backgroundConfig.subtitleClassName}`}
+                className={`mt-3 text-base md:text-lg max-w-2xl mx-auto leading-relaxed ${backgroundConfig.subtitleClassName}`}
               >
                 {subtitle}
               </p>

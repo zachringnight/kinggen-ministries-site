@@ -1,15 +1,1 @@
-{
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "kinggen-ministries-site.vercel.app"
-        }
-      ],
-      "destination": "https://kinggen-ministries-site-mwqc.vercel.app/:path*",
-      "permanent": true
-    }
-  ]
-}
+{}

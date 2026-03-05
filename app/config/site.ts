@@ -1,4 +1,4 @@
-const DEFAULT_SITE_URL = "https://kinggenministries.org";
+const DEFAULT_SITE_URL = "https://kinggen-ministries-site.vercel.app";
 const DEFAULT_PHONE = "(817) 682-4341";
 
 export function normalizeSiteUrl(rawUrl: string | undefined): string {
@@ -56,7 +56,6 @@ export const siteConfig = {
   },
   ein: "33-3032264",
   paypalUrl: "https://www.paypal.com/ncp/payment/7BTC79TNBLL8E",
-  formspreeEndpoint: process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "https://formspree.io/f/your-form-id",
   social: {
     instagram: "https://www.instagram.com/kinggenministries/",
     facebook: "https://www.facebook.com/profile.php?id=61573569056063",

@@ -11,6 +11,24 @@ import {
 } from "../components";
 import { getPageContent } from "../lib/content";
 
+function getTextField(
+  value: unknown,
+  fallback: string,
+  fieldNames: string[] = ["text", "description", "subtitle"]
+): string {
+  if (typeof value === "string") return value;
+  if (!value || typeof value !== "object") return fallback;
+
+  for (const fieldName of fieldNames) {
+    const candidate = (value as Record<string, unknown>)[fieldName];
+    if (typeof candidate === "string" && candidate.trim()) {
+      return candidate;
+    }
+  }
+
+  return fallback;
+}
+
 const DEFAULTS = {
   hero: {
     title: "About KingGen Ministries",
@@ -44,12 +62,36 @@ export const revalidate = 60;
 export default async function AboutPage() {
   const content = await getPageContent('about');
   const hero = { ...DEFAULTS.hero, ...(content?.hero as Record<string, unknown>) };
-  const mission = (content?.mission as string) ?? DEFAULTS.mission;
-  const heart = (content?.heart as string) ?? DEFAULTS.heart;
+  const mission = getTextField(content?.mission, DEFAULTS.mission);
+  const heart = getTextField(content?.heart, DEFAULTS.heart);
   const expectations = (content?.expectations as string[]) ?? DEFAULTS.expectations;
-  const referrerTrust = { ...DEFAULTS.referrer_trust, ...(content?.referrer_trust as Record<string, unknown>) };
-  const speaking = { ...DEFAULTS.speaking, ...(content?.speaking as Record<string, unknown>) };
-  const speakingTopics = (speaking.topics as typeof DEFAULTS.speaking.topics) ?? DEFAULTS.speaking.topics;
+  const referrerTrustContent = (content?.referrer_trust as Record<string, unknown>) ?? {};
+  const referrerTrust = {
+    headline:
+      (referrerTrustContent.headline as string) ??
+      (referrerTrustContent.title as string) ??
+      DEFAULTS.referrer_trust.headline,
+    description:
+      (referrerTrustContent.description as string) ??
+      (referrerTrustContent.subtitle as string) ??
+      DEFAULTS.referrer_trust.description,
+  };
+  const speakingContent = (content?.speaking as Record<string, unknown>) ?? {};
+  const speaking = {
+    headline:
+      (speakingContent.headline as string) ??
+      (speakingContent.title as string) ??
+      DEFAULTS.speaking.headline,
+    description: getTextField(
+      speakingContent,
+      DEFAULTS.speaking.description,
+      ["description", "subtitle", "text"]
+    ),
+  };
+  const speakingTopics =
+    (speakingContent.topics as typeof DEFAULTS.speaking.topics) ??
+    (speakingContent.cards as typeof DEFAULTS.speaking.topics) ??
+    DEFAULTS.speaking.topics;
 
   return (
     <>

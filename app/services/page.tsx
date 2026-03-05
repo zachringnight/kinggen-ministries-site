@@ -64,9 +64,9 @@ export default async function ServicesPage() {
             const Icon = resolveIcon(service.icon);
             return (
               <StaggerItem key={service.title}>
-                <div className="brand-panel p-6 h-full service-card-interactive flex flex-col" tabIndex={0}>
-                  <div className="w-14 h-14 rounded-2xl bg-brand-primary/12 flex items-center justify-center mb-5">
-                    <Icon className="w-7 h-7 text-brand-primary" />
+                <div className="brand-panel brand-panel-premium brand-panel-interactive p-6 h-full flex flex-col" tabIndex={0}>
+                  <div className="w-14 h-14 rounded-2xl bg-brand-primary text-white flex items-center justify-center mb-5 shadow-md shadow-brand-primary/18">
+                    <Icon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-xl font-bold font-heading text-text-primary mb-3">
                     {service.title}

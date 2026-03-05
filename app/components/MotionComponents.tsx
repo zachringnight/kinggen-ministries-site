@@ -155,10 +155,10 @@ export function FadeIn({
   const controls = useAnimation();
 
   const directions = {
-    up: { y: 40, x: 0 },
-    down: { y: -40, x: 0 },
-    left: { x: 40, y: 0 },
-    right: { x: -40, y: 0 },
+    up: { y: 18, x: 0 },
+    down: { y: -18, x: 0 },
+    left: { x: 24, y: 0 },
+    right: { x: -24, y: 0 },
     none: { x: 0, y: 0 },
   };
 
@@ -254,16 +254,21 @@ export function StaggerItem({
   className?: string;
 }) {
   const shouldReduceMotion = useReducedMotion();
+  const itemClassName = `h-full ${className}`.trim();
 
   if (shouldReduceMotion) {
-    return <div className={className}>{children}</div>;
+    return (
+      <div className={itemClassName}>
+        <div className="h-full [&>*]:h-full">{children}</div>
+      </div>
+    );
   }
 
   return (
     <motion.div
       data-scroll-animate="true"
       variants={{
-        hidden: { opacity: 0.3, y: 20, scale: 0.98 },
+        hidden: { opacity: 0.35, y: 12, scale: 0.985 },
         visible: {
           opacity: 1,
           y: 0,
@@ -274,9 +279,9 @@ export function StaggerItem({
           },
         },
       }}
-      className={`scroll-animated ${className}`}
+      className={`scroll-animated ${itemClassName}`}
     >
-      {children}
+      <div className="h-full [&>*]:h-full">{children}</div>
     </motion.div>
   );
 }
@@ -1164,16 +1169,16 @@ export function ImpactCounterSection({ stats, className = "" }: ImpactCounterSec
     <div ref={ref} className={`grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 ${className}`}>
       {stats.map((stat, index) => (
         <motion.div
-          key={index}
-          data-scroll-animate="true"
-          initial={shouldReduceMotion ? false : { opacity: 0.3, y: 20 }}
-          animate={
-            shouldReduceMotion
-              ? { opacity: 1, y: 0 }
-              : isInView
+        key={index}
+        data-scroll-animate="true"
+        initial={shouldReduceMotion ? false : { opacity: 0.35, y: 12 }}
+        animate={
+          shouldReduceMotion
+            ? { opacity: 1, y: 0 }
+            : isInView
                 ? { opacity: 1, y: 0 }
-                : { opacity: 0.3, y: 20 }
-          }
+                : { opacity: 0.35, y: 12 }
+        }
           transition={{ duration: 0.45, delay: Math.min(index * 0.1, 0.3) }}
           className="scroll-animated text-center"
         >

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 
-type ButtonVariant = "primary" | "secondary" | "accent" | "gold" | "outline" | "outline-white" | "ghost" | "white";
+type ButtonVariant = "primary" | "secondary" | "accent" | "outline" | "outline-white" | "ghost" | "white";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps {
@@ -21,21 +21,19 @@ interface ButtonProps {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-gradient-to-br from-brand-primary to-brand-secondary text-white hover:from-brand-primary-dark hover:to-brand-primary shadow-lg shadow-brand-primary/30 border border-brand-primary/30",
+    "bg-gradient-to-br from-brand-primary to-brand-secondary text-white hover:from-brand-primary-dark hover:to-brand-primary shadow-[0_14px_28px_-16px_rgba(45,74,44,0.46)] hover:shadow-[0_18px_34px_-16px_rgba(45,74,44,0.54)] border border-brand-primary/30",
   secondary:
-    "bg-brand-secondary text-white hover:bg-brand-primary shadow-lg shadow-brand-secondary/25 border border-brand-secondary/30",
+    "bg-brand-secondary text-white hover:bg-brand-primary shadow-[0_12px_24px_-16px_rgba(74,107,74,0.4)] hover:shadow-[0_16px_30px_-16px_rgba(45,74,44,0.46)] border border-brand-secondary/30",
   accent:
-    "bg-brand-accent text-brand-primary hover:bg-brand-accent/85 shadow-lg shadow-brand-accent/25 border border-brand-accent/30",
-  gold:
-    "bg-gradient-to-br from-brand-gold to-brand-gold-dark text-white hover:from-brand-gold-dark hover:to-brand-gold-dark shadow-lg shadow-brand-gold/30 border border-brand-gold/30",
+    "bg-brand-accent text-brand-primary hover:bg-brand-accent/90 shadow-[0_12px_24px_-16px_rgba(123,163,144,0.42)] hover:shadow-[0_16px_30px_-16px_rgba(91,132,113,0.48)] border border-brand-accent/35",
   outline:
-    "border border-brand-primary/65 text-brand-primary hover:bg-brand-primary hover:text-white",
+    "border border-brand-primary/60 text-brand-primary bg-white/82 hover:bg-brand-primary hover:text-white shadow-[0_10px_22px_-18px_rgba(45,74,44,0.24)] hover:shadow-[0_14px_28px_-18px_rgba(45,74,44,0.32)]",
   "outline-white":
-    "border-2 border-white/70 text-white hover:bg-white/15",
+    "border border-white/68 text-white bg-white/6 hover:bg-white/14 shadow-[0_14px_28px_-18px_rgba(0,0,0,0.24)] hover:shadow-[0_18px_34px_-18px_rgba(0,0,0,0.34)]",
   ghost:
     "text-brand-primary hover:bg-brand-light",
   white:
-    "bg-white text-brand-primary hover:bg-brand-soft shadow-lg border border-white/60",
+    "bg-white text-brand-primary hover:bg-brand-soft shadow-[0_14px_30px_-18px_rgba(0,0,0,0.24)] hover:shadow-[0_18px_34px_-18px_rgba(0,0,0,0.32)] border border-white/70",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -60,8 +58,9 @@ export default function Button({
 }: ButtonProps) {
   const baseStyles = `
     inline-flex items-center justify-center gap-2
+    relative overflow-hidden isolate
     font-semibold rounded-xl tracking-[0.01em]
-    transition-all duration-300 ease-out
+    transition-[background-color,color,border-color,box-shadow,filter] duration-300 ease-out
     btn-hover-lift
     focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2
     disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none
@@ -76,11 +75,11 @@ export default function Button({
   `.trim().replace(/\s+/g, " ");
 
   const content = (
-    <>
+    <span className="relative z-[1] inline-flex items-center justify-center gap-2">
       {icon && iconPosition === "left" && <span className="flex-shrink-0">{icon}</span>}
       <span>{children}</span>
       {icon && iconPosition === "right" && <span className="flex-shrink-0">{icon}</span>}
-    </>
+    </span>
   );
 
   if (href) {

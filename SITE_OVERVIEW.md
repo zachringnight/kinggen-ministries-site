@@ -21,7 +21,7 @@ This Next.js website provides a complete, professional online presence for KingG
 
 ### 3. Contact Page (/contact)
 - Left column: Contact information (phone, email, appointment scheduling)
-- Right column: Contact form with Formspree integration
+- Right column: Contact form with first-party submission handling
 - Form fields: Name, Email, Phone, Message
 - Link to Calendly for appointment booking
 
@@ -63,7 +63,6 @@ export const siteConfig = {
   calendlyUrl: "https://calendly.com/kinggen-ministries",
   donorboxCampaignId: "your-campaign-id",
   donorboxPageUrl: "https://donorbox.org/kinggen-ministries",
-  formspreeEndpoint: "https://formspree.io/f/your-form-id",
 };
 ```
 
@@ -76,7 +75,7 @@ Deploy with Vercel:
 3. Configure custom domain
 4. Update configuration values in `app/config/site.ts`
 5. Set up external services:
-   - Create Formspree form
+   - Confirm contact submissions are being stored privately
    - Set up Calendly account
    - Create Donorbox campaign
 

@@ -15,6 +15,24 @@ import {
 } from "../components";
 import { getPageContent } from "../lib/content";
 
+function getTextField(
+  value: unknown,
+  fallback: string,
+  fieldNames: string[] = ["text", "description", "subtitle", "note"]
+): string {
+  if (typeof value === "string") return value;
+  if (!value || typeof value !== "object") return fallback;
+
+  for (const fieldName of fieldNames) {
+    const candidate = (value as Record<string, unknown>)[fieldName];
+    if (typeof candidate === "string" && candidate.trim()) {
+      return candidate;
+    }
+  }
+
+  return fallback;
+}
+
 export const metadata: Metadata = {
   title: "Client Information",
   description:
@@ -58,8 +76,28 @@ export const revalidate = 60;
 export default async function GetSupport() {
   const content = await getPageContent('get-support');
   const hero = { ...DEFAULT_HERO, ...(content?.hero as Record<string, unknown>) };
-  const reasons = (content?.reasons as string[]) ?? DEFAULT_REASONS;
-  const steps = (content?.steps as typeof DEFAULT_STEPS) ?? DEFAULT_STEPS;
+  const intro = getTextField(
+    content?.intro,
+    "At KingGen Ministries, we believe everyone should have access to counseling. As a 501(c)(3), we offer Gospel-centered counseling for women in need by a licensed clinical pastoral counselor."
+  );
+  const whatToExpect = (content?.what_to_expect as Record<string, unknown>) ?? {};
+  const reasonsContent = (content?.reasons as Record<string, unknown>) ?? {};
+  const rawReasons = content?.reasons;
+  const reasons = Array.isArray(rawReasons)
+    ? (rawReasons as string[])
+    : Array.isArray(reasonsContent.items)
+    ? (reasonsContent.items as string[])
+    : DEFAULT_REASONS;
+  const howItWorks = (content?.how_it_works as Record<string, unknown>) ?? {};
+  const rawSteps = content?.steps;
+  const steps = Array.isArray(rawSteps)
+    ? (rawSteps as typeof DEFAULT_STEPS)
+    : Array.isArray(howItWorks.steps)
+    ? (howItWorks.steps as typeof DEFAULT_STEPS)
+    : DEFAULT_STEPS;
+  const privacy = (content?.privacy as Record<string, unknown>) ?? {};
+  const crisis = (content?.crisis as Record<string, unknown>) ?? {};
+  const referrerCta = (content?.referrer_cta as Record<string, unknown>) ?? {};
 
   return (
     <>
@@ -75,7 +113,7 @@ export default async function GetSupport() {
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center px-2">
             <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
-              At KingGen Ministries, we believe everyone should have access to counseling. As a 501(c)(3), we offer Gospel-centered counseling for women in need by a licensed clinical pastoral counselor.
+              {intro}
             </p>
           </div>
         </FadeIn>
@@ -85,10 +123,13 @@ export default async function GetSupport() {
         <FadeIn>
           <div className="max-w-3xl mx-auto px-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 md:mb-6 text-center">
-              What to expect
+              {(whatToExpect.title as string) ?? "What to expect"}
             </h2>
             <p className="text-base sm:text-lg text-white/95 leading-relaxed text-center">
-              Counseling is a place to slow down, tell the truth about what you&apos;re carrying, and take steady steps forward with hope and wisdom. You will be met with compassion and respect, at a pace that feels manageable.
+              {getTextField(
+                whatToExpect,
+                "Counseling is a place to slow down, tell the truth about what you're carrying, and take steady steps forward with hope and wisdom. You will be met with compassion and respect, at a pace that feels manageable."
+              )}
             </p>
           </div>
         </FadeIn>
@@ -98,10 +139,10 @@ export default async function GetSupport() {
         <FadeIn>
           <div className="max-w-3xl mx-auto px-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-3 md:mb-4 text-center">
-              You don&apos;t have to have the perfect words
+              {(reasonsContent.title as string) ?? "You don't have to have the perfect words"}
             </h2>
             <p className="text-base sm:text-lg text-text-secondary mb-6 md:mb-8 text-center">
-              Women are referred for many reasons, including:
+              {(reasonsContent.subtitle as string) ?? "Women are referred for many reasons, including:"}
             </p>
           </div>
         </FadeIn>
@@ -121,7 +162,7 @@ export default async function GetSupport() {
       <Section variant="cross-green" padding="xl">
         <FadeIn>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-8 md:mb-12 text-center">
-            How it works
+            {(howItWorks.title as string) ?? "How it works"}
           </h2>
         </FadeIn>
 
@@ -151,13 +192,16 @@ export default async function GetSupport() {
               <ShieldIcon className="w-6 h-6 md:w-8 md:h-8 text-brand-primary flex-shrink-0" />
               <div>
                 <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2">
-                  Privacy and confidentiality
+                  {(privacy.title as string) ?? "Privacy and confidentiality"}
                 </h3>
                 <p className="text-sm md:text-base text-text-secondary mb-3 md:mb-4">
-                  We treat your story with care. We do not share personal information without your permission, except where disclosure is required by law or where there is a serious safety concern.
+                  {getTextField(
+                    privacy,
+                    "We treat your story with care. We do not share personal information without your permission, except where disclosure is required by law or where there is a serious safety concern."
+                  )}
                 </p>
                 <p className="text-text-muted text-xs md:text-sm">
-                  Please keep your first message brief. We can gather details after we connect.
+                  {(privacy.note as string) ?? "Please keep your first message brief. We can gather details after we connect."}
                 </p>
               </div>
             </div>
@@ -184,25 +228,28 @@ export default async function GetSupport() {
                   <CrossIcon className="w-6 h-6 text-brand-primary/70" strokeWidth={1.5} />
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold font-heading text-text-primary mb-3">
-                  In Crisis?
+                  {(crisis.title as string) ?? "In Crisis?"}
                 </h3>
                 <p className="text-text-secondary mb-4">
-                  If you or someone you know is experiencing a mental health crisis, please reach out for immediate help. You are not alone, and support is available.
+                  {getTextField(
+                    crisis,
+                    "If you or someone you know is experiencing a mental health crisis, please reach out for immediate help. You are not alone, and support is available."
+                  )}
                 </p>
                 <div className="flex flex-col sm:flex-row items-center gap-3 justify-center md:justify-start">
-                  <a
-                    href="tel:988"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-white font-bold rounded-xl hover:bg-brand-secondary transition-colors shadow-md"
+                  <Button
+                    href={`tel:${(crisis.phone as string) ?? "988"}`}
+                    variant="primary"
+                    icon={<PhoneIcon className="w-5 h-5" />}
                   >
-                    <PhoneIcon className="w-5 h-5" />
-                    Call or Text 988
-                  </a>
+                    {(crisis.phone_label as string) ?? "Call or Text 988"}
+                  </Button>
                   <span className="text-sm text-text-muted">
-                    Suicide & Crisis Lifeline
+                    {(crisis.phone_sublabel as string) ?? "Suicide & Crisis Lifeline"}
                   </span>
                 </div>
                 <p className="text-xs text-text-muted mt-4">
-                  We are praying for you.
+                  {(crisis.note as string) ?? "We are praying for you."}
                 </p>
               </div>
             </div>
@@ -214,10 +261,13 @@ export default async function GetSupport() {
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
             <h3 className="text-lg md:text-xl font-bold font-heading text-white mb-3">
-              Are you a referrer?
+              {(referrerCta.title as string) ?? "Are you a referrer?"}
             </h3>
             <p className="text-white/95 mb-6">
-              If you&apos;re a pastor, counselor, or community professional looking to refer someone, visit our referrer page for more information.
+              {getTextField(
+                referrerCta,
+                "If you're a pastor, counselor, or community professional looking to refer someone, visit our referrer page for more information."
+              )}
             </p>
             <Button href="/for-referrers" variant="white" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
               For Referrers

@@ -41,7 +41,7 @@ const markShadowByTheme: Record<BrandMarkTheme, string> = {
 
 const lockupShadowByTheme: Record<LogoTheme, string> = {
   light: "drop-shadow(0 10px 22px rgba(45,74,44,0.2))",
-  dark: "drop-shadow(0 12px 24px rgba(0,0,0,0.35))",
+  dark: "none",
 };
 
 interface BrandMarkProps {
@@ -130,18 +130,19 @@ export default function Logo({
 export function LogoIcon({
   className = "",
   size = 48,
-  theme = "light",
 }: {
   className?: string;
   size?: number;
   theme?: "light" | "dark";
 }) {
   return (
-    <BrandMark
-      theme={theme}
-      size={size}
-      alt="KingGen Ministries logo mark"
-      className={className}
+    <Image
+      src="/icon.png"
+      alt="KingGen Ministries logo icon"
+      width={size}
+      height={size}
+      className={`object-contain rounded-[22%] ${className}`}
+      style={{ filter: "drop-shadow(0 8px 18px rgba(45,74,44,0.18))" }}
     />
   );
 }

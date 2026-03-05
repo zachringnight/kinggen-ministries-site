@@ -63,26 +63,26 @@ const containerSizes: Record<ContainerSize, string> = {
 
 const paddingStyles: Record<SectionPadding, string> = {
   none: "py-0",
-  sm: "py-8 md:py-10",
-  md: "py-10 md:py-12",
-  lg: "py-12 md:py-16",
-  xl: "py-14 md:py-[4.5rem]",
+  sm: "py-7 md:py-9",
+  md: "py-9 md:py-11",
+  lg: "py-10 md:py-13",
+  xl: "py-11 md:py-14",
 };
 
 const lightTextureOpacity: Partial<Record<SectionVariant, number>> = {
-  default: 0.14,
-  light: 0.12,
-  soft: 0.1,
-  "art-cream": 0.16,
-  "cross-light": 0.14,
+  default: 0.08,
+  light: 0.07,
+  soft: 0.06,
+  "art-cream": 0.08,
+  "cross-light": 0.07,
 };
 
 const darkTextureOpacity: Partial<Record<SectionVariant, number>> = {
-  primary: 0.42,
-  dark: 0.45,
-  "art-green": 0.45,
-  "kinggen-branded": 0.5,
-  "cross-green": 0.42,
+  primary: 0.48,
+  dark: 0.5,
+  "art-green": 0.5,
+  "kinggen-branded": 0.54,
+  "cross-green": 0.48,
 };
 
 const curatedTexture = {
@@ -118,7 +118,7 @@ export default function Section({
         }}
       />
       <div
-        className={`absolute inset-0 pointer-events-none ${isLightSection ? "brand-surface-light-overlay" : "brand-surface-dark-overlay"}`}
+        className={`absolute inset-0 pointer-events-none ${isLightSection ? "" : "brand-surface-dark-overlay"}`}
         aria-hidden="true"
       />
 
@@ -147,16 +147,16 @@ export function SectionHeader({
   className = "",
 }: SectionHeaderProps) {
   return (
-    <div className={`mb-10 md:mb-12 ${centered ? "text-center" : ""} ${className}`}>
+    <div className={`mb-8 md:mb-10 ${centered ? "text-center" : ""} ${className}`}>
       <div className={`h-[2px] w-12 rounded-full bg-gradient-to-r from-brand-accent to-brand-primary/70 ${centered ? "mx-auto" : ""} mb-5 opacity-85`} />
       <h2
-        className={`text-3xl md:text-4xl lg:text-[2.65rem] font-bold font-heading mb-3 ${light ? "text-white" : "text-text-primary"}`}
+        className={`text-[1.95rem] md:text-[2.25rem] lg:text-[2.35rem] font-bold font-heading mb-3 ${light ? "text-white" : "text-text-primary"}`}
       >
         {title}
       </h2>
       {subtitle && (
         <p
-          className={`text-base md:text-lg leading-relaxed max-w-2xl ${centered ? "mx-auto" : ""} ${light ? "text-white/95" : "text-text-secondary"}`}
+          className={`text-[0.98rem] md:text-[1.04rem] leading-relaxed max-w-2xl ${centered ? "mx-auto" : ""} ${light ? "text-white/95" : "text-text-secondary"}`}
         >
           {subtitle}
         </p>

@@ -90,7 +90,7 @@ Update `app/config/site.ts` with your organization's information:
 - EIN number
 - PayPal donation URL
 - Social media links
-- Formspree endpoint (for contact form)
+- Contact inbox details if you later add notifications on top of the built-in form storage
 
 ## Asset Notes
 
@@ -121,12 +121,12 @@ This repository is configured for Vercel deployment only.
 
 ### Vercel
 
-1. Canonical project: `kinggen-ministries-site-mwqc`
-2. Canonical URL: `https://kinggen-ministries-site-mwqc.vercel.app`
-3. Production branch: `Claude/main`
+1. Canonical project: `kinggen-ministries-site`
+2. Canonical URL: `https://kinggen-ministries-site.vercel.app`
+3. Production branch: `main`
 4. Add required environment variables in Vercel Project Settings
-5. Deploy from canonical project only
-6. `vercel.json` + `proxy.ts` enforce redirects from legacy project URLs to the canonical URL
+5. Set `NEXT_PUBLIC_SITE_URL` to the active production host until the custom domain is moved to Vercel
+6. `proxy.ts` handles redirects from inactive or legacy hosts to the active production URL
 
 Do not set up parallel deployments on other hosting platforms for this repo.
 

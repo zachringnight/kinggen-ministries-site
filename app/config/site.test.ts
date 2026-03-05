@@ -3,7 +3,7 @@ import { normalizeSiteUrl, siteConfig, toPhoneHref } from "./site";
 
 describe("normalizeSiteUrl", () => {
   it("uses the default URL when value is missing", () => {
-    expect(normalizeSiteUrl(undefined)).toBe("https://kinggenministries.org");
+    expect(normalizeSiteUrl(undefined)).toBe("https://kinggen-ministries-site.vercel.app");
   });
 
   it("adds https protocol when omitted", () => {
@@ -18,7 +18,7 @@ describe("normalizeSiteUrl", () => {
 
   it("falls back for unsupported protocols", () => {
     expect(normalizeSiteUrl("ftp://kinggenministries.org")).toBe(
-      "https://kinggenministries.org"
+      "https://kinggen-ministries-site.vercel.app"
     );
   });
 });

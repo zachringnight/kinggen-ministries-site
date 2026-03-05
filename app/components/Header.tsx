@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { MenuIcon, XIcon, HeartIcon, ChevronDownIcon } from "./Icons";
 import Button from "./Button";
+import { BrandLockup, BrandMark } from "./Logo";
 import { primaryNavLinks, secondaryNavLinks } from "../config/site";
 
 interface HeaderLink {
@@ -78,26 +79,33 @@ export default function Header({
       <header
         className={`sticky top-0 z-50 brand-nav-shell transition-all duration-300 ${
           scrolled || mobileMenuOpen
-            ? "bg-white/94 backdrop-blur-md shadow-sm border-b border-brand-light/70"
-            : "bg-white/86 backdrop-blur-sm border-b border-brand-light/55"
+            ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-brand-light/70"
+            : "bg-white/92 backdrop-blur-sm border-b border-brand-light/55"
         }`}
-        style={{
-          backgroundImage: "url('/brand/curated/bg/light-watermark-right.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center right",
-        }}
       >
         <nav className="relative z-10 container mx-auto px-4 lg:px-8">
           <div className="flex items-center h-14 md:h-16 gap-4">
             <Link
               href="/"
-              className="flex items-center flex-shrink-0 pr-1"
+              className="flex items-center gap-2.5 flex-shrink-0 pr-1"
               aria-label="KingGen Ministries Home"
               onClick={closeResourcesMenu}
             >
-              <span className="text-brand-primary font-extrabold tracking-tight text-sm md:text-base whitespace-nowrap">
+              <div className="sm:hidden">
+                <BrandMark theme="light" size={30} priority />
+              </div>
+              <div className="sm:hidden text-brand-primary font-extrabold tracking-tight text-[0.92rem] whitespace-nowrap">
                 KingGen Ministries
-              </span>
+              </div>
+
+              <div className="hidden sm:block">
+                <BrandLockup
+                  theme="light"
+                  size="sm"
+                  className="w-[138px] md:w-[150px] h-auto"
+                  priority
+                />
+              </div>
             </Link>
 
             <div className="hidden lg:flex items-center gap-1 flex-1 min-w-0">
@@ -108,10 +116,10 @@ export default function Header({
                     key={item.href}
                     href={item.href}
                     aria-current={active ? "page" : undefined}
-                    className={`px-3 py-2 font-medium transition-colors text-sm whitespace-nowrap rounded-lg ${
+                    className={`px-3 py-2 font-medium transition-colors text-sm whitespace-nowrap rounded-lg border border-transparent ${
                       active
-                        ? "text-brand-primary bg-white/92 border border-brand-light/85"
-                        : "text-brand-primary/85 hover:text-brand-primary hover:bg-white/70"
+                        ? "text-brand-primary bg-white/88 border-brand-light/85"
+                        : "text-brand-primary/85 hover:text-brand-primary hover:bg-white/70 hover:border-brand-light/60"
                     }`}
                     onClick={closeResourcesMenu}
                   >
@@ -128,10 +136,10 @@ export default function Header({
                 }}
               >
                 <summary
-                  className={`list-none px-3 py-2 font-medium transition-colors text-sm whitespace-nowrap rounded-lg cursor-pointer flex items-center gap-1 ${
+                  className={`list-none px-3 py-2 font-medium transition-colors text-sm whitespace-nowrap rounded-lg border border-transparent cursor-pointer flex items-center gap-1 ${
                     secondaryActive
-                      ? "text-brand-primary bg-white/92 border border-brand-light/85"
-                      : "text-brand-primary/85 hover:text-brand-primary hover:bg-white/70"
+                      ? "text-brand-primary bg-white/88 border-brand-light/85"
+                      : "text-brand-primary/85 hover:text-brand-primary hover:bg-white/70 hover:border-brand-light/60"
                   }`}
                   aria-expanded={resourcesOpen}
                 >

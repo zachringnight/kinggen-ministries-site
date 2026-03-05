@@ -1,4 +1,8 @@
 import { NextResponse } from "next/server";
+import {
+  isContactSubmissionStorageConfigured,
+  saveContactSubmission,
+} from "../../lib/contact-submissions";
 
 interface ContactPayload {
   reason?: string;
@@ -10,14 +14,6 @@ interface ContactPayload {
 
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-function getFormEndpoint(): string | null {
-  const endpoint = (process.env.FORMSPREE_ENDPOINT ?? process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ?? "").trim();
-  if (!endpoint || endpoint.includes("your-form-id")) {
-    return null;
-  }
-  return endpoint;
 }
 
 export async function POST(request: Request) {
@@ -43,33 +39,24 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
   }
 
-  const endpoint = getFormEndpoint();
-  if (!endpoint) {
+  if (!isContactSubmissionStorageConfigured()) {
     return NextResponse.json({ error: "Contact form is not configured yet." }, { status: 500 });
   }
 
   try {
-    const response = await fetch(endpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
+    await saveContactSubmission({
+      reason,
+      name,
+      email,
+      phone,
+      message,
+      submittedAt: new Date().toISOString(),
+      source: "website-contact-form",
+      metadata: {
+        ipAddress: request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? null,
+        userAgent: request.headers.get("user-agent"),
       },
-      body: JSON.stringify({
-        reason,
-        name,
-        email,
-        phone,
-        message,
-        _subject: "New inquiry from KingGen website",
-      }),
     });
-
-    if (!response.ok) {
-      const responsePayload = await response.json().catch(() => null);
-      const errorMessage = responsePayload?.errors?.[0]?.message || "We could not submit your message.";
-      return NextResponse.json({ error: errorMessage }, { status: 502 });
-    }
 
     return NextResponse.json({ success: true });
   } catch {

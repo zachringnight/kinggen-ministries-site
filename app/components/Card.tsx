@@ -23,7 +23,7 @@ export default function Card({
   padding = "lg",
 }: CardProps) {
   const baseStyles = `
-    bg-white rounded-2xl shadow-md border border-brand-light
+    relative isolate overflow-hidden bg-white rounded-2xl shadow-md border border-brand-light
     ${hover ? "card-hover" : ""}
     ${paddingSizes[padding]}
     ${className}

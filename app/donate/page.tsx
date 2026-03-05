@@ -45,7 +45,6 @@ export default async function DonatePage() {
           variant="white"
           size="lg"
           icon={<HeartIcon className="w-5 h-5" />}
-          className="shadow-xl shadow-black/20"
         >
           Donate via PayPal
         </Button>

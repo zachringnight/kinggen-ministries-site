@@ -135,7 +135,7 @@ export default function ContactPage() {
       }
 
       setSubmitState("success");
-      setStatusMessage("Thank you! We typically respond within 1–2 business days.");
+      setStatusMessage("Thank you. Your message has been sent.");
       setFormData(initialFormData);
     } catch (error) {
       setSubmitState("error");
@@ -323,8 +323,7 @@ export default function ContactPage() {
                       className="w-full px-4 py-3 border border-brand-light rounded-xl bg-brand-soft focus:bg-white focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 transition-all outline-none resize-none"
                       placeholder="How can we help you?"
                     />
-                    <div id="message-help" className="mt-2 flex items-center justify-between text-xs text-text-muted">
-                      <span>Please keep private details minimal in your first message.</span>
+                    <div id="message-help" className="mt-2 flex justify-end text-xs text-text-muted">
                       <span>{formData.message.length}/1500</span>
                     </div>
                     {formErrors.message && (
@@ -362,9 +361,6 @@ export default function ContactPage() {
                     {submitState === "submitting" ? "Sending..." : "Send Message"}
                   </Button>
 
-                  <p className="text-xs text-text-muted text-center">
-                    Your information is safe with us. We typically reply within 1-2 business days.
-                  </p>
                 </form>
               </div>
           </FadeIn>
@@ -379,7 +375,7 @@ export default function ContactPage() {
               <div className="space-y-6">
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="brand-panel flex items-start gap-4 p-5 hover:shadow-md hover:border-brand-primary/20 transition-all group"
+                  className="brand-panel brand-panel-interactive flex items-start gap-4 p-5 group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-brand-light text-brand-primary flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-colors">
                     <MailIcon className="w-6 h-6" />
@@ -392,7 +388,7 @@ export default function ContactPage() {
 
                 <a
                   href={`tel:${siteConfig.phoneHref}`}
-                  className="brand-panel flex items-start gap-4 p-5 hover:shadow-md hover:border-brand-primary/20 transition-all group"
+                  className="brand-panel brand-panel-interactive flex items-start gap-4 p-5 group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-brand-light text-brand-primary flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-colors">
                     <PhoneIcon className="w-6 h-6" />
@@ -419,14 +415,6 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="mt-8 brand-panel p-6">
-                <h3 className="font-bold font-heading text-xl text-text-primary mb-3">What Happens Next</h3>
-                <ul className="space-y-2 text-sm text-text-secondary">
-                  <li>1. We review your message and pray over your request.</li>
-                  <li>2. We respond with next-step guidance (usually within 1-2 business days).</li>
-                  <li>3. If needed, we help route you to the right support path.</li>
-                </ul>
-              </div>
             </div>
           </FadeIn>
         </div>

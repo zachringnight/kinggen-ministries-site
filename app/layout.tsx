@@ -54,10 +54,10 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: "/brand/headers/homepage-hero.webp",
-        width: 2460,
-        height: 1080,
-        alt: "KingGen Ministries",
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "KingGen Ministries - Gospel-centered counseling for women in need",
       },
     ],
   },
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    images: ["/brand/headers/homepage-hero.webp"],
+    images: ["/twitter-image"],
   },
   icons: {
     icon: [

@@ -1,23 +1,24 @@
+import Link from "next/link";
 import { siteConfig } from "./config/site";
 import {
   Section,
   SectionHeader,
   Button,
+  BrandLockup,
   HeartIcon,
   UsersIcon,
-  CheckCircleIcon,
   ArrowRightIcon,
   QuoteIcon,
   ShieldIcon,
   GiftIcon,
-  CrossIcon,
   OptimizedBackground,
   FadeIn,
   StaggerContainer,
   StaggerItem,
   ImpactCounterSection,
   AnimatedDivider,
-  BrandLockup,
+  FloatingParticles,
+  GlowingOrbs,
 } from "./components";
 import { getPageContent } from "./lib/content";
 import { resolveIcon } from "./lib/icon-map";
@@ -87,7 +88,7 @@ const DEFAULT_AUDIENCE_CARDS = [
       "Your tax-deductible gift helps remove cost barriers and ensures women receive the care they need.",
     href: "/donate",
     cta: "Donate",
-    iconColor: "bg-brand-accent",
+    iconColor: "bg-brand-secondary",
   },
   {
     icon: "GiftIcon",
@@ -118,6 +119,22 @@ const DEFAULT_HERO = {
   ],
 };
 
+function normalizeIconBadgeClass(iconColor?: string) {
+  const trimmed = iconColor?.trim();
+  const aliases: Record<string, string> = {
+    "brand-accent": "bg-brand-secondary",
+    "bg-brand-accent": "bg-brand-secondary",
+  };
+
+  if (!trimmed) return "bg-brand-primary";
+  if (aliases[trimmed]) return aliases[trimmed];
+  if (trimmed.includes(" ")) return trimmed;
+  if (trimmed.startsWith("bg-")) return trimmed;
+  if (trimmed.startsWith("brand-")) return `bg-${trimmed}`;
+
+  return trimmed;
+}
+
 export const revalidate = 60;
 
 export default async function Home() {
@@ -133,65 +150,46 @@ export default async function Home() {
   return (
     <>
       <section
-        className="relative w-full min-h-[56vh] md:min-h-[66vh] flex items-center animate-fade-in-up isolate overflow-hidden"
+        className="relative w-full min-h-[42vh] md:min-h-[54vh] flex items-center animate-fade-in-up isolate overflow-hidden bg-brand-primary-dark"
         aria-label="KingGen Ministries - Christian Counseling for Women"
       >
         <OptimizedBackground
           src="/brand/curated/bg/green-watermark-tall.png"
           className="absolute inset-0 bg-cover bg-center pointer-events-none"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/54 via-brand-primary/66 to-brand-primary/80" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(123,163,144,0.12)_0%,transparent_62%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-primary-dark/74 via-brand-primary/82 to-brand-primary-dark/90" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_28%_18%,rgba(123,163,144,0.12)_0%,transparent_56%)] pointer-events-none" />
 
         <h1 className="sr-only">KingGen Ministries</h1>
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-24 pb-14 md:pt-24 md:pb-20">
-          <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-16 pb-10 md:pt-20 md:pb-14">
+          <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
             <div>
-              <div className="mb-5 flex justify-center">
-                <BrandLockup theme="dark" size="lg" className="mx-auto" />
+              <div className="mb-3 flex justify-center">
+                <BrandLockup theme="dark" size="sm" className="w-[168px] md:w-[210px] h-auto" />
               </div>
-
-              <span className="inline-block px-3.5 py-1.5 bg-white/9 backdrop-blur-sm border border-white/18 text-white/95 text-xs sm:text-sm font-medium rounded-full mb-4 tracking-wide">
+              <span className="inline-flex items-center rounded-full border border-white/18 bg-white/10 px-3.5 py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] text-white/92 backdrop-blur-sm">
                 {hero.badge as string}
               </span>
-              <p className="text-[11px] sm:text-xs uppercase tracking-[0.12em] text-brand-gold-light/95 font-semibold mb-3">
-                Clinical pastoral counseling ministry
-              </p>
-              <p className="text-[clamp(2rem,6vw,4rem)] font-bold font-heading text-white leading-[1.08] text-balance">
+
+              <p className="mt-5 text-[clamp(1.85rem,5vw,3.35rem)] font-bold font-heading text-white leading-[1.06] text-balance">
                 {hero.headline as string}
               </p>
-              <p className="text-base md:text-lg text-white/95 mt-4 max-w-2xl leading-relaxed">
-                Compassionate, confidential pastoral care offered at no cost. For referrals, donors, and ministry partners.
+              <p className="text-[15px] md:text-[1.05rem] text-white/95 mt-3.5 max-w-2xl leading-relaxed">
+                Compassionate, confidential pastoral care at no cost to women in need. We serve through trusted referrals, donor support, and ministry partnerships.
               </p>
-              <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
-                <Button href="/contact" variant="gold" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+              <div className="mt-6 flex flex-col items-center gap-3.5">
+                <Button href="/contact" variant="white" size="md" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
                   Start a Referral Conversation
                 </Button>
-                <Button href="/donate" variant="outline-white" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
-                  Support the Mission
-                </Button>
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-white/92 hover:text-white transition-colors"
+                >
+                  Learn about the ministry
+                  <ArrowRightIcon className="w-4 h-4" />
+                </Link>
               </div>
-              <div className="mt-6 flex flex-wrap gap-3 justify-center">
-                {(hero.pills as string[]).map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-white/95 text-[13px] sm:text-sm bg-white/10 border border-white/16 rounded-full px-3 py-1.5">
-                    <CheckCircleIcon className="w-4 h-4 text-brand-gold-light flex-shrink-0" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-2.5 max-w-3xl mx-auto">
-                {(hero.hero_metrics as Array<{value: string; label: string}>).map((metric) => (
-                  <div key={metric.label} className="brand-hero-stat px-4 py-2.5 text-center">
-                    <p className="text-white font-semibold text-base">{metric.value}</p>
-                    <p className="text-[11px] text-white/95 uppercase tracking-[0.08em]">{metric.label}</p>
-                  </div>
-                ))}
-              </div>
-
-              <p className="mt-4 text-sm text-white/90 max-w-2xl mx-auto">
-                Trusted by pastors, church leaders, social workers, and community referrers.
-              </p>
             </div>
           </div>
         </div>
@@ -253,15 +251,22 @@ export default async function Home() {
       </Section>
 
       <Section variant="cross-green" padding="lg">
-        <FadeIn>
-          <SectionHeader
-            title="Our impact"
-            subtitle="Making a difference in women's lives through Gospel-centered care"
-            light
-          />
-        </FadeIn>
+        <div className="relative max-w-5xl mx-auto">
+          <GlowingOrbs className="opacity-65" />
+          <FloatingParticles count={18} className="opacity-40" />
 
-        <ImpactCounterSection stats={impactStats} className="max-w-4xl mx-auto" />
+          <div className="relative z-10">
+            <FadeIn>
+              <SectionHeader
+                title="Our impact"
+                subtitle="Making a difference in women's lives through Gospel-centered care"
+                light
+              />
+            </FadeIn>
+
+            <ImpactCounterSection stats={impactStats} className="max-w-4xl mx-auto" />
+          </div>
+        </div>
       </Section>
 
       <Section variant="light" padding="lg">
@@ -300,11 +305,12 @@ export default async function Home() {
         <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {audienceCards.map((card) => {
             const CardIcon = resolveIcon(card.icon);
+            const iconBadgeClass = normalizeIconBadgeClass(card.iconColor);
             return (
             <StaggerItem key={card.title}>
-              <div className="brand-panel brand-panel-premium brand-panel-interactive p-6 md:p-8 h-full flex flex-col">
+              <div className="brand-panel brand-panel-premium brand-panel-interactive border border-brand-light/95 p-6 md:p-8 h-full flex flex-col">
                 <div className="h-full flex flex-col">
-                  <div className={`w-14 h-14 rounded-2xl ${card.iconColor} flex items-center justify-center mb-4 shadow-lg`}>
+                  <div className={`w-14 h-14 rounded-2xl ${iconBadgeClass} flex items-center justify-center mb-4 border border-white/20 shadow-[0_12px_24px_-18px_rgba(45,74,44,0.28)]`}>
                     <CardIcon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
@@ -341,13 +347,17 @@ export default async function Home() {
             <p className="text-white/95 mb-6 md:mb-8">
               <strong>EIN:</strong> {siteConfig.ein}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href="/donate" variant="white" size="lg" icon={<HeartIcon className="w-5 h-5" />} className="shadow-xl shadow-black/20">
+            <div className="flex flex-col items-center gap-3">
+              <Button href="/donate" variant="white" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
                 Donate Now
               </Button>
-              <Button href="/for-grant-writers" variant="outline-white" size="lg">
-                Grant Information
-              </Button>
+              <Link
+                href="/for-grant-writers"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-white/92 transition-colors hover:text-white"
+              >
+                Grant information
+                <ArrowRightIcon className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </FadeIn>
@@ -430,13 +440,17 @@ export default async function Home() {
               <p className="text-base sm:text-lg text-text-secondary mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
                 LeeAnn is available for speaking engagements, podcast interviews, and ministry events. Her heart is to encourage women and share the hope of the Gospel.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col items-center gap-3">
                 <Button href="/about#speaking" variant="primary" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
                   Learn More
                 </Button>
-                <Button href="/contact" variant="outline" size="lg">
-                  Request a Booking
-                </Button>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary transition-colors hover:text-brand-primary-dark"
+                >
+                  Request a booking
+                  <ArrowRightIcon className="w-4 h-4" />
+                </Link>
               </div>
             </div>
           </FadeIn>
@@ -452,13 +466,17 @@ export default async function Home() {
             <p className="text-base sm:text-lg text-text-secondary mb-6 md:mb-8 leading-relaxed max-w-2xl mx-auto">
               Whether you&apos;re making a referral, considering a donation, or exploring grant opportunities, we&apos;d love to connect.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col items-center gap-3">
               <Button href="/contact" variant="primary" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
                 Contact Us
               </Button>
-              <Button href="/donate" variant="gold" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
-                Support Our Mission
-              </Button>
+              <Link
+                href="/donate"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary transition-colors hover:text-brand-primary-dark"
+              >
+                <HeartIcon className="w-4 h-4" />
+                Support our mission
+              </Link>
             </div>
           </div>
         </FadeIn>
