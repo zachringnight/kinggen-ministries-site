@@ -12,7 +12,7 @@ const PAGES = [
   { slug: "for-referrers", label: "For Referrers" },
   { slug: "for-grant-writers", label: "For Grant Writers" },
   { slug: "get-support", label: "Client Info" },
-  { slug: "testimonials", label: "Testimonials Draft" },
+  { slug: "testimonials", label: "Testimonials" },
   { slug: "forms", label: "Forms" },
   { slug: "privacy", label: "Privacy" },
   { slug: "disclaimer", label: "Disclaimer" },

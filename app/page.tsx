@@ -8,6 +8,7 @@ import {
   HeartIcon,
   UsersIcon,
   ArrowRightIcon,
+  QuoteIcon,
   ShieldIcon,
   GiftIcon,
   OptimizedBackground,
@@ -29,6 +30,27 @@ const DEFAULT_IMPACT_STATS = [
   { value: 501, staticValue: "501(c)(3)", animate: false, label: "Nonprofit Status", description: "Tax-deductible gifts" },
   { value: 15, suffix: "+", animate: true, label: "Years Experience", description: "Clinical pastoral care" },
   { value: 24, staticValue: "24/7", animate: false, label: "Confidential", description: "Private & secure" },
+];
+
+const DEFAULT_TESTIMONIALS = [
+  {
+    quote: "As a pastor, I'm grateful for a referral option that is compassionate, discreet, and Gospel-centered. I trust KingGen with the women in our congregation.",
+    author: "Mark",
+    role: "Pastor",
+    initial: "M",
+  },
+  {
+    quote: "Communication has been clear and respectful. I'm grateful for a place to refer women who need support and privacy.",
+    author: "Jenna",
+    role: "Community Referrer",
+    initial: "J",
+  },
+  {
+    quote: "KingGen provides the kind of care that transforms lives. Their commitment to serving women in need is truly remarkable.",
+    author: "Sarah",
+    role: "Ministry Partner",
+    initial: "S",
+  },
 ];
 
 const DEFAULT_SERVICES = [
@@ -121,6 +143,7 @@ export default async function Home() {
   // Merge: Blob content wins, defaults fill gaps
   const hero = { ...DEFAULT_HERO, ...(content?.hero as Record<string, unknown>) };
   const impactStats = (content?.impact as Record<string, unknown>)?.stats as typeof DEFAULT_IMPACT_STATS ?? DEFAULT_IMPACT_STATS;
+  const testimonialData = (content?.testimonials as Record<string, unknown>)?.items as typeof DEFAULT_TESTIMONIALS ?? DEFAULT_TESTIMONIALS;
   const serviceItems = (content?.services as Record<string, unknown>)?.items as typeof DEFAULT_SERVICES ?? DEFAULT_SERVICES;
   const audienceCards = (content?.audience as Record<string, unknown>)?.cards as typeof DEFAULT_AUDIENCE_CARDS ?? DEFAULT_AUDIENCE_CARDS;
   const valueItems = (content?.values as Record<string, unknown>)?.items as typeof DEFAULT_VALUES ?? DEFAULT_VALUES;
@@ -336,6 +359,73 @@ export default async function Home() {
                 <ArrowRightIcon className="w-4 h-4" />
               </Link>
             </div>
+          </div>
+        </FadeIn>
+      </Section>
+
+      <Section variant="art-cream" padding="lg">
+        <FadeIn>
+          <SectionHeader
+            title="What partners say"
+            subtitle="Hear from pastors, referrers, and community partners who trust KingGen Ministries."
+          />
+        </FadeIn>
+
+        <div className="max-w-4xl mx-auto">
+          <div className="hidden md:block">
+            <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+              {testimonialData.map((testimonial, index) => (
+                <StaggerItem key={index}>
+                  <div className="brand-panel brand-panel-premium brand-panel-interactive p-6 md:p-7 h-full flex flex-col">
+                    <QuoteIcon className="w-7 h-7 text-brand-primary/22 mb-4" />
+                    <p className="text-sm md:text-base text-text-secondary italic mb-4 md:mb-6 leading-relaxed flex-grow">
+                      &ldquo;{testimonial.quote}&rdquo;
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                        {testimonial.initial}
+                      </div>
+                      <div>
+                        <p className="font-bold text-text-primary text-sm md:text-base">{testimonial.author}</p>
+                        <p className="text-xs md:text-sm text-text-muted">{testimonial.role}</p>
+                      </div>
+                    </div>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+
+          <div className="md:hidden">
+            <div className="brand-panel brand-panel-premium rounded-2xl overflow-hidden border border-brand-light">
+              {testimonialData.map((testimonial, index) => (
+                <FadeIn key={index} delay={0.1 * index}>
+                  <div className="p-6 border-b border-brand-light last:border-b-0">
+                    <QuoteIcon className="w-6 h-6 text-brand-primary/20 mb-3" />
+                    <p className="text-sm text-text-secondary italic mb-4 leading-relaxed">
+                      &ldquo;{testimonial.quote}&rdquo;
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white font-bold text-sm">
+                        {testimonial.initial}
+                      </div>
+                      <div>
+                        <p className="font-bold text-text-primary text-sm">{testimonial.author}</p>
+                        <p className="text-xs text-text-muted">{testimonial.role}</p>
+                      </div>
+                    </div>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <FadeIn delay={0.3}>
+          <div className="text-center mt-8 md:mt-10">
+            <Button href="/testimonials" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+              Read All Testimonials
+            </Button>
           </div>
         </FadeIn>
       </Section>

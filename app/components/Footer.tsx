@@ -14,6 +14,7 @@ export default function Footer() {
     { href: "/for-referrers", label: "For Referrers" },
     { href: "/for-grant-writers", label: "For Grant Writers" },
     { href: "/donate", label: "Donate" },
+    { href: "/testimonials", label: "Testimonials" },
     { href: "/contact", label: "Contact" },
     { href: "/get-support", label: "Client Info" },
     { href: "/forms", label: "Forms" },

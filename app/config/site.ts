@@ -72,6 +72,7 @@ export const primaryNavLinks = [
 
 export const secondaryNavLinks = [
   { href: "/for-grant-writers", label: "For Grant Writers" },
+  { href: "/testimonials", label: "Testimonials" },
   { href: "/get-support", label: "Client Information", description: "Guidance for referred clients" },
   { href: "/forms", label: "Forms", description: "Intake and resources" },
 ];
