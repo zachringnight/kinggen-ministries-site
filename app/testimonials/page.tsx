@@ -1,96 +1,37 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import {
   Section,
   Button,
-  QuoteIcon,
   ArrowRightIcon,
-  HeartIcon,
   InstagramIcon,
   CheckCircleIcon,
   FadeIn,
-  StaggerContainer,
-  StaggerItem,
   InnerPageHero,
 } from "../components";
 import { siteConfig } from "../config/site";
-import { getPageContent } from "../lib/content";
 
 export const metadata: Metadata = {
-  title: "Testimonials",
-  description:
-    "Read stories and reflections from partners and clients about the care and support offered through KingGen Ministries.",
+  title: "Ministry Updates",
+  description: "Follow KingGen Ministries for Scripture, encouragement, and ministry updates.",
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
-
-const DEFAULT_HERO = {
-  title: "Testimonials",
-  subtitle: "Stories of hope, trust, and Gospel-centered care.",
-};
-
-const DEFAULT_TESTIMONIALS = [
-  {
-    quote: "KingGen is a trustworthy referral option. The care is compassionate, discreet, and Gospel-centered.",
-    name: "Mark",
-    role: "Pastor",
-  },
-  {
-    quote: "Communication has been clear and respectful. I'm grateful for a place to refer women who need support and privacy.",
-    name: "Jenna",
-    role: "Referrer",
-  },
-  {
-    quote: "I felt safe, understood, and guided with wisdom. KingGen helped me find hope again.",
-    name: "Sarah",
-    role: "Client",
-  },
-];
 
 const INSTAGRAM_EMBED_URL = "https://www.instagram.com/kinggenministries/embed/";
 
 export const revalidate = 60;
 
-export default async function TestimonialsPage() {
-  const content = await getPageContent("testimonials");
-  const hero = { ...DEFAULT_HERO, ...(content?.hero as Record<string, unknown>) };
-  const testimonials = (content?.testimonials as typeof DEFAULT_TESTIMONIALS) ?? DEFAULT_TESTIMONIALS;
-
+export default function TestimonialsPage() {
   return (
     <>
       <InnerPageHero
-        title={hero.title as string}
-        subtitle={hero.subtitle as string}
+        title="Ministry Updates"
+        subtitle="Follow KingGen Ministries for Scripture, encouragement, and ministry news."
         background="inner"
-        ariaLabel="Testimonials"
+        ariaLabel="KingGen Ministries updates"
       />
-
-      <Section variant="art-cream" padding="xl">
-        <StaggerContainer staggerDelay={0.15} className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {testimonials.map((testimonial, i) => (
-            <StaggerItem key={i}>
-              <div className="brand-panel brand-panel-premium brand-panel-interactive p-8 h-full relative flex flex-col">
-                <QuoteIcon className="absolute top-6 right-6 w-10 h-10 text-brand-accent/20" />
-                <div className="mb-4">
-                  <span className="inline-block rounded-full bg-brand-light px-3 py-1 text-sm font-medium text-brand-primary">
-                    {testimonial.role}
-                  </span>
-                </div>
-                <p className="text-lg italic leading-relaxed text-text-secondary mb-6 flex-grow">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-brand-primary to-brand-accent font-bold text-white">
-                    {testimonial.name.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="font-bold text-text-primary">{testimonial.name}</p>
-                    <p className="text-sm text-text-muted">{testimonial.role}</p>
-                  </div>
-                </div>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </Section>
 
       <Section variant="cross-green" padding="xl">
         <div className="grid max-w-6xl mx-auto gap-8 lg:grid-cols-[0.88fr,1.12fr] items-start">
@@ -171,41 +112,6 @@ export default async function TestimonialsPage() {
             </div>
           </FadeIn>
         </div>
-      </Section>
-
-      <Section variant="art-cream" padding="xl">
-        <FadeIn>
-          <div className="brand-panel rounded-3xl p-8 md:p-12 lg:p-16 text-center max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6">
-              Ready to take the next step?
-            </h2>
-            <p className="text-lg text-text-secondary mb-8 leading-relaxed max-w-2xl mx-auto">
-              Whether you need support, want to make a referral, or feel led to give, we&apos;re here.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href="/get-support" variant="primary" size="lg">
-                Get Support
-              </Button>
-              <Button
-                href="/contact"
-                variant="primary"
-                size="lg"
-                icon={<ArrowRightIcon className="w-5 h-5" />}
-                iconPosition="right"
-              >
-                Contact
-              </Button>
-            </div>
-
-            <p className="mt-5 text-sm text-text-muted">
-              <Link href="/donate" className="font-semibold text-brand-primary hover:text-brand-primary-dark">
-                Support the mission
-              </Link>
-              {" "}through donor partnership.
-            </p>
-          </div>
-        </FadeIn>
       </Section>
     </>
   );

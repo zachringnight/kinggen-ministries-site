@@ -10,7 +10,6 @@ const routes = [
   "/services",
   "/for-referrers",
   "/for-grant-writers",
-  "/testimonials",
   "/get-support",
   "/forms",
   "/contact",
