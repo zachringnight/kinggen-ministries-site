@@ -2,15 +2,18 @@ import type { Metadata } from "next";
 import {
   Section,
   Button,
+  DocumentIcon,
   DownloadIcon,
   ArrowRightIcon,
+  HeartIcon,
+  BookOpenIcon,
+  SunIcon,
   FadeIn,
   StaggerContainer,
   StaggerItem,
   InnerPageHero,
 } from "../components";
-import { getPageContent } from "../lib/content";
-import { resolveIcon } from "../lib/icon-map";
+import { formsContent } from "../content";
 
 export const metadata: Metadata = {
   title: "Forms and Resources",
@@ -18,50 +21,14 @@ export const metadata: Metadata = {
     "Download KingGen Ministries resources, including Scripture encouragement, prayer guides, and practical healing prompts.",
 };
 
-const DEFAULT_HERO = {
-  title: "Forms and Resources",
-  subtitle: "Practical downloads and encouragement for this season.",
-};
+const resourceIcons = [BookOpenIcon, HeartIcon, DocumentIcon, SunIcon];
 
-const DEFAULT_RESOURCES = [
-  {
-    name: "Scripture for Anxious Moments",
-    description: "A collection of verses to read when you feel overwhelmed",
-    filename: "scripture-for-anxiety.pdf",
-    icon: "BookOpenIcon",
-  },
-  {
-    name: "Prayer Guide for Hard Days",
-    description: "Simple prayers for when words are hard to find",
-    filename: "prayer-guide.pdf",
-    icon: "HeartIcon",
-  },
-  {
-    name: "Journaling Prompts for Healing",
-    description: "Reflective questions to help process your thoughts",
-    filename: "journaling-prompts.pdf",
-    icon: "DocumentIcon",
-  },
-  {
-    name: "Daily Encouragement Cards",
-    description: "Printable cards with Scripture and affirmations",
-    filename: "encouragement-cards.pdf",
-    icon: "SunIcon",
-  },
-];
-
-export const revalidate = 60;
-
-export default async function ResourcesPage() {
-  const content = await getPageContent('forms');
-  const hero = { ...DEFAULT_HERO, ...(content?.hero as Record<string, unknown>) };
-  const resources = (content?.resources as typeof DEFAULT_RESOURCES) ?? DEFAULT_RESOURCES;
-
+export default function ResourcesPage() {
   return (
     <>
       <InnerPageHero
-        title={hero.title as string}
-        subtitle={hero.subtitle as string}
+        title={formsContent.hero.title}
+        subtitle={formsContent.hero.subtitle}
         background="inner"
         ariaLabel="Forms and Resources"
        
@@ -71,7 +38,7 @@ export default async function ResourcesPage() {
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-lg text-text-secondary leading-relaxed">
-              These resources are meant to be a small gift of encouragement. They are not a substitute for counseling, but we hope they bring comfort and hope.
+              {formsContent.intro}
             </p>
           </div>
         </FadeIn>
@@ -80,45 +47,46 @@ export default async function ResourcesPage() {
       <Section variant="cross-green" padding="xl">
         <FadeIn>
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-3 text-center">
-            Free Downloads
+            {formsContent.downloads.title}
           </h2>
           <p className="text-center text-white/95 mb-8">
-            Download and share these printable PDF guides.
+            {formsContent.downloads.subtitle}
           </p>
         </FadeIn>
 
         <StaggerContainer staggerDelay={0.1} className="space-y-4 max-w-4xl mx-auto">
-          {resources.map((resource, i) => (
-            <StaggerItem key={i}>
-              <a
-                href={`/resources/${resource.filename}`}
-                download
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between p-5 brand-panel rounded-xl hover:shadow-xl transition-all group"
-              >
-                <div className="flex items-center gap-4">
-                  {(() => { const Icon = resolveIcon(resource.icon); return (
-                  <div className="w-12 h-12 rounded-xl bg-brand-light text-brand-primary flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-colors">
-                    <Icon className="w-6 h-6" />
+          {formsContent.downloads.items.map((resource, i) => {
+            const Icon = resourceIcons[i];
+            return (
+              <StaggerItem key={i}>
+                <a
+                  href={`/resources/${resource.filename}`}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-5 brand-panel rounded-xl hover:shadow-xl transition-all group"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-brand-light text-brand-primary flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-text-primary">{resource.name}</p>
+                      <p className="text-sm text-text-muted">{resource.description}</p>
+                      <p className="text-xs text-brand-primary mt-1">PDF Download</p>
+                    </div>
                   </div>
-                  ); })()}
-                  <div>
-                    <p className="font-semibold text-text-primary">{resource.name}</p>
-                    <p className="text-sm text-text-muted">{resource.description}</p>
-                    <p className="text-xs text-brand-primary mt-1">PDF Download</p>
-                  </div>
-                </div>
-                <DownloadIcon className="w-5 h-5 text-text-muted group-hover:text-brand-primary transition-colors flex-shrink-0" />
-              </a>
-            </StaggerItem>
-          ))}
+                  <DownloadIcon className="w-5 h-5 text-text-muted group-hover:text-brand-primary transition-colors flex-shrink-0" />
+                </a>
+              </StaggerItem>
+            );
+          })}
         </StaggerContainer>
 
         <FadeIn delay={0.3}>
           <div className="mt-8 p-6 brand-panel-dark rounded-2xl text-center max-w-4xl mx-auto">
             <p className="text-white/95">
-              More resources coming soon. If there&apos;s something specific that would help you, let us know.
+              {formsContent.downloads.comingSoon}
             </p>
           </div>
         </FadeIn>
@@ -128,10 +96,10 @@ export default async function ResourcesPage() {
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold font-heading text-text-primary mb-4">
-              Need someone to talk to?
+              {formsContent.needHelp.title}
             </h2>
             <p className="text-lg text-text-secondary mb-8">
-              Resources are helpful, but sometimes you need more. We&apos;re here for you.
+              {formsContent.needHelp.subtitle}
             </p>
             <Button href="/contact" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
               Contact Us

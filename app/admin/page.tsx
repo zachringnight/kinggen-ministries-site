@@ -1,304 +1,300 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
+import {
+  homeContent,
+  aboutContent,
+  servicesContent,
+  contactContent,
+  donateContent,
+  forReferrersContent,
+  forGrantWritersContent,
+  getSupportContent,
+  testimonialsContent,
+  formsContent,
+  privacyContent,
+  disclaimerContent,
+} from "../content";
+import { PageSelector } from "./components/PageSelector";
+import { FieldEditor } from "./components/FieldEditor";
+import { PreviewPanel } from "./components/PreviewPanel";
 
-const PAGES = [
-  { slug: "home", label: "Home" },
-  { slug: "about", label: "About" },
-  { slug: "services", label: "Services" },
-  { slug: "donate", label: "Donate" },
-  { slug: "for-referrers", label: "For Referrers" },
-  { slug: "for-grant-writers", label: "For Grant Writers" },
-  { slug: "get-support", label: "Client Info" },
-  { slug: "testimonials", label: "Testimonials" },
-  { slug: "forms", label: "Forms" },
-  { slug: "privacy", label: "Privacy" },
-  { slug: "disclaimer", label: "Disclaimer" },
-] as const;
+type PageKey =
+  | "home"
+  | "about"
+  | "services"
+  | "contact"
+  | "donate"
+  | "forReferrers"
+  | "forGrantWriters"
+  | "getSupport"
+  | "testimonials"
+  | "forms"
+  | "privacy"
+  | "disclaimer";
 
-type Status = "idle" | "loading" | "saving" | "success" | "error";
+const PAGE_LABELS: Record<PageKey, string> = {
+  home: "Home",
+  about: "About",
+  services: "Services",
+  contact: "Contact",
+  donate: "Donate",
+  forReferrers: "For Referrers",
+  forGrantWriters: "Grant Writers",
+  getSupport: "Get Support",
+  testimonials: "Testimonials",
+  forms: "Forms",
+  privacy: "Privacy",
+  disclaimer: "Disclaimer",
+};
 
-export default function AdminPage() {
-  const [password, setPassword] = useState("");
-  const [authed, setAuthed] = useState(false);
-  const [authError, setAuthError] = useState(false);
+const originalContent: Record<string, unknown> = {
+  home: homeContent,
+  about: aboutContent,
+  services: servicesContent,
+  contact: contactContent,
+  donate: donateContent,
+  forReferrers: forReferrersContent,
+  forGrantWriters: forGrantWritersContent,
+  getSupport: getSupportContent,
+  testimonials: testimonialsContent,
+  forms: formsContent,
+  privacy: privacyContent,
+  disclaimer: disclaimerContent,
+};
 
-  const [activePage, setActivePage] = useState<string>("home");
-  const [json, setJson] = useState("");
-  const [savedJson, setSavedJson] = useState("");
-  const [status, setStatus] = useState<Status>("idle");
-  const [message, setMessage] = useState("");
+function deepClone<T>(obj: T): T {
+  return JSON.parse(JSON.stringify(obj));
+}
 
-  /* ---- Auth ---- */
-  const handleLogin = useCallback(async () => {
-    setAuthError(false);
+function deepSet(obj: unknown, path: string[], value: string): unknown {
+  if (path.length === 0) return value;
+  const [head, ...rest] = path;
+  const current = obj as Record<string, unknown>;
+  return {
+    ...current,
+    [head]: Array.isArray(current[head]) && rest.length > 0 && !isNaN(Number(rest[0]))
+      ? (current[head] as unknown[]).map((item, idx) =>
+          idx === Number(rest[0]) ? deepSet(item, rest.slice(1), value) : item
+        )
+      : deepSet(current[head], rest, value),
+  };
+}
+
+/** Walk two objects and collect string fields that differ. */
+function collectChanges(
+  current: unknown,
+  original: unknown,
+  path: string[],
+  pageName: string,
+  out: { page: string; field: string; oldValue: string; newValue: string }[]
+): void {
+  if (current == null || typeof current !== "object") return;
+
+  if (Array.isArray(current)) {
+    const origArr = Array.isArray(original) ? original : [];
+    current.forEach((item, i) => {
+      collectChanges(item, origArr[i], [...path, `[${i}]`], pageName, out);
+    });
+    return;
+  }
+
+  const orig = (original != null && typeof original === "object") ? original as Record<string, unknown> : {} as Record<string, unknown>;
+  for (const [key, value] of Object.entries(current as Record<string, unknown>)) {
+    const fieldPath = [...path, key];
+    if (typeof value === "string") {
+      const origValue = typeof orig[key] === "string" ? (orig[key] as string) : "";
+      if (value !== origValue) {
+        out.push({
+          page: pageName,
+          field: fieldPath.join(" > "),
+          oldValue: origValue,
+          newValue: value,
+        });
+      }
+    } else if (typeof value === "object" && value !== null) {
+      collectChanges(value, orig[key], fieldPath, pageName, out);
+    }
+  }
+}
+
+const STORAGE_KEY = "kinggen-editor-draft";
+
+export default function AdminEditorPage() {
+  const [activePage, setActivePage] = useState<PageKey>("home");
+  const [content, setContent] = useState<Record<string, unknown>>(() => deepClone(originalContent));
+  const [hasChanges, setHasChanges] = useState(false);
+  const [savedAt, setSavedAt] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+
+  // Load draft from localStorage on mount
+  useEffect(() => {
     try {
-      const res = await fetch(`/api/content?page=home`);
-      if (res.ok) {
-        setAuthed(true);
-      } else {
-        setAuthError(true);
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed && typeof parsed === "object") {
+          setContent(parsed);
+          setHasChanges(true);
+        }
       }
     } catch {
-      // If the GET fails it might be a network issue, still allow attempt
-      setAuthed(true);
+      // ignore corrupt data
     }
   }, []);
 
-  /* ---- Load ---- */
-  const loadContent = useCallback(
-    async (page: string) => {
-      setStatus("loading");
-      setMessage("");
-      try {
-        const res = await fetch(`/api/content?page=${page}`);
-        if (res.status === 404) {
-          const empty = "{\n  \n}";
-          setJson(empty);
-          setSavedJson(empty);
-          setStatus("idle");
-          setMessage("No content stored yet. JSON will use hardcoded fallbacks.");
-          return;
-        }
-        if (!res.ok) throw new Error(`${res.status}`);
-        const data = await res.json();
-        const formatted = JSON.stringify(data, null, 2);
-        setJson(formatted);
-        setSavedJson(formatted);
-        setStatus("idle");
-      } catch (err) {
-        setStatus("error");
-        setMessage(`Failed to load: ${err}`);
-      }
+  // Auto-save to localStorage on changes
+  useEffect(() => {
+    if (hasChanges) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(content));
+      setSavedAt(new Date().toLocaleTimeString());
+    }
+  }, [content, hasChanges]);
+
+  const handleFieldChange = useCallback(
+    (path: string[], value: string) => {
+      setContent((prev) => {
+        const [pageKey, ...fieldPath] = path;
+        const updatedPage = deepSet(prev[pageKey], fieldPath, value);
+        return { ...prev, [pageKey]: updatedPage };
+      });
+      setHasChanges(true);
     },
     []
   );
 
-  /* ---- Save ---- */
-  const handleSave = useCallback(async () => {
-    setStatus("saving");
-    setMessage("");
+  const handleDownload = () => {
+    const json = JSON.stringify(content, null, 2);
+    const blob = new Blob([json], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `kinggen-content-edits-${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
 
-    let parsed: Record<string, unknown>;
+  const handleSaveDraft = async () => {
     try {
-      parsed = JSON.parse(json);
+      const res = await fetch("/api/admin/drafts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(content),
+      });
+      if (res.ok) {
+        setSavedAt("Draft saved to server at " + new Date().toLocaleTimeString());
+      } else {
+        const data = await res.json().catch(() => null);
+        setSavedAt(data?.error || "Save failed — try Submit for Review instead");
+      }
     } catch {
-      setStatus("error");
-      setMessage("Invalid JSON. Fix syntax before saving.");
+      setSavedAt("Save failed — try Submit for Review instead");
+    }
+  };
+
+  const handleSubmitForReview = async () => {
+    // Collect all changes across all pages
+    const changes: { page: string; field: string; oldValue: string; newValue: string }[] = [];
+    for (const pageKey of Object.keys(originalContent)) {
+      const label = PAGE_LABELS[pageKey as PageKey] || pageKey;
+      collectChanges(content[pageKey], originalContent[pageKey], [], label, changes);
+    }
+
+    if (changes.length === 0) {
+      setSavedAt("No changes to submit.");
       return;
     }
 
+    if (!confirm(`Submit ${changes.length} change(s) for review? The developer will be able to see your edits.`)) {
+      return;
+    }
+
+    setSubmitting(true);
     try {
-      const res = await fetch("/api/content", {
+      const res = await fetch("/api/admin/submit-edits", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${password}`,
-        },
-        body: JSON.stringify({ page: activePage, content: parsed }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ changes, fullContent: content }),
       });
-
-      if (res.status === 401) {
-        setStatus("error");
-        setMessage("Unauthorized. Check your password.");
-        return;
+      if (res.ok) {
+        setSavedAt("Edits submitted for review! The developer has been notified.");
+      } else {
+        const data = await res.json().catch(() => null);
+        setSavedAt(data?.error || "Submit failed — please try again.");
       }
-
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error((body as Record<string, string>).error || `${res.status}`);
-      }
-
-      setStatus("success");
-      setMessage("Saved. Changes go live within 60 seconds.");
-      setSavedJson(json);
-    } catch (err) {
-      setStatus("error");
-      setMessage(`Save failed: ${err}`);
+    } catch {
+      setSavedAt("Could not submit — please check your connection and try again.");
+    } finally {
+      setSubmitting(false);
     }
-  }, [json, password, activePage]);
+  };
 
-  /* ---- Reset ---- */
-  const handleReset = useCallback(() => {
-    setJson(savedJson);
-    setStatus("idle");
-    setMessage("Reverted to last saved version.");
-  }, [savedJson]);
-
-  /* ---- Page switch ---- */
-  useEffect(() => {
-    if (authed) {
-      loadContent(activePage);
+  const handleReset = () => {
+    if (confirm("Reset all changes? This cannot be undone.")) {
+      const fresh = deepClone(originalContent);
+      setContent(fresh);
+      setHasChanges(false);
+      localStorage.removeItem(STORAGE_KEY);
+      setSavedAt(null);
     }
-  }, [authed, activePage, loadContent]);
+  };
 
-  const hasChanges = json !== savedJson;
-
-  /* ===================== LOGIN SCREEN ===================== */
-  if (!authed) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-        <div className="w-full max-w-sm bg-white rounded-2xl shadow-lg p-8">
-          <h1 className="text-2xl font-bold text-center mb-2">Admin</h1>
-          <p className="text-sm text-gray-500 text-center mb-6">
-            Enter the admin password to manage site content.
-          </p>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && handleLogin()}
-            placeholder="Password"
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-600 mb-4"
-          />
-          {authError && (
-            <p className="text-red-600 text-sm mb-4 text-center">
-              Could not verify. Try again.
-            </p>
+  return (
+    <div className="flex flex-col h-screen">
+      {/* Top Bar */}
+      <div className="flex items-center justify-between px-4 py-3 bg-white border-b border-gray-200 shadow-sm flex-shrink-0">
+        <div className="flex items-center gap-3">
+          <h1 className="text-lg font-bold text-gray-900">KingGen Content Editor</h1>
+          {hasChanges && (
+            <span className="flex items-center gap-1.5 text-xs text-amber-600 bg-amber-50 px-2 py-1 rounded-full">
+              <span className="w-2 h-2 rounded-full bg-amber-500" />
+              Unsaved changes
+            </span>
           )}
+          {savedAt && (
+            <span className="text-xs text-gray-400">{savedAt}</span>
+          )}
+        </div>
+        <div className="flex items-center gap-2">
           <button
-            onClick={handleLogin}
-            className="w-full py-3 bg-green-700 hover:bg-green-800 text-white font-semibold rounded-xl transition-colors"
+            onClick={handleSubmitForReview}
+            disabled={submitting}
+            className="px-3 py-1.5 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
-            Sign In
+            {submitting ? "Sending…" : "Submit for Review"}
+          </button>
+          <button
+            onClick={handleSaveDraft}
+            className="px-3 py-1.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            Save Draft
+          </button>
+          <button
+            onClick={handleDownload}
+            className="px-3 py-1.5 text-sm font-medium text-gray-500 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+            title="Download changes as JSON file"
+          >
+            Export
+          </button>
+          <button
+            onClick={handleReset}
+            className="px-3 py-1.5 text-sm font-medium text-red-600 bg-white border border-red-200 rounded-lg hover:bg-red-50 transition-colors"
+          >
+            Reset
           </button>
         </div>
       </div>
-    );
-  }
 
-  /* ===================== EDITOR ===================== */
-  return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-          <h1 className="text-lg font-bold text-gray-900">
-            KingGen Admin
-          </h1>
-          <div className="flex items-center gap-3">
-            {status === "saving" && (
-              <span className="text-sm text-gray-500">Saving...</span>
-            )}
-            {status === "loading" && (
-              <span className="text-sm text-gray-500">Loading...</span>
-            )}
-            <a
-              href={`/${activePage === "home" ? "" : activePage}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3 py-1.5 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
-            >
-              Preview Page
-            </a>
-            <button
-              onClick={() => {
-                setAuthed(false);
-                setPassword("");
-              }}
-              className="px-3 py-1.5 text-sm text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Sign Out
-            </button>
-          </div>
-        </div>
-      </header>
-
-      <div className="max-w-7xl mx-auto px-4 py-6 flex gap-6">
-        {/* Sidebar */}
-        <nav className="w-48 flex-shrink-0">
-          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
-            Pages
-          </p>
-          <ul className="space-y-1">
-            {PAGES.map((p) => (
-              <li key={p.slug}>
-                <button
-                  onClick={() => setActivePage(p.slug)}
-                  className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
-                    activePage === p.slug
-                      ? "bg-green-700 text-white font-semibold"
-                      : "text-gray-700 hover:bg-gray-100"
-                  }`}
-                >
-                  {p.label}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        {/* Main editor area */}
-        <main className="flex-1 min-w-0">
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
-            {/* Toolbar */}
-            <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 bg-gray-50">
-              <div className="flex items-center gap-3">
-                <h2 className="font-semibold text-gray-900 capitalize">
-                  {PAGES.find((p) => p.slug === activePage)?.label ?? activePage}
-                </h2>
-                {hasChanges && (
-                  <span className="px-2 py-0.5 bg-amber-100 text-amber-800 text-xs font-medium rounded-full">
-                    Unsaved changes
-                  </span>
-                )}
-              </div>
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={handleReset}
-                  disabled={!hasChanges || status === "saving"}
-                  className="px-3 py-1.5 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-                >
-                  Reset
-                </button>
-                <button
-                  onClick={handleSave}
-                  disabled={status === "saving" || status === "loading"}
-                  className="px-4 py-1.5 text-sm bg-green-700 hover:bg-green-800 text-white font-semibold rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-                >
-                  {status === "saving" ? "Saving..." : "Save"}
-                </button>
-              </div>
-            </div>
-
-            {/* JSON editor */}
-            <textarea
-              value={json}
-              onChange={(e) => {
-                setJson(e.target.value);
-                if (status === "success" || status === "error") {
-                  setStatus("idle");
-                  setMessage("");
-                }
-              }}
-              spellCheck={false}
-              className="w-full h-[calc(100vh-280px)] min-h-[400px] p-4 font-mono text-sm leading-relaxed text-gray-800 bg-white resize-none focus:outline-none"
-              placeholder="Loading content..."
-            />
-
-            {/* Status bar */}
-            {message && (
-              <div
-                className={`px-4 py-2 text-sm border-t ${
-                  status === "error"
-                    ? "bg-red-50 text-red-700 border-red-100"
-                    : status === "success"
-                    ? "bg-green-50 text-green-700 border-green-100"
-                    : "bg-blue-50 text-blue-700 border-blue-100"
-                }`}
-              >
-                {message}
-              </div>
-            )}
-          </div>
-
-          {/* Help text */}
-          <div className="mt-4 px-1 text-xs text-gray-400 space-y-1">
-            <p>Edit the JSON above, then hit Save. Changes go live within 60 seconds via ISR.</p>
-            <p>If a key is removed, the page falls back to its hardcoded default.</p>
-            <p>Icons are stored as string names (e.g. &quot;HeartIcon&quot;, &quot;ShieldIcon&quot;).</p>
-          </div>
-        </main>
+      {/* Main Editor */}
+      <div className="flex flex-1 overflow-hidden">
+        <PageSelector activePage={activePage} onSelect={(key) => setActivePage(key as PageKey)} />
+        <FieldEditor
+          pageKey={activePage}
+          content={content[activePage]}
+          originalContent={originalContent[activePage]}
+          onChange={handleFieldChange}
+        />
+        <PreviewPanel pageKey={activePage} content={content[activePage]} />
       </div>
     </div>
   );

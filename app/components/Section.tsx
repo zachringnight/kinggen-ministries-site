@@ -69,16 +69,16 @@ const paddingStyles: Record<SectionPadding, string> = {
   sm: "py-8 md:py-10",
   md: "py-10 md:py-12",
   lg: "py-12 md:py-16",
-  xl: "py-14 md:py-[4.5rem]",
+  xl: "py-12 md:py-16",
 };
 
 const lightTextureOpacity: Partial<Record<SectionVariant, number>> = {
-  default: 0.14,
-  white: 0.08,
-  light: 0.12,
-  soft: 0.1,
-  "art-cream": 0.16,
-  "cross-light": 0.14,
+  default: 0.06,
+  white: 0.04,
+  light: 0.05,
+  soft: 0.04,
+  "art-cream": 0.06,
+  "cross-light": 0.05,
 };
 
 const darkTextureOpacity: Partial<Record<SectionVariant, number>> = {
@@ -122,7 +122,7 @@ export default function Section({
         }}
       />
       <div
-        className={`absolute inset-0 pointer-events-none ${isLightSection ? "brand-surface-light-overlay" : "brand-surface-dark-overlay"}`}
+        className={`absolute inset-0 pointer-events-none ${isLightSection ? "" : "brand-surface-dark-overlay"}`}
         aria-hidden="true"
       />
 
@@ -151,10 +151,10 @@ export function SectionHeader({
   className = "",
 }: SectionHeaderProps) {
   return (
-    <div className={`mb-10 md:mb-12 ${centered ? "text-center" : ""} ${className}`}>
+    <div className={`mb-8 md:mb-10 ${centered ? "text-center" : ""} ${className}`}>
       <div className={`h-[2px] w-12 rounded-full bg-gradient-to-r from-brand-accent to-brand-primary/70 ${centered ? "mx-auto" : ""} mb-5 opacity-85`} />
       <h2
-        className={`text-3xl md:text-4xl lg:text-[2.65rem] font-bold font-heading mb-3 ${light ? "text-white" : "text-text-primary"}`}
+        className={`text-3xl md:text-4xl lg:text-[2.45rem] font-bold font-heading mb-3 ${light ? "text-white" : "text-text-primary"}`}
       >
         {title}
       </h2>

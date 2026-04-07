@@ -4,7 +4,7 @@ import {
   FadeIn,
   PageHero,
 } from "../components";
-import { getPageContent } from "../lib/content";
+import { privacyContent } from "../content";
 
 export const metadata: Metadata = {
   title: "Privacy",
@@ -12,17 +12,12 @@ export const metadata: Metadata = {
     "Read how KingGen Ministries handles privacy, confidentiality, and safety-related information.",
 };
 
-export const revalidate = 60;
-
-export default async function PrivacyPage() {
-  const content = await getPageContent('privacy');
-  const heroTitle = (content?.hero as Record<string, unknown>)?.title as string ?? "Privacy and Confidentiality";
-
+export default function PrivacyPage() {
   return (
     <>
       {/* Hero Section with KingGen branded background */}
       <PageHero
-        title={heroTitle}
+        title={privacyContent.hero.title}
         background="kinggen-branded"
       />
 
@@ -31,17 +26,17 @@ export default async function PrivacyPage() {
         <FadeIn>
           <div className="max-w-3xl mx-auto prose prose-lg">
             <p className="text-lg text-text-secondary leading-relaxed mb-6">
-              We respect your privacy and treat your story with care.
+              {privacyContent.intro}
             </p>
 
             <ul className="space-y-4 list-none p-0">
               <li className="flex items-start gap-3 text-text-secondary">
                 <span className="text-brand-primary font-bold">•</span>
-                <span>We do not share personal information without consent, except where disclosure is required by law or where there is a serious safety concern.</span>
+                <span>{privacyContent.points[0]}</span>
               </li>
               <li className="flex items-start gap-3 text-text-secondary">
                 <span className="text-brand-primary font-bold">•</span>
-                <span>Website forms and email may not be perfectly secure. Please avoid sharing highly sensitive details in a first message.</span>
+                <span>{privacyContent.points[1]}</span>
               </li>
               <li className="flex items-start gap-3 text-text-secondary">
                 <span className="text-brand-primary font-bold">•</span>

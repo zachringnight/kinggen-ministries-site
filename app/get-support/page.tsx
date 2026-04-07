@@ -13,7 +13,7 @@ import {
   StaggerItem,
   InnerPageHero,
 } from "../components";
-import { getPageContent } from "../lib/content";
+import { getSupportContent } from "../content";
 
 export const metadata: Metadata = {
   title: "Client Information",
@@ -21,61 +21,22 @@ export const metadata: Metadata = {
     "Guidance for women and trusted referrers on how to begin care with KingGen Ministries.",
 };
 
-const DEFAULT_HERO = {
-  title: "Client Information",
-  subtitle: "Helpful guidance for women and those supporting a referral.",
-};
-
-const DEFAULT_REASONS = [
-  "anxiety, stress, or burnout",
-  "grief and loss",
-  "relationship pain or family conflict",
-  "trauma and life transitions",
-  "spiritual discouragement",
-  "boundaries, identity, and rebuilding confidence",
-];
-
-const DEFAULT_STEPS = [
-  {
-    number: "1",
-    title: "Your referrer reaches out",
-    description: "The pastor, counselor, or trusted person who shared this page contacts us on your behalf with your permission.",
-  },
-  {
-    number: "2",
-    title: "We follow up",
-    description: "We'll respond and help clarify next steps together.",
-  },
-  {
-    number: "3",
-    title: "Forms and scheduling",
-    description: "If it's a fit, we'll share any needed forms and coordinate an appointment.",
-  },
-];
-
-export const revalidate = 60;
-
-export default async function GetSupport() {
-  const content = await getPageContent('get-support');
-  const hero = { ...DEFAULT_HERO, ...(content?.hero as Record<string, unknown>) };
-  const reasons = (content?.reasons as string[]) ?? DEFAULT_REASONS;
-  const steps = (content?.steps as typeof DEFAULT_STEPS) ?? DEFAULT_STEPS;
-
+export default function GetSupport() {
   return (
     <>
       <InnerPageHero
-        title={hero.title as string}
-        subtitle={hero.subtitle as string}
+        title={getSupportContent.hero.title}
+        subtitle={getSupportContent.hero.subtitle}
         background="inner"
         ariaLabel="Information for Clients"
-       
+
       />
 
       <Section variant="art-cream" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center px-2">
             <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
-              At KingGen Ministries, we believe everyone should have access to counseling. As a 501(c)(3), we offer Gospel-centered counseling for women in need by a licensed clinical pastoral counselor.
+              {getSupportContent.intro}
             </p>
           </div>
         </FadeIn>
@@ -85,10 +46,10 @@ export default async function GetSupport() {
         <FadeIn>
           <div className="max-w-3xl mx-auto px-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 md:mb-6 text-center">
-              What to expect
+              {getSupportContent.whatToExpect.title}
             </h2>
             <p className="text-base sm:text-lg text-white/95 leading-relaxed text-center">
-              Counseling is a place to slow down, tell the truth about what you&apos;re carrying, and take steady steps forward with hope and wisdom. You will be met with compassion and respect, at a pace that feels manageable.
+              {getSupportContent.whatToExpect.subtitle}
             </p>
           </div>
         </FadeIn>
@@ -98,16 +59,16 @@ export default async function GetSupport() {
         <FadeIn>
           <div className="max-w-3xl mx-auto px-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-3 md:mb-4 text-center">
-              You don&apos;t have to have the perfect words
+              {getSupportContent.reasons.title}
             </h2>
             <p className="text-base sm:text-lg text-text-secondary mb-6 md:mb-8 text-center">
-              Women are referred for many reasons, including:
+              {getSupportContent.reasons.subtitle}
             </p>
           </div>
         </FadeIn>
 
         <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
-          {reasons.map((reason, i) => (
+          {getSupportContent.reasons.items.map((reason, i) => (
             <StaggerItem key={i}>
               <div className="brand-panel flex items-start gap-3 p-3 md:p-4">
                 <CheckCircleIcon className="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" />
@@ -121,12 +82,12 @@ export default async function GetSupport() {
       <Section variant="cross-green" padding="xl">
         <FadeIn>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-8 md:mb-12 text-center">
-            How it works
+            {getSupportContent.howItWorks.title}
           </h2>
         </FadeIn>
 
         <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
-          {steps.map((step, i) => (
+          {getSupportContent.howItWorks.steps.map((step, i) => (
             <StaggerItem key={i}>
               <div className="text-center brand-panel-dark rounded-2xl p-6 h-full flex flex-col">
                 <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/20 text-white text-xl md:text-2xl font-bold flex items-center justify-center mx-auto mb-3 md:mb-4 border border-white/30">
@@ -151,13 +112,13 @@ export default async function GetSupport() {
               <ShieldIcon className="w-6 h-6 md:w-8 md:h-8 text-brand-primary flex-shrink-0" />
               <div>
                 <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2">
-                  Privacy and confidentiality
+                  {getSupportContent.privacy.title}
                 </h3>
                 <p className="text-sm md:text-base text-text-secondary mb-3 md:mb-4">
-                  We treat your story with care. We do not share personal information without your permission, except where disclosure is required by law or where there is a serious safety concern.
+                  {getSupportContent.privacy.body}
                 </p>
                 <p className="text-text-muted text-xs md:text-sm">
-                  Please keep your first message brief. We can gather details after we connect.
+                  {getSupportContent.privacy.note}
                 </p>
               </div>
             </div>
@@ -184,10 +145,10 @@ export default async function GetSupport() {
                   <CrossIcon className="w-6 h-6 text-brand-primary/70" strokeWidth={1.5} />
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold font-heading text-text-primary mb-3">
-                  In Crisis?
+                  {getSupportContent.crisis.title}
                 </h3>
                 <p className="text-text-secondary mb-4">
-                  If you or someone you know is experiencing a mental health crisis, please reach out for immediate help. You are not alone, and support is available.
+                  {getSupportContent.crisis.body}
                 </p>
                 <div className="flex flex-col sm:flex-row items-center gap-3 justify-center md:justify-start">
                   <a
@@ -202,7 +163,7 @@ export default async function GetSupport() {
                   </span>
                 </div>
                 <p className="text-xs text-text-muted mt-4">
-                  We are praying for you.
+                  {getSupportContent.crisis.prayerNote}
                 </p>
               </div>
             </div>
@@ -214,10 +175,10 @@ export default async function GetSupport() {
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
             <h3 className="text-lg md:text-xl font-bold font-heading text-white mb-3">
-              Are you a referrer?
+              {getSupportContent.referrerCta.title}
             </h3>
             <p className="text-white/95 mb-6">
-              If you&apos;re a pastor, counselor, or community professional looking to refer someone, visit our referrer page for more information.
+              {getSupportContent.referrerCta.subtitle}
             </p>
             <Button href="/for-referrers" variant="white" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
               For Referrers

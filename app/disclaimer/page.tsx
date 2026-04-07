@@ -4,7 +4,7 @@ import {
   FadeIn,
   PageHero,
 } from "../components";
-import { getPageContent } from "../lib/content";
+import { disclaimerContent } from "../content";
 
 export const metadata: Metadata = {
   title: "Disclaimer",
@@ -12,17 +12,12 @@ export const metadata: Metadata = {
     "Important emergency and informational disclaimers for KingGen Ministries website visitors.",
 };
 
-export const revalidate = 60;
-
-export default async function DisclaimerPage() {
-  const content = await getPageContent('disclaimer');
-  const heroTitle = (content?.hero as Record<string, unknown>)?.title as string ?? "Disclaimer";
-
+export default function DisclaimerPage() {
   return (
     <>
       {/* Hero Section with KingGen branded background */}
       <PageHero
-        title={heroTitle}
+        title={disclaimerContent.hero.title}
         background="kinggen-branded"
       />
 
@@ -31,7 +26,7 @@ export default async function DisclaimerPage() {
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <p className="text-lg text-text-secondary leading-relaxed mb-6">
-              This website is for informational purposes and is not an emergency service.
+              {disclaimerContent.intro}
             </p>
 
             <div className="bg-red-50 border border-red-200 rounded-2xl p-6">

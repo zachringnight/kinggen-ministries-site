@@ -13,7 +13,7 @@ import {
   TiltCard,
   InnerPageHero,
 } from "../components";
-import { getPageContent } from "../lib/content";
+import { testimonialsContent } from "../content";
 
 export const metadata: Metadata = {
   title: "Testimonials",
@@ -21,41 +21,12 @@ export const metadata: Metadata = {
     "Read stories and reflections from partners and clients about the care and support offered through KingGen Ministries.",
 };
 
-const DEFAULT_HERO = {
-  title: "Testimonials",
-  subtitle: "Stories of hope, trust, and Gospel-centered care.",
-};
-
-const DEFAULT_TESTIMONIALS = [
-  {
-    quote: "KingGen is a trustworthy referral option. The care is compassionate, discreet, and Gospel-centered.",
-    name: "Mark",
-    role: "Pastor",
-  },
-  {
-    quote: "Communication has been clear and respectful. I'm grateful for a place to refer women who need support and privacy.",
-    name: "Jenna",
-    role: "Referrer",
-  },
-  {
-    quote: "I felt safe, understood, and guided with wisdom. KingGen helped me find hope again.",
-    name: "Sarah",
-    role: "Client",
-  },
-];
-
-export const revalidate = 60;
-
-export default async function TestimonialsPage() {
-  const content = await getPageContent('testimonials');
-  const hero = { ...DEFAULT_HERO, ...(content?.hero as Record<string, unknown>) };
-  const testimonials = (content?.testimonials as typeof DEFAULT_TESTIMONIALS) ?? DEFAULT_TESTIMONIALS;
-
+export default function TestimonialsPage() {
   return (
     <>
       <InnerPageHero
-        title={hero.title as string}
-        subtitle={hero.subtitle as string}
+        title={testimonialsContent.hero.title}
+        subtitle={testimonialsContent.hero.subtitle}
         background="inner"
         ariaLabel="Testimonials"
        
@@ -63,7 +34,7 @@ export default async function TestimonialsPage() {
 
       <Section variant="art-cream" padding="xl">
         <StaggerContainer staggerDelay={0.15} className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {testimonials.map((testimonial, i) => (
+          {testimonialsContent.testimonials.map((testimonial, i) => (
             <StaggerItem key={i}>
               <TiltCard className="h-full" tiltAmount={3}>
                 <div className="brand-panel p-8 h-full relative flex flex-col">
@@ -78,10 +49,10 @@ export default async function TestimonialsPage() {
                   </p>
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white font-bold">
-                      {testimonial.name.charAt(0)}
+                      {testimonial.author.charAt(0)}
                     </div>
                     <div>
-                      <p className="font-bold text-text-primary">{testimonial.name}</p>
+                      <p className="font-bold text-text-primary">{testimonial.author}</p>
                       <p className="text-sm text-text-muted">{testimonial.role}</p>
                     </div>
                   </div>
@@ -98,10 +69,10 @@ export default async function TestimonialsPage() {
             <CrossIcon className="w-7 h-7 text-white/50" strokeWidth={1.5} />
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4 text-center">
-            Hope in Every Season
+            {testimonialsContent.hope.title}
           </h2>
           <p className="text-base sm:text-lg text-white/95 mb-10 text-center max-w-2xl mx-auto">
-            We share encouragement through Scripture and prayer, reminding women of the hope found in Christ.
+            {testimonialsContent.hope.subtitle}
           </p>
         </FadeIn>
 
@@ -149,7 +120,7 @@ export default async function TestimonialsPage() {
 
         <FadeIn delay={0.5}>
           <p className="text-center text-white/95 text-sm mt-8">
-            Follow us on social media for daily encouragement
+            {testimonialsContent.hope.socialNote}
           </p>
         </FadeIn>
       </Section>
@@ -158,10 +129,10 @@ export default async function TestimonialsPage() {
         <FadeIn>
           <div className="brand-panel rounded-3xl p-8 md:p-12 lg:p-16 text-center max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6">
-              Ready to take the next step?
+              {testimonialsContent.cta.title}
             </h2>
             <p className="text-lg text-text-secondary mb-8 leading-relaxed max-w-2xl mx-auto">
-              Whether you need support, want to make a referral, or feel led to give, we&apos;re here.
+              {testimonialsContent.cta.subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button href="/get-support" variant="primary" size="lg">
