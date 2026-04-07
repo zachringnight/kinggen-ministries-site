@@ -5,6 +5,7 @@ import {
   CONTENT_PAGES,
   type ContentPage,
 } from '@/app/lib/content';
+import { validateAdminAuthorizationHeader } from '@/app/lib/admin-auth';
 
 export async function GET(request: NextRequest) {
   const page = request.nextUrl.searchParams.get('page') as ContentPage;
@@ -27,11 +28,15 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const authHeader = request.headers.get('authorization');
-  const adminPassword = process.env.ADMIN_PASSWORD;
-
-  if (!adminPassword || authHeader !== `Bearer ${adminPassword}`) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  const authResult = validateAdminAuthorizationHeader(
+    request.headers.get('authorization')
+  );
+  if (!authResult.ok) {
+    const message =
+      authResult.status === 503
+        ? 'Authentication unavailable'
+        : 'Authentication failed';
+    return NextResponse.json({ error: message }, { status: authResult.status });
   }
 
   let body: { page?: string; content?: Record<string, unknown> };

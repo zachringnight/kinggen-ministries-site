@@ -9,4 +9,4 @@ export { default as Logo, LogoIcon, BrandMark, BrandLockup } from "./Logo";
 export { default as OptimizedBackground, getOptimizedImage, getOptimizedImageWithFallback } from "./OptimizedBackground";
 export { default as BackToTopButton } from "./BackToTopButton";
 export * from "./Icons";
-export * from "./MotionComponents";
+export * from "./motion";
