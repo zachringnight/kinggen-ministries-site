@@ -147,8 +147,8 @@ html {
 
 .brand-panel {
   background: linear-gradient(170deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.84) 100%);
-  border: 1px solid rgba(226, 220, 211, 0.9);
-  box-shadow: 0 14px 32px -22px rgba(38, 61, 39, 0.26);
+  border: 1px solid rgba(180, 170, 155, 0.55);
+  box-shadow: 0 2px 8px -2px rgba(38, 61, 39, 0.10), 0 14px 32px -22px rgba(38, 61, 39, 0.18);
   border-radius: 1.25rem;
 }
 
@@ -288,6 +288,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+h2, h3, h4 {
+  line-height: 1.2;
+}
+
 h2,
 h3 {
   font-weight: 600;
@@ -344,19 +348,8 @@ a:not([class]):hover {
   transition: all 0.3s ease;
 }
 .card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 32px -16px rgba(59, 94, 58, 0.14);
-}
-
-.service-card-interactive {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
-}
-
-.service-card-interactive:hover,
-.service-card-interactive:focus-visible {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px -8px rgba(38, 61, 39, 0.18);
 }
 
 /* Decorative elements */
@@ -465,14 +458,7 @@ label {
   background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 50%, var(--brand-warm) 100%);
 }
 
-/* Section backgrounds - off-white tones for warm, inviting feel */
-.section-light {
-  background: var(--brand-soft);
-}
-
-.section-soft {
-  background: var(--brand-light);
-}
+/* Section backgrounds set by Tailwind variant classes; text contrast overrides in .section-dark above */
 
 /* Quote styling */
 blockquote {

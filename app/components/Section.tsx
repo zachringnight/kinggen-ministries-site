@@ -3,6 +3,7 @@ import OptimizedBackground from "./OptimizedBackground";
 
 type SectionVariant =
   | "default"
+  | "white"
   | "light"
   | "soft"
   | "primary"
@@ -27,6 +28,7 @@ interface SectionProps {
 
 const lightVariants = new Set<SectionVariant>([
   "default",
+  "white",
   "light",
   "soft",
   "art-cream",
@@ -43,6 +45,7 @@ const darkVariants = new Set<SectionVariant>([
 
 const variantStyles: Record<SectionVariant, string> = {
   default: "bg-brand-soft text-text-primary",
+  white: "bg-white text-text-primary",
   light: "bg-brand-light text-text-primary",
   soft: "bg-brand-cream text-text-primary",
   primary: "bg-brand-primary text-white",
@@ -71,6 +74,7 @@ const paddingStyles: Record<SectionPadding, string> = {
 
 const lightTextureOpacity: Partial<Record<SectionVariant, number>> = {
   default: 0.06,
+  white: 0.04,
   light: 0.05,
   soft: 0.04,
   "art-cream": 0.06,
