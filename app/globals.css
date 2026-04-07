@@ -333,17 +333,6 @@ a:not([class]):hover {
   box-shadow: 0 8px 24px -8px rgba(38, 61, 39, 0.18);
 }
 
-.service-card-interactive {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
-}
-
-.service-card-interactive:hover,
-.service-card-interactive:focus-visible {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
 /* Decorative elements */
 .decorative-line {
   width: 44px;
@@ -450,8 +439,7 @@ label {
   background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 50%, var(--brand-warm) 100%);
 }
 
-/* Section backgrounds - text contrast handled via section-dark/section-light classes */
-/* Background colors are set by Tailwind variant classes (bg-brand-soft, bg-white, etc.) */
+/* Section backgrounds set by Tailwind variant classes; text contrast overrides in .section-dark above */
 
 /* Quote styling */
 blockquote {
