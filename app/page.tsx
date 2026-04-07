@@ -133,7 +133,7 @@ export default async function Home() {
   return (
     <>
       <section
-        className="relative w-full min-h-[56vh] md:min-h-[66vh] flex items-center animate-fade-in-up isolate overflow-hidden"
+        className="relative w-full min-h-[42vh] md:min-h-[60vh] flex items-center animate-fade-in-up isolate overflow-hidden"
         aria-label="KingGen Ministries - Christian Counseling for Women"
       >
         <OptimizedBackground
@@ -145,11 +145,11 @@ export default async function Home() {
 
         <h1 className="sr-only">KingGen Ministries</h1>
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-24 pb-14 md:pt-24 md:pb-20">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-20 pb-10 md:pt-24 md:pb-20">
           <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
             <div>
-              <div className="mb-5 flex justify-center">
-                <BrandLockup theme="dark" size="lg" className="mx-auto" />
+              <div className="mb-4 flex justify-center">
+                <BrandLockup theme="dark" size="lg" className="mx-auto max-w-[260px] md:max-w-[380px]" />
               </div>
 
               <span className="inline-block px-3.5 py-1.5 bg-white/9 backdrop-blur-sm border border-white/18 text-white/95 text-xs sm:text-sm font-medium rounded-full mb-4 tracking-wide">
@@ -164,7 +164,7 @@ export default async function Home() {
               <p className="text-base md:text-lg text-white/95 mt-4 max-w-2xl leading-relaxed">
                 Compassionate, confidential pastoral care offered at no cost. For referrals, donors, and ministry partners.
               </p>
-              <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
+              <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center items-center">
                 <Button href="/contact" variant="gold" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
                   Start a Referral Conversation
                 </Button>
@@ -180,7 +180,7 @@ export default async function Home() {
                   </div>
                 ))}
               </div>
-              <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-2.5 max-w-3xl mx-auto">
+              <div className="mt-7 grid grid-cols-3 gap-2.5 max-w-3xl mx-auto">
                 {(hero.hero_metrics as Array<{value: string; label: string}>).map((metric) => (
                   <div key={metric.label} className="brand-hero-stat px-4 py-2.5 text-center">
                     <p className="text-white font-semibold text-base">{metric.value}</p>
@@ -214,7 +214,7 @@ export default async function Home() {
         </FadeIn>
       </Section>
 
-      <Section variant="default" padding="lg">
+      <Section variant="white" padding="lg">
         <FadeIn>
           <SectionHeader
             title="Our services"
@@ -292,7 +292,7 @@ export default async function Home() {
         </StaggerContainer>
       </Section>
 
-      <Section variant="soft" padding="lg">
+      <Section variant="white" padding="lg">
         <FadeIn>
           <SectionHeader title="Partner with us" />
         </FadeIn>
@@ -361,55 +361,27 @@ export default async function Home() {
           />
         </FadeIn>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="hidden md:block">
-            <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-              {testimonialData.map((testimonial, index) => (
-                <StaggerItem key={index}>
-                  <div className="brand-panel brand-panel-premium brand-panel-interactive p-6 md:p-7 h-full flex flex-col">
-                    <QuoteIcon className="w-7 h-7 text-brand-primary/22 mb-4" />
-                    <p className="text-sm md:text-base text-text-secondary italic mb-4 md:mb-6 leading-relaxed flex-grow">
-                      &ldquo;{testimonial.quote}&rdquo;
-                    </p>
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white font-bold text-lg shadow-lg">
-                        {testimonial.initial}
-                      </div>
-                      <div>
-                        <p className="font-bold text-text-primary text-sm md:text-base">{testimonial.author}</p>
-                        <p className="text-xs md:text-sm text-text-muted">{testimonial.role}</p>
-                      </div>
-                    </div>
+        <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 max-w-5xl mx-auto">
+          {testimonialData.map((testimonial, index) => (
+            <StaggerItem key={index}>
+              <div className="brand-panel brand-panel-premium brand-panel-interactive p-6 h-full flex flex-col">
+                <QuoteIcon className="w-7 h-7 text-brand-primary/22 mb-4" />
+                <p className="text-sm md:text-base text-text-secondary italic mb-4 md:mb-6 leading-relaxed flex-grow">
+                  &ldquo;{testimonial.quote}&rdquo;
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                    {testimonial.initial}
                   </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </div>
-
-          <div className="md:hidden">
-            <div className="brand-panel brand-panel-premium rounded-2xl overflow-hidden border border-brand-light">
-              {testimonialData.map((testimonial, index) => (
-                <FadeIn key={index} delay={0.1 * index}>
-                  <div className="p-6 border-b border-brand-light last:border-b-0">
-                    <QuoteIcon className="w-6 h-6 text-brand-primary/20 mb-3" />
-                    <p className="text-sm text-text-secondary italic mb-4 leading-relaxed">
-                      &ldquo;{testimonial.quote}&rdquo;
-                    </p>
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white font-bold text-sm">
-                        {testimonial.initial}
-                      </div>
-                      <div>
-                        <p className="font-bold text-text-primary text-sm">{testimonial.author}</p>
-                        <p className="text-xs text-text-muted">{testimonial.role}</p>
-                      </div>
-                    </div>
+                  <div>
+                    <p className="font-bold text-text-primary text-sm md:text-base">{testimonial.author}</p>
+                    <p className="text-xs md:text-sm text-text-muted">{testimonial.role}</p>
                   </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </div>
+                </div>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
 
         <FadeIn delay={0.3}>
           <div className="text-center mt-8 md:mt-10">
@@ -420,7 +392,7 @@ export default async function Home() {
         </FadeIn>
       </Section>
 
-      <Section variant="soft" padding="lg">
+      <Section variant="white" padding="lg">
         <div className="max-w-4xl mx-auto">
           <FadeIn>
             <div className="brand-panel brand-panel-premium p-8 md:p-12 text-center">
