@@ -95,19 +95,9 @@ export const homeContent: HomeContent = {
     subtitle: "Hear from pastors, referrers, and community partners who trust KingGen Ministries.",
     items: [
       {
-        quote: "As a pastor, I'm grateful for a referral option that is compassionate, discreet, and Gospel-centered. I trust KingGen with the women in our congregation.",
-        author: "Mark",
-        role: "Pastor",
-      },
-      {
-        quote: "Communication has been clear and respectful. I'm grateful for a place to refer women who need support and privacy.",
-        author: "Jenna",
-        role: "Community Referrer",
-      },
-      {
-        quote: "KingGen provides the kind of care that transforms lives. Their commitment to serving women in need is truly remarkable.",
-        author: "Sarah",
-        role: "Ministry Partner",
+        quote: "In our ministry, there are times when we deal with female members inside or outside our Church body, who need counseling for many issues: marriage, depression, kids, life structure, personal decisions, etc. Our Deacon body is very confident to send these women to our associate Dr. LeeAnn Howarth at KingGen Ministries in Keller, Texas. LeeAnn is a highly qualified Christian Counselor who exudes integrity and wisdom. If your ministry is looking for a qualified Christian Counselor specializing in helping women, I highly recommend Dr. LeeAnn Howarth at KingGen Ministries!",
+        author: "Dennis S.",
+        role: "Chairman of Deacons, First Baptist Church - Watauga, TX",
       },
     ],
   },
