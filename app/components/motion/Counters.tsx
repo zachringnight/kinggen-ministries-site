@@ -30,39 +30,44 @@ export function AnimatedCounter({
 }: AnimatedCounterProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px", amount: 0.2 });
-  const [displayValue, setDisplayValue] = useState(0);
+  const shouldReduceMotion = useReducedMotion();
+  // Initialize at the final value so SSR (and any client where JS hydration
+  // fails or framer-motion's IntersectionObserver never fires) renders the
+  // real number instead of 0. The count-up below is a progressive enhancement.
+  const [displayValue, setDisplayValue] = useState(value);
 
   useEffect(() => {
-    if (isInView) {
-      let startTime: number;
-      let animationFrame: number;
-      const fallbackTimeout = setTimeout(() => {
-        setDisplayValue(value);
-      }, 2000);
+    if (shouldReduceMotion || !isInView) return;
+    let startTime: number;
+    let animationFrame: number;
+    const fallbackTimeout = setTimeout(() => {
+      setDisplayValue(value);
+    }, 2000);
 
-      const animate = (timestamp: number) => {
-        if (!startTime) startTime = timestamp;
-        const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
 
-        // Ease out cubic
-        const easeOut = 1 - Math.pow(1 - progress, 3);
-        setDisplayValue(Math.floor(easeOut * value));
+      // Ease out cubic. The first frame (progress=0) implicitly resets the
+      // display to 0 so the count-up still starts from zero even though the
+      // initial state is the final value.
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      setDisplayValue(Math.floor(easeOut * value));
 
-        if (progress < 1) {
-          animationFrame = requestAnimationFrame(animate);
-          return;
-        }
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+        return;
+      }
 
-        setDisplayValue(value);
-      };
+      setDisplayValue(value);
+    };
 
-      animationFrame = requestAnimationFrame(animate);
-      return () => {
-        clearTimeout(fallbackTimeout);
-        cancelAnimationFrame(animationFrame);
-      };
-    }
-  }, [isInView, value, duration]);
+    animationFrame = requestAnimationFrame(animate);
+    return () => {
+      clearTimeout(fallbackTimeout);
+      cancelAnimationFrame(animationFrame);
+    };
+  }, [isInView, value, duration, shouldReduceMotion]);
 
   return (
     <span ref={ref} className={className}>
@@ -87,13 +92,16 @@ interface ScrollNumberProps {
 export function ScrollNumber({ value, suffix = "", prefix = "", className = "" }: ScrollNumberProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const motionValue = useMotionValue(0);
+  const motionValue = useMotionValue(value);
   const springValue = useSpring(motionValue, { stiffness: 50, damping: 20 });
-  const [displayValue, setDisplayValue] = useState(0);
+  // Same SSR-safe default as AnimatedCounter: render the real number even if
+  // hydration or the spring animation never runs.
+  const [displayValue, setDisplayValue] = useState(value);
 
   useEffect(() => {
     if (isInView) {
-      motionValue.set(value);
+      motionValue.set(0);
+      requestAnimationFrame(() => motionValue.set(value));
     }
   }, [isInView, motionValue, value]);
 
