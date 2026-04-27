@@ -26,7 +26,11 @@ function normalizeSiteUrl(rawUrl: string | undefined): URL {
 }
 
 const canonicalUrl = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
-const canonicalHost = canonicalUrl.host.toLowerCase();
+// Use hostname (not host) so the comparison stays stable even when
+// NEXT_PUBLIC_SITE_URL carries a non-default port; getRequestHost() and
+// redirectHosts are both portless, so a port-bearing canonicalHost would
+// otherwise fail to filter itself out and risk a 308 redirect loop.
+const canonicalHost = canonicalUrl.hostname.toLowerCase();
 
 const redirectHosts = new Set(
   [
