@@ -21,6 +21,18 @@ describe("normalizeSiteUrl", () => {
       "https://kinggenministries.org"
     );
   });
+
+  it("rejects vercel.app overrides so SEO fields stay on the production domain", () => {
+    expect(normalizeSiteUrl("https://kinggen-ministries-site.vercel.app")).toBe(
+      "https://kinggenministries.org"
+    );
+    expect(
+      normalizeSiteUrl("https://kinggen-ministries-site-mwqc.vercel.app")
+    ).toBe("https://kinggenministries.org");
+    expect(normalizeSiteUrl("any-preview.vercel.app")).toBe(
+      "https://kinggenministries.org"
+    );
+  });
 });
 
 describe("toPhoneHref", () => {

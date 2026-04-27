@@ -3,8 +3,8 @@
 import { execSync } from "node:child_process";
 import process from "node:process";
 
-const DEFAULT_CANONICAL_CONTEXT = "Vercel – kinggen-ministries-site-mwqc";
-const DEFAULT_STALE_CONTEXT = "Vercel – kinggen-ministries-site";
+const DEFAULT_CANONICAL_CONTEXT = "Vercel – kinggen-ministries-site";
+const DEFAULT_STALE_CONTEXT = "Vercel – kinggen-ministries-site-mwqc";
 
 function run(command) {
   return execSync(command, { encoding: "utf8" }).trim();

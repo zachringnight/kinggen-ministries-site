@@ -14,6 +14,12 @@ export function normalizeSiteUrl(rawUrl: string | undefined): string {
     if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
       return DEFAULT_SITE_URL;
     }
+    // SEO/canonical fields must always point at the production domain. Reject
+    // vercel.app overrides so a misconfigured NEXT_PUBLIC_SITE_URL can't leak
+    // a deployment-specific host into sitemap.xml, robots.txt, or metadata.
+    if (parsed.hostname.toLowerCase().endsWith(".vercel.app")) {
+      return DEFAULT_SITE_URL;
+    }
 
     return parsed.origin;
   } catch {

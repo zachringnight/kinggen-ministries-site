@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const DEFAULT_CANONICAL_URL = "https://kinggen-ministries-site-mwqc.vercel.app";
+const DEFAULT_CANONICAL_URL = "https://kinggenministries.org";
 
 function normalizeSiteUrl(rawUrl: string | undefined): URL {
   const trimmed = rawUrl?.trim();
@@ -15,6 +15,9 @@ function normalizeSiteUrl(rawUrl: string | undefined): URL {
     if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
       return new URL(DEFAULT_CANONICAL_URL);
     }
+    if (parsed.hostname.toLowerCase().endsWith(".vercel.app")) {
+      return new URL(DEFAULT_CANONICAL_URL);
+    }
 
     return new URL(parsed.origin);
   } catch {
@@ -23,13 +26,16 @@ function normalizeSiteUrl(rawUrl: string | undefined): URL {
 }
 
 const canonicalUrl = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
-const canonicalHost = canonicalUrl.host.toLowerCase();
+// Use hostname (not host) so the comparison stays stable even when
+// NEXT_PUBLIC_SITE_URL carries a non-default port; getRequestHost() and
+// redirectHosts are both portless, so a port-bearing canonicalHost would
+// otherwise fail to filter itself out and risk a 308 redirect loop.
+const canonicalHost = canonicalUrl.hostname.toLowerCase();
 
 const redirectHosts = new Set(
   [
     "www.kinggenministries.org",
     "kinggen-ministries-site.vercel.app",
-    "kinggen-ministries-site-mwqc.vercel.app",
   ].filter((host) => host !== canonicalHost)
 );
 

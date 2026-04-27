@@ -1,62 +1,60 @@
 # Deployment Guide
 
-This repository has two Vercel projects connected today. During stabilization, treat one project as canonical and the other as legacy.
+This repository deploys to a single Vercel project. The previously documented
+`kinggen-ministries-site-mwqc` "canonical" project no longer exists.
 
 ## Canonical Target
 
-- Canonical project: `kinggen-ministries-site-mwqc`
-- Canonical URL: `https://kinggen-ministries-site-mwqc.vercel.app`
+- Project: `kinggen-ministries-site`
+- Production domain: `https://kinggenministries.org`
 - Production branch: `Claude/main`
-
-## Legacy Project
-
-- Legacy project: `kinggen-ministries-site`
-- Legacy URL: `https://kinggen-ministries-site.vercel.app`
-- Expected final behavior: permanent redirect all paths to canonical URL.
-- Repo-level support exists in both:
-  - `vercel.json` host-scoped redirect from legacy host to canonical host.
-  - `proxy.ts` canonical host redirect protection at runtime.
 
 ## Required Vercel Settings
 
-Apply these in Vercel project settings (or CLI/API if authenticated):
+Apply these in Vercel project settings:
 
-1. Canonical project (`kinggen-ministries-site-mwqc`)
-1. Set **Production Branch** to `Claude/main`.
-1. Keep auto-deploy enabled for the production branch.
-1. Legacy project (`kinggen-ministries-site`)
-1. Keep this project deployed from this repository until redirect behavior is confirmed, then disable its production deployments.
+1. **Settings → Git** → set Production Branch to `Claude/main`. Keep auto-deploy
+   enabled.
+2. **Settings → Domains** → both `kinggenministries.org` and
+   `www.kinggenministries.org` must be attached to this project. The `www`
+   subdomain in particular must not be left attached to a deleted/legacy
+   project, or it will return `503` for end users. The `proxy.ts` middleware
+   redirects `www → apex` once the domain is attached here.
+3. **Settings → Environment Variables** → `NEXT_PUBLIC_SITE_URL` should be
+   either unset or set to `https://kinggenministries.org`. Code defends
+   against `*.vercel.app` overrides (they fall back to the production
+   domain), but setting it explicitly is clearer.
 
-## If Host-Level Redirect Is Blocked
+## Redirects In Place
 
-Use this fallback and keep it temporary:
-
-1. Sync the legacy project to the same branch and build config as canonical.
-1. Remove legacy project links from team docs and handoffs.
-1. Treat only `https://kinggen-ministries-site-mwqc.vercel.app` as production-of-record.
+- `vercel.json` redirects requests on the bare project URL
+  (`kinggen-ministries-site.vercel.app`) to `https://kinggenministries.org`.
+- `proxy.ts` middleware redirects `www.kinggenministries.org` and
+  `kinggen-ministries-site.vercel.app` to the production domain at request
+  time.
 
 ## Verification Checklist
 
 Run after every production push:
 
 1. `npm run lint`
-1. `npm run type-check`
-1. `npm run build`
-1. `npm run verify:routes`
+2. `npm run type-check`
+3. `npm run test:run`
+4. `npm run build`
+5. `npm run verify:routes`
 
 Then verify live URLs:
 
-1. `GET https://kinggen-ministries-site-mwqc.vercel.app/` returns `200`.
-1. `GET https://kinggen-ministries-site-mwqc.vercel.app/services` returns `200`.
-1. `GET https://kinggen-ministries-site.vercel.app/services` returns permanent redirect to `https://kinggen-ministries-site-mwqc.vercel.app/services` (or documented fallback behavior).
+1. `GET https://kinggenministries.org/` returns `200`.
+2. `GET https://kinggenministries.org/services` returns `200`.
+3. `GET https://www.kinggenministries.org/` returns a permanent redirect to
+   `https://kinggenministries.org/`.
+4. `GET https://kinggen-ministries-site.vercel.app/` returns a permanent
+   redirect to `https://kinggenministries.org/`.
 
-## GitHub Status Contexts
+## GitHub Status Context
 
-Canonical expected context:
-
-- `Vercel – kinggen-ministries-site-mwqc`
-
-Legacy context may still appear during transition:
+Expected Vercel commit-status context:
 
 - `Vercel – kinggen-ministries-site`
 
@@ -68,13 +66,10 @@ npm run verify:deploy-context
 
 ## Rollback Flow
 
-1. In Vercel, open canonical project deployments.
-1. Promote the last known-good deployment.
-1. Re-run route checks:
-   - `/`
-   - `/services`
-   - `/contact`
-1. Confirm GitHub status context is green for canonical project.
+1. In Vercel, open the project's Deployments tab.
+2. Promote the last known-good deployment to Production.
+3. Re-run route checks: `/`, `/services`, `/contact`.
+4. Confirm the Vercel commit-status context is green on `Claude/main`.
 
 ## Asset Hygiene Notes
 
