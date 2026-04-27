@@ -4,6 +4,9 @@ import { siteConfig } from "./config/site";
 import { Header, Footer, BackToTopButton } from "./components";
 
 const siteUrl = siteConfig.url;
+// Used for OpenGraph/Twitter cards so previews render with a meaningful
+// title-and-tagline pair instead of just the bare site name.
+const socialTitle = `${siteConfig.name} · ${siteConfig.tagline}`;
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "NGO",
@@ -50,20 +53,21 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: siteConfig.name,
-    title: siteConfig.name,
+    title: socialTitle,
     description: siteConfig.description,
     images: [
       {
         url: "/brand/headers/homepage-hero.webp",
-        width: 2460,
-        height: 1080,
-        alt: "KingGen Ministries",
+        width: 1920,
+        height: 842,
+        type: "image/webp",
+        alt: `${siteConfig.name} — ${siteConfig.tagline}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
+    title: socialTitle,
     description: siteConfig.description,
     images: ["/brand/headers/homepage-hero.webp"],
   },
