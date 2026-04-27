@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const DEFAULT_CANONICAL_URL = "https://kinggen-ministries-site-mwqc.vercel.app";
+const DEFAULT_CANONICAL_URL = "https://kinggenministries.org";
 
 function normalizeSiteUrl(rawUrl: string | undefined): URL {
   const trimmed = rawUrl?.trim();
@@ -13,6 +13,9 @@ function normalizeSiteUrl(rawUrl: string | undefined): URL {
   try {
     const parsed = new URL(withProtocol);
     if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
+      return new URL(DEFAULT_CANONICAL_URL);
+    }
+    if (parsed.hostname.toLowerCase().endsWith(".vercel.app")) {
       return new URL(DEFAULT_CANONICAL_URL);
     }
 
@@ -29,7 +32,6 @@ const redirectHosts = new Set(
   [
     "www.kinggenministries.org",
     "kinggen-ministries-site.vercel.app",
-    "kinggen-ministries-site-mwqc.vercel.app",
   ].filter((host) => host !== canonicalHost)
 );
 
