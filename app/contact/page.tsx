@@ -157,7 +157,7 @@ export default function ContactPage() {
         subtitle={contactContent.hero.subtitle}
         background="inner"
         ariaLabel="Contact KingGen Ministries"
-       
+        eyebrow="Referral & Partner Inquiries"
       />
 
       {/* Note */}

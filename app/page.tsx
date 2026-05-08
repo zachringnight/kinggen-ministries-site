@@ -263,27 +263,38 @@ export default function Home() {
           />
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 max-w-4xl mx-auto">
-          {homeContent.testimonials.items.map((testimonial, index) => (
-            <StaggerItem key={index}>
-              <div className="brand-panel brand-panel-premium brand-panel-interactive p-6 h-full flex flex-col">
-                <QuoteIcon className="w-7 h-7 text-brand-primary/22 mb-4" />
-                <p className="text-sm md:text-base text-text-secondary italic mb-4 md:mb-6 leading-relaxed flex-grow">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white font-bold text-lg shadow-lg">
-                    {testimonial.author.charAt(0)}
+        {(() => {
+          const count = homeContent.testimonials.items.length;
+          const gridClass =
+            count === 1
+              ? "grid grid-cols-1 max-w-xl mx-auto"
+              : count === 2
+              ? "grid grid-cols-1 md:grid-cols-2 max-w-3xl mx-auto"
+              : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto";
+          return (
+            <StaggerContainer staggerDelay={0.15} className={`${gridClass} gap-5 md:gap-6`}>
+              {homeContent.testimonials.items.map((testimonial, index) => (
+                <StaggerItem key={index}>
+                  <div className="brand-panel brand-panel-premium brand-panel-interactive p-6 h-full flex flex-col">
+                    <QuoteIcon className="w-7 h-7 text-brand-primary/22 mb-4" />
+                    <p className="text-sm md:text-base text-text-secondary italic mb-4 md:mb-6 leading-relaxed flex-grow">
+                      &ldquo;{testimonial.quote}&rdquo;
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                        {testimonial.author.charAt(0)}
+                      </div>
+                      <div>
+                        <p className="font-bold text-text-primary text-sm md:text-base">{testimonial.author}</p>
+                        <p className="text-xs md:text-sm text-text-muted">{testimonial.role}</p>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-bold text-text-primary text-sm md:text-base">{testimonial.author}</p>
-                    <p className="text-xs md:text-sm text-text-muted">{testimonial.role}</p>
-                  </div>
-                </div>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          );
+        })()}
 
         <FadeIn delay={0.3}>
           <div className="text-center mt-8 md:mt-10">

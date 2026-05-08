@@ -20,7 +20,7 @@ export default function DonatePage() {
         subtitle={donateContent.hero.subtitle}
         background="inner"
         ariaLabel="Help Keep Counseling Free"
-       
+        eyebrow="Support Free Counseling"
       >
         <Button
           href={siteConfig.paypalUrl}

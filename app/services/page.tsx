@@ -31,6 +31,7 @@ export default function ServicesPage() {
         subtitle={servicesContent.hero.subtitle}
         background="inner-logo"
         ariaLabel="Our Services"
+        eyebrow="Our Counseling Care"
       />
 
       <Section variant="art-cream" padding="xl">
