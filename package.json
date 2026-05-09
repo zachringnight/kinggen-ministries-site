@@ -19,7 +19,8 @@
     "verify:deploy-context": "node scripts/verify-deploy-context.mjs",
     "optimize-images": "node scripts/optimize-images.mjs",
     "optimize-brand-images": "node scripts/optimize-brand-images.mjs",
-    "generate-resources": "node scripts/generate-resource-pdfs.mjs"
+    "generate-resources": "node scripts/generate-resource-pdfs.mjs",
+    "prepare": "husky"
   },
   "dependencies": {
     "@vercel/blob": "^2.3.1",
@@ -40,15 +41,29 @@
     "dotenv": "^17.3.1",
     "eslint": "^9",
     "eslint-config-next": "^16.1.6",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
     "jsdom": "^27.4.0",
+    "lint-staged": "^17.0.3",
+    "prettier": "^3.8.3",
     "sharp": "^0.34.5",
     "tailwindcss": "^4",
     "tsx": "^4.21.0",
     "typescript": "^5",
+    "vercel": "^53.2.0",
     "vitest": "^4.0.18"
   },
   "engines": {
     "node": ">=20.19.0",
     "npm": ">=10.0.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,css}": [
+      "prettier --write"
+    ]
   }
 }
