@@ -26,16 +26,11 @@ const variantStyles: Record<ButtonVariant, string> = {
     "bg-brand-secondary text-white hover:bg-brand-primary shadow-lg shadow-brand-secondary/25 border border-brand-secondary/30",
   accent:
     "bg-brand-accent text-brand-primary hover:bg-brand-accent/85 shadow-lg shadow-brand-accent/25 border border-brand-accent/30",
-  gold:
-    "bg-gradient-to-br from-brand-gold to-brand-gold-dark text-white hover:from-brand-gold-dark hover:to-brand-gold-dark shadow-lg shadow-brand-gold/30 border border-brand-gold/30",
-  outline:
-    "border border-brand-primary/65 text-brand-primary hover:bg-brand-primary hover:text-white",
-  "outline-white":
-    "border-2 border-white/70 text-white hover:bg-white/15",
-  ghost:
-    "text-brand-primary hover:bg-brand-light",
-  white:
-    "bg-white text-brand-primary hover:bg-brand-soft shadow-lg border border-white/60",
+  gold: "bg-gradient-to-br from-brand-gold to-brand-gold-dark text-white hover:from-brand-gold-dark hover:to-brand-gold-dark shadow-lg shadow-brand-gold/30 border border-brand-gold/30",
+  outline: "border border-brand-primary/65 text-brand-primary hover:bg-brand-primary hover:text-white",
+  "outline-white": "border-2 border-white/70 text-white hover:bg-white/15",
+  ghost: "text-brand-primary hover:bg-brand-light",
+  white: "bg-white text-brand-primary hover:bg-brand-soft shadow-lg border border-white/60",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -73,7 +68,9 @@ export default function Button({
     ${sizeStyles[size]}
     ${fullWidth ? "w-full" : ""}
     ${className}
-  `.trim().replace(/\s+/g, " ");
+  `
+    .trim()
+    .replace(/\s+/g, " ");
 
   const content = (
     <>
@@ -105,12 +102,7 @@ export default function Button({
   }
 
   return (
-    <button
-      type={type}
-      onClick={onClick}
-      disabled={disabled}
-      className={combinedStyles}
-    >
+    <button type={type} onClick={onClick} disabled={disabled} className={combinedStyles}>
       {content}
     </button>
   );

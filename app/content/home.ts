@@ -5,14 +5,11 @@ export const homeContent: HomeContent = {
     badge: "501(c)(3) Christian Counseling Nonprofit",
     eyebrow: "Clinical pastoral counseling ministry",
     headline: "Free Gospel-centered counseling for women in need.",
-    subheadline: "Compassionate, confidential pastoral care offered at no cost. For referrals, donors, and ministry partners.",
+    subheadline:
+      "Compassionate, confidential pastoral care offered at no cost. For referrals, donors, and ministry partners.",
     ctaPrimary: "Start a Referral Conversation",
     ctaSecondary: "Support the Mission",
-    trustBadges: [
-      "No-cost client services",
-      "Licensed clinical pastoral counselor",
-      "Confidential & private",
-    ],
+    trustBadges: ["No-cost client services", "Licensed clinical pastoral counselor", "Confidential & private"],
     heroMetrics: [
       { value: "15+", label: "Years of care" },
       { value: "100%", label: "No-cost sessions" },
@@ -22,7 +19,8 @@ export const homeContent: HomeContent = {
   },
   about: {
     title: "About our ministry",
-    subtitle: "At KingGen Ministries, we believe everyone should have access to counseling. As a 501(c)(3), we offer Gospel-centered counseling for women in need by a licensed clinical pastoral counselor.",
+    subtitle:
+      "At KingGen Ministries, we believe everyone should have access to counseling. As a 501(c)(3), we offer Gospel-centered counseling for women in need by a licensed clinical pastoral counselor.",
   },
   services: {
     title: "Our services",
@@ -30,15 +28,18 @@ export const homeContent: HomeContent = {
     items: [
       {
         title: "Individual Pastoral Counseling",
-        description: "Gospel-centered support for anxiety, stress, grief, and life transitions - offered at no cost to clients.",
+        description:
+          "Gospel-centered support for anxiety, stress, grief, and life transitions - offered at no cost to clients.",
       },
       {
         title: "Crisis & Trauma Support",
-        description: "Compassionate, confidential care for women walking through trauma, crisis, and seasons of deep pain.",
+        description:
+          "Compassionate, confidential care for women walking through trauma, crisis, and seasons of deep pain.",
       },
       {
         title: "Spiritual & Emotional Growth",
-        description: "Help with boundaries, identity, confidence, and spiritual discouragement - rooted in Scripture and hope.",
+        description:
+          "Help with boundaries, identity, confidence, and spiritual discouragement - rooted in Scripture and hope.",
       },
     ],
   },
@@ -48,13 +49,20 @@ export const homeContent: HomeContent = {
   },
   impactStats: [
     { value: 100, suffix: "%", animate: true, label: "Free Services", description: "No cost to clients" },
-    { value: 501, staticValue: "501(c)(3)", animate: false, label: "Nonprofit Status", description: "Tax-deductible gifts" },
+    {
+      value: 501,
+      staticValue: "501(c)(3)",
+      animate: false,
+      label: "Nonprofit Status",
+      description: "Tax-deductible gifts",
+    },
     { value: 15, suffix: "+", animate: true, label: "Years Experience", description: "Clinical pastoral care" },
     { value: 24, staticValue: "24/7", animate: false, label: "Confidential", description: "Private & secure" },
   ],
   values: {
     title: "What sets KingGen apart",
-    subtitle: "We are a trusted partner for churches, community organizations, and foundations seeking to support women's mental health and spiritual care.",
+    subtitle:
+      "We are a trusted partner for churches, community organizations, and foundations seeking to support women's mental health and spiritual care.",
     items: [
       { text: "Gospel-centered, compassionate care", desc: "Rooted in Scripture and clinical training" },
       { text: "Confidential and trauma-informed", desc: "Private, safe, and respectful of each woman" },
@@ -67,13 +75,15 @@ export const homeContent: HomeContent = {
     cards: [
       {
         title: "Referrers",
-        description: "For pastors, churches, social workers, and trusted professionals looking for a compassionate referral option for women in need.",
+        description:
+          "For pastors, churches, social workers, and trusted professionals looking for a compassionate referral option for women in need.",
         href: "/for-referrers",
         cta: "For Referrers",
       },
       {
         title: "Donors",
-        description: "Your tax-deductible gift helps remove cost barriers and ensures women receive the care they need.",
+        description:
+          "Your tax-deductible gift helps remove cost barriers and ensures women receive the care they need.",
         href: "/donate",
         cta: "Donate",
       },
@@ -87,7 +97,8 @@ export const homeContent: HomeContent = {
   },
   commitment: {
     title: "Our commitment",
-    body1: "As a 501(c)(3) nonprofit, KingGen Ministries is committed to stewardship, transparency, and accountability. Every donation directly supports our mission to provide free counseling for women in need.",
+    body1:
+      "As a 501(c)(3) nonprofit, KingGen Ministries is committed to stewardship, transparency, and accountability. Every donation directly supports our mission to provide free counseling for women in need.",
     body2: "We partner with churches, community organizations, and foundations who share our vision.",
   },
   testimonials: {
@@ -95,7 +106,8 @@ export const homeContent: HomeContent = {
     subtitle: "Hear from pastors, referrers, and community partners who trust KingGen Ministries.",
     items: [
       {
-        quote: "In our ministry, there are times when we deal with female members inside or outside our Church body, who need counseling for many issues: marriage, depression, kids, life structure, personal decisions, etc. Our Deacon body is very confident to send these women to our associate Dr. LeeAnn Howarth at KingGen Ministries in Keller, Texas. LeeAnn is a highly qualified Christian Counselor who exudes integrity and wisdom. If your ministry is looking for a qualified Christian Counselor specializing in helping women, I highly recommend Dr. LeeAnn Howarth at KingGen Ministries!",
+        quote:
+          "In our ministry, there are times when we deal with female members inside or outside our Church body, who need counseling for many issues: marriage, depression, kids, life structure, personal decisions, etc. Our Deacon body is very confident to send these women to our associate Dr. LeeAnn Howarth at KingGen Ministries in Keller, Texas. LeeAnn is a highly qualified Christian Counselor who exudes integrity and wisdom. If your ministry is looking for a qualified Christian Counselor specializing in helping women, I highly recommend Dr. LeeAnn Howarth at KingGen Ministries!",
         author: "Dennis S.",
         role: "Chairman of Deacons, First Baptist Church - Watauga, TX",
       },

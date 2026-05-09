@@ -111,12 +111,7 @@ export function BrandLockup({
   );
 }
 
-export default function Logo({
-  className = "",
-  size = "md",
-  variant = "horizontal",
-  theme = "light",
-}: LogoProps) {
+export default function Logo({ className = "", size = "md", variant = "horizontal", theme = "light" }: LogoProps) {
   const iconSize = iconSizes[size];
   const markTheme: BrandMarkTheme = theme === "dark" ? "dark" : "light";
 
@@ -136,12 +131,5 @@ export function LogoIcon({
   size?: number;
   theme?: "light" | "dark";
 }) {
-  return (
-    <BrandMark
-      theme={theme}
-      size={size}
-      alt="KingGen Ministries logo mark"
-      className={className}
-    />
-  );
+  return <BrandMark theme={theme} size={size} alt="KingGen Ministries logo mark" className={className} />;
 }

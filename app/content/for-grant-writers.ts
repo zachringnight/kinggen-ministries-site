@@ -7,11 +7,13 @@ export const forGrantWritersContent: ForGrantWritersContent = {
   },
   overview: {
     title: "Organization Overview",
-    subtitle: "KingGen Ministries is a 501(c)(3) nonprofit organization providing free clinical pastoral counseling for women in need.",
+    subtitle:
+      "KingGen Ministries is a 501(c)(3) nonprofit organization providing free clinical pastoral counseling for women in need.",
   },
   missionStatement: {
     title: "Mission Statement",
-    quote: "KingGen Ministries exists so women can access counseling even when cost is a barrier. We provide Gospel-centered, compassionate care for women facing anxiety, grief, trauma, relationship pain, and life transitions.",
+    quote:
+      "KingGen Ministries exists so women can access counseling even when cost is a barrier. We provide Gospel-centered, compassionate care for women facing anxiety, grief, trauma, relationship pain, and life transitions.",
     coreActivitiesTitle: "Core Activities",
     points: [
       "Provide Gospel-centered clinical pastoral counseling for women",
@@ -36,7 +38,9 @@ export const forGrantWritersContent: ForGrantWritersContent = {
   },
   contact: {
     title: "Contact for Grant Inquiries",
-    subtitle: "For additional documentation, financial statements, or questions about partnership opportunities, please contact us directly.",
+    subtitle:
+      "For additional documentation, financial statements, or questions about partnership opportunities, please contact us directly.",
   },
-  footnote: "Additional documentation including IRS determination letters, financial reports, and organizational bylaws are available upon request for verified grant writers and foundation representatives.",
+  footnote:
+    "Additional documentation including IRS determination letters, financial reports, and organizational bylaws are available upon request for verified grant writers and foundation representatives.",
 };

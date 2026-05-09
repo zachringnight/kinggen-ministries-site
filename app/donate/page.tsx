@@ -20,7 +20,6 @@ export default function DonatePage() {
         subtitle={donateContent.hero.subtitle}
         background="inner"
         ariaLabel="Help Keep Counseling Free"
-       
       >
         <Button
           href={siteConfig.paypalUrl}
@@ -68,9 +67,7 @@ export default function DonatePage() {
               <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
                 {donateContent.waysToGive.online.title}
               </h3>
-              <p className="text-white/95 mb-6 flex-grow">
-                {donateContent.waysToGive.online.body}
-              </p>
+              <p className="text-white/95 mb-6 flex-grow">{donateContent.waysToGive.online.body}</p>
               <Button
                 href={siteConfig.paypalUrl}
                 variant="white"
@@ -88,14 +85,14 @@ export default function DonatePage() {
               <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-3">
                 {donateContent.waysToGive.mail.title}
               </h3>
-              <p className="text-white/95 mb-4">
-                {donateContent.waysToGive.mail.body}
-              </p>
+              <p className="text-white/95 mb-4">{donateContent.waysToGive.mail.body}</p>
               <div className="bg-white/12 rounded-xl p-4 mb-4 border border-white/20">
                 <p className="text-white font-semibold">KingGen Ministries</p>
                 <address className="text-white/95 not-italic text-sm leading-relaxed mt-2">
-                  {siteConfig.address.line2}<br />
-                  {siteConfig.address.line3}<br />
+                  {siteConfig.address.line2}
+                  <br />
+                  {siteConfig.address.line3}
+                  <br />
                   {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
                 </address>
               </div>
@@ -121,12 +118,13 @@ export default function DonatePage() {
                 {donateContent.taxInfo.title}
               </h3>
               <p className="text-text-secondary mb-4">
-                KingGen Ministries is a <strong>501(c)(3)</strong> nonprofit organization.
-                {" "}{donateContent.taxInfo.body.replace(/^KingGen Ministries is a 501\(c\)\(3\) nonprofit organization\.\s*/, "")}
+                KingGen Ministries is a <strong>501(c)(3)</strong> nonprofit organization.{" "}
+                {donateContent.taxInfo.body.replace(
+                  /^KingGen Ministries is a 501\(c\)\(3\) nonprofit organization\.\s*/,
+                  "",
+                )}
               </p>
-              <p className="text-lg font-semibold text-brand-primary mb-6">
-                EIN: {siteConfig.ein}
-              </p>
+              <p className="text-lg font-semibold text-brand-primary mb-6">EIN: {siteConfig.ein}</p>
               <a
                 href={`mailto:${siteConfig.email}`}
                 className="inline-flex items-center gap-2 text-brand-primary hover:text-brand-secondary transition-colors"
@@ -142,18 +140,9 @@ export default function DonatePage() {
       <Section variant="cross-green" padding="xl">
         <FadeIn>
           <div className="max-w-2xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
-            <h2 className="text-2xl md:text-3xl font-bold font-heading text-white mb-4">
-              {donateContent.cta.title}
-            </h2>
-            <p className="text-white/95 mb-8">
-              {donateContent.cta.subtitle}
-            </p>
-            <Button
-              href={siteConfig.paypalUrl}
-              variant="white"
-              size="lg"
-              icon={<HeartIcon className="w-5 h-5" />}
-            >
+            <h2 className="text-2xl md:text-3xl font-bold font-heading text-white mb-4">{donateContent.cta.title}</h2>
+            <p className="text-white/95 mb-8">{donateContent.cta.subtitle}</p>
+            <Button href={siteConfig.paypalUrl} variant="white" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
               Donate Now
             </Button>
           </div>

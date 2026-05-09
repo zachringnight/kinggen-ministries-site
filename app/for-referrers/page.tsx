@@ -27,7 +27,6 @@ export default function ForReferrers() {
         subtitle={forReferrersContent.hero.subtitle}
         background="inner"
         ariaLabel="For Referrers"
-
       />
 
       <Section variant="cross-light" padding="xl">
@@ -42,7 +41,10 @@ export default function ForReferrers() {
           </div>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
+        <StaggerContainer
+          staggerDelay={0.08}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto"
+        >
           {forReferrersContent.whoCanRefer.items.map((referrer, i) => (
             <StaggerItem key={i}>
               <div className="brand-panel flex items-center gap-3 p-4">
@@ -85,7 +87,10 @@ export default function ForReferrers() {
           </h2>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
+        <StaggerContainer
+          staggerDelay={0.1}
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto"
+        >
           {forReferrersContent.whatToExpect.items.map((item, i) => (
             <StaggerItem key={i}>
               <div className="brand-panel-dark rounded-xl p-5 md:p-6 h-full flex flex-col">
@@ -108,9 +113,7 @@ export default function ForReferrers() {
               <p className="text-base sm:text-lg text-text-primary mb-4">
                 <strong>{forReferrersContent.howToRefer.approach}</strong>
               </p>
-              <p className="text-text-secondary">
-                {forReferrersContent.howToRefer.approachDetail}
-              </p>
+              <p className="text-text-secondary">{forReferrersContent.howToRefer.approachDetail}</p>
             </div>
 
             <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-4">
@@ -132,7 +135,13 @@ export default function ForReferrers() {
 
         <FadeIn delay={0.4}>
           <div className="text-center mt-10">
-            <Button href="/contact" variant="primary" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+            <Button
+              href="/contact"
+              variant="primary"
+              size="lg"
+              icon={<ArrowRightIcon className="w-5 h-5" />}
+              iconPosition="right"
+            >
               Start a Referral
             </Button>
           </div>
@@ -148,9 +157,7 @@ export default function ForReferrers() {
                 <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2">
                   {forReferrersContent.confidentiality.title}
                 </h3>
-                <p className="text-text-secondary text-sm md:text-base">
-                  {forReferrersContent.confidentiality.body}
-                </p>
+                <p className="text-text-secondary text-sm md:text-base">{forReferrersContent.confidentiality.body}</p>
               </div>
             </div>
           </div>
@@ -163,14 +170,24 @@ export default function ForReferrers() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4">
               {forReferrersContent.partnerCta.title}
             </h2>
-            <p className="text-base sm:text-lg text-white/95 mb-8">
-              {forReferrersContent.partnerCta.subtitle}
-            </p>
+            <p className="text-base sm:text-lg text-white/95 mb-8">{forReferrersContent.partnerCta.subtitle}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href="/contact" variant="white" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+              <Button
+                href="/contact"
+                variant="white"
+                size="lg"
+                icon={<ArrowRightIcon className="w-5 h-5" />}
+                iconPosition="right"
+              >
                 Contact Us
               </Button>
-              <Button href="/donate" variant="outline" size="lg" icon={<HeartIcon className="w-5 h-5" />} className="border-white/40 text-white hover:bg-white/10">
+              <Button
+                href="/donate"
+                variant="outline"
+                size="lg"
+                icon={<HeartIcon className="w-5 h-5" />}
+                className="border-white/40 text-white hover:bg-white/10"
+              >
                 Support the Mission
               </Button>
             </div>

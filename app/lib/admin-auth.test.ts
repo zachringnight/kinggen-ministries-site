@@ -55,4 +55,3 @@ describe("validateAdminAuthorizationHeader", () => {
     expect(validateAdminAuthorizationHeader("Bearer secret")).toEqual({ ok: true });
   });
 });
-

@@ -1,11 +1,21 @@
-import { list, put } from '@vercel/blob';
+import { list, put } from "@vercel/blob";
 
-const CONTENT_PREFIX = 'content/';
+const CONTENT_PREFIX = "content/";
 
 export const CONTENT_PAGES = [
-  'home', 'about', 'services', 'contact', 'donate',
-  'for-referrers', 'for-grant-writers', 'get-support',
-  'testimonials', 'forms', 'privacy', 'disclaimer', 'site-config'
+  "home",
+  "about",
+  "services",
+  "contact",
+  "donate",
+  "for-referrers",
+  "for-grant-writers",
+  "get-support",
+  "testimonials",
+  "forms",
+  "privacy",
+  "disclaimer",
+  "site-config",
 ] as const;
 
 export type ContentPage = (typeof CONTENT_PAGES)[number];
@@ -14,9 +24,7 @@ export type ContentPage = (typeof CONTENT_PAGES)[number];
  * Fetch content for a page from Vercel Blob.
  * Returns parsed JSON or null if not found.
  */
-export async function getPageContent(
-  page: ContentPage
-): Promise<Record<string, unknown> | null> {
+export async function getPageContent(page: ContentPage): Promise<Record<string, unknown> | null> {
   try {
     const { blobs } = await list({
       prefix: `${CONTENT_PREFIX}${page}.json`,
@@ -39,10 +47,7 @@ export async function getPageContent(
  * Save content for a page to Vercel Blob.
  * Uses addRandomSuffix: false so each page overwrites cleanly.
  */
-export async function savePageContent(
-  page: ContentPage,
-  content: Record<string, unknown>
-) {
+export async function savePageContent(page: ContentPage, content: Record<string, unknown>) {
   const blob = await put(
     `${CONTENT_PREFIX}${page}.json`,
     JSON.stringify(
@@ -50,17 +55,17 @@ export async function savePageContent(
         ...content,
         _meta: {
           updatedAt: new Date().toISOString(),
-          updatedBy: 'admin',
+          updatedBy: "admin",
         },
       },
       null,
-      2
+      2,
     ),
     {
-      access: 'public',
+      access: "public",
       addRandomSuffix: false,
-      contentType: 'application/json',
-    }
+      contentType: "application/json",
+    },
   );
   return blob;
 }

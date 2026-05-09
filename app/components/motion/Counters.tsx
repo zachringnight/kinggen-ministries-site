@@ -1,13 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, ReactNode } from "react";
-import {
-  motion,
-  useInView,
-  useMotionValue,
-  useSpring,
-  useReducedMotion,
-} from "framer-motion";
+import { motion, useInView, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
 
 // ============================================
 // ANIMATED COUNTER
@@ -114,7 +108,9 @@ export function ScrollNumber({ value, suffix = "", prefix = "", className = "" }
 
   return (
     <span ref={ref} className={className}>
-      {prefix}{displayValue.toLocaleString()}{suffix}
+      {prefix}
+      {displayValue.toLocaleString()}
+      {suffix}
     </span>
   );
 }
@@ -151,11 +147,7 @@ export function ImpactCounterSection({ stats, className = "" }: ImpactCounterSec
           data-scroll-animate="true"
           initial={shouldReduceMotion ? false : { opacity: 0.3, y: 20 }}
           animate={
-            shouldReduceMotion
-              ? { opacity: 1, y: 0 }
-              : isInView
-                ? { opacity: 1, y: 0 }
-                : { opacity: 0.3, y: 20 }
+            shouldReduceMotion ? { opacity: 1, y: 0 } : isInView ? { opacity: 1, y: 0 } : { opacity: 0.3, y: 20 }
           }
           transition={{ duration: 0.45, delay: Math.min(index * 0.1, 0.3) }}
           className="scroll-animated text-center"
@@ -164,18 +156,11 @@ export function ImpactCounterSection({ stats, className = "" }: ImpactCounterSec
             {stat.animate === false ? (
               <span>{stat.staticValue ?? `${stat.prefix ?? ""}${stat.value}${stat.suffix ?? ""}`}</span>
             ) : (
-              <AnimatedCounter
-                value={stat.value}
-                prefix={stat.prefix}
-                suffix={stat.suffix}
-                duration={1.8}
-              />
+              <AnimatedCounter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} duration={1.8} />
             )}
           </div>
           <div className="text-lg md:text-xl font-medium text-white mb-1">{stat.label}</div>
-          {stat.description && (
-            <div className="text-sm text-white/95">{stat.description}</div>
-          )}
+          {stat.description && <div className="text-sm text-white/95">{stat.description}</div>}
         </motion.div>
       ))}
     </div>

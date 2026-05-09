@@ -15,13 +15,7 @@ const paddingSizes: Record<string, string> = {
   lg: "p-8",
 };
 
-export default function Card({
-  children,
-  className = "",
-  hover = true,
-  href,
-  padding = "lg",
-}: CardProps) {
+export default function Card({ children, className = "", hover = true, href, padding = "lg" }: CardProps) {
   const baseStyles = `
     bg-white rounded-2xl shadow-md border border-brand-light
     ${hover ? "card-hover" : ""}
@@ -54,9 +48,7 @@ export function FeatureCard({ icon, title, description, className = "" }: Featur
         <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-primary to-brand-secondary text-white flex items-center justify-center mx-auto mb-6 shadow-lg shadow-brand-primary/20">
           {icon}
         </div>
-        <h3 className="text-xl font-bold font-heading text-text-primary mb-3">
-          {title}
-        </h3>
+        <h3 className="text-xl font-bold font-heading text-text-primary mb-3">{title}</h3>
         <p className="text-text-secondary leading-relaxed">{description}</p>
       </div>
     </Card>
@@ -71,13 +63,7 @@ interface ServiceCardProps {
   className?: string;
 }
 
-export function ServiceCard({
-  icon,
-  title,
-  description,
-  features,
-  className = "",
-}: ServiceCardProps) {
+export function ServiceCard({ icon, title, description, features, className = "" }: ServiceCardProps) {
   return (
     <Card className={`relative overflow-hidden ${className}`}>
       {/* Decorative gradient */}
@@ -88,9 +74,7 @@ export function ServiceCard({
           {icon}
         </div>
         <div>
-          <h3 className="text-xl font-bold font-heading text-text-primary mb-2">
-            {title}
-          </h3>
+          <h3 className="text-xl font-bold font-heading text-text-primary mb-2">{title}</h3>
           <p className="text-text-secondary">{description}</p>
         </div>
       </div>
@@ -116,12 +100,7 @@ interface TestimonialCardProps {
   className?: string;
 }
 
-export function TestimonialCard({
-  quote,
-  author,
-  role,
-  className = "",
-}: TestimonialCardProps) {
+export function TestimonialCard({ quote, author, role, className = "" }: TestimonialCardProps) {
   return (
     <Card className={`relative ${className}`}>
       {/* Quote mark */}
@@ -131,9 +110,7 @@ export function TestimonialCard({
         </svg>
       </div>
 
-      <blockquote className="text-lg text-text-secondary italic mb-6 border-l-0 pl-0">
-        &ldquo;{quote}&rdquo;
-      </blockquote>
+      <blockquote className="text-lg text-text-secondary italic mb-6 border-l-0 pl-0">&ldquo;{quote}&rdquo;</blockquote>
 
       <div className="flex items-center gap-3">
         <div className="w-10 h-10 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white font-bold">
@@ -163,9 +140,7 @@ export function StatCard({ value, label, icon, className = "" }: StatCardProps) 
           {icon}
         </div>
       )}
-      <p className="text-4xl md:text-5xl font-bold font-heading gradient-text mb-2">
-        {value}
-      </p>
+      <p className="text-4xl md:text-5xl font-bold font-heading gradient-text mb-2">{value}</p>
       <p className="text-text-secondary">{label}</p>
     </Card>
   );

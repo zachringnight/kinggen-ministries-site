@@ -22,7 +22,8 @@ export const aboutContent: AboutContent = {
   },
   referrers: {
     title: "A ministry you can refer to with confidence",
-    subtitle: "If you are a pastor, church leader, or community professional, we aim to serve with discretion, clarity, and care.",
+    subtitle:
+      "If you are a pastor, church leader, or community professional, we aim to serve with discretion, clarity, and care.",
   },
   speaking: {
     title: "Book LeeAnn as a speaker",

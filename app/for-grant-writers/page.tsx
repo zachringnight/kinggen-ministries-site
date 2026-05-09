@@ -37,7 +37,6 @@ export default function ForGrantWriters() {
         subtitle={forGrantWritersContent.hero.subtitle}
         background="inner"
         ariaLabel="For Grant Writers and Foundations"
-
       />
 
       <Section variant="art-cream" padding="xl">
@@ -100,7 +99,10 @@ export default function ForGrantWriters() {
           </h2>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
+        <StaggerContainer
+          staggerDelay={0.1}
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto"
+        >
           {forGrantWritersContent.fundingAreas.items.map((need, i) => (
             <StaggerItem key={i}>
               <div className="brand-panel p-5 md:p-6 h-full flex flex-col">
@@ -119,9 +121,7 @@ export default function ForGrantWriters() {
               {forGrantWritersContent.taxExempt.title}
             </h2>
             <div className="text-center">
-              <p className="text-text-secondary mb-4">
-                {forGrantWritersContent.taxExempt.body}
-              </p>
+              <p className="text-text-secondary mb-4">{forGrantWritersContent.taxExempt.body}</p>
               <div className="inline-block bg-white rounded-xl px-6 py-4 shadow-sm border border-brand-light">
                 <p className="text-sm text-text-muted mb-1">Employer Identification Number (EIN)</p>
                 <p className="text-2xl font-bold text-brand-primary">{siteConfig.ein}</p>
@@ -137,9 +137,7 @@ export default function ForGrantWriters() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
               {forGrantWritersContent.contact.title}
             </h2>
-            <p className="text-base sm:text-lg text-text-secondary mb-8">
-              {forGrantWritersContent.contact.subtitle}
-            </p>
+            <p className="text-base sm:text-lg text-text-secondary mb-8">{forGrantWritersContent.contact.subtitle}</p>
 
             <div className="brand-panel p-6 md:p-8 inline-block mb-8">
               <a
@@ -152,7 +150,13 @@ export default function ForGrantWriters() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href="/contact" variant="primary" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+              <Button
+                href="/contact"
+                variant="primary"
+                size="lg"
+                icon={<ArrowRightIcon className="w-5 h-5" />}
+                iconPosition="right"
+              >
                 Contact Us
               </Button>
               <Button href="/donate" variant="outline" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
@@ -166,9 +170,7 @@ export default function ForGrantWriters() {
       <Section variant="art-cream" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-text-muted text-sm md:text-base">
-              {forGrantWritersContent.footnote}
-            </p>
+            <p className="text-text-muted text-sm md:text-base">{forGrantWritersContent.footnote}</p>
           </div>
         </FadeIn>
       </Section>

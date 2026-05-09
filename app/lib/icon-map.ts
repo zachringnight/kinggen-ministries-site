@@ -13,7 +13,7 @@ import {
   BookOpenIcon,
   DocumentIcon,
   SunIcon,
-} from '../components';
+} from "../components";
 
 export const ICON_MAP: Record<string, React.ComponentType<{ className?: string; strokeWidth?: number }>> = {
   HeartIcon,

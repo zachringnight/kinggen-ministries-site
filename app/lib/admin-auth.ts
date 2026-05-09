@@ -1,12 +1,9 @@
 export const ADMIN_PASSWORD_UNCONFIGURED_MESSAGE =
   "Admin password is not configured for this environment. Set ADMIN_PASSWORD before using the admin editor.";
 
-export const ADMIN_PASSWORD_INVALID_MESSAGE =
-  "Unauthorized. Check your admin password.";
+export const ADMIN_PASSWORD_INVALID_MESSAGE = "Unauthorized. Check your admin password.";
 
-export type AdminAuthResult =
-  | { ok: true }
-  | { ok: false; status: 401 | 503; error: string };
+export type AdminAuthResult = { ok: true } | { ok: false; status: 401 | 503; error: string };
 
 export function isAdminPasswordConfigured(): boolean {
   return Boolean(process.env.ADMIN_PASSWORD?.trim());
@@ -23,9 +20,7 @@ export function getBearerTokenFromHeader(authHeader: string | null): string {
   return rest.join(" ").trim();
 }
 
-export function validateAdminPassword(
-  candidatePassword: string | null | undefined
-): AdminAuthResult {
+export function validateAdminPassword(candidatePassword: string | null | undefined): AdminAuthResult {
   const expectedPassword = process.env.ADMIN_PASSWORD?.trim();
 
   if (!expectedPassword) {
@@ -47,8 +42,6 @@ export function validateAdminPassword(
   return { ok: true };
 }
 
-export function validateAdminAuthorizationHeader(
-  authHeader: string | null
-): AdminAuthResult {
+export function validateAdminAuthorizationHeader(authHeader: string | null): AdminAuthResult {
   return validateAdminPassword(getBearerTokenFromHeader(authHeader));
 }

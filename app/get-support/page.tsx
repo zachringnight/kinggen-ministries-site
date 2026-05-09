@@ -17,8 +17,7 @@ import { getSupportContent } from "../content";
 
 export const metadata: Metadata = {
   title: "Client Information",
-  description:
-    "Guidance for women and trusted referrers on how to begin care with KingGen Ministries.",
+  description: "Guidance for women and trusted referrers on how to begin care with KingGen Ministries.",
 };
 
 export default function GetSupport() {
@@ -29,15 +28,12 @@ export default function GetSupport() {
         subtitle={getSupportContent.hero.subtitle}
         background="inner"
         ariaLabel="Information for Clients"
-
       />
 
       <Section variant="art-cream" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center px-2">
-            <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
-              {getSupportContent.intro}
-            </p>
+            <p className="text-base sm:text-lg text-text-secondary leading-relaxed">{getSupportContent.intro}</p>
           </div>
         </FadeIn>
       </Section>
@@ -67,7 +63,10 @@ export default function GetSupport() {
           </div>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
+        <StaggerContainer
+          staggerDelay={0.1}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto"
+        >
           {getSupportContent.reasons.items.map((reason, i) => (
             <StaggerItem key={i}>
               <div className="brand-panel flex items-start gap-3 p-3 md:p-4">
@@ -86,19 +85,18 @@ export default function GetSupport() {
           </h2>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+        <StaggerContainer
+          staggerDelay={0.15}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto"
+        >
           {getSupportContent.howItWorks.steps.map((step, i) => (
             <StaggerItem key={i}>
               <div className="text-center brand-panel-dark rounded-2xl p-6 h-full flex flex-col">
                 <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/20 text-white text-xl md:text-2xl font-bold flex items-center justify-center mx-auto mb-3 md:mb-4 border border-white/30">
                   {step.number}
                 </div>
-                <h3 className="text-lg md:text-xl font-bold font-heading text-white mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-sm md:text-base text-white/95 flex-grow">
-                  {step.description}
-                </p>
+                <h3 className="text-lg md:text-xl font-bold font-heading text-white mb-2">{step.title}</h3>
+                <p className="text-sm md:text-base text-white/95 flex-grow">{step.description}</p>
               </div>
             </StaggerItem>
           ))}
@@ -117,9 +115,7 @@ export default function GetSupport() {
                 <p className="text-sm md:text-base text-text-secondary mb-3 md:mb-4">
                   {getSupportContent.privacy.body}
                 </p>
-                <p className="text-text-muted text-xs md:text-sm">
-                  {getSupportContent.privacy.note}
-                </p>
+                <p className="text-text-muted text-xs md:text-sm">{getSupportContent.privacy.note}</p>
               </div>
             </div>
           </div>
@@ -147,9 +143,7 @@ export default function GetSupport() {
                 <h3 className="text-xl md:text-2xl font-bold font-heading text-text-primary mb-3">
                   {getSupportContent.crisis.title}
                 </h3>
-                <p className="text-text-secondary mb-4">
-                  {getSupportContent.crisis.body}
-                </p>
+                <p className="text-text-secondary mb-4">{getSupportContent.crisis.body}</p>
                 <div className="flex flex-col sm:flex-row items-center gap-3 justify-center md:justify-start">
                   <a
                     href="tel:988"
@@ -158,13 +152,9 @@ export default function GetSupport() {
                     <PhoneIcon className="w-5 h-5" />
                     Call or Text 988
                   </a>
-                  <span className="text-sm text-text-muted">
-                    Suicide & Crisis Lifeline
-                  </span>
+                  <span className="text-sm text-text-muted">Suicide & Crisis Lifeline</span>
                 </div>
-                <p className="text-xs text-text-muted mt-4">
-                  {getSupportContent.crisis.prayerNote}
-                </p>
+                <p className="text-xs text-text-muted mt-4">{getSupportContent.crisis.prayerNote}</p>
               </div>
             </div>
           </div>
@@ -177,10 +167,13 @@ export default function GetSupport() {
             <h3 className="text-lg md:text-xl font-bold font-heading text-white mb-3">
               {getSupportContent.referrerCta.title}
             </h3>
-            <p className="text-white/95 mb-6">
-              {getSupportContent.referrerCta.subtitle}
-            </p>
-            <Button href="/for-referrers" variant="white" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+            <p className="text-white/95 mb-6">{getSupportContent.referrerCta.subtitle}</p>
+            <Button
+              href="/for-referrers"
+              variant="white"
+              icon={<ArrowRightIcon className="w-5 h-5" />}
+              iconPosition="right"
+            >
               For Referrers
             </Button>
           </div>

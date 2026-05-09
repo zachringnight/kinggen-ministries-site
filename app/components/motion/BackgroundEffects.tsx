@@ -19,13 +19,7 @@ interface Particle {
   xOffset: number;
 }
 
-export function FloatingParticles({
-  count = 50,
-  className = "",
-}: {
-  count?: number;
-  className?: string;
-}) {
+export function FloatingParticles({ count = 50, className = "" }: { count?: number; className?: string }) {
   const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {

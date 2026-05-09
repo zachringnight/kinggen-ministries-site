@@ -31,15 +31,12 @@ export default function ResourcesPage() {
         subtitle={formsContent.hero.subtitle}
         background="inner"
         ariaLabel="Forms and Resources"
-       
       />
 
       <Section variant="art-cream" padding="lg">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-lg text-text-secondary leading-relaxed">
-              {formsContent.intro}
-            </p>
+            <p className="text-lg text-text-secondary leading-relaxed">{formsContent.intro}</p>
           </div>
         </FadeIn>
       </Section>
@@ -49,9 +46,7 @@ export default function ResourcesPage() {
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-3 text-center">
             {formsContent.downloads.title}
           </h2>
-          <p className="text-center text-white/95 mb-8">
-            {formsContent.downloads.subtitle}
-          </p>
+          <p className="text-center text-white/95 mb-8">{formsContent.downloads.subtitle}</p>
         </FadeIn>
 
         <StaggerContainer staggerDelay={0.1} className="space-y-4 max-w-4xl mx-auto">
@@ -85,9 +80,7 @@ export default function ResourcesPage() {
 
         <FadeIn delay={0.3}>
           <div className="mt-8 p-6 brand-panel-dark rounded-2xl text-center max-w-4xl mx-auto">
-            <p className="text-white/95">
-              {formsContent.downloads.comingSoon}
-            </p>
+            <p className="text-white/95">{formsContent.downloads.comingSoon}</p>
           </div>
         </FadeIn>
       </Section>
@@ -98,10 +91,13 @@ export default function ResourcesPage() {
             <h2 className="text-2xl md:text-3xl font-bold font-heading text-text-primary mb-4">
               {formsContent.needHelp.title}
             </h2>
-            <p className="text-lg text-text-secondary mb-8">
-              {formsContent.needHelp.subtitle}
-            </p>
-            <Button href="/contact" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+            <p className="text-lg text-text-secondary mb-8">{formsContent.needHelp.subtitle}</p>
+            <Button
+              href="/contact"
+              variant="primary"
+              icon={<ArrowRightIcon className="w-5 h-5" />}
+              iconPosition="right"
+            >
               Contact Us
             </Button>
           </div>
