@@ -210,7 +210,10 @@ export default function ContactPage() {
 
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-text-primary mb-2">
-                    Name
+                    Name{" "}
+                    <span className="text-brand-accent" aria-hidden="true">
+                      *
+                    </span>
                   </label>
                   <input
                     type="text"
@@ -234,7 +237,10 @@ export default function ContactPage() {
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-text-primary mb-2">
-                    Email <span className="text-brand-accent">*</span>
+                    Email{" "}
+                    <span className="text-brand-accent" aria-hidden="true">
+                      *
+                    </span>
                   </label>
                   <input
                     type="email"
@@ -281,7 +287,10 @@ export default function ContactPage() {
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-text-primary mb-2">
-                    Message
+                    Message{" "}
+                    <span className="text-brand-accent" aria-hidden="true">
+                      *
+                    </span>
                   </label>
                   <textarea
                     id="message"

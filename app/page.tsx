@@ -72,7 +72,7 @@ export default function Home() {
               <p className="text-[clamp(2rem,6vw,4rem)] font-bold font-heading text-white leading-[1.08] text-balance">
                 {homeContent.hero.headline}
               </p>
-              <p className="text-base md:text-lg text-white/95 mt-4 max-w-2xl leading-relaxed">
+              <p className="text-base md:text-lg text-white/95 mt-4 max-w-3xl leading-relaxed text-balance">
                 {homeContent.hero.subheadline}
               </p>
               <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center items-center">
