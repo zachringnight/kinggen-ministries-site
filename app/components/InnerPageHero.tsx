@@ -70,7 +70,7 @@ export default function InnerPageHero({
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-5xl mx-auto text-center">
             <div className="flex justify-center">
-              <BrandLockup theme="dark" size="sm" className={backgroundConfig.lockupClassName} />
+              <BrandLockup theme="dark" size="md" className={backgroundConfig.lockupClassName} />
             </div>
 
             <h1

@@ -35,7 +35,7 @@ export default function Footer() {
           <div className="grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] gap-8 mb-8">
             <div>
               <Link href="/" className="inline-flex items-center gap-3" aria-label="KingGen Ministries Home">
-                <BrandLockup theme="dark" size="sm" className="!max-w-[150px]" />
+                <BrandLockup theme="dark" size="sm" />
               </Link>
 
               <p className="mt-4 text-sm text-white/95 max-w-xl leading-relaxed">
