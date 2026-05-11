@@ -14,12 +14,7 @@ interface TextRevealProps {
   staggerDelay?: number;
 }
 
-export function TextReveal({
-  text,
-  className = "",
-  delay = 0,
-  staggerDelay = 0.03,
-}: TextRevealProps) {
+export function TextReveal({ text, className = "", delay = 0, staggerDelay = 0.03 }: TextRevealProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const words = text.split(" ");
@@ -57,12 +52,7 @@ interface TypewriterProps {
   delay?: number;
 }
 
-export function Typewriter({
-  text,
-  className = "",
-  speed = 50,
-  delay = 0,
-}: TypewriterProps) {
+export function Typewriter({ text, className = "", speed = 50, delay = 0 }: TypewriterProps) {
   const [displayText, setDisplayText] = useState("");
   const [started, setStarted] = useState(false);
   const ref = useRef(null);
@@ -109,12 +99,7 @@ interface TextSplitRevealProps {
   charDelay?: number;
 }
 
-export function TextSplitReveal({
-  text,
-  className = "",
-  delay = 0,
-  charDelay = 0.02,
-}: TextSplitRevealProps) {
+export function TextSplitReveal({ text, className = "", delay = 0, charDelay = 0.02 }: TextSplitRevealProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const chars = text.split("");

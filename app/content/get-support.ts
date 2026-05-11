@@ -5,10 +5,12 @@ export const getSupportContent: GetSupportContent = {
     title: "Client Information",
     subtitle: "Helpful guidance for women and those supporting a referral.",
   },
-  intro: "At KingGen Ministries, we believe everyone should have access to counseling. As a 501(c)(3), we offer Gospel-centered counseling for women in need by a licensed clinical pastoral counselor.",
+  intro:
+    "At KingGen Ministries, we believe everyone should have access to counseling. As a 501(c)(3), we offer Gospel-centered counseling for women in need by a licensed clinical pastoral counselor.",
   whatToExpect: {
     title: "What to expect",
-    subtitle: "Counseling is a place to slow down, tell the truth about what you're carrying, and take steady steps forward with hope and wisdom. You will be met with compassion and respect, at a pace that feels manageable.",
+    subtitle:
+      "Counseling is a place to slow down, tell the truth about what you're carrying, and take steady steps forward with hope and wisdom. You will be met with compassion and respect, at a pace that feels manageable.",
   },
   reasons: {
     title: "You don't have to have the perfect words",
@@ -28,7 +30,8 @@ export const getSupportContent: GetSupportContent = {
       {
         number: "1",
         title: "Your referrer reaches out",
-        description: "The pastor, counselor, or trusted person who shared this page contacts us on your behalf with your permission.",
+        description:
+          "The pastor, counselor, or trusted person who shared this page contacts us on your behalf with your permission.",
       },
       {
         number: "2",
@@ -54,6 +57,7 @@ export const getSupportContent: GetSupportContent = {
   },
   referrerCta: {
     title: "Are you a referrer?",
-    subtitle: "If you're a pastor, counselor, or community professional looking to refer someone, visit our referrer page for more information.",
+    subtitle:
+      "If you're a pastor, counselor, or community professional looking to refer someone, visit our referrer page for more information.",
   },
 };

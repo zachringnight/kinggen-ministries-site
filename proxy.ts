@@ -6,9 +6,7 @@ function normalizeSiteUrl(rawUrl: string | undefined): URL {
   const trimmed = rawUrl?.trim();
   if (!trimmed) return new URL(DEFAULT_CANONICAL_URL);
 
-  const withProtocol = /^[a-zA-Z][a-zA-Z\d+\-.]*:\/\//.test(trimmed)
-    ? trimmed
-    : `https://${trimmed}`;
+  const withProtocol = /^[a-zA-Z][a-zA-Z\d+\-.]*:\/\//.test(trimmed) ? trimmed : `https://${trimmed}`;
 
   try {
     const parsed = new URL(withProtocol);
@@ -33,10 +31,7 @@ const canonicalUrl = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
 const canonicalHost = canonicalUrl.hostname.toLowerCase();
 
 const redirectHosts = new Set(
-  [
-    "www.kinggenministries.org",
-    "kinggen-ministries-site.vercel.app",
-  ].filter((host) => host !== canonicalHost)
+  ["www.kinggenministries.org", "kinggen-ministries-site.vercel.app"].filter((host) => host !== canonicalHost),
 );
 
 function getRequestHost(request: NextRequest): string {

@@ -5,10 +5,7 @@ import net from "node:net";
 import process from "node:process";
 
 const ROUTES = ["/", "/about", "/services", "/contact", "/for-referrers", "/forms"];
-const KNOWN_404_PATTERNS = [
-  "this page could not be found",
-  "<title>404",
-];
+const KNOWN_404_PATTERNS = ["this page could not be found", "<title>404"];
 
 const START_TIMEOUT_MS = 45_000;
 const ROUTE_TIMEOUT_MS = 15_000;
@@ -72,9 +69,7 @@ async function waitForServer(baseUrl, timeoutMs, getLogs = () => "") {
   }
   const recentLogs = tailLines(getLogs());
   throw new Error(
-    `Timed out waiting for app server at ${baseUrl}${
-      recentLogs ? `\nRecent server logs:\n${recentLogs}` : ""
-    }`
+    `Timed out waiting for app server at ${baseUrl}${recentLogs ? `\nRecent server logs:\n${recentLogs}` : ""}`,
   );
 }
 
@@ -110,9 +105,7 @@ async function verifyAll(baseUrl) {
 async function main() {
   const externalBaseUrl = process.env.VERIFY_BASE_URL?.trim();
   const isExternal = Boolean(externalBaseUrl);
-  const baseUrl = isExternal
-    ? externalBaseUrl.replace(/\/+$/, "")
-    : `http://127.0.0.1:${await pickFreePort()}`;
+  const baseUrl = isExternal ? externalBaseUrl.replace(/\/+$/, "") : `http://127.0.0.1:${await pickFreePort()}`;
 
   let child = null;
   let childLogs = "";
@@ -146,16 +139,10 @@ async function main() {
   } finally {
     if (child && !childExited) {
       child.kill("SIGTERM");
-      await Promise.race([
-        new Promise((resolve) => child.once("exit", resolve)),
-        sleep(3_000),
-      ]);
+      await Promise.race([new Promise((resolve) => child.once("exit", resolve)), sleep(3_000)]);
       if (!childExited) {
         child.kill("SIGKILL");
-        await Promise.race([
-          new Promise((resolve) => child.once("exit", resolve)),
-          sleep(3_000),
-        ]);
+        await Promise.race([new Promise((resolve) => child.once("exit", resolve)), sleep(3_000)]);
       }
     }
   }

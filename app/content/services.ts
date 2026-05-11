@@ -37,6 +37,7 @@ export const servicesContent: ServicesContent = {
   ],
   cta: {
     title: "Ready to take the next step?",
-    subtitle: "Connect with us to discuss a referral or partnership path. All services are offered at no cost to clients.",
+    subtitle:
+      "Connect with us to discuss a referral or partnership path. All services are offered at no cost to clients.",
   },
 };

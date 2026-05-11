@@ -68,22 +68,13 @@ export async function POST(request: Request) {
     if (!response.ok) {
       const responsePayload = await response.json().catch(() => null);
       const errorMessage = responsePayload?.errors?.[0]?.message || "We could not submit your message.";
-      console.error(
-        `[contact] Formspree returned ${response.status} for endpoint ${endpoint}:`,
-        responsePayload
-      );
+      console.error(`[contact] Formspree returned ${response.status} for endpoint ${endpoint}:`, responsePayload);
       return NextResponse.json({ error: errorMessage }, { status: 502 });
     }
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error(
-      `[contact] fetch to endpoint failed (endpoint=${endpoint}):`,
-      error
-    );
-    return NextResponse.json(
-      { error: "We could not send your message right now. Please try again." },
-      { status: 503 }
-    );
+    console.error(`[contact] fetch to endpoint failed (endpoint=${endpoint}):`, error);
+    return NextResponse.json({ error: "We could not send your message right now. Please try again." }, { status: 503 });
   }
 }

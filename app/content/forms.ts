@@ -5,7 +5,8 @@ export const formsContent: FormsContent = {
     title: "Forms and Resources",
     subtitle: "Practical downloads and encouragement for this season.",
   },
-  intro: "These resources are meant to be a small gift of encouragement. They are not a substitute for counseling, but we hope they bring comfort and hope.",
+  intro:
+    "These resources are meant to be a small gift of encouragement. They are not a substitute for counseling, but we hope they bring comfort and hope.",
   downloads: {
     title: "Free Downloads",
     subtitle: "Download and share these printable PDF guides.",

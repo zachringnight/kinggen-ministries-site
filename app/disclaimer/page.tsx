@@ -1,33 +1,23 @@
 import type { Metadata } from "next";
-import {
-  Section,
-  FadeIn,
-  PageHero,
-} from "../components";
+import { Section, FadeIn, PageHero } from "../components";
 import { disclaimerContent } from "../content";
 
 export const metadata: Metadata = {
   title: "Disclaimer",
-  description:
-    "Important emergency and informational disclaimers for KingGen Ministries website visitors.",
+  description: "Important emergency and informational disclaimers for KingGen Ministries website visitors.",
 };
 
 export default function DisclaimerPage() {
   return (
     <>
       {/* Hero Section with KingGen branded background */}
-      <PageHero
-        title={disclaimerContent.hero.title}
-        background="kinggen-branded"
-      />
+      <PageHero title={disclaimerContent.hero.title} background="kinggen-branded" />
 
       {/* Content Section with art */}
       <Section variant="art-cream" padding="xl">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
-            <p className="text-lg text-text-secondary leading-relaxed mb-6">
-              {disclaimerContent.intro}
-            </p>
+            <p className="text-lg text-text-secondary leading-relaxed mb-6">{disclaimerContent.intro}</p>
 
             <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
               <p className="text-red-800">

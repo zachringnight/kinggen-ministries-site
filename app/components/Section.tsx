@@ -26,22 +26,9 @@ interface SectionProps {
   padding?: SectionPadding;
 }
 
-const lightVariants = new Set<SectionVariant>([
-  "default",
-  "white",
-  "light",
-  "soft",
-  "art-cream",
-  "cross-light",
-]);
+const lightVariants = new Set<SectionVariant>(["default", "white", "light", "soft", "art-cream", "cross-light"]);
 
-const darkVariants = new Set<SectionVariant>([
-  "primary",
-  "dark",
-  "art-green",
-  "kinggen-branded",
-  "cross-green",
-]);
+const darkVariants = new Set<SectionVariant>(["primary", "dark", "art-green", "kinggen-branded", "cross-green"]);
 
 const variantStyles: Record<SectionVariant, string> = {
   default: "bg-brand-soft text-text-primary",
@@ -116,9 +103,7 @@ export default function Section({
         style={{
           backgroundPosition: isLightSection ? "center right" : "center",
           backgroundSize: "cover",
-          opacity: isLightSection
-            ? (lightTextureOpacity[variant] ?? 0.22)
-            : (darkTextureOpacity[variant] ?? 0.55),
+          opacity: isLightSection ? (lightTextureOpacity[variant] ?? 0.22) : (darkTextureOpacity[variant] ?? 0.55),
         }}
       />
       <div
@@ -126,11 +111,7 @@ export default function Section({
         aria-hidden="true"
       />
 
-      <div
-        className={`container mx-auto px-4 lg:px-8 ${containerSizes[containerSize]} relative z-10`}
-      >
-        {children}
-      </div>
+      <div className={`container mx-auto px-4 lg:px-8 ${containerSizes[containerSize]} relative z-10`}>{children}</div>
     </section>
   );
 }
@@ -143,16 +124,12 @@ interface SectionHeaderProps {
   className?: string;
 }
 
-export function SectionHeader({
-  title,
-  subtitle,
-  centered = true,
-  light = false,
-  className = "",
-}: SectionHeaderProps) {
+export function SectionHeader({ title, subtitle, centered = true, light = false, className = "" }: SectionHeaderProps) {
   return (
     <div className={`mb-8 md:mb-10 ${centered ? "text-center" : ""} ${className}`}>
-      <div className={`h-[2px] w-12 rounded-full bg-gradient-to-r from-brand-accent to-brand-primary/70 ${centered ? "mx-auto" : ""} mb-5 opacity-85`} />
+      <div
+        className={`h-[2px] w-12 rounded-full bg-gradient-to-r from-brand-accent to-brand-primary/70 ${centered ? "mx-auto" : ""} mb-5 opacity-85`}
+      />
       <h2
         className={`text-3xl md:text-4xl lg:text-[2.45rem] font-bold font-heading mb-3 ${light ? "text-white" : "text-text-primary"}`}
       >

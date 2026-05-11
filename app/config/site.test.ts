@@ -11,27 +11,17 @@ describe("normalizeSiteUrl", () => {
   });
 
   it("normalizes to origin when path/query are present", () => {
-    expect(normalizeSiteUrl("https://kinggenministries.org/contact?from=test")).toBe(
-      "https://kinggenministries.org"
-    );
+    expect(normalizeSiteUrl("https://kinggenministries.org/contact?from=test")).toBe("https://kinggenministries.org");
   });
 
   it("falls back for unsupported protocols", () => {
-    expect(normalizeSiteUrl("ftp://kinggenministries.org")).toBe(
-      "https://kinggenministries.org"
-    );
+    expect(normalizeSiteUrl("ftp://kinggenministries.org")).toBe("https://kinggenministries.org");
   });
 
   it("rejects vercel.app overrides so SEO fields stay on the production domain", () => {
-    expect(normalizeSiteUrl("https://kinggen-ministries-site.vercel.app")).toBe(
-      "https://kinggenministries.org"
-    );
-    expect(
-      normalizeSiteUrl("https://kinggen-ministries-site-mwqc.vercel.app")
-    ).toBe("https://kinggenministries.org");
-    expect(normalizeSiteUrl("any-preview.vercel.app")).toBe(
-      "https://kinggenministries.org"
-    );
+    expect(normalizeSiteUrl("https://kinggen-ministries-site.vercel.app")).toBe("https://kinggenministries.org");
+    expect(normalizeSiteUrl("https://kinggen-ministries-site-mwqc.vercel.app")).toBe("https://kinggenministries.org");
+    expect(normalizeSiteUrl("any-preview.vercel.app")).toBe("https://kinggenministries.org");
   });
 });
 

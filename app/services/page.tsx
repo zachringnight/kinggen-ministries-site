@@ -39,13 +39,14 @@ export default function ServicesPage() {
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
               {servicesContent.intro.title}
             </h2>
-            <p className="text-base sm:text-lg text-text-secondary">
-              {servicesContent.intro.subtitle}
-            </p>
+            <p className="text-base sm:text-lg text-text-secondary">{servicesContent.intro.subtitle}</p>
           </div>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <StaggerContainer
+          staggerDelay={0.08}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+        >
           {servicesContent.services.map((service, i) => {
             const Icon = serviceIcons[i];
 
@@ -55,12 +56,8 @@ export default function ServicesPage() {
                   <div className="w-14 h-14 rounded-2xl bg-brand-primary/12 flex items-center justify-center mb-5">
                     <Icon className="w-7 h-7 text-brand-primary" />
                   </div>
-                  <h3 className="text-xl font-bold font-heading text-text-primary mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-text-secondary leading-relaxed flex-grow">
-                    {service.description}
-                  </p>
+                  <h3 className="text-xl font-bold font-heading text-text-primary mb-3">{service.title}</h3>
+                  <p className="text-text-secondary leading-relaxed flex-grow">{service.description}</p>
                 </div>
               </StaggerItem>
             );
@@ -74,9 +71,7 @@ export default function ServicesPage() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4">
               {servicesContent.cta.title}
             </h2>
-            <p className="text-base sm:text-lg text-white/95 mb-8">
-              {servicesContent.cta.subtitle}
-            </p>
+            <p className="text-base sm:text-lg text-white/95 mb-8">{servicesContent.cta.subtitle}</p>
             <Button
               href="/contact"
               variant="white"

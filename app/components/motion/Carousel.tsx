@@ -94,9 +94,7 @@ export function TestimonialCarousel({
             key={index}
             onClick={() => goTo(index)}
             className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-              index === current
-                ? "bg-white w-8"
-                : "bg-white/40 hover:bg-white/60"
+              index === current ? "bg-white w-8" : "bg-white/40 hover:bg-white/60"
             }`}
             aria-label={`Go to testimonial ${index + 1}`}
           />

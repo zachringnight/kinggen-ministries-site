@@ -6,10 +6,6 @@ export const metadata: Metadata = {
     "Learn about KingGen Ministries and our mission to provide Gospel-centered counseling for women in need.",
 };
 
-export default function AboutLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function AboutLayout({ children }: { children: React.ReactNode }) {
   return children;
 }

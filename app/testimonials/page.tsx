@@ -29,11 +29,17 @@ export default function TestimonialsPage() {
         subtitle={testimonialsContent.hero.subtitle}
         background="inner"
         ariaLabel="Testimonials"
-       
       />
 
       <Section variant="art-cream" padding="xl">
-        <StaggerContainer staggerDelay={0.15} className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <StaggerContainer
+          staggerDelay={0.15}
+          className={
+            testimonialsContent.testimonials.length === 1
+              ? "max-w-2xl mx-auto"
+              : "grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          }
+        >
           {testimonialsContent.testimonials.map((testimonial, i) => (
             <StaggerItem key={i}>
               <TiltCard className="h-full" tiltAmount={3}>
@@ -119,9 +125,7 @@ export default function TestimonialsPage() {
         </StaggerContainer>
 
         <FadeIn delay={0.5}>
-          <p className="text-center text-white/95 text-sm mt-8">
-            {testimonialsContent.hope.socialNote}
-          </p>
+          <p className="text-center text-white/95 text-sm mt-8">{testimonialsContent.hope.socialNote}</p>
         </FadeIn>
       </Section>
 
@@ -141,7 +145,13 @@ export default function TestimonialsPage() {
               <Button href="/donate" variant="outline" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
                 Donate
               </Button>
-              <Button href="/contact" variant="outline" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+              <Button
+                href="/contact"
+                variant="outline"
+                size="lg"
+                icon={<ArrowRightIcon className="w-5 h-5" />}
+                iconPosition="right"
+              >
                 Contact
               </Button>
             </div>

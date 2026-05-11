@@ -19,7 +19,6 @@ export default function AboutPage() {
         subtitle={aboutContent.hero.subtitle}
         background="about"
         ariaLabel="About KingGen Ministries"
-
       />
 
       <Section variant="cross-light" padding="xl">
@@ -31,9 +30,7 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6">
               {aboutContent.mission.title}
             </h2>
-            <p className="text-lg text-text-secondary leading-relaxed">
-              {aboutContent.mission.body}
-            </p>
+            <p className="text-lg text-text-secondary leading-relaxed">{aboutContent.mission.body}</p>
           </div>
         </FadeIn>
       </Section>
@@ -47,12 +44,8 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-6 text-center">
               {aboutContent.approach.title}
             </h2>
-            <p className="text-lg text-white/95 mb-8 text-center leading-relaxed">
-              {aboutContent.approach.body}
-            </p>
-            <p className="text-lg text-white mb-6 text-center">
-              {aboutContent.approach.expectationsLabel}
-            </p>
+            <p className="text-lg text-white/95 mb-8 text-center leading-relaxed">{aboutContent.approach.body}</p>
+            <p className="text-lg text-white mb-6 text-center">{aboutContent.approach.expectationsLabel}</p>
           </div>
         </FadeIn>
 
@@ -74,10 +67,13 @@ export default function AboutPage() {
             <h2 className="text-2xl md:text-3xl font-bold font-heading text-text-primary mb-4">
               {aboutContent.referrers.title}
             </h2>
-            <p className="text-lg text-text-secondary mb-8">
-              {aboutContent.referrers.subtitle}
-            </p>
-            <Button href="/for-referrers" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+            <p className="text-lg text-text-secondary mb-8">{aboutContent.referrers.subtitle}</p>
+            <Button
+              href="/for-referrers"
+              variant="primary"
+              icon={<ArrowRightIcon className="w-5 h-5" />}
+              iconPosition="right"
+            >
               For Referrers
             </Button>
           </div>
@@ -104,7 +100,13 @@ export default function AboutPage() {
             </div>
 
             <div className="text-center">
-              <Button href="/contact" variant="white" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+              <Button
+                href="/contact"
+                variant="white"
+                size="lg"
+                icon={<ArrowRightIcon className="w-5 h-5" />}
+                iconPosition="right"
+              >
                 Request a Booking
               </Button>
             </div>

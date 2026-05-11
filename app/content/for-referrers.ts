@@ -38,7 +38,8 @@ export const forReferrersContent: ForReferrersContent = {
   howToRefer: {
     title: "How to refer someone",
     approach: "A helpful approach: Submit the referral on her behalf with her awareness and consent.",
-    approachDetail: "This helps us keep intake clear, confidential, and coordinated through trusted referral relationships.",
+    approachDetail:
+      "This helps us keep intake clear, confidential, and coordinated through trusted referral relationships.",
     helpfulInfoTitle: "Helpful information to include:",
     helpfulInfo: [
       "First name of the person being referred",
@@ -53,6 +54,7 @@ export const forReferrersContent: ForReferrersContent = {
   },
   partnerCta: {
     title: "Partner with us",
-    subtitle: "If you'd like to establish an ongoing referral relationship or learn more about how KingGen can serve your community, we'd love to connect.",
+    subtitle:
+      "If you'd like to establish an ongoing referral relationship or learn more about how KingGen can serve your community, we'd love to connect.",
   },
 };

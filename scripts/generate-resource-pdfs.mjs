@@ -14,16 +14,16 @@ const resources = [
     subtitle: "A calming set of verses for heavy days.",
     body: [
       "1. Psalm 56:3",
-      "\"When I am afraid, I put my trust in You.\"",
+      '"When I am afraid, I put my trust in You."',
       "",
       "2. Philippians 4:6-7",
-      "\"Do not be anxious about anything... and the peace of God will guard your heart and mind in Christ Jesus.\"",
+      '"Do not be anxious about anything... and the peace of God will guard your heart and mind in Christ Jesus."',
       "",
       "3. Isaiah 41:10",
-      "\"Do not fear, for I am with you... I will strengthen you and help you.\"",
+      '"Do not fear, for I am with you... I will strengthen you and help you."',
       "",
       "4. Matthew 11:28",
-      "\"Come to Me, all who are weary and burdened, and I will give you rest.\"",
+      '"Come to Me, all who are weary and burdened, and I will give you rest."',
       "",
       "Simple practice:",
       "- Pause, breathe slowly for one minute.",
@@ -107,10 +107,7 @@ const resources = [
 ];
 
 function escapePdfText(input) {
-  return input
-    .replace(/\\/g, "\\\\")
-    .replace(/\(/g, "\\(")
-    .replace(/\)/g, "\\)");
+  return input.replace(/\\/g, "\\\\").replace(/\(/g, "\\(").replace(/\)/g, "\\)");
 }
 
 function wrapLine(text, maxLength = 86) {

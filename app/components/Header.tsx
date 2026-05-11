@@ -188,11 +188,7 @@ export default function Header({
                 aria-expanded={mobileMenuOpen}
                 aria-controls="mobile-navigation-drawer"
               >
-                {mobileMenuOpen ? (
-                  <XIcon className="w-6 h-6" />
-                ) : (
-                  <MenuIcon className="w-6 h-6" />
-                )}
+                {mobileMenuOpen ? <XIcon className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
               </button>
             </div>
           </div>

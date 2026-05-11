@@ -36,9 +36,7 @@ function isJsonObject(value: unknown): value is JsonObject {
 }
 
 function humanizeKey(value: string) {
-  return value
-    .replace(/[_-]+/g, " ")
-    .replace(/\b\w/g, (char) => char.toUpperCase());
+  return value.replace(/[_-]+/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
 function formatJson(value: JsonObject) {
@@ -85,9 +83,7 @@ function updateJsonValue(value: JsonValue, path: EditorPath, nextValue: JsonValu
   const [head, ...rest] = path;
 
   if (Array.isArray(value) && typeof head === "number") {
-    return value.map((item, index) =>
-      index === head ? updateJsonValue(item, rest, nextValue) : item
-    );
+    return value.map((item, index) => (index === head ? updateJsonValue(item, rest, nextValue) : item));
   }
 
   if (isJsonObject(value) && typeof head === "string") {
@@ -111,7 +107,7 @@ function createEmptyValueFromSample(value: JsonValue | undefined): JsonValue {
 
   if (isJsonObject(value)) {
     return Object.fromEntries(
-      Object.entries(value).map(([key, nestedValue]) => [key, createEmptyValueFromSample(nestedValue)])
+      Object.entries(value).map(([key, nestedValue]) => [key, createEmptyValueFromSample(nestedValue)]),
     );
   }
 
@@ -151,17 +147,7 @@ function getSectionSummary(value: JsonValue): string | null {
   }
 
   if (isJsonObject(value)) {
-    for (const key of [
-      "headline",
-      "title",
-      "subtitle",
-      "description",
-      "text",
-      "label",
-      "quote",
-      "mission",
-      "heart",
-    ]) {
+    for (const key of ["headline", "title", "subtitle", "description", "text", "label", "quote", "mission", "heart"]) {
       const candidate = value[key];
       if (typeof candidate === "string" && candidate.trim()) {
         return candidate;
@@ -276,18 +262,14 @@ function GuidedField({
     return (
       <section
         className={`rounded-[1.8rem] border border-brand-light/85 bg-white/88 p-5 md:p-6 ${
-          compact
-            ? ""
-            : "shadow-[0_22px_50px_-30px_rgba(38,61,39,0.26)]"
+          compact ? "" : "shadow-[0_22px_50px_-30px_rgba(38,61,39,0.26)]"
         }`}
       >
         {!compact && (
           <div className="mb-5">
             <div className="mb-3 h-[2px] w-12 rounded-full bg-gradient-to-r from-brand-accent to-brand-primary/80" />
             <h2 className="text-2xl font-bold font-heading text-text-primary">{label}</h2>
-            <p className="mt-1 text-sm text-text-muted">
-              Friendly fields on the front, JSON behind the scenes.
-            </p>
+            <p className="mt-1 text-sm text-text-muted">Friendly fields on the front, JSON behind the scenes.</p>
           </div>
         )}
 
@@ -398,8 +380,7 @@ export default function AdminPage() {
   const [message, setMessage] = useState("");
   const [jsonParseError, setJsonParseError] = useState("");
 
-  const activePageLabel =
-    PAGES.find((page) => page.slug === activePage)?.label ?? activePage;
+  const activePageLabel = PAGES.find((page) => page.slug === activePage)?.label ?? activePage;
   const previewHref = activePage === "home" ? "/" : `/${activePage}`;
   const topLevelEntries = Object.entries(content).filter(([key]) => key !== "_meta");
 
@@ -421,9 +402,7 @@ export default function AdminPage() {
       }
 
       const body = await response.json().catch(() => null);
-      setAuthError(
-        (body as { error?: string } | null)?.error || "Could not verify password."
-      );
+      setAuthError((body as { error?: string } | null)?.error || "Could not verify password.");
     } catch {
       setAuthError("Could not reach the server. Try again.");
     }
@@ -493,7 +472,9 @@ export default function AdminPage() {
     if (!Array.isArray(arrayValue)) return;
 
     const nextArray =
-      arrayValue.length <= 1 ? [createEmptyValueFromSample(arrayValue[0])] : arrayValue.filter((_, itemIndex) => itemIndex !== index);
+      arrayValue.length <= 1
+        ? [createEmptyValueFromSample(arrayValue[0])]
+        : arrayValue.filter((_, itemIndex) => itemIndex !== index);
 
     applyStructuredChange(updateJsonValue(content, path, nextArray) as JsonObject);
   }
@@ -510,9 +491,7 @@ export default function AdminPage() {
         setMessage("");
       }
     } catch (error) {
-      setJsonParseError(
-        error instanceof Error ? error.message : "Invalid JSON."
-      );
+      setJsonParseError(error instanceof Error ? error.message : "Invalid JSON.");
     }
   }
 
@@ -523,9 +502,7 @@ export default function AdminPage() {
         setContent(parsed);
         setJsonParseError("");
       } catch (error) {
-        setJsonParseError(
-          error instanceof Error ? error.message : "Invalid JSON."
-        );
+        setJsonParseError(error instanceof Error ? error.message : "Invalid JSON.");
         setStatus("error");
         setMessage("Fix the JSON syntax before switching back to the guided editor.");
         return;
@@ -564,9 +541,7 @@ export default function AdminPage() {
 
       if (response.status === 401) {
         setStatus("error");
-        setMessage(
-          (body as { error?: string } | null)?.error || "Unauthorized. Check the admin password."
-        );
+        setMessage((body as { error?: string } | null)?.error || "Unauthorized. Check the admin password.");
         return;
       }
 
@@ -626,19 +601,17 @@ export default function AdminPage() {
                 Website editing without raw-code stress.
               </h1>
               <p className="mt-4 max-w-2xl text-base text-white/92 md:text-lg">
-                Sign in to edit the site in a guided layout. The admin still saves JSON in the background, but you can work with labeled fields first.
+                Sign in to edit the site in a guided layout. The admin still saves JSON in the background, but you can
+                work with labeled fields first.
               </p>
             </div>
 
             <div className="rounded-[2rem] border border-white/15 bg-white/92 p-6 text-text-primary shadow-[0_30px_70px_-34px_rgba(0,0,0,0.45)] backdrop-blur-md md:p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-primary/70">
-                Admin Sign In
-              </p>
-              <h2 className="mt-2 text-2xl font-bold font-heading text-text-primary">
-                Open the guided editor
-              </h2>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-primary/70">Admin Sign In</p>
+              <h2 className="mt-2 text-2xl font-bold font-heading text-text-primary">Open the guided editor</h2>
               <p className="mt-2 text-sm text-text-muted">
-                Use the same admin password. Once you are in, the page content is organized into editable sections and repeatable cards.
+                Use the same admin password. Once you are in, the page content is organized into editable sections and
+                repeatable cards.
               </p>
 
               <input
@@ -689,14 +662,13 @@ export default function AdminPage() {
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <BrandLockup theme="dark" size="sm" />
-              <p className="mt-3 text-xs font-semibold uppercase tracking-[0.18em] text-white/78">
-                Guided Site Editor
-              </p>
+              <p className="mt-3 text-xs font-semibold uppercase tracking-[0.18em] text-white/78">Guided Site Editor</p>
               <h1 className="mt-1 text-3xl font-bold font-heading text-white md:text-[2.35rem]">
                 Edit content the simple way.
               </h1>
               <p className="mt-2 max-w-2xl text-sm text-white/90 md:text-base">
-                This editor writes JSON for the site automatically. Guided mode is for normal editing. Advanced JSON is there only when you need it.
+                This editor writes JSON for the site automatically. Guided mode is for normal editing. Advanced JSON is
+                there only when you need it.
               </p>
             </div>
 
@@ -738,9 +710,7 @@ export default function AdminPage() {
       <div className="mx-auto max-w-7xl px-4 py-6 lg:px-8">
         <div className="grid gap-6 xl:grid-cols-[220px_minmax(0,1fr)_320px]">
           <aside className="rounded-[1.8rem] border border-brand-light/80 bg-white/84 p-4 shadow-[0_20px_46px_-30px_rgba(38,61,39,0.24)]">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-text-muted">
-              Pages
-            </p>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-text-muted">Pages</p>
             <nav className="space-y-1.5">
               {PAGES.map((page) => (
                 <button
@@ -764,12 +734,8 @@ export default function AdminPage() {
               <div className="border-b border-brand-light/70 bg-brand-soft/55 px-5 py-4 md:px-6">
                 <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-text-muted">
-                      Editing
-                    </p>
-                    <h2 className="mt-1 text-2xl font-bold font-heading text-text-primary">
-                      {activePageLabel}
-                    </h2>
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-text-muted">Editing</p>
+                    <h2 className="mt-1 text-2xl font-bold font-heading text-text-primary">{activePageLabel}</h2>
                     <p className="mt-1 text-sm text-text-muted">
                       Change the labeled fields below. The site still saves a JSON file behind the scenes.
                     </p>
@@ -809,7 +775,8 @@ export default function AdminPage() {
                       <div className="rounded-[1.6rem] border border-dashed border-brand-light bg-brand-soft/45 px-5 py-8 text-center">
                         <p className="text-lg font-semibold text-text-primary">This page is blank right now.</p>
                         <p className="mt-2 text-sm text-text-muted">
-                          Switch to Advanced JSON if you want to paste starter content, or begin by adding content to the stored JSON first.
+                          Switch to Advanced JSON if you want to paste starter content, or begin by adding content to
+                          the stored JSON first.
                         </p>
                       </div>
                     ) : (
@@ -829,7 +796,8 @@ export default function AdminPage() {
                 ) : (
                   <div className="space-y-3">
                     <div className="rounded-2xl border border-brand-light/90 bg-brand-soft/45 px-4 py-3 text-sm text-text-muted">
-                      This is the same saved content, just in raw JSON form. If the syntax breaks here, Guided Editor will pause until it is valid again.
+                      This is the same saved content, just in raw JSON form. If the syntax breaks here, Guided Editor
+                      will pause until it is valid again.
                     </div>
                     <textarea
                       value={rawJson}
@@ -849,7 +817,8 @@ export default function AdminPage() {
               <div className="border-t border-brand-light/70 bg-brand-soft/45 px-5 py-4 md:px-6">
                 <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                   <div className="text-sm text-text-muted">
-                    Guided mode keeps the content human-friendly. Save writes to the same JSON storage the site already uses.
+                    Guided mode keeps the content human-friendly. Save writes to the same JSON storage the site already
+                    uses.
                   </div>
                   <div className="flex flex-wrap items-center gap-2">
                     <button
@@ -879,8 +848,8 @@ export default function AdminPage() {
                   status === "error"
                     ? "border-red-100 bg-red-50 text-red-700"
                     : status === "success"
-                    ? "border-emerald-100 bg-emerald-50 text-emerald-700"
-                    : "border-blue-100 bg-blue-50 text-blue-700"
+                      ? "border-emerald-100 bg-emerald-50 text-emerald-700"
+                      : "border-blue-100 bg-blue-50 text-blue-700"
                 }`}
               >
                 {message}
@@ -900,14 +869,11 @@ export default function AdminPage() {
             >
               <div className="px-5 py-5">
                 <BrandLockup theme="dark" size="sm" />
-                <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-white/72">
-                  Visual Snapshot
-                </p>
-                <h3 className="mt-2 text-2xl font-bold font-heading text-white">
-                  {activePageLabel}
-                </h3>
+                <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-white/72">Visual Snapshot</p>
+                <h3 className="mt-2 text-2xl font-bold font-heading text-white">{activePageLabel}</h3>
                 <p className="mt-2 text-sm text-white/88">
-                  This side panel shows the current section structure so the editor feels closer to the public site layout.
+                  This side panel shows the current section structure so the editor feels closer to the public site
+                  layout.
                 </p>
                 <a
                   href={previewHref}
@@ -921,9 +887,7 @@ export default function AdminPage() {
             </section>
 
             <section className="rounded-[1.8rem] border border-brand-light/80 bg-white/84 p-4 shadow-[0_20px_46px_-30px_rgba(38,61,39,0.24)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-text-muted">
-                Sections
-              </p>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-text-muted">Sections</p>
               <div className="mt-3 space-y-3">
                 {topLevelEntries.length === 0 ? (
                   <p className="text-sm text-text-muted">No sections stored yet for this page.</p>
@@ -944,9 +908,7 @@ export default function AdminPage() {
             </section>
 
             <section className="rounded-[1.8rem] border border-brand-light/80 bg-white/84 p-4 shadow-[0_20px_46px_-30px_rgba(38,61,39,0.24)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-text-muted">
-                Editing Tips
-              </p>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-text-muted">Editing Tips</p>
               <ul className="mt-3 space-y-2 text-sm text-text-secondary">
                 <li>Guided Editor is the safest mode for normal updates.</li>
                 <li>Advanced JSON is still available if someone technical needs it.</li>

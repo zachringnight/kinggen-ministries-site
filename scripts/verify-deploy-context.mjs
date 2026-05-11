@@ -55,17 +55,14 @@ function summarizeStatus(statuses, context) {
 async function main() {
   const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
   if (!token) {
-    console.warn(
-      "Skipping deploy-context verification because GITHUB_TOKEN/GH_TOKEN is not set."
-    );
+    console.warn("Skipping deploy-context verification because GITHUB_TOKEN/GH_TOKEN is not set.");
     process.exit(0);
   }
 
   const repository = parseRepository();
   const sha = getSha();
 
-  const canonicalContext =
-    process.env.CANONICAL_VERCEL_CONTEXT || DEFAULT_CANONICAL_CONTEXT;
+  const canonicalContext = process.env.CANONICAL_VERCEL_CONTEXT || DEFAULT_CANONICAL_CONTEXT;
   const staleContext = process.env.STALE_VERCEL_CONTEXT || DEFAULT_STALE_CONTEXT;
 
   const statusPayload = await fetchCommitStatus({ repository, sha, token });
@@ -81,28 +78,22 @@ async function main() {
   const stale = summarizeStatus(statuses, staleContext);
 
   if (!canonical.entries.length) {
-    throw new Error(
-      `Missing canonical Vercel status context "${canonicalContext}".`
-    );
+    throw new Error(`Missing canonical Vercel status context "${canonicalContext}".`);
   }
 
   if (!canonical.successful) {
     const states = canonical.entries.map((entry) => entry.state).join(", ");
-    throw new Error(
-      `Canonical Vercel context "${canonicalContext}" is not successful. States: ${states}`
-    );
+    throw new Error(`Canonical Vercel context "${canonicalContext}" is not successful. States: ${states}`);
   }
 
   if (stale.entries.length && !stale.successful) {
     const states = stale.entries.map((entry) => entry.state).join(", ");
-    console.warn(
-      `Stale Vercel context "${staleContext}" exists but is not successful (states: ${states}).`
-    );
+    console.warn(`Stale Vercel context "${staleContext}" exists but is not successful (states: ${states}).`);
   }
 
   if (stale.successful) {
     console.warn(
-      `Stale Vercel context "${staleContext}" is also successful. Keep this only as a temporary dual-context state and document canonical ownership.`
+      `Stale Vercel context "${staleContext}" is also successful. Keep this only as a temporary dual-context state and document canonical ownership.`,
     );
   }
 

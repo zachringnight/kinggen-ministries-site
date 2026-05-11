@@ -72,11 +72,17 @@ export default function Home() {
               <p className="text-[clamp(2rem,6vw,4rem)] font-bold font-heading text-white leading-[1.08] text-balance">
                 {homeContent.hero.headline}
               </p>
-              <p className="text-base md:text-lg text-white/95 mt-4 max-w-2xl leading-relaxed">
+              <p className="text-base md:text-lg text-white/95 mt-4 max-w-3xl leading-relaxed text-balance">
                 {homeContent.hero.subheadline}
               </p>
               <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center items-center">
-                <Button href="/contact" variant="gold" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                <Button
+                  href="/contact"
+                  variant="gold"
+                  size="lg"
+                  icon={<ArrowRightIcon className="w-5 h-5" />}
+                  iconPosition="right"
+                >
                   {homeContent.hero.ctaPrimary}
                 </Button>
                 <Button href="/donate" variant="outline-white" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
@@ -85,7 +91,10 @@ export default function Home() {
               </div>
               <div className="mt-6 flex flex-wrap gap-3 justify-center">
                 {homeContent.hero.trustBadges.map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-white/95 text-[13px] sm:text-sm bg-white/10 border border-white/16 rounded-full px-3 py-1.5">
+                  <div
+                    key={item}
+                    className="flex items-center gap-2 text-white/95 text-[13px] sm:text-sm bg-white/10 border border-white/16 rounded-full px-3 py-1.5"
+                  >
                     <CheckCircleIcon className="w-4 h-4 text-brand-gold-light flex-shrink-0" />
                     <span>{item}</span>
                   </div>
@@ -100,9 +109,7 @@ export default function Home() {
                 ))}
               </div>
 
-              <p className="mt-4 text-sm text-white/90 max-w-2xl mx-auto">
-                {homeContent.hero.trustLine}
-              </p>
+              <p className="mt-4 text-sm text-white/90 max-w-2xl mx-auto">{homeContent.hero.trustLine}</p>
             </div>
           </div>
         </div>
@@ -113,11 +120,7 @@ export default function Home() {
       <Section variant="art-cream" padding="lg">
         <FadeIn>
           <div className="relative z-10 max-w-3xl mx-auto text-center">
-            <SectionHeader
-              title={homeContent.about.title}
-              subtitle={homeContent.about.subtitle}
-              className="mb-8"
-            />
+            <SectionHeader title={homeContent.about.title} subtitle={homeContent.about.subtitle} className="mb-8" />
             <Button href="/about" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
               Learn More
             </Button>
@@ -127,25 +130,21 @@ export default function Home() {
 
       <Section variant="white" padding="lg">
         <FadeIn>
-          <SectionHeader
-            title={homeContent.services.title}
-            subtitle={homeContent.services.subtitle}
-          />
+          <SectionHeader title={homeContent.services.title} subtitle={homeContent.services.subtitle} />
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 max-w-5xl mx-auto">
+        <StaggerContainer
+          staggerDelay={0.15}
+          className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 max-w-5xl mx-auto"
+        >
           {services.map((service, i) => (
             <StaggerItem key={i}>
               <div className="brand-panel brand-panel-premium brand-panel-interactive p-6 md:p-8 h-full flex flex-col">
                 <div className="w-14 h-14 rounded-2xl bg-brand-primary text-white flex items-center justify-center mb-5 shadow-md shadow-brand-primary/20">
                   <service.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-sm md:text-base text-text-secondary flex-grow">
-                  {service.description}
-                </p>
+                <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-3">{service.title}</h3>
+                <p className="text-sm md:text-base text-text-secondary flex-grow">{service.description}</p>
               </div>
             </StaggerItem>
           ))}
@@ -153,7 +152,12 @@ export default function Home() {
 
         <FadeIn delay={0.3}>
           <div className="text-center mt-8 md:mt-10">
-            <Button href="/services" variant="outline" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+            <Button
+              href="/services"
+              variant="outline"
+              icon={<ArrowRightIcon className="w-5 h-5" />}
+              iconPosition="right"
+            >
               View All Services
             </Button>
           </div>
@@ -162,11 +166,7 @@ export default function Home() {
 
       <Section variant="cross-green" padding="lg">
         <FadeIn>
-          <SectionHeader
-            title={homeContent.impact.title}
-            subtitle={homeContent.impact.subtitle}
-            light
-          />
+          <SectionHeader title={homeContent.impact.title} subtitle={homeContent.impact.subtitle} light />
         </FadeIn>
 
         <ImpactCounterSection stats={homeContent.impactStats} className="max-w-4xl mx-auto" />
@@ -174,13 +174,13 @@ export default function Home() {
 
       <Section variant="light" padding="lg">
         <FadeIn>
-          <SectionHeader
-            title={homeContent.values.title}
-            subtitle={homeContent.values.subtitle}
-          />
+          <SectionHeader title={homeContent.values.title} subtitle={homeContent.values.subtitle} />
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+        <StaggerContainer
+          staggerDelay={0.1}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto"
+        >
           {valuesItems.map((item, i) => (
             <StaggerItem key={i}>
               <div className="brand-panel brand-panel-premium brand-panel-interactive p-6 h-full">
@@ -207,15 +207,15 @@ export default function Home() {
             <StaggerItem key={card.title}>
               <div className="brand-panel brand-panel-premium brand-panel-interactive p-6 md:p-8 h-full flex flex-col">
                 <div className="h-full flex flex-col">
-                  <div className={`w-14 h-14 rounded-2xl ${card.iconColor} flex items-center justify-center mb-4 shadow-lg`}>
+                  <div
+                    className={`w-14 h-14 rounded-2xl ${card.iconColor} flex items-center justify-center mb-4 shadow-lg`}
+                  >
                     <card.icon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-2 md:mb-3">
                     {card.title}
                   </h3>
-                  <p className="text-sm md:text-base text-text-secondary mb-4 md:mb-6 flex-grow">
-                    {card.description}
-                  </p>
+                  <p className="text-sm md:text-base text-text-secondary mb-4 md:mb-6 flex-grow">{card.description}</p>
                   <div className="pt-1 mt-auto">
                     <Button href={card.href} variant="primary" fullWidth>
                       {card.cta}
@@ -237,14 +237,18 @@ export default function Home() {
             <p className="text-base sm:text-lg text-white/95 mb-3 md:mb-4 leading-relaxed">
               {homeContent.commitment.body1}
             </p>
-            <p className="text-base sm:text-lg text-white/95 mb-2 leading-relaxed">
-              {homeContent.commitment.body2}
-            </p>
+            <p className="text-base sm:text-lg text-white/95 mb-2 leading-relaxed">{homeContent.commitment.body2}</p>
             <p className="text-white/95 mb-6 md:mb-8">
               <strong>EIN:</strong> {siteConfig.ein}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href="/donate" variant="white" size="lg" icon={<HeartIcon className="w-5 h-5" />} className="shadow-xl shadow-black/20">
+              <Button
+                href="/donate"
+                variant="white"
+                size="lg"
+                icon={<HeartIcon className="w-5 h-5" />}
+                className="shadow-xl shadow-black/20"
+              >
                 Donate Now
               </Button>
               <Button href="/for-grant-writers" variant="outline-white" size="lg">
@@ -257,13 +261,17 @@ export default function Home() {
 
       <Section variant="art-cream" padding="lg">
         <FadeIn>
-          <SectionHeader
-            title={homeContent.testimonials.title}
-            subtitle={homeContent.testimonials.subtitle}
-          />
+          <SectionHeader title={homeContent.testimonials.title} subtitle={homeContent.testimonials.subtitle} />
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 max-w-4xl mx-auto">
+        <StaggerContainer
+          staggerDelay={0.15}
+          className={
+            homeContent.testimonials.items.length === 1
+              ? "max-w-2xl mx-auto"
+              : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 max-w-4xl mx-auto"
+          }
+        >
           {homeContent.testimonials.items.map((testimonial, index) => (
             <StaggerItem key={index}>
               <div className="brand-panel brand-panel-premium brand-panel-interactive p-6 h-full flex flex-col">
@@ -287,7 +295,12 @@ export default function Home() {
 
         <FadeIn delay={0.3}>
           <div className="text-center mt-8 md:mt-10">
-            <Button href="/testimonials" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+            <Button
+              href="/testimonials"
+              variant="primary"
+              icon={<ArrowRightIcon className="w-5 h-5" />}
+              iconPosition="right"
+            >
               Read All Testimonials
             </Button>
           </div>
@@ -305,7 +318,13 @@ export default function Home() {
                 {homeContent.speaker.body}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button href="/about#speaking" variant="primary" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+                <Button
+                  href="/about#speaking"
+                  variant="primary"
+                  size="lg"
+                  icon={<ArrowRightIcon className="w-5 h-5" />}
+                  iconPosition="right"
+                >
                   Learn More
                 </Button>
                 <Button href="/contact" variant="outline" size="lg">
@@ -327,7 +346,13 @@ export default function Home() {
               {homeContent.cta.body}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href="/contact" variant="primary" size="lg" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
+              <Button
+                href="/contact"
+                variant="primary"
+                size="lg"
+                icon={<ArrowRightIcon className="w-5 h-5" />}
+                iconPosition="right"
+              >
                 Contact Us
               </Button>
               <Button href="/donate" variant="gold" size="lg" icon={<HeartIcon className="w-5 h-5" />}>

@@ -25,22 +25,19 @@ const backgroundMap: Record<
   }
 > = {
   inner: {
-    overlayClassName:
-      "bg-gradient-to-b from-brand-primary/74 via-brand-primary/82 to-brand-primary/90",
+    overlayClassName: "bg-gradient-to-b from-brand-primary/74 via-brand-primary/82 to-brand-primary/90",
     titleClassName: "text-white",
     subtitleClassName: "text-white/95",
     lockupClassName: "text-white",
   },
   about: {
-    overlayClassName:
-      "bg-gradient-to-b from-brand-primary/72 via-brand-primary/80 to-brand-primary/88",
+    overlayClassName: "bg-gradient-to-b from-brand-primary/72 via-brand-primary/80 to-brand-primary/88",
     titleClassName: "text-white",
     subtitleClassName: "text-white/95",
     lockupClassName: "text-white",
   },
   "inner-logo": {
-    overlayClassName:
-      "bg-gradient-to-b from-brand-primary/73 via-brand-primary/81 to-brand-primary/89",
+    overlayClassName: "bg-gradient-to-b from-brand-primary/73 via-brand-primary/81 to-brand-primary/89",
     titleClassName: "text-white",
     subtitleClassName: "text-white/95",
     lockupClassName: "text-white",
@@ -60,17 +57,11 @@ export default function InnerPageHero({
   return (
     <section
       className={`relative brand-hero-banner w-full ${minHeightClassName} animate-fade-in-up flex items-end isolate`}
-      role="banner"
       aria-label={ariaLabel ?? title}
     >
-      <OptimizedBackground
-        src={heroTexture}
-        className="absolute inset-0 bg-cover bg-center pointer-events-none"
-      />
+      <OptimizedBackground src={heroTexture} className="absolute inset-0 bg-cover bg-center pointer-events-none" />
 
-      <div
-        className={`absolute inset-0 ${backgroundConfig.overlayClassName}`}
-      />
+      <div className={`absolute inset-0 ${backgroundConfig.overlayClassName}`} />
 
       {/* Subtle radial highlight for depth */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(123,163,144,0.12)_0%,transparent_60%)] pointer-events-none" />

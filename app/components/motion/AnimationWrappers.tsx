@@ -1,12 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, ReactNode } from "react";
-import {
-  motion,
-  useInView,
-  useAnimation,
-  useReducedMotion,
-} from "framer-motion";
+import { motion, useInView, useAnimation, useReducedMotion } from "framer-motion";
 
 // ============================================
 // SCROLL-TRIGGERED FADE IN
@@ -91,11 +86,7 @@ interface StaggerContainerProps {
   className?: string;
 }
 
-export function StaggerContainer({
-  children,
-  staggerDelay = 0.1,
-  className = "",
-}: StaggerContainerProps) {
+export function StaggerContainer({ children, staggerDelay = 0.1, className = "" }: StaggerContainerProps) {
   const ref = useRef(null);
   const shouldReduceMotion = useReducedMotion();
   const isInView = useInView(ref, { once: true, margin: "100px", amount: 0.1 });
@@ -126,13 +117,7 @@ export function StaggerContainer({
   );
 }
 
-export function StaggerItem({
-  children,
-  className = "",
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
+export function StaggerItem({ children, className = "" }: { children: ReactNode; className?: string }) {
   const shouldReduceMotion = useReducedMotion();
 
   if (shouldReduceMotion) {

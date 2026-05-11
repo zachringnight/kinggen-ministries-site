@@ -5,9 +5,7 @@ export function normalizeSiteUrl(rawUrl: string | undefined): string {
   const trimmed = rawUrl?.trim();
   if (!trimmed) return DEFAULT_SITE_URL;
 
-  const withProtocol = /^[a-zA-Z][a-zA-Z\d+\-.]*:\/\//.test(trimmed)
-    ? trimmed
-    : `https://${trimmed}`;
+  const withProtocol = /^[a-zA-Z][a-zA-Z\d+\-.]*:\/\//.test(trimmed) ? trimmed : `https://${trimmed}`;
 
   try {
     const parsed = new URL(withProtocol);
@@ -48,7 +46,8 @@ export const siteConfig = {
   name: "KingGen Ministries",
   url: normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL),
   tagline: "Gospel-centered counseling for women in need.",
-  description: "A 501(c)(3) nonprofit providing free clinical pastoral counseling for women. Partner with us through referrals, donations, or grants.",
+  description:
+    "A 501(c)(3) nonprofit providing free clinical pastoral counseling for women. Partner with us through referrals, donations, or grants.",
   phone: DEFAULT_PHONE,
   phoneHref: toPhoneHref(DEFAULT_PHONE),
   email: "kinggencounseling@gmail.com",

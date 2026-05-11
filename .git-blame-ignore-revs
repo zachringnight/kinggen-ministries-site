@@ -1,0 +1,8 @@
+# Commits listed here are skipped by `git blame` and the GitHub blame view.
+# Use only for pure-formatting / mass-rename commits with no logic changes.
+#
+# Enable locally with:
+#   git config blame.ignoreRevsFile .git-blame-ignore-revs
+
+# Apply prettier to entire codebase
+881ce01

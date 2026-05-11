@@ -1,13 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-  useReducedMotion,
-} from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "framer-motion";
 
 // ============================================
 // 3D TILT CARD
@@ -20,12 +14,7 @@ interface TiltCardProps {
   glareEnable?: boolean;
 }
 
-export function TiltCard({
-  children,
-  className = "",
-  tiltAmount = 10,
-  glareEnable = true,
-}: TiltCardProps) {
+export function TiltCard({ children, className = "", tiltAmount = 10, glareEnable = true }: TiltCardProps) {
   const shouldReduceMotion = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
@@ -46,7 +35,7 @@ export function TiltCard({
       "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%)",
       "linear-gradient(135deg, transparent 0%, transparent 100%)",
       "linear-gradient(315deg, rgba(255,255,255,0.1) 0%, transparent 50%)",
-    ]
+    ],
   );
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -178,9 +167,7 @@ export function AnimatedBorderCard({ children, className = "" }: AnimatedBorderC
               }
         }
       />
-      <div className="relative bg-brand-cream rounded-[14px] p-6 h-full">
-        {children}
-      </div>
+      <div className="relative bg-brand-cream rounded-[14px] p-6 h-full">{children}</div>
     </div>
   );
 }
