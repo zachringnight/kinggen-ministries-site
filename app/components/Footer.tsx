@@ -31,11 +31,11 @@ export default function Footer() {
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-brand-primary-dark/44 via-brand-primary/42 to-brand-primary-dark/56" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/55 to-transparent z-10" />
 
-        <div className="relative z-10 container mx-auto px-4 lg:px-8 py-12 md:py-14">
-          <div className="grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] gap-10 mb-10">
+        <div className="relative z-10 container mx-auto px-4 lg:px-8 py-10 md:py-12">
+          <div className="grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] gap-8 mb-8">
             <div>
               <Link href="/" className="inline-flex items-center gap-3" aria-label="KingGen Ministries Home">
-                <BrandLockup theme="dark" size="md" />
+                <BrandLockup theme="dark" size="sm" className="!max-w-[150px]" />
               </Link>
 
               <p className="mt-4 text-sm text-white/95 max-w-xl leading-relaxed">
