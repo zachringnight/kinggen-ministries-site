@@ -84,7 +84,7 @@ export default function Header({
         }`}
       >
         <nav className="relative z-10 container mx-auto px-4 lg:px-8">
-          <div className="flex items-center h-14 md:h-16 gap-4">
+          <div className="flex items-center h-12 md:h-14 gap-4">
             <Link
               href="/"
               className="flex items-center gap-2.5 flex-shrink-0 pr-1"
@@ -199,13 +199,13 @@ export default function Header({
         <>
           <button
             type="button"
-            className="lg:hidden fixed inset-0 top-14 md:top-16 z-[9998] bg-black/25 backdrop-blur-[2px]"
+            className="lg:hidden fixed inset-0 top-12 md:top-14 z-[9998] bg-black/25 backdrop-blur-[2px]"
             onClick={() => setMobileMenuOpen(false)}
             aria-label="Close mobile menu"
           />
           <div
             id="mobile-navigation-drawer"
-            className="lg:hidden fixed top-14 md:top-16 left-0 right-0 bottom-0 z-[9999] overflow-y-auto"
+            className="lg:hidden fixed top-12 md:top-14 left-0 right-0 bottom-0 z-[9999] overflow-y-auto"
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation menu"

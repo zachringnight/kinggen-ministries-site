@@ -30,7 +30,7 @@ const lockupSrc: Record<LogoTheme, string> = {
 const lockupWidths: Record<NonNullable<LogoProps["size"]>, number> = {
   sm: 150,
   md: 210,
-  lg: 270,
+  lg: 320,
 };
 
 const markShadowByTheme: Record<BrandMarkTheme, string> = {
@@ -103,8 +103,8 @@ export function BrandLockup({
       src={imageSrc}
       alt={alt}
       width={width}
-      height={Math.round(width * 0.44)}
-      className={`w-auto h-auto object-contain max-w-full ${className}`}
+      height={Math.round(width * 0.625)}
+      className={`object-contain max-w-full ${className}`}
       style={{ filter: lockupShadowByTheme[theme] }}
       priority={priority}
     />
