@@ -32,7 +32,14 @@ export default function TestimonialsPage() {
       />
 
       <Section variant="art-cream" padding="xl">
-        <StaggerContainer staggerDelay={0.15} className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <StaggerContainer
+          staggerDelay={0.15}
+          className={
+            testimonialsContent.testimonials.length === 1
+              ? "max-w-2xl mx-auto"
+              : "grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          }
+        >
           {testimonialsContent.testimonials.map((testimonial, i) => (
             <StaggerItem key={i}>
               <TiltCard className="h-full" tiltAmount={3}>

@@ -57,7 +57,6 @@ export default function InnerPageHero({
   return (
     <section
       className={`relative brand-hero-banner w-full ${minHeightClassName} animate-fade-in-up flex items-end isolate`}
-      role="banner"
       aria-label={ariaLabel ?? title}
     >
       <OptimizedBackground src={heroTexture} className="absolute inset-0 bg-cover bg-center pointer-events-none" />
