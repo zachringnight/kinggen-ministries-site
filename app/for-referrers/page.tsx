@@ -27,7 +27,18 @@ export default function ForReferrers() {
         subtitle={forReferrersContent.hero.subtitle}
         background="inner"
         ariaLabel="For Referrers"
-      />
+        eyebrow="Compassionate Referral Pathway"
+      >
+        <Button
+          href="/contact"
+          variant="white"
+          size="lg"
+          icon={<ArrowRightIcon className="w-5 h-5" />}
+          iconPosition="right"
+        >
+          Start a Referral Conversation
+        </Button>
+      </InnerPageHero>
 
       <Section variant="cross-light" padding="xl">
         <FadeIn>

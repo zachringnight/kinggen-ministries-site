@@ -19,6 +19,7 @@ export default function AboutPage() {
         subtitle={aboutContent.hero.subtitle}
         background="about"
         ariaLabel="About KingGen Ministries"
+        eyebrow="Our Story & Approach"
       />
 
       <Section variant="cross-light" padding="xl">

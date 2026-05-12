@@ -11,6 +11,8 @@ interface InnerPageHeroProps {
   ariaLabel?: string;
   children?: ReactNode;
   minHeightClassName?: string;
+  /** Small uppercase gold label rendered between the lockup and the title. */
+  eyebrow?: string;
 }
 
 const heroTexture = "/brand/curated/bg/green-watermark-tall.png";
@@ -51,6 +53,7 @@ export default function InnerPageHero({
   ariaLabel,
   children,
   minHeightClassName = "min-h-[28vh] md:min-h-[36vh]",
+  eyebrow,
 }: InnerPageHeroProps) {
   const backgroundConfig = backgroundMap[background];
 
@@ -69,12 +72,18 @@ export default function InnerPageHero({
       <div className="relative z-10 w-full pb-12 pt-24 md:pb-14 md:pt-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="flex justify-center">
+            <div className="flex justify-center mb-3">
               <BrandLockup theme="dark" size="md" className={backgroundConfig.lockupClassName} />
             </div>
 
+            {eyebrow && (
+              <p className="text-[11px] sm:text-xs uppercase tracking-[0.14em] text-brand-gold-light/95 font-semibold mb-3">
+                {eyebrow}
+              </p>
+            )}
+
             <h1
-              className={`mt-4 text-[clamp(2rem,6vw,3.5rem)] font-bold font-heading leading-tight ${backgroundConfig.titleClassName}`}
+              className={`text-[clamp(2rem,6vw,3.5rem)] font-bold font-heading leading-tight ${backgroundConfig.titleClassName}`}
             >
               {title}
             </h1>

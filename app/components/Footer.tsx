@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "../config/site";
-import { PhoneIcon, MailIcon, InstagramIcon, FacebookIcon, HeartIcon } from "./Icons";
+import { PhoneIcon, MailIcon, LocationIcon, InstagramIcon, FacebookIcon, HeartIcon } from "./Icons";
 import Button from "./Button";
 import OptimizedBackground from "./OptimizedBackground";
 import { BrandLockup } from "./Logo";
@@ -32,7 +32,7 @@ export default function Footer() {
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/55 to-transparent z-10" />
 
         <div className="relative z-10 container mx-auto px-4 lg:px-8 py-7 md:py-9">
-          <div className="grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] gap-6 mb-6">
+          <div className="grid gap-6 mb-6 md:grid-cols-2 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.85fr)_minmax(0,1fr)]">
             <div>
               <Link href="/" className="inline-flex items-center gap-3" aria-label="KingGen Ministries Home">
                 <BrandLockup theme="dark" size="sm" />
@@ -43,22 +43,38 @@ export default function Footer() {
                 remove cost barriers to care.
               </p>
 
-              <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/95">
+              <div className="mt-4 flex flex-col gap-2 text-sm text-white/95">
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="inline-flex items-center gap-2 hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 hover:text-white transition-colors w-fit"
                 >
-                  <MailIcon className="w-4 h-4" />
+                  <MailIcon className="w-4 h-4 flex-shrink-0" />
                   <span>{siteConfig.email}</span>
                 </a>
                 <a
                   href={`tel:${siteConfig.phoneHref}`}
-                  className="inline-flex items-center gap-2 hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 hover:text-white transition-colors w-fit"
                 >
-                  <PhoneIcon className="w-4 h-4" />
+                  <PhoneIcon className="w-4 h-4 flex-shrink-0" />
                   <span>{siteConfig.phone}</span>
                 </a>
               </div>
+            </div>
+
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white mb-3">Mailing Address</p>
+              <address className="not-italic flex gap-2 text-sm text-white/95 leading-relaxed">
+                <LocationIcon className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                <span>
+                  {siteConfig.address.line1}
+                  <br />
+                  {siteConfig.address.line2}
+                  <br />
+                  {siteConfig.address.line3}
+                  <br />
+                  {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
+                </span>
+              </address>
             </div>
 
             <div className="lg:justify-self-end">
