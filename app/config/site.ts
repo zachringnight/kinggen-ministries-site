@@ -61,7 +61,7 @@ export const siteConfig = {
   },
   ein: "33-3032264",
   paypalUrl: "https://www.paypal.com/ncp/payment/7BTC79TNBLL8E",
-  formspreeEndpoint: process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "https://formspree.io/f/your-form-id",
+  formspreeEndpoint: process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "https://formspree.io/f/mbdqewrl",
   social: {
     instagram: "https://www.instagram.com/kinggenministries/",
     facebook: "https://www.facebook.com/profile.php?id=61573569056063",

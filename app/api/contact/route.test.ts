@@ -93,13 +93,17 @@ describe("POST /api/contact", () => {
 
   // --- Endpoint configuration ---
 
-  it("returns 500 when no Formspree endpoint is configured", async () => {
+  it("falls back to siteConfig.formspreeEndpoint when env vars are not set", async () => {
     vi.unstubAllEnvs();
+    mockFetchOk();
 
     const response = await POST(makeRequest(validPayload));
 
-    expect(response.status).toBe(500);
-    expect(await response.json()).toEqual({ error: "Contact form is not configured yet." });
+    expect(response.status).toBe(200);
+    expect(globalThis.fetch).toHaveBeenCalledWith(
+      expect.stringMatching(/^https:\/\/formspree\.io\/f\/[a-zA-Z0-9]+$/),
+      expect.anything(),
+    );
   });
 
   it("returns 500 when endpoint contains placeholder text", async () => {

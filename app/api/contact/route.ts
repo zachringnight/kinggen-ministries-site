@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { siteConfig } from "@/app/config/site";
 
 interface ContactPayload {
   reason?: string;
@@ -13,7 +14,12 @@ function isValidEmail(email: string): boolean {
 }
 
 function getFormEndpoint(): string | null {
-  const endpoint = (process.env.FORMSPREE_ENDPOINT ?? process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ?? "").trim();
+  const endpoint = (
+    process.env.FORMSPREE_ENDPOINT ??
+    process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ??
+    siteConfig.formspreeEndpoint ??
+    ""
+  ).trim();
   if (!endpoint || endpoint.includes("your-form-id")) {
     return null;
   }
