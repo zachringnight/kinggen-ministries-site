@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useRouter } from "next/navigation";
 import {
   Section,
   Button,
@@ -8,14 +9,13 @@ import {
   MailIcon,
   MapPinIcon,
   FadeIn,
-  CheckCircleIcon,
   AlertIcon,
   InnerPageHero,
 } from "../components";
 import { siteConfig } from "../config/site";
 import { contactContent } from "../content";
 
-type SubmitState = "idle" | "submitting" | "success" | "error";
+type SubmitState = "idle" | "submitting" | "error";
 
 interface ContactFormData {
   reason: string;
@@ -38,6 +38,7 @@ const initialFormData: ContactFormData = {
 };
 
 export default function ContactPage() {
+  const router = useRouter();
   const [formData, setFormData] = useState<ContactFormData>(initialFormData);
   const [formErrors, setFormErrors] = useState<ContactFormErrors>({});
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
@@ -95,12 +96,10 @@ export default function ContactPage() {
       return;
     }
 
-    // Honeypot field for simple bot filtering.
+    // Honeypot field for simple bot filtering — bots get redirected to /thanks
+    // just like a real successful submission, so the deception holds.
     if (formData.website.trim()) {
-      setSubmitState("success");
-      setStatusMessage("Thank you. Your message has been received.");
-      setFormData(initialFormData);
-      setFormErrors({});
+      router.push("/thanks");
       return;
     }
 
@@ -133,9 +132,8 @@ export default function ContactPage() {
         throw new Error(messageFromApi);
       }
 
-      setSubmitState("success");
-      setStatusMessage("Thank you! We typically respond within 1–2 business days.");
       setFormData(initialFormData);
+      router.push("/thanks");
     } catch (error) {
       setSubmitState("error");
       setFormErrors((prev) => ({
@@ -316,15 +314,6 @@ export default function ContactPage() {
                     </p>
                   )}
                 </div>
-
-                {submitState === "success" && (
-                  <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-emerald-900">
-                    <div className="flex items-start gap-3">
-                      <CheckCircleIcon className="w-5 h-5 mt-0.5" />
-                      <p className="text-sm">{statusMessage}</p>
-                    </div>
-                  </div>
-                )}
 
                 {(submitState === "error" || formErrors.form) && (
                   <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-red-800">
