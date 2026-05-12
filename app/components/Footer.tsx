@@ -8,16 +8,13 @@ import { BrandLockup } from "./Logo";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  // Slim footer — full link list lives in the header's Resources dropdown.
   const mainLinks = [
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
     { href: "/for-referrers", label: "For Referrers" },
-    { href: "/for-grant-writers", label: "For Grant Writers" },
     { href: "/donate", label: "Donate" },
-    { href: "/testimonials", label: "Testimonials" },
     { href: "/contact", label: "Contact" },
-    { href: "/get-support", label: "Client Info" },
-    // Forms section hidden from the live site for now — page still exists in admin.
   ];
 
   return (
@@ -70,7 +67,7 @@ export default function Footer() {
 
             <div className="lg:justify-self-end">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white mb-3">Explore</p>
-              <nav className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
+              <nav className="flex flex-col gap-y-2 text-sm">
                 {mainLinks.map((item) => (
                   <Link key={item.href} href={item.href} className="text-white/95 hover:text-white transition-colors">
                     {item.label}

@@ -56,9 +56,9 @@
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
 
-  /* Font families - Google Fonts */
-  --font-heading: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  --font-sans: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  /* Font families — self-hosted via next/font (see app/layout.tsx) */
+  --font-heading: var(--font-heading-loader), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-sans-loader), -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
 }
 
 /* Base styles */

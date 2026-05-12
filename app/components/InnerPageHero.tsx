@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import OptimizedBackground from "./OptimizedBackground";
-import { BrandLockup } from "./Logo";
+import { BrandMark } from "./Logo";
 
 type HeroBackground = "inner" | "about" | "inner-logo";
 
@@ -23,26 +23,22 @@ const backgroundMap: Record<
     overlayClassName: string;
     titleClassName: string;
     subtitleClassName: string;
-    lockupClassName: string;
   }
 > = {
   inner: {
     overlayClassName: "bg-gradient-to-b from-brand-primary/74 via-brand-primary/82 to-brand-primary/90",
     titleClassName: "text-white",
     subtitleClassName: "text-white/95",
-    lockupClassName: "text-white",
   },
   about: {
     overlayClassName: "bg-gradient-to-b from-brand-primary/72 via-brand-primary/80 to-brand-primary/88",
     titleClassName: "text-white",
     subtitleClassName: "text-white/95",
-    lockupClassName: "text-white",
   },
   "inner-logo": {
     overlayClassName: "bg-gradient-to-b from-brand-primary/73 via-brand-primary/81 to-brand-primary/89",
     titleClassName: "text-white",
     subtitleClassName: "text-white/95",
-    lockupClassName: "text-white",
   },
 };
 
@@ -73,7 +69,7 @@ export default function InnerPageHero({
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-5xl mx-auto text-center">
             <div className="flex justify-center mb-3">
-              <BrandLockup theme="dark" size="md" className={backgroundConfig.lockupClassName} />
+              <BrandMark theme="dark" size={44} />
             </div>
 
             {eyebrow && (
