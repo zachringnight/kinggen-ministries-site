@@ -63,9 +63,6 @@ export default function Home() {
                 <BrandLockup theme="dark" size="lg" className="mx-auto max-w-[260px] md:max-w-[380px]" />
               </div>
 
-              <span className="inline-block px-3.5 py-1.5 bg-white/9 backdrop-blur-sm border border-white/18 text-white/95 text-xs sm:text-sm font-medium rounded-full mb-4 tracking-wide">
-                {homeContent.hero.badge}
-              </span>
               <p className="text-[11px] sm:text-xs uppercase tracking-[0.12em] text-brand-gold-light/95 font-semibold mb-3">
                 {homeContent.hero.eyebrow}
               </p>

@@ -9,7 +9,12 @@ export const homeContent: HomeContent = {
       "Compassionate, confidential pastoral care offered at no cost. For referrals, donors, and ministry partners.",
     ctaPrimary: "Start a Referral Conversation",
     ctaSecondary: "Support the Mission",
-    trustBadges: ["No-cost client services", "Licensed clinical pastoral counselor", "Confidential & private"],
+    trustBadges: [
+      "No-cost client services",
+      "Licensed clinical pastoral counselor",
+      "Confidential & private",
+      "501(c)(3) Nonprofit",
+    ],
     heroMetrics: [
       { value: "15+", label: "Years of care" },
       { value: "100%", label: "No-cost sessions" },
