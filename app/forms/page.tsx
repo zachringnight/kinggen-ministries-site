@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import {
   Section,
   Button,
@@ -24,6 +25,10 @@ export const metadata: Metadata = {
 const resourceIcons = [BookOpenIcon, HeartIcon, DocumentIcon, SunIcon];
 
 export default function ResourcesPage() {
+  // Forms section is hidden from the live site for now. The full page body
+  // below is preserved so it can be re-enabled by deleting the `notFound()` call.
+  notFound();
+
   return (
     <>
       <InnerPageHero

@@ -12,7 +12,7 @@ const routes = [
   "/for-grant-writers",
   "/testimonials",
   "/get-support",
-  "/forms",
+  // "/forms" — hidden from the live site for now.
   "/contact",
   "/donate",
   "/privacy",
