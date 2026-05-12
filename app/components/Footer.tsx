@@ -32,7 +32,7 @@ export default function Footer() {
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/55 to-transparent z-10" />
 
         <div className="relative z-10 container mx-auto px-4 lg:px-8 py-7 md:py-9">
-          <div className="grid gap-6 mb-6 md:grid-cols-2 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.85fr)_minmax(0,1fr)]">
+          <div className="grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] gap-6 mb-6">
             <div>
               <Link href="/" className="inline-flex items-center gap-3" aria-label="KingGen Ministries Home">
                 <BrandLockup theme="dark" size="sm" />
@@ -58,23 +58,14 @@ export default function Footer() {
                   <PhoneIcon className="w-4 h-4 flex-shrink-0" />
                   <span>{siteConfig.phone}</span>
                 </a>
+                <address className="not-italic inline-flex items-start gap-2 leading-snug">
+                  <LocationIcon className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                  <span>
+                    {siteConfig.address.line2}, {siteConfig.address.line3}, {siteConfig.address.city},{" "}
+                    {siteConfig.address.state} {siteConfig.address.zip}
+                  </span>
+                </address>
               </div>
-            </div>
-
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white mb-3">Mailing Address</p>
-              <address className="not-italic flex gap-2 text-sm text-white/95 leading-relaxed">
-                <LocationIcon className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                <span>
-                  {siteConfig.address.line1}
-                  <br />
-                  {siteConfig.address.line2}
-                  <br />
-                  {siteConfig.address.line3}
-                  <br />
-                  {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
-                </span>
-              </address>
             </div>
 
             <div className="lg:justify-self-end">
