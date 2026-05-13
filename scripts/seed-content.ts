@@ -448,7 +448,7 @@ const forGrantWritersContent = {
   },
   contact: {
     title: "Support our grant-funded work",
-    text: "Additional documentation, financial statements, and partnership details are made available to verified grant writers and foundation representatives through established ministry channels. Your gift helps sustain the free counseling these grants make possible.",
+    text: "Additional documentation, financial statements, and partnership details are available upon request. Your gift helps sustain the free counseling these grants make possible.",
   },
 };
 
