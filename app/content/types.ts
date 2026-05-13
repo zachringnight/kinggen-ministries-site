@@ -130,15 +130,16 @@ export interface ServicesContent {
 export interface ContactContent {
   hero: SectionText;
   note: string;
-  formTitle: string;
-  reasonOptions: { value: string; label: string }[];
-  reasonNote: string;
-  directContactTitle: string;
-  whatHappensNext: {
+  /** Legacy form fields — no longer rendered. Kept optional so existing CMS content stays valid. */
+  formTitle?: string;
+  reasonOptions?: { value: string; label: string }[];
+  reasonNote?: string;
+  directContactTitle?: string;
+  whatHappensNext?: {
     title: string;
     steps: string[];
   };
-  formNote: string;
+  formNote?: string;
 }
 
 export interface DonateContent {

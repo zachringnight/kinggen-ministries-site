@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { normalizeSiteUrl, siteConfig, toPhoneHref } from "./site";
+import { normalizeSiteUrl, siteConfig } from "./site";
 
 describe("normalizeSiteUrl", () => {
   it("uses the default URL when value is missing", () => {
@@ -25,22 +25,13 @@ describe("normalizeSiteUrl", () => {
   });
 });
 
-describe("toPhoneHref", () => {
-  it("formats US display phone numbers for tel links", () => {
-    expect(toPhoneHref("(817) 682-4341")).toBe("+18176824341");
-  });
-
-  it("preserves international numbers with explicit plus", () => {
-    expect(toPhoneHref("+44 20 7946 0018")).toBe("+442079460018");
-  });
-
-  it("returns empty when no digits are present", () => {
-    expect(toPhoneHref("N/A")).toBe("");
-  });
-});
-
 describe("siteConfig", () => {
-  it("exposes a normalized phoneHref used by tel links", () => {
-    expect(siteConfig.phoneHref).toBe("+18176824341");
+  it("ships the production mailing address", () => {
+    expect(siteConfig.address.city).toBe("Keller");
+    expect(siteConfig.address.state).toBe("TX");
+  });
+
+  it("ships the 501(c)(3) EIN", () => {
+    expect(siteConfig.ein).toBe("33-3032264");
   });
 });
