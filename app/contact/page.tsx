@@ -2,16 +2,7 @@
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import {
-  Section,
-  Button,
-  PhoneIcon,
-  MailIcon,
-  MapPinIcon,
-  FadeIn,
-  AlertIcon,
-  InnerPageHero,
-} from "../components";
+import { Section, Button, PhoneIcon, MailIcon, MapPinIcon, FadeIn, AlertIcon, InnerPageHero } from "../components";
 import { siteConfig } from "../config/site";
 import { contactContent } from "../content";
 
@@ -154,6 +145,7 @@ export default function ContactPage() {
         subtitle={contactContent.hero.subtitle}
         background="inner"
         ariaLabel="Contact KingGen Ministries"
+        eyebrow="Referral & Partner Inquiries"
       />
 
       {/* Note */}

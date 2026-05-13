@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "../config/site";
-import { PhoneIcon, MailIcon, InstagramIcon, FacebookIcon, HeartIcon } from "./Icons";
+import { PhoneIcon, MailIcon, LocationIcon, InstagramIcon, FacebookIcon, HeartIcon } from "./Icons";
 import Button from "./Button";
 import OptimizedBackground from "./OptimizedBackground";
 import { BrandLockup } from "./Logo";
@@ -43,21 +43,28 @@ export default function Footer() {
                 remove cost barriers to care.
               </p>
 
-              <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/95">
+              <div className="mt-4 flex flex-col gap-2 text-sm text-white/95">
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="inline-flex items-center gap-2 hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 hover:text-white transition-colors w-fit"
                 >
-                  <MailIcon className="w-4 h-4" />
+                  <MailIcon className="w-4 h-4 flex-shrink-0" />
                   <span>{siteConfig.email}</span>
                 </a>
                 <a
                   href={`tel:${siteConfig.phoneHref}`}
-                  className="inline-flex items-center gap-2 hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 hover:text-white transition-colors w-fit"
                 >
-                  <PhoneIcon className="w-4 h-4" />
+                  <PhoneIcon className="w-4 h-4 flex-shrink-0" />
                   <span>{siteConfig.phone}</span>
                 </a>
+                <address className="not-italic inline-flex items-start gap-2 leading-snug">
+                  <LocationIcon className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                  <span>
+                    {siteConfig.address.line2}, {siteConfig.address.line3}, {siteConfig.address.city},{" "}
+                    {siteConfig.address.state} {siteConfig.address.zip}
+                  </span>
+                </address>
               </div>
             </div>
 
