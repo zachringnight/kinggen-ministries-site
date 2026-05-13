@@ -1,5 +1,4 @@
 const DEFAULT_SITE_URL = "https://kinggenministries.org";
-const DEFAULT_PHONE = "(817) 682-4341";
 
 export function normalizeSiteUrl(rawUrl: string | undefined): string {
   const trimmed = rawUrl?.trim();
@@ -25,32 +24,12 @@ export function normalizeSiteUrl(rawUrl: string | undefined): string {
   }
 }
 
-export function toPhoneHref(rawPhone: string): string {
-  const trimmed = rawPhone.trim();
-  const digitsOnly = trimmed.replace(/\D/g, "");
-
-  if (!digitsOnly) return "";
-
-  if (trimmed.startsWith("+")) {
-    return `+${digitsOnly}`;
-  }
-
-  if (digitsOnly.length === 10) {
-    return `+1${digitsOnly}`;
-  }
-
-  return `+${digitsOnly}`;
-}
-
 export const siteConfig = {
   name: "KingGen Ministries",
   url: normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL),
   tagline: "Gospel-centered counseling for women in need.",
   description:
     "A 501(c)(3) nonprofit providing free clinical pastoral counseling for women. Partner with us through referrals, donations, or grants.",
-  phone: DEFAULT_PHONE,
-  phoneHref: toPhoneHref(DEFAULT_PHONE),
-  email: "kinggencounseling@gmail.com",
   address: {
     line1: "KingGen Ministries",
     line2: "1540 Keller Parkway",
@@ -61,7 +40,6 @@ export const siteConfig = {
   },
   ein: "33-3032264",
   paypalUrl: "https://www.paypal.com/ncp/payment/7BTC79TNBLL8E",
-  formspreeEndpoint: process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "https://formspree.io/f/mbdqewrl",
   social: {
     instagram: "https://www.instagram.com/kinggenministries/",
     facebook: "https://www.facebook.com/profile.php?id=61573569056063",
@@ -73,7 +51,6 @@ export const primaryNavLinks = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/for-referrers", label: "For Referrers" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export const secondaryNavLinks = [

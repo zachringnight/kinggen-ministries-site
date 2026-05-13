@@ -6,7 +6,6 @@ export const CONTENT_PAGES = [
   "home",
   "about",
   "services",
-  "contact",
   "donate",
   "for-referrers",
   "for-grant-writers",

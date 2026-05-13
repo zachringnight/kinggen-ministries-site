@@ -6,8 +6,6 @@ import {
   Button,
   CheckCircleIcon,
   HeartIcon,
-  ArrowRightIcon,
-  MailIcon,
   FadeIn,
   StaggerContainer,
   StaggerItem,
@@ -139,27 +137,8 @@ export default function ForGrantWriters() {
             </h2>
             <p className="text-base sm:text-lg text-text-secondary mb-8">{forGrantWritersContent.contact.subtitle}</p>
 
-            <div className="brand-panel p-6 md:p-8 inline-block mb-8">
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="flex items-center gap-3 text-brand-primary hover:text-brand-secondary transition-colors"
-              >
-                <MailIcon className="w-6 h-6" />
-                <span className="font-medium">{siteConfig.email}</span>
-              </a>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                href="/contact"
-                variant="primary"
-                size="lg"
-                icon={<ArrowRightIcon className="w-5 h-5" />}
-                iconPosition="right"
-              >
-                Contact Us
-              </Button>
-              <Button href="/donate" variant="outline" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
+            <div className="flex justify-center">
+              <Button href="/donate" variant="primary" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
                 Donate
               </Button>
             </div>

@@ -4,7 +4,6 @@ import {
   Section,
   Button,
   HeartIcon,
-  MailIcon,
   CheckCircleIcon,
   FadeIn,
   StaggerContainer,
@@ -87,7 +86,7 @@ export default function DonatePage() {
                 {donateContent.waysToGive.mail.title}
               </h3>
               <p className="text-white/95 mb-4">{donateContent.waysToGive.mail.body}</p>
-              <div className="bg-white/12 rounded-xl p-4 mb-4 border border-white/20">
+              <div className="bg-white/12 rounded-xl p-4 border border-white/20">
                 <p className="text-white font-semibold">KingGen Ministries</p>
                 <address className="text-white/95 not-italic text-sm leading-relaxed mt-2">
                   {siteConfig.address.line2}
@@ -97,15 +96,6 @@ export default function DonatePage() {
                   {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
                 </address>
               </div>
-              <Button
-                href={`mailto:${siteConfig.email}`}
-                variant="outline-white"
-                size="lg"
-                fullWidth
-                icon={<MailIcon className="w-5 h-5" />}
-              >
-                Email for Mailing Help
-              </Button>
             </div>
           </FadeIn>
         </div>
@@ -125,14 +115,7 @@ export default function DonatePage() {
                   "",
                 )}
               </p>
-              <p className="text-lg font-semibold text-brand-primary mb-6">EIN: {siteConfig.ein}</p>
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="inline-flex items-center gap-2 text-brand-primary hover:text-brand-secondary transition-colors"
-              >
-                <MailIcon className="w-5 h-5" />
-                <span>Questions? {siteConfig.email}</span>
-              </a>
+              <p className="text-lg font-semibold text-brand-primary">EIN: {siteConfig.ein}</p>
             </div>
           </div>
         </FadeIn>

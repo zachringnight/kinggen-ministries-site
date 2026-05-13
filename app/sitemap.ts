@@ -13,7 +13,6 @@ const routes = [
   "/testimonials",
   "/get-support",
   // "/forms" — hidden from the live site for now.
-  "/contact",
   "/donate",
   "/privacy",
   "/disclaimer",

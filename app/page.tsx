@@ -74,7 +74,7 @@ export default function Home() {
               </p>
               <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center items-center">
                 <Button
-                  href="/contact"
+                  href="/for-referrers"
                   variant="gold"
                   size="lg"
                   icon={<ArrowRightIcon className="w-5 h-5" />}
@@ -324,9 +324,6 @@ export default function Home() {
                 >
                   Learn More
                 </Button>
-                <Button href="/contact" variant="outline" size="lg">
-                  Request a Booking
-                </Button>
               </div>
             </div>
           </FadeIn>
@@ -344,13 +341,13 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
-                href="/contact"
+                href="/for-referrers"
                 variant="primary"
                 size="lg"
                 icon={<ArrowRightIcon className="w-5 h-5" />}
                 iconPosition="right"
               >
-                Contact Us
+                For Referrers
               </Button>
               <Button href="/donate" variant="gold" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
                 Support Our Mission

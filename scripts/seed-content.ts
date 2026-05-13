@@ -194,8 +194,7 @@ const homeContent = {
   },
   cta: {
     title: "Ready to partner with us?",
-    description:
-      "Whether you want to refer someone, support the mission, or learn more about our work, we would love to connect.",
+    description: "Whether you're making a referral or considering a donation, you can take the next step here.",
   },
 };
 
@@ -294,33 +293,6 @@ const servicesContent = {
   },
 };
 
-const contactContent = {
-  hero: {
-    title: "Contact KingGen",
-    subtitle: "Referral and partner inquiries are welcome.",
-  },
-  intro_note:
-    "We often coordinate intake through referrers and ministry partners. If you are reaching out on behalf of someone, please include your role and the best way to follow up.",
-  form: {
-    title: "Referral & Partner Contact",
-    reason_options: [
-      { value: "referring-someone", label: "I'm referring someone for counseling" },
-      { value: "pastor-church-staff", label: "I'm a pastor or church staff member" },
-      { value: "professional-partner", label: "I'm a professional partner (counselor, social worker, etc.)" },
-      { value: "donor-partner", label: "I'm a donor or potential supporter" },
-      { value: "other", label: "Other inquiry" },
-    ],
-  },
-  what_happens_next: {
-    title: "What Happens Next",
-    steps: [
-      "We review your message within 1-2 business days.",
-      "We follow up by email or phone as appropriate.",
-      "If a referral, we coordinate next steps with you and the client.",
-    ],
-  },
-};
-
 const donateContent = {
   hero: {
     title: "Help Keep Counseling Free",
@@ -407,13 +379,14 @@ const forReferrersContent = {
   },
   how_to_refer: {
     title: "How to refer someone",
-    approach: "Submit the referral on her behalf with her awareness and consent.",
+    approach:
+      "Walk alongside her through an established relationship with KingGen — pastors, counselors, and ministry partners are best positioned to introduce a new client to our team.",
     approach_detail:
-      "This helps us keep intake clear, confidential, and coordinated through trusted referral relationships.",
-    helpful_info_title: "Helpful information to include:",
+      "This keeps intake clear, confidential, and coordinated through trusted referral relationships rather than open web traffic.",
+    helpful_info_title: "Helpful information to gather before an introduction:",
     helpful_info: [
       "First name of the person being referred",
-      "Best contact method (email or phone)",
+      "Best way for her to be reached when the time comes",
       "General reason for referral",
       "Any immediate safety concerns",
     ],
@@ -425,7 +398,7 @@ const forReferrersContent = {
   partner: {
     title: "Partner with us",
     description:
-      "If you'd like to establish an ongoing referral relationship or learn more about how KingGen can serve your community, we'd love to connect.",
+      "Your support sustains the free counseling we provide to women introduced through ministry and community partners.",
   },
 };
 
@@ -474,8 +447,8 @@ const forGrantWritersContent = {
     text: "KingGen Ministries is recognized by the IRS as a 501(c)(3) tax-exempt organization.",
   },
   contact: {
-    title: "Contact for Grant Inquiries",
-    text: "For additional documentation, financial statements, or program details, please contact us.",
+    title: "Support our grant-funded work",
+    text: "Additional documentation, financial statements, and partnership details are available upon request. Your gift helps sustain the free counseling these grants make possible.",
   },
 };
 
@@ -600,9 +573,9 @@ const formsContent = {
     },
   ],
   need_support: {
-    title: "Need someone to talk to?",
+    title: "Help us keep these resources free",
     description:
-      "These resources are helpful, but they're no substitute for real support. If you or someone you know needs counseling, we're here.",
+      "Every guide on this page is offered at no cost. Your gift helps us add new ones and continue providing pastoral counseling for women in need.",
   },
 };
 
@@ -613,7 +586,7 @@ const privacyContent = {
   },
   content: [
     "Your privacy matters. KingGen Ministries protects client confidentiality and does not share personal information without your consent, except where required by law or in cases involving imminent danger.",
-    "Information submitted through our website contact form is handled securely and used only for intake and communication purposes.",
+    "Information sent to us by postal mail is handled with care and used only for intake and communication. Please avoid sharing highly sensitive details in your first letter — we will follow up on next steps once we receive your note.",
     "If you or someone you know is in immediate danger, please call 911 or the 988 Suicide & Crisis Lifeline.",
   ],
 };
@@ -635,8 +608,6 @@ const siteConfigContent = {
   tagline: "Gospel-centered counseling for women in need.",
   description:
     "A 501(c)(3) nonprofit providing free clinical pastoral counseling for women in need. Confidential, compassionate, Christ-centered care.",
-  phone: "(817) 682-4341",
-  email: "kinggencounseling@gmail.com",
   address: {
     line1: "KingGen Ministries",
     line2: "1540 Keller Parkway",
@@ -661,7 +632,6 @@ const allContent: Record<string, Record<string, unknown>> = {
   home: homeContent,
   about: aboutContent,
   services: servicesContent,
-  contact: contactContent,
   donate: donateContent,
   "for-referrers": forReferrersContent,
   "for-grant-writers": forGrantWritersContent,

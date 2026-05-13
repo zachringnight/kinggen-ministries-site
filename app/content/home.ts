@@ -7,7 +7,7 @@ export const homeContent: HomeContent = {
     headline: "Free Gospel-centered counseling for women in need.",
     subheadline:
       "Compassionate, confidential pastoral care offered at no cost. For referrals, donors, and ministry partners.",
-    ctaPrimary: "Start a Referral Conversation",
+    ctaPrimary: "How Referrals Work",
     ctaSecondary: "Support the Mission",
     trustBadges: [
       "No-cost client services",
@@ -124,6 +124,6 @@ export const homeContent: HomeContent = {
   },
   cta: {
     title: "Ready to partner with us?",
-    body: "Whether you're making a referral, considering a donation, or exploring grant opportunities, we'd love to connect.",
+    body: "Whether you're making a referral or considering a donation, you can take the next step here.",
   },
 };

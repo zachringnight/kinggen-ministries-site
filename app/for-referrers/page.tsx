@@ -4,7 +4,6 @@ import {
   Button,
   CheckCircleIcon,
   ShieldIcon,
-  ArrowRightIcon,
   HeartIcon,
   FadeIn,
   StaggerContainer,
@@ -28,17 +27,7 @@ export default function ForReferrers() {
         background="inner"
         ariaLabel="For Referrers"
         eyebrow="Compassionate Referral Pathway"
-      >
-        <Button
-          href="/contact"
-          variant="white"
-          size="lg"
-          icon={<ArrowRightIcon className="w-5 h-5" />}
-          iconPosition="right"
-        >
-          Start a Referral Conversation
-        </Button>
-      </InnerPageHero>
+      />
 
       <Section variant="cross-light" padding="xl">
         <FadeIn>
@@ -143,20 +132,6 @@ export default function ForReferrers() {
             </StaggerItem>
           ))}
         </StaggerContainer>
-
-        <FadeIn delay={0.4}>
-          <div className="text-center mt-10">
-            <Button
-              href="/contact"
-              variant="primary"
-              size="lg"
-              icon={<ArrowRightIcon className="w-5 h-5" />}
-              iconPosition="right"
-            >
-              Start a Referral
-            </Button>
-          </div>
-        </FadeIn>
       </Section>
 
       <Section variant="art-cream" padding="lg">
@@ -182,23 +157,8 @@ export default function ForReferrers() {
               {forReferrersContent.partnerCta.title}
             </h2>
             <p className="text-base sm:text-lg text-white/95 mb-8">{forReferrersContent.partnerCta.subtitle}</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                href="/contact"
-                variant="white"
-                size="lg"
-                icon={<ArrowRightIcon className="w-5 h-5" />}
-                iconPosition="right"
-              >
-                Contact Us
-              </Button>
-              <Button
-                href="/donate"
-                variant="outline"
-                size="lg"
-                icon={<HeartIcon className="w-5 h-5" />}
-                className="border-white/40 text-white hover:bg-white/10"
-              >
+            <div className="flex justify-center">
+              <Button href="/donate" variant="white" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
                 Support the Mission
               </Button>
             </div>

@@ -37,13 +37,14 @@ export const forReferrersContent: ForReferrersContent = {
   },
   howToRefer: {
     title: "How to refer someone",
-    approach: "A helpful approach: Submit the referral on her behalf with her awareness and consent.",
+    approach:
+      "A helpful approach: Walk alongside her through an established relationship with KingGen — pastors, counselors, and ministry partners are best positioned to introduce a new client to our team.",
     approachDetail:
-      "This helps us keep intake clear, confidential, and coordinated through trusted referral relationships.",
-    helpfulInfoTitle: "Helpful information to include:",
+      "This keeps intake clear, confidential, and coordinated through trusted referral relationships rather than open web traffic.",
+    helpfulInfoTitle: "Helpful information to gather before an introduction:",
     helpfulInfo: [
       "First name of the person being referred",
-      "Best contact method (email or phone)",
+      "Best way for her to be reached when the time comes",
       "General reason for referral",
       "Any immediate safety concerns",
     ],
@@ -55,6 +56,6 @@ export const forReferrersContent: ForReferrersContent = {
   partnerCta: {
     title: "Partner with us",
     subtitle:
-      "If you'd like to establish an ongoing referral relationship or learn more about how KingGen can serve your community, we'd love to connect.",
+      "Your support sustains the free counseling we provide to women introduced through ministry and community partners.",
   },
 };

@@ -38,6 +38,6 @@ export const servicesContent: ServicesContent = {
   cta: {
     title: "Ready to take the next step?",
     subtitle:
-      "Connect with us to discuss a referral or partnership path. All services are offered at no cost to clients.",
+      "Pastors, counselors, and ministry partners can review how referrals work on our For Referrers page. All services are offered at no cost to clients.",
   },
 };

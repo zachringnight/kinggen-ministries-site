@@ -99,18 +99,6 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
-
-            <div className="text-center">
-              <Button
-                href="/contact"
-                variant="white"
-                size="lg"
-                icon={<ArrowRightIcon className="w-5 h-5" />}
-                iconPosition="right"
-              >
-                Request a Booking
-              </Button>
-            </div>
           </div>
         </FadeIn>
       </Section>

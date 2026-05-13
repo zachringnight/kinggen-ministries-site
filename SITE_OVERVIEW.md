@@ -19,14 +19,8 @@ This Next.js website provides a complete, professional online presence for KingG
 - Four core values (Faith, Compassion, Integrity, Excellence)
 - Connect section with CTA
 
-### 3. Contact Page (/contact)
-- Left column: Contact information (phone, email, appointment scheduling)
-- Right column: Contact form with Formspree integration
-- Form fields: Name, Email, Phone, Message
-- Link to Calendly for appointment booking
-
-### 4. Donate Page (/donate)
-- Donation options with Donorbox integration
+### 3. Donate Page (/donate)
+- Donation options with PayPal integration
 - Impact section showing donation tiers ($50, $100, $250)
 - Other ways to give (mail, monthly, in-kind)
 - Tax-deductible notice
@@ -57,13 +51,11 @@ All site settings are centralized in `app/config/site.ts`:
 ```typescript
 export const siteConfig = {
   name: "KingGen Ministries",
-  description: "Empowering faith and community...",
-  phone: "(555) 123-4567",
-  email: "info@kinggenministries.org",
-  calendlyUrl: "https://calendly.com/kinggen-ministries",
-  donorboxCampaignId: "your-campaign-id",
-  donorboxPageUrl: "https://donorbox.org/kinggen-ministries",
-  formspreeEndpoint: "https://formspree.io/f/your-form-id",
+  description: "A 501(c)(3) nonprofit providing free clinical pastoral counseling for women...",
+  address: { /* mailing address */ },
+  ein: "33-3032264",
+  paypalUrl: "https://www.paypal.com/ncp/payment/...",
+  social: { instagram: "...", facebook: "..." },
 };
 ```
 
@@ -75,10 +67,6 @@ Deploy with Vercel:
 2. Connect to Vercel
 3. Configure custom domain
 4. Update configuration values in `app/config/site.ts`
-5. Set up external services:
-   - Create Formspree form
-   - Set up Calendly account
-   - Create Donorbox campaign
 
 ## 📦 Technical Details
 
@@ -104,9 +92,8 @@ All page previews have been captured and are available in the PR description.
 
 ## 🔧 Next Steps for Customization
 
-1. Update contact information in `app/config/site.ts`
+1. Update organization information in `app/config/site.ts`
 2. Replace placeholder text with actual ministry content
 3. Add real photos/images to pages
-4. Configure external service integrations
-5. Adjust brand colors in `app/globals.css` if needed
-6. Update metadata for SEO optimization
+4. Adjust brand colors in `app/globals.css` if needed
+5. Update metadata for SEO optimization

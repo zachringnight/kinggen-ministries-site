@@ -30,9 +30,6 @@ export default function NotFound() {
             <Button href="/for-referrers" variant="outline">
               For Referrers
             </Button>
-            <Button href="/contact" variant="outline">
-              Contact
-            </Button>
           </div>
         </div>
       </Section>
