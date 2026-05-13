@@ -70,7 +70,8 @@ export interface SpeakingVenue {
 
 export interface HomeContent {
   hero: {
-    badge: string;
+    /** Legacy: rendered as a pill above the eyebrow. No longer displayed; kept on the type so existing CMS content stays valid. */
+    badge?: string;
     eyebrow: string;
     headline: string;
     subheadline: string;
