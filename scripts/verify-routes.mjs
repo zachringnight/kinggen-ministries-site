@@ -4,7 +4,9 @@ import { spawn } from "node:child_process";
 import net from "node:net";
 import process from "node:process";
 
-const ROUTES = ["/", "/about", "/services", "/contact", "/for-referrers", "/forms"];
+// /forms is intentionally 404 right now (hidden from the live site in PR #76);
+// dropped from the smoke list until it's re-enabled.
+const ROUTES = ["/", "/about", "/services", "/contact", "/for-referrers"];
 const KNOWN_404_PATTERNS = ["this page could not be found", "<title>404"];
 
 const START_TIMEOUT_MS = 45_000;
