@@ -194,8 +194,7 @@ const homeContent = {
   },
   cta: {
     title: "Ready to partner with us?",
-    description:
-      "Whether you're making a referral or considering a donation, you can take the next step here.",
+    description: "Whether you're making a referral or considering a donation, you can take the next step here.",
   },
 };
 

@@ -36,6 +36,7 @@ export const formsContent: FormsContent = {
   },
   needHelp: {
     title: "Help us keep these resources free",
-    subtitle: "Every guide on this page is offered at no cost. Your gift helps us add new ones and continue providing pastoral counseling for women in need.",
+    subtitle:
+      "Every guide on this page is offered at no cost. Your gift helps us add new ones and continue providing pastoral counseling for women in need.",
   },
 };
