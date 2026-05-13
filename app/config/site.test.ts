@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { normalizeSiteUrl } from "./site";
+import { normalizeSiteUrl, siteConfig } from "./site";
 
 describe("normalizeSiteUrl", () => {
   it("uses the default URL when value is missing", () => {
@@ -22,5 +22,16 @@ describe("normalizeSiteUrl", () => {
     expect(normalizeSiteUrl("https://kinggen-ministries-site.vercel.app")).toBe("https://kinggenministries.org");
     expect(normalizeSiteUrl("https://kinggen-ministries-site-mwqc.vercel.app")).toBe("https://kinggenministries.org");
     expect(normalizeSiteUrl("any-preview.vercel.app")).toBe("https://kinggenministries.org");
+  });
+});
+
+describe("siteConfig", () => {
+  it("ships the production mailing address", () => {
+    expect(siteConfig.address.city).toBe("Keller");
+    expect(siteConfig.address.state).toBe("TX");
+  });
+
+  it("ships the 501(c)(3) EIN", () => {
+    expect(siteConfig.ein).toBe("33-3032264");
   });
 });
