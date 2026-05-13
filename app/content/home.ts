@@ -124,6 +124,6 @@ export const homeContent: HomeContent = {
   },
   cta: {
     title: "Ready to partner with us?",
-    body: "Whether you're making a referral, considering a donation, or exploring grant opportunities, we'd love to connect.",
+    body: "Whether you're making a referral or considering a donation, you can take the next step here.",
   },
 };

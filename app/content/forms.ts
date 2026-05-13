@@ -35,7 +35,7 @@ export const formsContent: FormsContent = {
     comingSoon: "More resources coming soon. If there's something specific that would help you, let us know.",
   },
   needHelp: {
-    title: "Need someone to talk to?",
-    subtitle: "Resources are helpful, but sometimes you need more. We're here for you.",
+    title: "Help us keep these resources free",
+    subtitle: "Every guide on this page is offered at no cost. Your gift helps us add new ones and continue providing pastoral counseling for women in need.",
   },
 };

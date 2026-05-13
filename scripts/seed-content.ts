@@ -195,7 +195,7 @@ const homeContent = {
   cta: {
     title: "Ready to partner with us?",
     description:
-      "Whether you want to refer someone, support the mission, or learn more about our work, we would love to connect.",
+      "Whether you're making a referral or considering a donation, you can take the next step here.",
   },
 };
 
@@ -380,13 +380,14 @@ const forReferrersContent = {
   },
   how_to_refer: {
     title: "How to refer someone",
-    approach: "Submit the referral on her behalf with her awareness and consent.",
+    approach:
+      "Walk alongside her through an established relationship with KingGen — pastors, counselors, and ministry partners are best positioned to introduce a new client to our team.",
     approach_detail:
-      "This helps us keep intake clear, confidential, and coordinated through trusted referral relationships.",
-    helpful_info_title: "Helpful information to include:",
+      "This keeps intake clear, confidential, and coordinated through trusted referral relationships rather than open web traffic.",
+    helpful_info_title: "Helpful information to gather before an introduction:",
     helpful_info: [
       "First name of the person being referred",
-      "Best contact method (email or phone)",
+      "Best way for her to be reached when the time comes",
       "General reason for referral",
       "Any immediate safety concerns",
     ],
@@ -398,7 +399,7 @@ const forReferrersContent = {
   partner: {
     title: "Partner with us",
     description:
-      "If you'd like to establish an ongoing referral relationship or learn more about how KingGen can serve your community, we'd love to connect.",
+      "Your support sustains the free counseling we provide to women introduced through ministry and community partners.",
   },
 };
 
@@ -447,8 +448,8 @@ const forGrantWritersContent = {
     text: "KingGen Ministries is recognized by the IRS as a 501(c)(3) tax-exempt organization.",
   },
   contact: {
-    title: "Contact for Grant Inquiries",
-    text: "For additional documentation, financial statements, or program details, please contact us.",
+    title: "Support our grant-funded work",
+    text: "Additional documentation, financial statements, and partnership details are available on request through the channels noted below. Your gift helps sustain the free counseling these grants make possible.",
   },
 };
 
@@ -573,9 +574,9 @@ const formsContent = {
     },
   ],
   need_support: {
-    title: "Need someone to talk to?",
+    title: "Help us keep these resources free",
     description:
-      "These resources are helpful, but they're no substitute for real support. If you or someone you know needs counseling, we're here.",
+      "Every guide on this page is offered at no cost. Your gift helps us add new ones and continue providing pastoral counseling for women in need.",
   },
 };
 
@@ -586,7 +587,7 @@ const privacyContent = {
   },
   content: [
     "Your privacy matters. KingGen Ministries protects client confidentiality and does not share personal information without your consent, except where required by law or in cases involving imminent danger.",
-    "Information submitted through our website contact form is handled securely and used only for intake and communication purposes.",
+    "Information sent to us by postal mail is handled with care and used only for intake and communication. Please avoid sharing highly sensitive details in your first letter — we will follow up on next steps once we receive your note.",
     "If you or someone you know is in immediate danger, please call 911 or the 988 Suicide & Crisis Lifeline.",
   ],
 };

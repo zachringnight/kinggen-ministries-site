@@ -20,7 +20,7 @@ This Next.js website provides a complete, professional online presence for KingG
 - Connect section with CTA
 
 ### 3. Donate Page (/donate)
-- Donation options with Donorbox integration
+- Donation options with PayPal integration
 - Impact section showing donation tiers ($50, $100, $250)
 - Other ways to give (mail, monthly, in-kind)
 - Tax-deductible notice

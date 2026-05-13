@@ -37,9 +37,9 @@ export const forGrantWritersContent: ForGrantWritersContent = {
     body: "KingGen Ministries is recognized by the IRS as a 501(c)(3) tax-exempt organization. Donations are tax-deductible to the extent allowed by law.",
   },
   contact: {
-    title: "Contact for Grant Inquiries",
+    title: "Support our grant-funded work",
     subtitle:
-      "For additional documentation, financial statements, or questions about partnership opportunities, please contact us directly.",
+      "Additional documentation, financial statements, and partnership details are available on request through the channels noted below. Your gift helps sustain the free counseling these grants make possible.",
   },
   footnote:
     "Additional documentation including IRS determination letters, financial reports, and organizational bylaws are available upon request for verified grant writers and foundation representatives.",

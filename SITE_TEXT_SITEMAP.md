@@ -48,7 +48,7 @@
 
 ### 10. Privacy (`/privacy`)
 - **File**: `app/privacy/page.tsx`
-- **Description**: Privacy and confidentiality policy. Covers personal information protection, website form security, and emergency contact information (911, 988).
+- **Description**: Privacy and confidentiality policy. Covers personal information protection, postal-mail intake (the only inbound channel KingGen accepts), and emergency contact information (911, 988).
 
 ### 11. Disclaimer (`/disclaimer`)
 - **File**: `app/disclaimer/page.tsx`
