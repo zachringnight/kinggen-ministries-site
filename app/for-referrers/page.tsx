@@ -132,7 +132,6 @@ export default function ForReferrers() {
             </StaggerItem>
           ))}
         </StaggerContainer>
-
       </Section>
 
       <Section variant="art-cream" padding="lg">
@@ -159,12 +158,7 @@ export default function ForReferrers() {
             </h2>
             <p className="text-base sm:text-lg text-white/95 mb-8">{forReferrersContent.partnerCta.subtitle}</p>
             <div className="flex justify-center">
-              <Button
-                href="/donate"
-                variant="white"
-                size="lg"
-                icon={<HeartIcon className="w-5 h-5" />}
-              >
+              <Button href="/donate" variant="white" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
                 Support the Mission
               </Button>
             </div>

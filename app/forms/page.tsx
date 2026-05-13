@@ -97,12 +97,7 @@ export default function ResourcesPage() {
               {formsContent.needHelp.title}
             </h2>
             <p className="text-lg text-text-secondary mb-8">{formsContent.needHelp.subtitle}</p>
-            <Button
-              href="/donate"
-              variant="primary"
-              icon={<ArrowRightIcon className="w-5 h-5" />}
-              iconPosition="right"
-            >
+            <Button href="/donate" variant="primary" icon={<ArrowRightIcon className="w-5 h-5" />} iconPosition="right">
               Support the Mission
             </Button>
           </div>
