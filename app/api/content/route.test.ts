@@ -9,7 +9,6 @@ vi.mock("@/app/lib/content", () => ({
     "home",
     "about",
     "services",
-    "contact",
     "donate",
     "for-referrers",
     "for-grant-writers",

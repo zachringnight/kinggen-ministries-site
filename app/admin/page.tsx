@@ -7,7 +7,6 @@ const PAGES = [
   { slug: "home", label: "Home" },
   { slug: "about", label: "About" },
   { slug: "services", label: "Services" },
-  { slug: "contact", label: "Contact" },
   { slug: "donate", label: "Donate" },
   { slug: "for-referrers", label: "For Referrers" },
   { slug: "for-grant-writers", label: "For Grant Writers" },

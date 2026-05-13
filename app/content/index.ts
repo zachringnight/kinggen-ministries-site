@@ -1,7 +1,6 @@
 export { homeContent } from "./home";
 export { aboutContent } from "./about";
 export { servicesContent } from "./services";
-export { contactContent } from "./contact";
 export { donateContent } from "./donate";
 export { forReferrersContent } from "./for-referrers";
 export { forGrantWritersContent } from "./for-grant-writers";

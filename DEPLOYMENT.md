@@ -68,7 +68,7 @@ npm run verify:deploy-context
 
 1. In Vercel, open the project's Deployments tab.
 2. Promote the last known-good deployment to Production.
-3. Re-run route checks: `/`, `/services`, `/contact`.
+3. Re-run route checks: `/`, `/services`, `/for-referrers`.
 4. Confirm the Vercel commit-status context is green on `Claude/main`.
 
 ## Asset Hygiene Notes

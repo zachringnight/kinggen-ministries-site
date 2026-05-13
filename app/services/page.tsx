@@ -74,7 +74,7 @@ export default function ServicesPage() {
             </h2>
             <p className="text-base sm:text-lg text-white/95 mb-8">{servicesContent.cta.subtitle}</p>
             <Button
-              href="/contact"
+              href="/for-referrers"
               variant="white"
               size="lg"
               icon={<ArrowRightIcon className="w-5 h-5" />}

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { normalizeSiteUrl, siteConfig, toPhoneHref } from "./site";
+import { normalizeSiteUrl } from "./site";
 
 describe("normalizeSiteUrl", () => {
   it("uses the default URL when value is missing", () => {
@@ -11,7 +11,7 @@ describe("normalizeSiteUrl", () => {
   });
 
   it("normalizes to origin when path/query are present", () => {
-    expect(normalizeSiteUrl("https://kinggenministries.org/contact?from=test")).toBe("https://kinggenministries.org");
+    expect(normalizeSiteUrl("https://kinggenministries.org/about?from=test")).toBe("https://kinggenministries.org");
   });
 
   it("falls back for unsupported protocols", () => {
@@ -22,25 +22,5 @@ describe("normalizeSiteUrl", () => {
     expect(normalizeSiteUrl("https://kinggen-ministries-site.vercel.app")).toBe("https://kinggenministries.org");
     expect(normalizeSiteUrl("https://kinggen-ministries-site-mwqc.vercel.app")).toBe("https://kinggenministries.org");
     expect(normalizeSiteUrl("any-preview.vercel.app")).toBe("https://kinggenministries.org");
-  });
-});
-
-describe("toPhoneHref", () => {
-  it("formats US display phone numbers for tel links", () => {
-    expect(toPhoneHref("(817) 682-4341")).toBe("+18176824341");
-  });
-
-  it("preserves international numbers with explicit plus", () => {
-    expect(toPhoneHref("+44 20 7946 0018")).toBe("+442079460018");
-  });
-
-  it("returns empty when no digits are present", () => {
-    expect(toPhoneHref("N/A")).toBe("");
-  });
-});
-
-describe("siteConfig", () => {
-  it("exposes a normalized phoneHref used by tel links", () => {
-    expect(siteConfig.phoneHref).toBe("+18176824341");
   });
 });

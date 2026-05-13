@@ -68,7 +68,6 @@ app/
 ├── components/     # Reusable UI components
 ├── config/         # Site configuration (site.ts)
 ├── about/          # About page
-├── contact/        # Contact page with form
 ├── donate/         # Donation page
 ├── for-referrers/  # Information for referrers
 ├── for-grant-writers/ # Grant writer resources
@@ -86,11 +85,10 @@ app/
 
 Update `app/config/site.ts` with your organization's information:
 
-- Contact information (phone, email, address)
+- Mailing address
 - EIN number
 - PayPal donation URL
 - Social media links
-- Formspree endpoint (for contact form)
 
 ## Asset Notes
 

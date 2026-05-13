@@ -5,7 +5,6 @@ import {
   Button,
   QuoteIcon,
   HeartIcon,
-  ArrowRightIcon,
   CrossIcon,
   FadeIn,
   StaggerContainer,
@@ -144,15 +143,6 @@ export default function TestimonialsPage() {
               </Button>
               <Button href="/donate" variant="outline" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
                 Donate
-              </Button>
-              <Button
-                href="/contact"
-                variant="outline"
-                size="lg"
-                icon={<ArrowRightIcon className="w-5 h-5" />}
-                iconPosition="right"
-              >
-                Contact
               </Button>
             </div>
           </div>

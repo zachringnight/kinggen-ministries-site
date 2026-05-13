@@ -294,33 +294,6 @@ const servicesContent = {
   },
 };
 
-const contactContent = {
-  hero: {
-    title: "Contact KingGen",
-    subtitle: "Referral and partner inquiries are welcome.",
-  },
-  intro_note:
-    "We often coordinate intake through referrers and ministry partners. If you are reaching out on behalf of someone, please include your role and the best way to follow up.",
-  form: {
-    title: "Referral & Partner Contact",
-    reason_options: [
-      { value: "referring-someone", label: "I'm referring someone for counseling" },
-      { value: "pastor-church-staff", label: "I'm a pastor or church staff member" },
-      { value: "professional-partner", label: "I'm a professional partner (counselor, social worker, etc.)" },
-      { value: "donor-partner", label: "I'm a donor or potential supporter" },
-      { value: "other", label: "Other inquiry" },
-    ],
-  },
-  what_happens_next: {
-    title: "What Happens Next",
-    steps: [
-      "We review your message within 1-2 business days.",
-      "We follow up by email or phone as appropriate.",
-      "If a referral, we coordinate next steps with you and the client.",
-    ],
-  },
-};
-
 const donateContent = {
   hero: {
     title: "Help Keep Counseling Free",
@@ -635,8 +608,6 @@ const siteConfigContent = {
   tagline: "Gospel-centered counseling for women in need.",
   description:
     "A 501(c)(3) nonprofit providing free clinical pastoral counseling for women in need. Confidential, compassionate, Christ-centered care.",
-  phone: "(817) 682-4341",
-  email: "kinggencounseling@gmail.com",
   address: {
     line1: "KingGen Ministries",
     line2: "1540 Keller Parkway",
@@ -661,7 +632,6 @@ const allContent: Record<string, Record<string, unknown>> = {
   home: homeContent,
   about: aboutContent,
   services: servicesContent,
-  contact: contactContent,
   donate: donateContent,
   "for-referrers": forReferrersContent,
   "for-grant-writers": forGrantWritersContent,

@@ -98,12 +98,12 @@ export default function ResourcesPage() {
             </h2>
             <p className="text-lg text-text-secondary mb-8">{formsContent.needHelp.subtitle}</p>
             <Button
-              href="/contact"
+              href="/donate"
               variant="primary"
               icon={<ArrowRightIcon className="w-5 h-5" />}
               iconPosition="right"
             >
-              Contact Us
+              Support the Mission
             </Button>
           </div>
         </FadeIn>

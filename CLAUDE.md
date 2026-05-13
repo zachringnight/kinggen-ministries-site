@@ -19,7 +19,6 @@ app/
 ├── components/     # Reusable UI components (Button, Card, Hero, etc.)
 ├── config/         # Site configuration (site.ts)
 ├── about/          # About page
-├── contact/        # Contact page with form
 ├── donate/         # Donation page
 ├── services/       # Services listing
 ├── layout.tsx      # Root layout with metadata
@@ -29,7 +28,7 @@ app/
 
 ## Key Files
 
-- `app/config/site.ts` - Centralized configuration (phone, email, URLs)
+- `app/config/site.ts` - Centralized configuration (address, EIN, URLs)
 - `app/globals.css` - Color palette and custom animations
 - `app/components/index.ts` - Component exports
 
@@ -59,9 +58,7 @@ npm run lint     # Run ESLint
 
 ## External Services
 
-- **Formspree**: Contact form handling
-- **Calendly**: Appointment scheduling
-- **Donorbox**: Donation processing
+- **PayPal**: Donation processing
 
 ## Testing
 
@@ -71,5 +68,5 @@ Run tests with `npm run test`. Tests are located alongside components or in `__t
 
 - **Add a new page**: Create folder in `app/` with `page.tsx`
 - **Add a component**: Create in `app/components/` and export from `index.ts`
-- **Update contact info**: Edit `app/config/site.ts`
+- **Update organization info**: Edit `app/config/site.ts`
 - **Modify colors**: Update CSS variables in `app/globals.css`

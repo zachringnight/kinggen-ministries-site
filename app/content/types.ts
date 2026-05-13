@@ -127,20 +127,6 @@ export interface ServicesContent {
   cta: SectionText;
 }
 
-export interface ContactContent {
-  hero: SectionText;
-  note: string;
-  formTitle: string;
-  reasonOptions: { value: string; label: string }[];
-  reasonNote: string;
-  directContactTitle: string;
-  whatHappensNext: {
-    title: string;
-    steps: string[];
-  };
-  formNote: string;
-}
-
 export interface DonateContent {
   hero: SectionText;
   impact: SectionText & { points: string[] };
@@ -258,7 +244,6 @@ export interface AllContent {
   home: HomeContent;
   about: AboutContent;
   services: ServicesContent;
-  contact: ContactContent;
   donate: DonateContent;
   forReferrers: ForReferrersContent;
   forGrantWriters: ForGrantWritersContent;
