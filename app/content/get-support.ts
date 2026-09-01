@@ -54,6 +54,10 @@ export const getSupportContent: GetSupportContent = {
     title: "In Crisis?",
     body: "If you or someone you know is experiencing a mental health crisis, please reach out for immediate help. You are not alone, and support is available.",
     prayerNote: "We are praying for you.",
+    actions: [
+      { label: "Call 988", href: "tel:988" },
+      { label: "Text 988", href: "sms:988" },
+    ],
   },
   referrerCta: {
     title: "Are you a referrer?",

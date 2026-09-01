@@ -11,16 +11,43 @@ import {
   StaggerItem,
   TiltCard,
   InnerPageHero,
+  ServiceAvailabilityCard,
 } from "../components";
 import { testimonialsContent } from "../content";
+import { siteConfig } from "../config/site";
 
-export const metadata: Metadata = {
-  title: "Testimonials",
-  description:
-    "Read stories and reflections from partners and clients about the care and support offered through KingGen Ministries.",
-};
+export const metadata: Metadata = siteConfig.serviceAvailability.acceptingExternalReferrals
+  ? {
+      title: "Testimonials",
+      description:
+        "Read stories and reflections from partners and clients about the care and support offered through KingGen Ministries.",
+    }
+  : {
+      title: "Service Availability",
+      description: siteConfig.serviceAvailability.notice,
+    };
 
 export default function TestimonialsPage() {
+  if (!siteConfig.serviceAvailability.acceptingExternalReferrals) {
+    return (
+      <>
+        <InnerPageHero
+          title="Service Availability"
+          subtitle="An update from KingGen Ministries"
+          background="inner"
+          ariaLabel="Service Availability"
+          eyebrow="Current Community"
+        />
+
+        <Section variant="art-cream" padding="xl">
+          <FadeIn>
+            <ServiceAvailabilityCard showClientInformation />
+          </FadeIn>
+        </Section>
+      </>
+    );
+  }
+
   return (
     <>
       <InnerPageHero

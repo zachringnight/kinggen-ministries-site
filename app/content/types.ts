@@ -204,6 +204,10 @@ export interface GetSupportContent {
     title: string;
     body: string;
     prayerNote: string;
+    actions: Array<{
+      label: string;
+      href: `tel:${string}` | `sms:${string}`;
+    }>;
   };
   referrerCta: SectionText;
 }

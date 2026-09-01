@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { MenuIcon, XIcon, HeartIcon, ChevronDownIcon } from "./Icons";
+import { MenuIcon, XIcon, HeartIcon, ChevronDownIcon, ExternalLinkIcon } from "./Icons";
 import Button from "./Button";
 import { BrandMark } from "./Logo";
 import { primaryNavLinks, secondaryNavLinks } from "../config/site";
@@ -12,6 +12,7 @@ interface HeaderLink {
   href: string;
   label: string;
   description?: string;
+  external?: boolean;
 }
 
 interface HeaderProps {
@@ -29,6 +30,9 @@ export default function Header({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+  const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
   const isActiveLink = (href: string) => {
@@ -54,29 +58,81 @@ export default function Header({
   }, []);
 
   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
     if (!mobileMenuOpen) return;
 
-    const handleEscape = (event: KeyboardEvent) => {
+    const menuButton = mobileMenuButtonRef.current;
+    const backgroundElements = [
+      headerRef.current,
+      ...Array.from(document.querySelectorAll<HTMLElement>("#main-content, footer, [aria-label='Back to top']")),
+    ].filter((element): element is HTMLElement => Boolean(element));
+
+    const getFocusableElements = () => {
+      return Array.from(
+        mobileMenuRef.current?.querySelectorAll<HTMLElement>(
+          "a[href], button:not([disabled]), [tabindex]:not([tabindex='-1'])",
+        ) ?? [],
+      );
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setMobileMenuOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+
+      const focusableElements = getFocusableElements();
+      if (focusableElements.length === 0) return;
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
       }
     };
 
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    document.addEventListener("keydown", handleEscape);
+    backgroundElements.forEach((element) => {
+      element.inert = true;
+    });
+    document.addEventListener("keydown", handleKeyDown);
+
+    getFocusableElements()[0]?.focus();
 
     return () => {
       document.body.style.overflow = originalOverflow;
-      document.removeEventListener("keydown", handleEscape);
+      backgroundElements.forEach((element) => {
+        element.inert = false;
+      });
+      document.removeEventListener("keydown", handleKeyDown);
+      menuButton?.focus();
     };
   }, [mobileMenuOpen]);
 
-  const secondaryActive = secondaryLinks.some((item) => isActiveLink(item.href));
+  const secondaryActive = secondaryLinks.some((item) => !item.external && isActiveLink(item.href));
 
   return (
     <>
       <header
+        ref={headerRef}
         className={`sticky top-0 z-50 brand-nav-shell transition-all duration-300 ${
           scrolled || mobileMenuOpen
             ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-brand-light/70"
@@ -145,23 +201,44 @@ export default function Header({
                 >
                   <div className="rounded-xl bg-white/90 backdrop-blur-sm p-1">
                     {secondaryLinks.map((item) => {
-                      const active = isActiveLink(item.href);
-                      return (
+                      const active = !item.external && isActiveLink(item.href);
+                      const className = `block rounded-xl px-3 py-2 transition-colors ${
+                        active
+                          ? "bg-brand-soft text-brand-primary"
+                          : "text-brand-primary/85 hover:bg-brand-soft/70 hover:text-brand-primary"
+                      }`;
+                      const content = (
+                        <>
+                          <span className="flex items-center gap-1.5 text-sm font-medium">
+                            {item.label}
+                            {item.external && <ExternalLinkIcon className="w-3.5 h-3.5" />}
+                          </span>
+                          {item.description && (
+                            <span className="block text-xs text-text-muted mt-0.5">{item.description}</span>
+                          )}
+                        </>
+                      );
+
+                      return item.external ? (
+                        <a
+                          key={item.href}
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={className}
+                          onClick={closeResourcesMenu}
+                        >
+                          {content}
+                        </a>
+                      ) : (
                         <Link
                           key={item.href}
                           href={item.href}
                           aria-current={active ? "page" : undefined}
-                          className={`block rounded-xl px-3 py-2 transition-colors ${
-                            active
-                              ? "bg-brand-soft text-brand-primary"
-                              : "text-brand-primary/85 hover:bg-brand-soft/70 hover:text-brand-primary"
-                          }`}
+                          className={className}
                           onClick={closeResourcesMenu}
                         >
-                          <span className="block text-sm font-medium">{item.label}</span>
-                          {item.description && (
-                            <span className="block text-xs text-text-muted mt-0.5">{item.description}</span>
-                          )}
+                          {content}
                         </Link>
                       );
                     })}
@@ -181,8 +258,11 @@ export default function Header({
                 Donate
               </Button>
               <button
+                ref={mobileMenuButtonRef}
                 type="button"
-                className="p-2 rounded-lg bg-brand-light hover:bg-brand-primary hover:text-white text-brand-primary transition-colors"
+                className={`p-2 rounded-lg bg-brand-light hover:bg-brand-primary hover:text-white text-brand-primary transition-colors ${
+                  mobileMenuOpen ? "invisible pointer-events-none" : ""
+                }`}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileMenuOpen}
@@ -202,10 +282,12 @@ export default function Header({
             className="lg:hidden fixed inset-0 top-12 md:top-14 z-[9998] bg-black/25 backdrop-blur-[2px]"
             onClick={() => setMobileMenuOpen(false)}
             aria-label="Close mobile menu"
+            tabIndex={-1}
           />
           <div
+            ref={mobileMenuRef}
             id="mobile-navigation-drawer"
-            className="lg:hidden fixed top-12 md:top-14 left-0 right-0 bottom-0 z-[9999] overflow-y-auto"
+            className="lg:hidden fixed top-12 md:top-14 left-0 right-0 z-[9999] max-h-[calc(100dvh-3rem)] md:max-h-[calc(100dvh-3.5rem)] overflow-y-auto overscroll-contain rounded-b-3xl border-b border-brand-light shadow-2xl"
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation menu"
@@ -218,6 +300,17 @@ export default function Header({
             <div className="absolute inset-0 bg-white/90" />
 
             <div className="relative z-10 container mx-auto px-4 py-6">
+              <div className="flex justify-end mb-2">
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center rounded-lg p-2 text-brand-primary transition-colors hover:bg-brand-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-label="Close navigation menu"
+                >
+                  <XIcon className="w-5 h-5" />
+                </button>
+              </div>
+
               <div className="space-y-1 mb-6">
                 {primaryLinks.map((item) => {
                   const active = isActiveLink(item.href);
@@ -244,33 +337,42 @@ export default function Header({
                   Resources
                 </p>
                 <div className="space-y-1">
-                  {secondaryLinks.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="block py-3 px-4 hover:bg-brand-soft/70 rounded-xl"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      <span className="block font-medium text-brand-primary">{item.label}</span>
-                      {item.description && (
-                        <span className="block text-sm text-brand-primary/70">{item.description}</span>
-                      )}
-                    </Link>
-                  ))}
-                </div>
-              </div>
+                  {secondaryLinks.map((item) => {
+                    const content = (
+                      <>
+                        <span className="flex items-center gap-2 font-medium text-brand-primary">
+                          {item.label}
+                          {item.external && <ExternalLinkIcon className="w-4 h-4" />}
+                        </span>
+                        {item.description && (
+                          <span className="block text-sm text-brand-primary/70">{item.description}</span>
+                        )}
+                      </>
+                    );
 
-              <div className="mt-8 px-4">
-                <Button
-                  href="/donate"
-                  variant="primary"
-                  size="lg"
-                  fullWidth
-                  icon={<HeartIcon className="w-5 h-5" />}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Donate Now
-                </Button>
+                    return item.external ? (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block py-3 px-4 hover:bg-brand-soft/70 rounded-xl"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {content}
+                      </a>
+                    ) : (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="block py-3 px-4 hover:bg-brand-soft/70 rounded-xl"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {content}
+                      </Link>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>

@@ -9,16 +9,43 @@ import {
   StaggerContainer,
   StaggerItem,
   InnerPageHero,
+  ServiceAvailabilityCard,
 } from "../components";
 import { forReferrersContent } from "../content";
+import { siteConfig } from "../config/site";
 
-export const metadata: Metadata = {
-  title: "For Referrers",
-  description:
-    "Information for pastors, counselors, and partners who want to refer women to KingGen Ministries for Gospel-centered counseling support.",
-};
+export const metadata: Metadata = siteConfig.serviceAvailability.acceptingExternalReferrals
+  ? {
+      title: "For Referrers",
+      description:
+        "Information for pastors, counselors, and partners who want to refer women to KingGen Ministries for Gospel-centered counseling support.",
+    }
+  : {
+      title: "Service Availability",
+      description: siteConfig.serviceAvailability.notice,
+    };
 
 export default function ForReferrers() {
+  if (!siteConfig.serviceAvailability.acceptingExternalReferrals) {
+    return (
+      <>
+        <InnerPageHero
+          title="Service Availability"
+          subtitle="A current service update from KingGen Ministries."
+          background="inner"
+          ariaLabel="Service Availability"
+          eyebrow="Current Counseling Community"
+        />
+
+        <Section variant="art-cream" padding="lg">
+          <FadeIn>
+            <ServiceAvailabilityCard showClientInformation />
+          </FadeIn>
+        </Section>
+      </>
+    );
+  }
+
   return (
     <>
       <InnerPageHero

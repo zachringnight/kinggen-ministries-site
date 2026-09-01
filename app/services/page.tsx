@@ -14,6 +14,7 @@ import {
   CheckCircleIcon,
 } from "../components";
 import { servicesContent } from "../content";
+import { siteConfig } from "../config/site";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -28,7 +29,11 @@ export default function ServicesPage() {
     <>
       <InnerPageHero
         title={servicesContent.hero.title}
-        subtitle={servicesContent.hero.subtitle}
+        subtitle={
+          siteConfig.serviceAvailability.acceptingExternalReferrals
+            ? servicesContent.hero.subtitle
+            : "Compassionate, Gospel-centered counseling at no cost for women in the Venture Church community."
+        }
         background="inner-logo"
         ariaLabel="Our Services"
         eyebrow="Our Counseling Care"
@@ -40,7 +45,11 @@ export default function ServicesPage() {
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
               {servicesContent.intro.title}
             </h2>
-            <p className="text-base sm:text-lg text-text-secondary">{servicesContent.intro.subtitle}</p>
+            <p className="text-base sm:text-lg text-text-secondary">
+              {siteConfig.serviceAvailability.acceptingExternalReferrals
+                ? servicesContent.intro.subtitle
+                : siteConfig.serviceAvailability.currentCommunityDescription}
+            </p>
           </div>
         </FadeIn>
 
@@ -70,18 +79,36 @@ export default function ServicesPage() {
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-4">
-              {servicesContent.cta.title}
+              {siteConfig.serviceAvailability.acceptingExternalReferrals
+                ? servicesContent.cta.title
+                : "Service Availability"}
             </h2>
-            <p className="text-base sm:text-lg text-white/95 mb-8">{servicesContent.cta.subtitle}</p>
-            <Button
-              href="/for-referrers"
-              variant="white"
-              size="lg"
-              icon={<ArrowRightIcon className="w-5 h-5" />}
-              iconPosition="right"
-            >
-              Learn How to Refer
-            </Button>
+            <p className="text-base sm:text-lg text-white/95 mb-8">
+              {siteConfig.serviceAvailability.acceptingExternalReferrals
+                ? servicesContent.cta.subtitle
+                : siteConfig.serviceAvailability.notice}
+            </p>
+            {siteConfig.serviceAvailability.acceptingExternalReferrals ? (
+              <Button
+                href="/for-referrers"
+                variant="white"
+                size="lg"
+                icon={<ArrowRightIcon className="w-5 h-5" />}
+                iconPosition="right"
+              >
+                Learn How to Refer
+              </Button>
+            ) : (
+              <Button
+                href="/get-support"
+                variant="white"
+                size="lg"
+                icon={<ArrowRightIcon className="w-5 h-5" />}
+                iconPosition="right"
+              >
+                Client Information
+              </Button>
+            )}
           </div>
         </FadeIn>
       </Section>

@@ -26,7 +26,7 @@ const variantStyles: Record<ButtonVariant, string> = {
     "bg-brand-secondary text-white hover:bg-brand-primary shadow-lg shadow-brand-secondary/25 border border-brand-secondary/30",
   accent:
     "bg-brand-accent text-brand-primary hover:bg-brand-accent/85 shadow-lg shadow-brand-accent/25 border border-brand-accent/30",
-  gold: "bg-gradient-to-br from-brand-gold to-brand-gold-dark text-white hover:from-brand-gold-dark hover:to-brand-gold-dark shadow-lg shadow-brand-gold/30 border border-brand-gold/30",
+  gold: "bg-gradient-to-br from-brand-gold to-brand-gold-dark text-brand-on-gold hover:from-brand-gold-dark hover:to-brand-gold-dark shadow-lg shadow-brand-gold/30 border border-brand-gold/30",
   outline: "border border-brand-primary/65 text-brand-primary hover:bg-brand-primary hover:text-white",
   "outline-white": "border-2 border-white/70 text-white hover:bg-white/15",
   ghost: "text-brand-primary hover:bg-brand-light",
@@ -58,7 +58,7 @@ export default function Button({
     font-semibold rounded-xl tracking-[0.01em]
     transition-all duration-300 ease-out
     btn-hover-lift
-    focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2
+    focus:outline-none focus:ring-2 focus:ring-brand-primary-dark focus:ring-offset-2
     disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none
   `;
 
@@ -81,7 +81,13 @@ export default function Button({
   );
 
   if (href) {
-    if (external || href.startsWith("http") || href.startsWith("tel:") || href.startsWith("mailto:")) {
+    if (
+      external ||
+      href.startsWith("http") ||
+      href.startsWith("tel:") ||
+      href.startsWith("sms:") ||
+      href.startsWith("mailto:")
+    ) {
       return (
         <a
           href={href}
