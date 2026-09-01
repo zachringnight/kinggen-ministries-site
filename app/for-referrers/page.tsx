@@ -5,20 +5,75 @@ import {
   CheckCircleIcon,
   ShieldIcon,
   HeartIcon,
+  ExternalLinkIcon,
   FadeIn,
   StaggerContainer,
   StaggerItem,
   InnerPageHero,
 } from "../components";
 import { forReferrersContent } from "../content";
+import { siteConfig } from "../config/site";
 
-export const metadata: Metadata = {
-  title: "For Referrers",
-  description:
-    "Information for pastors, counselors, and partners who want to refer women to KingGen Ministries for Gospel-centered counseling support.",
-};
+export const metadata: Metadata = siteConfig.serviceAvailability.acceptingExternalReferrals
+  ? {
+      title: "For Referrers",
+      description:
+        "Information for pastors, counselors, and partners who want to refer women to KingGen Ministries for Gospel-centered counseling support.",
+    }
+  : {
+      title: "Service Availability",
+      description: siteConfig.serviceAvailability.notice,
+    };
 
 export default function ForReferrers() {
+  if (!siteConfig.serviceAvailability.acceptingExternalReferrals) {
+    return (
+      <>
+        <InnerPageHero
+          title="Service Availability"
+          subtitle={siteConfig.serviceAvailability.notice}
+          background="inner"
+          ariaLabel="Service Availability"
+          eyebrow="Current Counseling Community"
+        />
+
+        <Section variant="art-cream" padding="lg">
+          <FadeIn>
+            <div className="brand-panel max-w-3xl mx-auto p-8 md:p-12 text-center">
+              <h2 className="text-2xl sm:text-3xl font-semibold font-heading text-text-primary leading-tight text-balance">
+                For the Venture Church community
+              </h2>
+              <p className="mt-4 text-base sm:text-lg text-text-secondary leading-relaxed">
+                {siteConfig.serviceAvailability.memberGuidance}
+              </p>
+              <p className="mt-3 text-sm sm:text-base text-text-muted leading-relaxed">
+                {siteConfig.serviceAvailability.outsideCommunityGuidance}
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+                <Button
+                  href={siteConfig.serviceAvailability.memberNextStep.href}
+                  variant="primary"
+                  size="lg"
+                  external
+                  icon={<ExternalLinkIcon className="w-5 h-5" />}
+                  iconPosition="right"
+                >
+                  {siteConfig.serviceAvailability.memberNextStep.label}
+                </Button>
+                <Button href="/get-support" variant="primary" size="lg">
+                  Client Information
+                </Button>
+                <Button href="/donate" variant="outline" size="lg">
+                  Support the Mission
+                </Button>
+              </div>
+            </div>
+          </FadeIn>
+        </Section>
+      </>
+    );
+  }
+
   return (
     <>
       <InnerPageHero

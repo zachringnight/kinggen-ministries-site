@@ -11,12 +11,24 @@ import {
   InnerPageHero,
 } from "../components";
 
+const referralsOpen = siteConfig.serviceAvailability.acceptingExternalReferrals;
+const currentCommunityImpactPoints = [
+  "Provides no-cost counseling for women in the Venture Church community",
+  "Supports confidential client care and essential operating costs",
+  "Funds training and ministry resources",
+  "Helps sustain the care KingGen Ministries provides today",
+];
+
 export default function DonatePage() {
   return (
     <>
       <InnerPageHero
         title={donateContent.hero.title}
-        subtitle={donateContent.hero.subtitle}
+        subtitle={
+          referralsOpen
+            ? donateContent.hero.subtitle
+            : "Every gift helps sustain no-cost counseling for women in the Venture Church community."
+        }
         background="inner"
         ariaLabel="Help Keep Counseling Free"
         eyebrow="Support Free Counseling"
@@ -38,12 +50,14 @@ export default function DonatePage() {
             {donateContent.impact.title}
           </h2>
           <p className="text-base sm:text-lg text-text-secondary mb-8 md:mb-12 text-center max-w-2xl mx-auto">
-            {donateContent.impact.subtitle}
+            {referralsOpen
+              ? donateContent.impact.subtitle
+              : "Your donation supports Gospel-centered counseling and the resources needed to care for the community KingGen currently serves."}
           </p>
         </FadeIn>
 
         <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
-          {donateContent.impact.points.map((point, i) => (
+          {(referralsOpen ? donateContent.impact.points : currentCommunityImpactPoints).map((point, i) => (
             <StaggerItem key={i}>
               <div className="brand-panel flex items-start gap-3 p-4">
                 <CheckCircleIcon className="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" />
@@ -125,7 +139,11 @@ export default function DonatePage() {
         <FadeIn>
           <div className="max-w-2xl mx-auto text-center brand-panel-dark rounded-3xl p-8 md:p-10">
             <h2 className="text-2xl md:text-3xl font-bold font-heading text-white mb-4">{donateContent.cta.title}</h2>
-            <p className="text-white/95 mb-8">{donateContent.cta.subtitle}</p>
+            <p className="text-white/95 mb-8">
+              {referralsOpen
+                ? donateContent.cta.subtitle
+                : "Your support helps sustain care for women in the Venture Church community."}
+            </p>
             <Button href={siteConfig.paypalUrl} variant="white" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
               Donate Now
             </Button>

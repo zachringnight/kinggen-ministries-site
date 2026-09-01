@@ -10,6 +10,7 @@ import {
   InnerPageHero,
 } from "../components";
 import { aboutContent } from "../content";
+import { siteConfig } from "../config/site";
 
 export default function AboutPage() {
   return (
@@ -66,17 +67,25 @@ export default function AboutPage() {
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold font-heading text-text-primary mb-4">
-              {aboutContent.referrers.title}
+              {siteConfig.serviceAvailability.acceptingExternalReferrals
+                ? aboutContent.referrers.title
+                : "Service Availability"}
             </h2>
-            <p className="text-lg text-text-secondary mb-8">{aboutContent.referrers.subtitle}</p>
-            <Button
-              href="/for-referrers"
-              variant="primary"
-              icon={<ArrowRightIcon className="w-5 h-5" />}
-              iconPosition="right"
-            >
-              For Referrers
-            </Button>
+            <p className="text-lg text-text-secondary mb-8">
+              {siteConfig.serviceAvailability.acceptingExternalReferrals
+                ? aboutContent.referrers.subtitle
+                : siteConfig.serviceAvailability.notice}
+            </p>
+            {siteConfig.serviceAvailability.acceptingExternalReferrals && (
+              <Button
+                href="/for-referrers"
+                variant="primary"
+                icon={<ArrowRightIcon className="w-5 h-5" />}
+                iconPosition="right"
+              >
+                For Referrers
+              </Button>
+            )}
           </div>
         </FadeIn>
       </Section>

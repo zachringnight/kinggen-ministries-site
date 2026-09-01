@@ -13,14 +13,49 @@ import {
   InnerPageHero,
 } from "../components";
 import { testimonialsContent } from "../content";
+import { siteConfig } from "../config/site";
 
-export const metadata: Metadata = {
-  title: "Testimonials",
-  description:
-    "Read stories and reflections from partners and clients about the care and support offered through KingGen Ministries.",
-};
+export const metadata: Metadata = siteConfig.serviceAvailability.acceptingExternalReferrals
+  ? {
+      title: "Testimonials",
+      description:
+        "Read stories and reflections from partners and clients about the care and support offered through KingGen Ministries.",
+    }
+  : {
+      title: "Service Availability",
+      description: siteConfig.serviceAvailability.notice,
+    };
 
 export default function TestimonialsPage() {
+  if (!siteConfig.serviceAvailability.acceptingExternalReferrals) {
+    return (
+      <>
+        <InnerPageHero
+          title="Service Availability"
+          subtitle="An update from KingGen Ministries"
+          background="inner"
+          ariaLabel="Service Availability"
+          eyebrow="Current Community"
+        />
+
+        <Section variant="art-cream" padding="xl">
+          <FadeIn>
+            <div className="brand-panel max-w-3xl mx-auto p-8 md:p-12 text-center">
+              <p className="text-xl sm:text-2xl md:text-3xl font-semibold font-heading text-text-primary leading-relaxed text-balance">
+                {siteConfig.serviceAvailability.notice}
+              </p>
+              <div className="mt-8 flex justify-center">
+                <Button href="/" variant="primary" size="lg">
+                  Return Home
+                </Button>
+              </div>
+            </div>
+          </FadeIn>
+        </Section>
+      </>
+    );
+  }
+
   return (
     <>
       <InnerPageHero

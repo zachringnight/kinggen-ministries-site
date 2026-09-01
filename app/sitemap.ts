@@ -8,9 +8,9 @@ const routes = [
   "",
   "/about",
   "/services",
-  "/for-referrers",
+  ...(siteConfig.serviceAvailability.acceptingExternalReferrals ? ["/for-referrers"] : []),
   "/for-grant-writers",
-  "/testimonials",
+  ...(siteConfig.serviceAvailability.acceptingExternalReferrals ? ["/testimonials"] : []),
   "/get-support",
   // "/forms" — hidden from the live site for now.
   "/donate",

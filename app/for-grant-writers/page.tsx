@@ -24,9 +24,17 @@ export default function ForGrantWriters() {
     { label: "Tax Status", value: "501(c)(3) Nonprofit" },
     { label: "EIN", value: siteConfig.ein },
     { label: "Location", value: "Keller, Texas" },
-    { label: "Service Area", value: "North Texas and surrounding regions" },
+    {
+      label: "Service Area",
+      value: siteConfig.serviceAvailability.acceptingExternalReferrals
+        ? "North Texas and surrounding regions"
+        : "Venture Church community in Keller, TX",
+    },
     { label: "Founded", value: "2023" },
   ];
+  const missionStatementPoints = siteConfig.serviceAvailability.acceptingExternalReferrals
+    ? forGrantWritersContent.missionStatement.points
+    : forGrantWritersContent.missionStatement.points.filter((point) => !point.toLowerCase().includes("referral"));
 
   return (
     <>
@@ -79,7 +87,7 @@ export default function ForGrantWriters() {
           <h3 className="text-lg md:text-xl font-bold font-heading text-text-primary mb-4 text-center">
             {forGrantWritersContent.missionStatement.coreActivitiesTitle}
           </h3>
-          {forGrantWritersContent.missionStatement.points.map((point, i) => (
+          {missionStatementPoints.map((point, i) => (
             <StaggerItem key={i}>
               <div className="brand-panel flex items-start gap-3 p-3 md:p-4 mb-2">
                 <CheckCircleIcon className="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" />

@@ -10,9 +10,12 @@ export default function Footer() {
 
   // Slim footer — full link list lives in the header's Resources dropdown.
   const mainLinks = [
+    { href: "/get-support", label: "Client Information" },
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
-    { href: "/for-referrers", label: "For Referrers" },
+    ...(siteConfig.serviceAvailability.acceptingExternalReferrals
+      ? [{ href: "/for-referrers", label: "For Referrers" }]
+      : []),
     { href: "/donate", label: "Donate" },
   ];
 
@@ -35,8 +38,9 @@ export default function Footer() {
               </Link>
 
               <p className="mt-3 text-sm text-white/95 max-w-xl leading-relaxed">
-                Free Gospel-centered counseling for women in need. We partner with churches, referrers, and donors to
-                remove cost barriers to care.
+                {siteConfig.serviceAvailability.acceptingExternalReferrals
+                  ? "Free Gospel-centered counseling for women in need. We partner with churches, referrers, and donors to remove cost barriers to care."
+                  : `No-cost, Gospel-centered counseling for women. ${siteConfig.serviceAvailability.notice}`}
               </p>
 
               <div className="mt-4 flex flex-col gap-2 text-sm text-white/95">
@@ -60,15 +64,16 @@ export default function Footer() {
                 ))}
               </nav>
 
-              <div className="mt-4 flex items-center gap-3">
+              <div className="mt-4 flex flex-wrap items-center gap-3">
                 <a
                   href={siteConfig.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-white/12 flex items-center justify-center text-white hover:bg-white/22 transition-colors"
-                  aria-label="Instagram"
+                  className="min-h-11 rounded-full bg-white/12 flex items-center gap-2 px-4 text-white hover:bg-white/22 transition-colors font-semibold"
+                  aria-label="Follow KingGen Ministries on Instagram"
                 >
                   <InstagramIcon className="w-4 h-4" />
+                  <span className="text-sm">@kinggenministries</span>
                 </a>
                 <a
                   href={siteConfig.social.facebook}

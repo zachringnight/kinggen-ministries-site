@@ -1,5 +1,13 @@
 const DEFAULT_SITE_URL = "https://kinggenministries.org";
 
+const acceptingExternalReferrals = false;
+const availabilityNotice = "Currently only serving the community of Venture Church in Keller, TX.";
+const ventureMemberGuidance =
+  "If you are part of the Venture Church community and would like counseling support, please connect with the church care team for next steps.";
+const outsideCommunityGuidance =
+  "If you are outside the Venture Church community, KingGen Ministries is unable to offer counseling services at this time.";
+const instagramProfile = "https://www.instagram.com/kinggenministries/";
+
 export function normalizeSiteUrl(rawUrl: string | undefined): string {
   const trimmed = rawUrl?.trim();
   if (!trimmed) return DEFAULT_SITE_URL;
@@ -28,8 +36,19 @@ export const siteConfig = {
   name: "KingGen Ministries",
   url: normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL),
   tagline: "Gospel-centered counseling for women in need.",
-  description:
-    "A 501(c)(3) nonprofit providing free clinical pastoral counseling for women. Partner with us through referrals, donations, or grants.",
+  description: acceptingExternalReferrals
+    ? "A 501(c)(3) nonprofit providing free clinical pastoral counseling for women. Partner with us through referrals, donations, or grants."
+    : `A 501(c)(3) nonprofit providing free clinical pastoral counseling for women. ${availabilityNotice}`,
+  serviceAvailability: {
+    acceptingExternalReferrals,
+    notice: availabilityNotice,
+    memberGuidance: ventureMemberGuidance,
+    memberNextStep: {
+      label: "Contact Venture Church",
+      href: "https://venturechurch.net/contact/",
+    },
+    outsideCommunityGuidance,
+  },
   address: {
     line1: "KingGen Ministries",
     line2: "1540 Keller Parkway",
@@ -41,22 +60,52 @@ export const siteConfig = {
   ein: "33-3032264",
   paypalUrl: "https://www.paypal.com/ncp/payment/7BTC79TNBLL8E",
   social: {
-    instagram: "https://www.instagram.com/kinggenministries/",
+    instagram: instagramProfile,
+    instagramHighlights: [
+      {
+        src: "/brand/social/social-scripture.png",
+        alt: "Scripture encouragement shared by KingGen Ministries",
+        title: "Scripture encouragement",
+        href: instagramProfile,
+      },
+      {
+        src: "/brand/social/social-hero.png",
+        alt: "KingGen Ministries encouragement for women",
+        title: "Hope for everyday life",
+        href: instagramProfile,
+      },
+      {
+        src: "/brand/social/social-prayer.png",
+        alt: "Prayer and mental health support shared by KingGen Ministries",
+        title: "Prayer and support",
+        href: instagramProfile,
+      },
+    ],
     facebook: "https://www.facebook.com/profile.php?id=61573569056063",
   },
 };
 
 export const primaryNavLinks = [
   { href: "/", label: "Home" },
+  { href: "/get-support", label: "Client Information" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/for-referrers", label: "For Referrers" },
+  ...(siteConfig.serviceAvailability.acceptingExternalReferrals
+    ? [{ href: "/for-referrers", label: "For Referrers" }]
+    : []),
 ];
 
 export const secondaryNavLinks = [
   { href: "/for-grant-writers", label: "For Grant Writers" },
-  { href: "/testimonials", label: "Testimonials" },
-  { href: "/get-support", label: "Client Information", description: "Guidance for referred clients" },
+  ...(siteConfig.serviceAvailability.acceptingExternalReferrals
+    ? [{ href: "/testimonials", label: "Testimonials" }]
+    : []),
+  {
+    href: siteConfig.social.instagram,
+    label: "Instagram",
+    description: "Follow @kinggenministries",
+    external: true,
+  },
   // Forms section hidden from the live site for now — page still exists in admin.
 ];
 
