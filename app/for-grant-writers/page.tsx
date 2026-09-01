@@ -52,7 +52,9 @@ export default function ForGrantWriters() {
               {forGrantWritersContent.overview.title}
             </h2>
             <p className="text-base sm:text-lg text-text-secondary leading-relaxed text-center mb-8">
-              {forGrantWritersContent.overview.subtitle}
+              {siteConfig.serviceAvailability.acceptingExternalReferrals
+                ? forGrantWritersContent.overview.subtitle
+                : siteConfig.serviceAvailability.currentCommunityDescription}
             </p>
           </div>
         </FadeIn>

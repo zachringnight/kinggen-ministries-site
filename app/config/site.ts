@@ -4,6 +4,8 @@ const acceptingExternalReferrals = false;
 const availabilityNotice = "Currently only serving the community of Venture Church in Keller, TX.";
 const ventureMemberGuidance =
   "If you are part of the Venture Church community and would like counseling support, please connect with the church care team for next steps.";
+const currentCommunityDescription =
+  "KingGen Ministries currently provides no-cost, Gospel-centered counseling for women in the Venture Church community through a licensed clinical pastoral counselor.";
 const outsideCommunityGuidance =
   "If you are outside the Venture Church community, KingGen Ministries is unable to offer counseling services at this time.";
 const instagramProfile = "https://www.instagram.com/kinggenministries/";
@@ -47,6 +49,7 @@ export const siteConfig = {
       label: "Contact Venture Church",
       href: "https://venturechurch.net/contact/",
     },
+    currentCommunityDescription,
     outsideCommunityGuidance,
   },
   address: {

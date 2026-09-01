@@ -12,5 +12,6 @@ export {
   getOptimizedImageWithFallback,
 } from "./OptimizedBackground";
 export { default as BackToTopButton } from "./BackToTopButton";
+export { default as ServiceAvailabilityCard } from "./ServiceAvailabilityCard";
 export * from "./Icons";
 export * from "./motion";

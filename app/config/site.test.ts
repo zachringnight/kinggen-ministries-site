@@ -45,6 +45,8 @@ describe("siteConfig", () => {
         label: "Contact Venture Church",
         href: "https://venturechurch.net/contact/",
       },
+      currentCommunityDescription:
+        "KingGen Ministries currently provides no-cost, Gospel-centered counseling for women in the Venture Church community through a licensed clinical pastoral counselor.",
       outsideCommunityGuidance:
         "If you are outside the Venture Church community, KingGen Ministries is unable to offer counseling services at this time.",
     });

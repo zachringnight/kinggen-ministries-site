@@ -5,13 +5,13 @@ import {
   CheckCircleIcon,
   ShieldIcon,
   ArrowRightIcon,
-  ExternalLinkIcon,
   PhoneIcon,
   CrossIcon,
   FadeIn,
   StaggerContainer,
   StaggerItem,
   InnerPageHero,
+  ServiceAvailabilityCard,
 } from "../components";
 import { getSupportContent } from "../content";
 import { siteConfig } from "../config/site";
@@ -40,31 +40,7 @@ export default function GetSupport() {
       {!siteConfig.serviceAvailability.acceptingExternalReferrals && (
         <Section variant="art-cream" padding="lg">
           <FadeIn>
-            <div className="brand-panel max-w-3xl mx-auto p-6 md:p-8 text-center">
-              <h2 className="text-2xl sm:text-3xl font-bold font-heading text-text-primary">
-                Currently serving Venture Church
-              </h2>
-              <p className="mt-4 text-lg text-text-secondary leading-relaxed">
-                {siteConfig.serviceAvailability.notice}
-              </p>
-              <p className="mt-3 text-base text-text-muted leading-relaxed">
-                {siteConfig.serviceAvailability.memberGuidance}
-              </p>
-              <p className="mt-3 text-sm text-text-muted leading-relaxed">
-                {siteConfig.serviceAvailability.outsideCommunityGuidance}
-              </p>
-              <div className="mt-6 flex justify-center">
-                <Button
-                  href={siteConfig.serviceAvailability.memberNextStep.href}
-                  variant="primary"
-                  external
-                  icon={<ExternalLinkIcon className="w-4 h-4" />}
-                  iconPosition="right"
-                >
-                  {siteConfig.serviceAvailability.memberNextStep.label}
-                </Button>
-              </div>
-            </div>
+            <ServiceAvailabilityCard />
           </FadeIn>
         </Section>
       )}
@@ -75,7 +51,7 @@ export default function GetSupport() {
             <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
               {siteConfig.serviceAvailability.acceptingExternalReferrals
                 ? getSupportContent.intro
-                : "KingGen Ministries currently provides no-cost, Gospel-centered counseling for women in the Venture Church community through a licensed clinical pastoral counselor."}
+                : siteConfig.serviceAvailability.currentCommunityDescription}
             </p>
           </div>
         </FadeIn>

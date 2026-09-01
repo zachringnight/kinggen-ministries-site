@@ -3,6 +3,7 @@ import type { AnchorHTMLAttributes, ImgHTMLAttributes } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import BackToTopButton from "./BackToTopButton";
 import Header from "./Header";
+import ServiceAvailabilityCard from "./ServiceAvailabilityCard";
 
 vi.mock("next/navigation", () => ({
   usePathname: () => "/",
@@ -73,5 +74,19 @@ describe("public mobile UI", () => {
     const button = screen.getByRole("button", { name: "Back to top" });
     expect(button.className).toContain("hidden");
     expect(button.className).toContain("md:inline-flex");
+  });
+});
+
+describe("closed service availability", () => {
+  it("puts the current Venture action before the outside-community note", () => {
+    render(<ServiceAvailabilityCard showClientInformation />);
+
+    const contact = screen.getByRole("link", { name: "Contact Venture Church" });
+    const clientInformation = screen.getByRole("link", { name: "Client Information" });
+    const outsideNote = screen.getByText(/outside the Venture Church community/i);
+
+    expect(contact.getAttribute("href")).toBe("https://venturechurch.net/contact/");
+    expect(clientInformation.getAttribute("href")).toBe("/get-support");
+    expect(contact.compareDocumentPosition(outsideNote) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
 });

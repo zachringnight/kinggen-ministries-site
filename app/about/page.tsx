@@ -17,7 +17,11 @@ export default function AboutPage() {
     <>
       <InnerPageHero
         title={aboutContent.hero.title}
-        subtitle={aboutContent.hero.subtitle}
+        subtitle={
+          siteConfig.serviceAvailability.acceptingExternalReferrals
+            ? aboutContent.hero.subtitle
+            : "A Gospel-centered counseling ministry currently serving women in the Venture Church community."
+        }
         background="about"
         ariaLabel="About KingGen Ministries"
         eyebrow="Our Story & Approach"
@@ -32,7 +36,11 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-6">
               {aboutContent.mission.title}
             </h2>
-            <p className="text-lg text-text-secondary leading-relaxed">{aboutContent.mission.body}</p>
+            <p className="text-lg text-text-secondary leading-relaxed">
+              {siteConfig.serviceAvailability.acceptingExternalReferrals
+                ? aboutContent.mission.body
+                : siteConfig.serviceAvailability.currentCommunityDescription}
+            </p>
           </div>
         </FadeIn>
       </Section>
@@ -76,7 +84,7 @@ export default function AboutPage() {
                 ? aboutContent.referrers.subtitle
                 : siteConfig.serviceAvailability.notice}
             </p>
-            {siteConfig.serviceAvailability.acceptingExternalReferrals && (
+            {siteConfig.serviceAvailability.acceptingExternalReferrals ? (
               <Button
                 href="/for-referrers"
                 variant="primary"
@@ -84,6 +92,15 @@ export default function AboutPage() {
                 iconPosition="right"
               >
                 For Referrers
+              </Button>
+            ) : (
+              <Button
+                href="/get-support"
+                variant="primary"
+                icon={<ArrowRightIcon className="w-5 h-5" />}
+                iconPosition="right"
+              >
+                Client Information
               </Button>
             )}
           </div>

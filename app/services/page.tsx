@@ -29,7 +29,11 @@ export default function ServicesPage() {
     <>
       <InnerPageHero
         title={servicesContent.hero.title}
-        subtitle={servicesContent.hero.subtitle}
+        subtitle={
+          siteConfig.serviceAvailability.acceptingExternalReferrals
+            ? servicesContent.hero.subtitle
+            : "Compassionate, Gospel-centered counseling at no cost for women in the Venture Church community."
+        }
         background="inner-logo"
         ariaLabel="Our Services"
         eyebrow="Our Counseling Care"
@@ -41,7 +45,11 @@ export default function ServicesPage() {
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-primary mb-4">
               {servicesContent.intro.title}
             </h2>
-            <p className="text-base sm:text-lg text-text-secondary">{servicesContent.intro.subtitle}</p>
+            <p className="text-base sm:text-lg text-text-secondary">
+              {siteConfig.serviceAvailability.acceptingExternalReferrals
+                ? servicesContent.intro.subtitle
+                : siteConfig.serviceAvailability.currentCommunityDescription}
+            </p>
           </div>
         </FadeIn>
 
@@ -80,7 +88,7 @@ export default function ServicesPage() {
                 ? servicesContent.cta.subtitle
                 : siteConfig.serviceAvailability.notice}
             </p>
-            {siteConfig.serviceAvailability.acceptingExternalReferrals && (
+            {siteConfig.serviceAvailability.acceptingExternalReferrals ? (
               <Button
                 href="/for-referrers"
                 variant="white"
@@ -89,6 +97,16 @@ export default function ServicesPage() {
                 iconPosition="right"
               >
                 Learn How to Refer
+              </Button>
+            ) : (
+              <Button
+                href="/get-support"
+                variant="white"
+                size="lg"
+                icon={<ArrowRightIcon className="w-5 h-5" />}
+                iconPosition="right"
+              >
+                Client Information
               </Button>
             )}
           </div>

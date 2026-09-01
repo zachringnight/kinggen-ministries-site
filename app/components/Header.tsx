@@ -274,7 +274,7 @@ export default function Header({
           <div
             ref={mobileMenuRef}
             id="mobile-navigation-drawer"
-            className="lg:hidden fixed top-12 md:top-14 left-0 right-0 bottom-0 z-[9999] overflow-y-auto overscroll-contain"
+            className="lg:hidden fixed top-12 md:top-14 left-0 right-0 z-[9999] max-h-[calc(100dvh-3rem)] md:max-h-[calc(100dvh-3.5rem)] overflow-y-auto overscroll-contain rounded-b-3xl border-b border-brand-light shadow-2xl"
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation menu"

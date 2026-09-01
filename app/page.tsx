@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <>
       <section
-        className="relative w-full min-h-[38rem] md:min-h-[42rem] flex items-center animate-fade-in-up isolate overflow-hidden"
+        className="relative w-full min-h-[34rem] sm:min-h-[38rem] md:min-h-[42rem] flex items-center animate-fade-in-up isolate overflow-hidden"
         aria-label="KingGen Ministries - Gospel-centered counseling for women"
       >
         <OptimizedBackground
@@ -45,40 +45,47 @@ export default function Home() {
 
         <h1 className="sr-only">KingGen Ministries</h1>
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 py-12 md:py-16">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16">
           <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
-            <div className="mb-3 flex justify-center">
-              <BrandLockup theme="dark" size="lg" className="mx-auto max-w-[190px] sm:max-w-[230px] md:max-w-[330px]" />
+            <div className="mb-2 sm:mb-3 flex justify-center">
+              <BrandLockup theme="dark" size="lg" className="mx-auto max-w-[150px] sm:max-w-[230px] md:max-w-[330px]" />
             </div>
 
-            <p className="text-xs sm:text-sm uppercase tracking-[0.12em] text-brand-gold-light font-semibold mb-3">
+            <p className="text-[11px] sm:text-sm uppercase tracking-[0.12em] text-brand-gold-light font-semibold mb-2 sm:mb-3">
               {homeContent.hero.eyebrow}
             </p>
-            <p className="text-[clamp(2rem,6vw,4rem)] font-bold font-heading text-white leading-[1.08] text-balance max-w-4xl">
+            <p className="text-[clamp(1.85rem,6vw,4rem)] font-bold font-heading text-white leading-[1.08] text-balance max-w-4xl">
               {referralsOpen
                 ? homeContent.hero.headline
                 : "Free Gospel-centered counseling for women in the Venture Church community."}
             </p>
-            <p className="text-base md:text-lg text-white/95 mt-4 max-w-3xl leading-relaxed text-balance">
+            <p className="text-sm sm:text-base md:text-lg text-white/95 mt-3 sm:mt-4 max-w-3xl leading-relaxed text-balance">
               {referralsOpen ? homeContent.hero.subheadline : siteConfig.serviceAvailability.notice}
             </p>
 
-            <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center items-center">
+            <div className="mt-5 sm:mt-7 flex flex-col sm:flex-row gap-3 justify-center items-center w-full">
               <Button
                 href={referralsOpen ? "/for-referrers" : "/get-support"}
                 variant="gold"
                 size="lg"
+                className="w-full max-w-xs py-3 text-base sm:w-auto sm:max-w-none sm:py-4 sm:text-lg"
                 icon={<ArrowRightIcon className="w-5 h-5" />}
                 iconPosition="right"
               >
                 {referralsOpen ? homeContent.hero.ctaPrimary : "Client Information"}
               </Button>
-              <Button href="/donate" variant="outline-white" size="lg" icon={<HeartIcon className="w-5 h-5" />}>
+              <Button
+                href="/donate"
+                variant="outline-white"
+                size="lg"
+                icon={<HeartIcon className="w-5 h-5" />}
+                className="w-full max-w-xs py-3 text-base sm:w-auto sm:max-w-none sm:py-4 sm:text-lg"
+              >
                 {homeContent.hero.ctaSecondary}
               </Button>
             </div>
 
-            <div className="mt-6 flex flex-wrap gap-2.5 justify-center">
+            <div className="mt-5 sm:mt-6 flex flex-wrap gap-2 justify-center">
               {homeContent.hero.trustBadges.slice(0, 3).map((item, index) => (
                 <div
                   key={item}
@@ -101,9 +108,7 @@ export default function Home() {
             <SectionHeader
               title={homeContent.about.title}
               subtitle={
-                referralsOpen
-                  ? homeContent.about.subtitle
-                  : "KingGen Ministries provides no-cost, Gospel-centered counseling for women in the Venture Church community through a licensed clinical pastoral counselor."
+                referralsOpen ? homeContent.about.subtitle : siteConfig.serviceAvailability.currentCommunityDescription
               }
               className="mb-8"
             />
