@@ -28,6 +28,7 @@ vi.mock("next/image", () => ({
 afterEach(() => {
   cleanup();
   document.body.style.overflow = "";
+  Object.defineProperty(window, "innerWidth", { configurable: true, value: 1024 });
 });
 
 describe("public mobile UI", () => {
@@ -47,25 +48,54 @@ describe("public mobile UI", () => {
     fireEvent.click(menuButton);
 
     const drawer = screen.getByRole("dialog", { name: "Mobile navigation menu" });
-    const firstDrawerLink = within(drawer).getByRole("link", { name: "About" });
+    const closeButton = within(drawer).getByRole("button", { name: "Close navigation menu" });
     const main = document.querySelector<HTMLElement>("#main-content");
     const footer = document.querySelector<HTMLElement>("footer");
+    const header = document.querySelector<HTMLElement>("header");
 
-    await waitFor(() => expect(document.activeElement).toBe(firstDrawerLink));
+    await waitFor(() => expect(document.activeElement).toBe(closeButton));
+    expect(header?.inert).toBe(true);
     expect(main?.inert).toBe(true);
     expect(footer?.inert).toBe(true);
     expect(within(drawer).queryByRole("link", { name: "Donate Now" })).toBeNull();
 
-    menuButton.focus();
+    closeButton.focus();
     fireEvent.keyDown(document, { key: "Tab", shiftKey: true });
     expect(document.activeElement).toBe(within(drawer).getByRole("link", { name: "Privacy" }));
+    fireEvent.keyDown(document, { key: "Tab" });
+    expect(document.activeElement).toBe(closeButton);
 
     fireEvent.keyDown(document, { key: "Escape" });
 
     await waitFor(() => expect(screen.queryByRole("dialog", { name: "Mobile navigation menu" })).toBeNull());
     expect(document.activeElement).toBe(menuButton);
+    expect(header?.inert).toBe(false);
     expect(main?.inert).toBe(false);
     expect(footer?.inert).toBe(false);
+  });
+
+  it("closes the mobile modal and clears its side effects at the desktop breakpoint", async () => {
+    Object.defineProperty(window, "innerWidth", { configurable: true, value: 390 });
+
+    render(
+      <>
+        <Header primaryLinks={[{ href: "/about", label: "About" }]} secondaryLinks={[]} />
+        <main id="main-content">Page content</main>
+        <footer>Footer content</footer>
+      </>,
+    );
+
+    fireEvent.click(screen.getByRole("button", { name: "Open menu" }));
+    await screen.findByRole("dialog", { name: "Mobile navigation menu" });
+
+    Object.defineProperty(window, "innerWidth", { configurable: true, value: 1024 });
+    fireEvent(window, new Event("resize"));
+
+    await waitFor(() => expect(screen.queryByRole("dialog", { name: "Mobile navigation menu" })).toBeNull());
+    expect(document.body.style.overflow).toBe("");
+    expect(document.querySelector<HTMLElement>("header")?.inert).toBe(false);
+    expect(document.querySelector<HTMLElement>("#main-content")?.inert).toBe(false);
+    expect(document.querySelector<HTMLElement>("footer")?.inert).toBe(false);
   });
 
   it("keeps the floating back-to-top control off narrow screens", () => {

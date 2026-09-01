@@ -30,6 +30,7 @@ export default function Header({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
@@ -57,21 +58,31 @@ export default function Header({
   }, []);
 
   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
     if (!mobileMenuOpen) return;
 
     const menuButton = mobileMenuButtonRef.current;
-    const backgroundElements = Array.from(
-      document.querySelectorAll<HTMLElement>("#main-content, footer, [aria-label='Back to top']"),
-    );
+    const backgroundElements = [
+      headerRef.current,
+      ...Array.from(document.querySelectorAll<HTMLElement>("#main-content, footer, [aria-label='Back to top']")),
+    ].filter((element): element is HTMLElement => Boolean(element));
 
     const getFocusableElements = () => {
-      const drawerElements = Array.from(
+      return Array.from(
         mobileMenuRef.current?.querySelectorAll<HTMLElement>(
           "a[href], button:not([disabled]), [tabindex]:not([tabindex='-1'])",
         ) ?? [],
       );
-
-      return [menuButton, ...drawerElements].filter((element): element is HTMLElement => Boolean(element));
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -104,8 +115,7 @@ export default function Header({
     });
     document.addEventListener("keydown", handleKeyDown);
 
-    const firstDrawerLink = mobileMenuRef.current?.querySelector<HTMLElement>("a[href]");
-    firstDrawerLink?.focus();
+    getFocusableElements()[0]?.focus();
 
     return () => {
       document.body.style.overflow = originalOverflow;
@@ -122,6 +132,7 @@ export default function Header({
   return (
     <>
       <header
+        ref={headerRef}
         className={`sticky top-0 z-50 brand-nav-shell transition-all duration-300 ${
           scrolled || mobileMenuOpen
             ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-brand-light/70"
@@ -249,7 +260,9 @@ export default function Header({
               <button
                 ref={mobileMenuButtonRef}
                 type="button"
-                className="p-2 rounded-lg bg-brand-light hover:bg-brand-primary hover:text-white text-brand-primary transition-colors"
+                className={`p-2 rounded-lg bg-brand-light hover:bg-brand-primary hover:text-white text-brand-primary transition-colors ${
+                  mobileMenuOpen ? "invisible pointer-events-none" : ""
+                }`}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileMenuOpen}
@@ -287,6 +300,17 @@ export default function Header({
             <div className="absolute inset-0 bg-white/90" />
 
             <div className="relative z-10 container mx-auto px-4 py-6">
+              <div className="flex justify-end mb-2">
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center rounded-lg p-2 text-brand-primary transition-colors hover:bg-brand-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-label="Close navigation menu"
+                >
+                  <XIcon className="w-5 h-5" />
+                </button>
+              </div>
+
               <div className="space-y-1 mb-6">
                 {primaryLinks.map((item) => {
                   const active = isActiveLink(item.href);
